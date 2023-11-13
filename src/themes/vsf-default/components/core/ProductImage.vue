@@ -124,8 +124,15 @@ export default {
     }
     &--width {
       .product-image__thumb {
-        width: 100%;
+        width: 85%;
       }
     }
   }
+  .product-image.product-cover__thumb.product-image--width{
+    opacity: 2.8;
+  }
+  .product-cover__thumb{
+    padding-bottom: calc(305% / (272.5 / 133)) !important;
+}
+
 </style>

@@ -9,9 +9,31 @@ const Compare = () => import(/* webpackChunkName: "vsf-compare" */ 'theme/pages/
 const MyAccount = () => import(/* webpackChunkName: "vsf-my-account" */ 'theme/pages/MyAccount.vue')
 const Static = () => import(/* webpackChunkName: "vsf-static" */ 'theme/pages/Static.vue')
 const ResetPassword = () => import(/* webpackChunkName: "vsf-reset-password" */ 'theme/pages/ResetPassword.vue');
+const About = () => import(/* webpackChunkName: "vsf-about" */ 'theme/pages/About.vue');
+const Collection = () => import(/* webpackChunkName: "vsf-collection" */ 'theme/pages/Collection.vue');
+const Career = () => import(/* webpackChunkName: "vsf-career" */ 'theme/pages/Career.vue');
+const Collabration = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Collabration.vue');
+const Shipment_return = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Shipment_return.vue');
+const Giveaway = () => import(/* webpackChunkName: "vsf-giveaway" */ 'theme/pages/Giveaway.vue');
+const Giveaway_from = () => import(/* webpackChunkName: "vsf-giveaway_from" */ 'theme/forms/Giveaway_from.vue');
+const sidebarForm = () => import(/* webpackChunkName: "vsf-sidebarForm" */ 'theme/forms/sidebarForm.vue');
+const collabrationForm = () => import(/* webpackChunkName: "vsf-collabrationForm" */ 'theme/forms/collabrationForm.vue');
+const collabrationSidebar = () => import(/* webpackChunkName: "vsf-collabrationSidebar" */ 'theme/forms/collabrationSidebar.vue');
+const videoapi = () => import(/* webpackChunkName: "vsf-videoapi" */ 'theme/pages/videoapi.vue');
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
+  { name: 'about', path: '/about', component: About },
+  { name: 'videoapi', path: '/videoapi', component: videoapi },
+  { name: 'sidebarform', path: '/sidebarform', component: sidebarForm },
+  { name: 'collabrationform', path: '/collabrationform', component: collabrationForm },
+  { name: 'collabrationsidebar', path: '/collabrationsidebar', component: collabrationSidebar },
+  { name: 'giveaway_from', path: '/giveaway_from', component: Giveaway_from },
+  { name: 'collection', path: '/collection', component: Collection },
+  { name: 'career', path: '/career', component: Career },
+  { name: 'collabration', path: '/collabration', component: Collabration },
+  { name: 'shipment_return', path: '/shipment-&-return', component: Shipment_return },
+  { name: 'giveaway', path: '/giveaway', component: Giveaway },
   { name: 'checkout', path: '/checkout', component: Checkout },
   { name: 'legal', path: '/legal', component: Static, props: { page: 'lorem', title: 'Legal Notice' }, meta: { title: 'Legal Notice', description: 'Legal Notice - example of description usage' } },
   { name: 'privacy', path: '/privacy', component: Static, props: { page: 'lorem', title: 'Privacy' } },

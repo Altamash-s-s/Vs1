@@ -1,25 +1,25 @@
 <template>
   <div class="header">
     <header
-      class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
+      class="fixed w-100"
       :class="{ 'is-visible': navVisible }"
     >
-      <div class="container px15">
+      <div class="header_container px40">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-2 middle-xs">
             <div>
-              <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
+              <hamburger-icon class="p15 icon  pointer" />
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
+          <div class="col-md-4 col-xs-8 center-xs pt5 ha_txt_logo">
             <div>
-              <logo width="auto" height="41px" />
+              <logo width="auto" height="40px"/>
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs mob_wishlist_icon hidden-xs">
             <wishlist-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-4 col-xs-2 end-xs">
@@ -147,7 +147,12 @@ export default {
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon-hover: color(secondary, $colors-background);
-
+.header_container {
+  max-width:1850px;
+  width: -webkit-fill-available;
+  margin: auto;
+  background-color: rgba(0,0,0,.4);
+}
 header {
   height: 54px;
   top: -55px;
@@ -193,5 +198,38 @@ header {
   span {
     font-size: 12px;
   }
+  
 }
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .header_container {
+    padding: 0 20px;
+  }
+}
+
+
+
 </style>

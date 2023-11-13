@@ -1,0 +1,88 @@
+.cstm-page-layout{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+}
+.hd-img{
+    width: 100%;
+    margin-top: 80px;
+}
+.main-section {
+    margin-top: 65px;
+}
+h2.hd-heading {
+    color: #302A2A;
+    font-size: 25px;
+    font-weight: 400;
+}
+.content-section {
+    margin-top: 50px;
+    float: left;
+}
+.cr-head{
+    margin-top: 20px;
+}
+.inside-hd {
+    margin-top: 45px;
+    font-size: 26px;
+    line-height: 36px;
+    margin-bottom: 0;
+}
+.inside-para {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.para-txt {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.wl-msg {
+    margin-top: 90px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 35px;
+}
+
+
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+
+    .cstm-page-layout {
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .cstm-page-layout {
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .cstm-page-layout {
+        padding: 0 20px;
+    }
+}
+
+

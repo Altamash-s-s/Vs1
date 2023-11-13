@@ -130,6 +130,13 @@
               {{ $t('My account') }}
             </a>
           </li>
+          <li
+            @click="closeMenu"
+            class="brdr-bottom-1 brdr-cl-secondary bg-cl-secondary flex mobile_icons_show"
+          >
+            <search-icon class="p15 icon pointer" />
+            <wishlist-icon class="p15 icon pointer" />
+          </li>
         </ul>
       </div>
     </div>
@@ -144,11 +151,14 @@ import SubBtn from 'theme/components/core/blocks/SidebarMenu/SubBtn'
 import SubCategory from 'theme/components/core/blocks/SidebarMenu/SubCategory'
 import { formatCategoryLink } from '@vue-storefront/core/modules/url/helpers'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-
+import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
+import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
 export default {
   components: {
     SubCategory,
-    SubBtn
+    SubBtn,
+    SearchIcon,
+    WishlistIcon
   },
   mixins: [SidebarMenu],
   data () {
@@ -243,6 +253,9 @@ $color-gainsboro: color(gainsboro);
 $color-matterhorn: color(matterhorn);
 $color-mine-shaft: color(mine-shaft);
 
+.mobile_icons_show {
+    display: none;
+  }
 .sidebar-menu {
   height: 100vh;
   width: 350px;
@@ -306,4 +319,11 @@ $color-mine-shaft: color(mine-shaft);
   }
 
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .mobile_icons_show {
+    display: block;
+  }
+}
+
 </style>

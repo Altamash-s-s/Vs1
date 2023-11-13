@@ -1,13 +1,13 @@
 <template>
-  <div id="category">
-    <header class="bg-cl-secondary py35 pl20">
+  <div id="category" >
+    <header class="bg-cl-secondary spc py35 pl20">
       <div class="container">
         <breadcrumbs />
         <div class="row middle-sm">
           <h1 class="col-sm-8 category-title mb10">
             {{ getCurrentCategory.name }}
           </h1>
-          <div class="sorting col-sm-2 align-right mt50">
+          <!-- <div class="sorting col-sm-2 align-right mt50">
             <label class="mr10">{{ $t('Columns') }}:</label>
             <columns @change-column="columnChange" />
           </div>
@@ -17,7 +17,7 @@
               @change="changeFilter"
               :value="getCurrentSearchQuery.sort"
             />
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="container">
@@ -58,9 +58,9 @@
           </button-full>
         </div>
         <div class="col-md-9 px10 border-box products-list">
-          <p class="col-xs-12 end-md m0 pb20 cl-secondary">
+          <!-- <p class="col-xs-12 end-md m0 pb20 cl-secondary">
             {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
-          </p>
+          </p> -->
           <div v-if="isCategoryEmpty" class="hidden-xs">
             <h4 data-testid="noProductsInfo">
               {{ $t('No products found!') }}
@@ -216,6 +216,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pb60{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
   .btn {
     &__filter {
       min-width: 100px;
@@ -228,6 +232,7 @@ export default {
   }
   .category-filters {
     width: 242px;
+    display: none;
   }
 
   .mobile-filters {
@@ -324,5 +329,11 @@ export default {
 <style lang="scss">
 .product-image {
   max-height: unset !important;
+}
+.bg-cl-secondary.spc{
+    padding: 15px;
+}
+.product-cover.bg-cl-secondary {
+    background-color: #F1F2F7;
 }
 </style>

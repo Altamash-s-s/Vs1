@@ -6,8 +6,11 @@
           class="product__icon"
           :class="{'product__icon--active': isOnWishlist }"
           :title="isOnWishlist ? $t('Remove') : $t('Add to favorite') "
+          @click="toggleActiveState"
         >
-          <i class="material-icons">{{ favoriteIcon }}</i>
+          <!-- <i class="material-icons">{{ favoriteIcon }}</i> -->
+          <img v-if="!isActive" src="../core/icon/bookmark.png" class="bookmar-icon" >
+          <img v-else src="../core/icon/fill-bookmark.png" class="bookmar-icon">
         </div>
       </AddToWishlist>
       <AddToCompare :product="product">
@@ -16,7 +19,7 @@
           :class="{'product__icon--active':isOnCompare } "
           :title="isOnCompare ? $t('Remove from compare') : $t('Add to compare')"
         >
-          <i class="material-icons">compare</i>
+          <!-- <i class="material-icons">compare</i> -->
         </div>
       </AddToCompare>
     </div>
@@ -37,10 +40,17 @@
           data-testid="productImage"
         />
       </div>
+      
+      <div class="add_card">
+      <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
+         <img class="icon-img" src="./icon/plus-icon-1.svg">
+        </button>
 
       <p class="mb0 cl-accent mt10" v-if="!onlyImage">
         {{ product.name | htmlDecode }}
       </p>
+
+    </div>
 
       <span
         class="price-original mr5 lh30 cl-secondary"
@@ -108,6 +118,9 @@ export default {
         Object.assign(this.product, product)
       }
     },
+    toggleActiveState() {
+    this.isActive = !this.isActive;
+  },
     visibilityChanged (isVisible, entry) {
       if (
         isVisible &&
@@ -180,7 +193,9 @@ $color-white: color(white);
     }
   }
 }
-
+.lh30.cl-secondary {
+    display: none;
+}
 .price-original {
   text-decoration: line-through;
 }
@@ -239,4 +254,28 @@ $color-white: color(white);
     }
   }
 }
+///cstm css //
+
+img.icon-img {
+    width: 20px;
+    height: 20px;
+}
+.mb0.cl-accent.mt10.icon_btn {
+    border-radius: 100%;
+    border: 0;
+    padding: 10px;
+    margin-top: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.add_card {
+    margin-top: -81px;
+}
+.bookmar-icon {
+    width: 10%;
+    height: 10%;
+    float: right;
+}
+
+
+/// css css end//
 </style>

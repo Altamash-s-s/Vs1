@@ -42,3 +42,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.product-listing{
+  margin: 50px 0px 30px 0px;
+
+}
+</style>

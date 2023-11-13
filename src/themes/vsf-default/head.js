@@ -34,6 +34,14 @@ export default {
       async: true,
       integrity: 'sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA',
       crossorigin: 'anonymous'
+    },
+    {
+      src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js',
+      async: true
+    },
+    {
+      src: 'https://smtpjs.com/v3/smtp.js',
+      async: true
     }
   ],
   noscript: [

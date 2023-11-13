@@ -1,5 +1,5 @@
 <template>
-  <div id="product">
+  <div id="product" > 
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container">
         <section class="row m0 between-xs">
@@ -10,7 +10,7 @@
               :configuration="getCurrentProductConfiguration"
               :product="getCurrentProduct"
             />
-          </div>
+          </div>         
           <div class="col-xs-12 col-md-5 data">
             <breadcrumbs
               class="pt40 pb20 hidden-xs"
@@ -133,7 +133,8 @@
                 <AddToCompare :product="getCurrentProduct" />
               </div>
             </div>
-          </div>
+         
+        </div>
         </section>
       </div>
     </section>
@@ -224,6 +225,7 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
+
 export default {
   components: {
     AddToCart,
@@ -245,8 +247,9 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice
-  },
+    ProductPrice,
+    product
+},
   mixins: [ProductOption],
   directives: { focusClean },
   beforeCreate () {

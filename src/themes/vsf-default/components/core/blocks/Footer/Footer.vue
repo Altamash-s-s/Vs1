@@ -58,7 +58,7 @@
                 {{ $t('About us') }}
               </h3>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="getLinkFor('/about-us')" exact>
+                <router-link class="cl-secondary" :to="getLinkFor('/about')" exact>
                   {{ $t('About us (Magento CMS)') }}
                 </router-link>
               </div>
@@ -208,7 +208,10 @@ $color-secondary: color(secondary);
 .icon {
   transition: 0.3s all;
 }
-
+footer {
+  width: 100%;
+  float: left;
+}
 .social-icon {
   width: 40px;
   height: 40px;

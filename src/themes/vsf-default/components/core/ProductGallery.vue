@@ -64,10 +64,10 @@ export default {
     }
   },
   methods: {
-    openOverlay (currentSlide) {
-      this.currentSlide = currentSlide
-      this.toggleZoom()
-    },
+    // openOverlay (currentSlide) {
+    //   this.currentSlide = currentSlide
+    //   this.toggleZoom()
+    // },
     validateRoute () {
       this.$forceUpdate()
     },

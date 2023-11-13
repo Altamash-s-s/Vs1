@@ -79,19 +79,49 @@
                 {{ $t('About us') }}
               </h3>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/about-us')" exact>
+                <router-link class="cl-secondary" :to="localizedRoute('/about')" exact>
                   {{ $t('About us') }}
                 </router-link>
               </div>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/store-locator')" exact>
-                  {{ $t('Store locator') }}
+                <router-link class="cl-secondary" :to="localizedRoute('/collection')" exact>
+                  {{ $t('Collection Page') }}
                 </router-link>
               </div>
               <div class="mt15">
                 <!-- Link to custom Magento Cms Page -->
-                <router-link class="cl-secondary" :to="localizedRoute('/custom-cms-page')" exact>
-                  {{ $t('Custom Cms Page') }}
+                <router-link class="cl-secondary" :to="localizedRoute('/career')" exact>
+                  {{ $t('Career') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/collabration')" exact>
+                  {{ $t('Collabration') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/shipment-&-return')" exact>
+                  {{ $t('Shipping & Return') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/giveaway')" exact>
+                  {{ $t('Giveaway') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/giveaway_from')" exact>
+                  {{ $t('Giveaway_from') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/collabrationform')" exact>
+                  {{ $t('collabrationForm') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary" :to="localizedRoute('/collabrationsidebar')" exact>
+                  {{ $t('collabrationSidebar') }}
                 </router-link>
               </div>
               <div class="mt15">

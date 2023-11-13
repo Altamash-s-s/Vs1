@@ -151,7 +151,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
   .product-image{
     position: relative;
     overflow: hidden;
@@ -192,4 +192,5 @@ export default {
   .invisible {
     visibility: hidden;
   }
+
 </style>
