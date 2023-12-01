@@ -67,10 +67,10 @@
             </h4>
             <p>{{ $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!') }}</p>
           </div>
-          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
-            <product-listing :columns="defaultColumn" :products="getCategoryProducts" />
+          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled" >
+            <product-listing  :columns="defaultColumn" :products="getCategoryProducts" :showPrice="shouldShowPrice" />
           </lazy-hydrate>
-          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" />
+          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" :showPrice="shouldShowPrice" />
         </div>
       </div>
     </div>
@@ -134,6 +134,11 @@ export default {
     }
   },
   computed: {
+    shouldShowPrice() {
+      // Logic to determine whether to show price based on category ID
+      const saleCategoryId = 16; // Change this to your sale category ID
+      return this.getCurrentCategory.id === saleCategoryId;
+    },
     ...mapGetters({
       getCurrentSearchQuery: 'category-next/getCurrentSearchQuery',
       getCategoryProducts: 'category-next/getCategoryProducts',

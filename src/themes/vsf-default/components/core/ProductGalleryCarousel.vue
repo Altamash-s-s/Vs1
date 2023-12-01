@@ -1,5 +1,7 @@
 <template>
   <div class="media-gallery-carousel">
+
+    
     <carousel
       :per-page="1"
       :mouse-drag="false"
@@ -14,7 +16,7 @@
       :navigate-to="currentPage"
     >
       <slide
-        v-for="(images, index) in gallery"
+        v-for="(attributes ,images, index) in gallery"
         :key="images.src"
       >
         <div
@@ -37,6 +39,51 @@
         </div>
       </slide>
     </carousel>
+<!-- 
+    {{ configuration.color.label }}
+    <p >{{ configuration.color }}</p> -->
+      
+    <!-- <div
+        v-for="(images, index) in gallery"
+        :key="images.src"
+        class="prd_image"
+        :data-datacolor="configuration.color.label"
+      >
+     
+        <div
+          class="product-image-container bg-cl-secondary"
+          :class="{'video-container w-100 h-100 flex relative': images.video}"
+        >
+          <product-image
+            v-show="hideImageAtIndex !== index"
+            @dblclick="openOverlay"
+            class="pointer image"
+            :image="images"
+            :alt="productName | htmlDecode"
+          />
+          
+          <product-video
+            v-if="images.video && (index === currentPage)"
+            v-bind="images.video"
+            :index="index"
+            @video-started="onVideoStarted"
+          />
+        </div>
+      </div> -->
+<!-- 
+      <div class="thumbnail-gallery">
+        <img
+          v-for="(images, index) in gallery"
+          :key="images.src"
+          :src="images.src"
+          :alt="productName | htmlDecode"
+          @click="navigate(index)"
+          :class="{ active: index === currentPage }"
+          :data-color="images.color"
+        />
+        </div> -->
+        
+    
     <i
       class="zoom-in material-icons p15 cl-bgs-tertiary pointer"
       @click="openOverlay"
@@ -96,33 +143,93 @@ export default {
     }
 
     this.$emit('loaded')
+
+    $( ".prd_color button" ).click(function() {
+      var color =  $(this).data('datacolor'); 
+      // alert(color);
+    });
+
+
   },
   beforeDestroy () {
     this.$bus.$off('product-after-configure', this.selectVariant)
     this.$bus.$off('product-after-load', this.selectVariant)
   },
   methods: {
+
+    selectVariant(configuration) {
+      this.$nextTick(async () => {
+        if (config.products.gallery.mergeConfigurableChildren) {
+          const option = reduce(
+            map(this.configuration, 'attribute_code'),
+            (result, attribute) => {
+              result[attribute] = this.configuration[attribute].id
+              return result
+            },
+            {}
+          )
+
+          if (option) {
+            let index = this.gallery.findIndex(
+              (obj) =>
+                obj.id &&
+                Object.entries(obj.id).toString() ===
+                  Object.entries(option).toString(),
+              option
+            )
+
+            if (index < 0) {
+              index = this.gallery.findIndex(
+                (obj) =>
+                  String(obj.id && obj.id.color) === String(option.color)
+              )
+            }
+
+            if (index >= 0) {
+              const selectedVariant = this.gallery[index]
+
+              // Assuming 'configurable_children' is an array of objects
+              const configurableChildren = selectedVariant.configurable_children
+
+              // Extract color data from configurable children
+              const colorData = configurableChildren.map((child) => {
+                return {
+                  color: child.color, // Assuming 'color' is a property in configurable_children
+                  image: child.small_image, // Adjust the property accordingly
+                  // Add other properties as needed
+                }
+              })
+
+              console.log(colorData) // Log or use the extracted color data
+            }
+          }
+        }
+
+        this.$emit('close')
+      })
+    },
+
     navigate (index) {
       if (index < 0) return
       this.currentPage = index
     },
-    async selectVariant (configuration) {
-      await this.$nextTick()
-      if (config.products.gallery.mergeConfigurableChildren) {
-        const option = reduce(map(this.configuration, 'attribute_code'), (result, attribute) => {
-          result[attribute] = this.configuration[attribute].id
-          return result
-        }, {})
-        if (option) {
-          let index = this.gallery.findIndex(
-            obj => obj.id && Object.entries(obj.id).toString() === Object.entries(option).toString(), option)
-          if (index < 0) index = this.gallery.findIndex(obj => String(obj.id && obj.id.color) === String(option.color))
-          this.navigate(index)
-        }
-      }
+    // async selectVariant (configuration) {
+    //   await this.$nextTick()
+    //   if (config.products.gallery.mergeConfigurableChildren) {
+    //     const option = reduce(map(this.configuration, 'attribute_code'), (result, attribute) => {
+    //       result[attribute] = this.configuration[attribute].id
+    //       return result
+    //     }, {})
+    //     if (option) {
+    //       let index = this.gallery.findIndex(
+    //         obj => obj.id && Object.entries(obj.id).toString() === Object.entries(option).toString(), option)
+    //       if (index < 0) index = this.gallery.findIndex(obj => String(obj.id && obj.id.color) === String(option.color))
+    //       this.navigate(index)
+    //     }
+    //   }
 
-      this.$emit('close')
-    },
+    //   this.$emit('close')
+    // },
     openOverlay () {
       const currentSlide = this.$refs.carousel.currentPage
       this.$emit('toggle', currentSlide)
@@ -171,9 +278,23 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
+
+
 </style>
 
 <style lang="scss">
+
+.VueCarousel-inner {
+  //  display: contents !important;
+  //  visibility: visible !important;
+  // -ms-flex-direction: column;
+  //   flex-direction: column !important;
+}
+.VueCarousel-slide {
+  // -webkit-backface-visibility: hidden;
+  //   backface-visibility: hidden !important;
+}
 .media-gallery-carousel,
 .media-zoom-carousel {
   .VueCarousel-pagination {
@@ -214,4 +335,4 @@ export default {
     }
   }
 }
-</style>
+</style>   

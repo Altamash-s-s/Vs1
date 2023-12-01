@@ -6,8 +6,8 @@
         <button class="close_btn" @click="closeSidebar">
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
-        <div class="giveaway_from" style="height: calc(100% - 80px); overflow-y: auto;" >
-          <h2 class="giveaway_hd">Collabration Form</h2>
+        <div class="main-form main-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+          <h2 class="main-hd main-hd">Collabration Form</h2>
           <collabrationForm  /> 
         </div>
       </div>
@@ -43,7 +43,6 @@ import collabrationForm from './collabrationForm.vue';
             this.isOpen = false;
         },
     },
-    components: { collabrationForm }
 };
   </script>
   
@@ -80,7 +79,7 @@ import collabrationForm from './collabrationForm.vue';
     padding: 20px;
   }
      /* Form Css start here  */
- .giveaway_hd{
+ .main-hd{
     margin-left: 35px;
     margin-top: 0;
     font-family: 'PoppinsRegular';
@@ -98,6 +97,41 @@ import collabrationForm from './collabrationForm.vue';
     margin: 0 auto;
     float: right;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .right-sidebar.open {
+    right: 0;
+    width: auto;
+}
+}
+@media only screen and (max-width: 767px) {
+    .right-sidebar.open {
+        right: 0 !important;
+        width: auto !important;
+        padding: 0 20px !important;
+    }
+    
+    .main-hd{
+        margin-left: 0;
+        margin-top: 0;
+        font-family: 'PoppinsRegular';
+    }
+    
+    .close_btn {
+        background: #FFF;
+        display: block;
+        margin: auto;
+        margin-right: 0;
+        padding-right: 0px;
+        padding-top: 15px;
+    }
+    
+    .inside-hd {
+        margin-top: 20px;
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 0;
+    }
+    }
 
 
 

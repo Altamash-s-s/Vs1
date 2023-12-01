@@ -1,0 +1,99 @@
+form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-family: 'PoppinsRegular';
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #00000026;
+  }
+
+  .submit {
+    background-color: #444444;
+    color: white;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+
+  .submit:hover {
+    background-color: #252525;
+  }
+  .thumbs-img {
+    width: 50%;
+}
+  .thanks-message {
+  text-align: center;
+  animation: fadeIn 2s ease; /* Adjust animation duration as needed */
+}
+
+.thumbs-up-icon {
+  font-size: 48px; /* Adjust icon size as needed */
+  color: #4CAF50; /* Green color for the thumbs-up icon */
+}
+
+.message {
+  font-size: 28px;
+  margin-top: 5rem;
+}
+input.image_upload {
+    border: 0;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.form_dv.apply-btn button {
+	font-size: 14px;
+}
+@media only screen and (max-width: 767px) {
+    .right-sidebar.open{
+        right: 0;
+        width: auto;
+        padding: 0 20px !important;
+    }
+    
+    .main-hd.main-hd{
+        margin-left: 0;
+        margin-top: 0;
+        font-family: 'PoppinsRegular';
+    }
+    
+    .close_btn{
+        background: #FFF;
+        display: block;
+        margin: auto;
+        margin-right: 0;
+        padding-right: 0px;
+        padding-top: 15px;
+    }
+    
+    .inside-hd {
+        margin-top: 20px;
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 0;
+    }
+    }

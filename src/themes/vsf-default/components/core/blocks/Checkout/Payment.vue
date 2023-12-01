@@ -263,6 +263,13 @@
               <span class="checkmark" />
             </label>
           </div>
+
+          <div class="row mb35 stripe-container" v-if="paymentDetails.paymentMethod === 'stripe_payments'">
+              <div class="col-xs-12">
+                  <payment-stripe/>
+              </div>
+          </div>
+
           <span class="validation-error" v-if="!$v.payment.paymentMethod.required">{{ $t('Field is required') }}</span>
         </div>
       </div>
@@ -335,16 +342,23 @@ import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import Tooltip from 'theme/components/core/Tooltip'
 
+import { mapGetters } from 'vuex'
+import PaymentStripe from '../../../../vue-storefront/src/modules/payment-stripe/components/PaymentStripe.vue'
+
 export default {
   components: {
     BaseCheckbox,
     BaseInput,
     BaseSelect,
     ButtonFull,
-    Tooltip
+    Tooltip,
+    PaymentStripe
   },
   mixins: [Payment],
   computed: {
+    ...mapGetters({
+      paymentDetails: 'checkout/getPaymentDetails'
+    }),
     countryOptions () {
       return this.countries.map((item) => {
         return {

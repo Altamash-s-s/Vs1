@@ -1,6 +1,7 @@
 <template>
     <div id="home">
 
+
     <div class="fold_main">
       <!-- fold 1 -->
       <div class="header-main snap">
@@ -375,76 +376,76 @@ export default {
     if (!this.isLoggedIn && localStorage.getItem('redirect')) this.$bus.$emit('modal-show', 'modal-signup')
     //------------------------------------- Custom JS Code START Here
   //--------------------------- Snap Scroll Code START
-    var selector = ".snap";
-    var $slides = $(selector);
-    var currentSlide = 0;
-    var isAnimating = false;
+    // var selector = ".snap";
+    // var $slides = $(selector);
+    // var currentSlide = 0;
+    // var isAnimating = false;
 
-    var stopAnimation = function () {
-      setTimeout(function () {
-        isAnimating = false;
-      }, 0);
-    };
+    // var stopAnimation = function () {
+    //   setTimeout(function () {
+    //     isAnimating = false;
+    //   }, 0);
+    // };
 
-    var bottomIsReached = function ($elem) {
-      var rect = $elem[0].getBoundingClientRect();
-      return rect.bottom <= $(window).height();
-    };
+    // var bottomIsReached = function ($elem) {
+    //   var rect = $elem[0].getBoundingClientRect();
+    //   return rect.bottom <= $(window).height();
+    // };
 
-    var topIsReached = function ($elem) {
-      var rect = $elem[0].getBoundingClientRect();
-      return rect.top >= 0; 
-    };
+    // var topIsReached = function ($elem) {
+    //   var rect = $elem[0].getBoundingClientRect();
+    //   return rect.top >= 0; 
+    // };
 
-    document.addEventListener(
-      "wheel",
-      function (event) {
-        var $currentSlide = $($slides[currentSlide]);
+    // document.addEventListener(
+    //   "wheel",
+    //   function (event) {
+    //     var $currentSlide = $($slides[currentSlide]);
 
-        if (isAnimating) {
-          event.preventDefault();
-          return;
-        }
+    //     if (isAnimating) {
+    //       event.preventDefault();
+    //       return;
+    //     }
 
-        var direction = -event.deltaY;
+    //     var direction = -event.deltaY;
 
-        if (direction < 0) {
+    //     if (direction < 0) {
 
-          if (currentSlide + 1 >= $slides.length) return;
-          if (!bottomIsReached($currentSlide)) return;
-          event.preventDefault();
-          currentSlide++;
-          var $slide = $($slides[currentSlide]);
-          var offsetTop = $slide.offset().top;
-          isAnimating = true;
+    //       if (currentSlide + 1 >= $slides.length) return;
+    //       if (!bottomIsReached($currentSlide)) return;
+    //       event.preventDefault();
+    //       currentSlide++;
+    //       var $slide = $($slides[currentSlide]);
+    //       var offsetTop = $slide.offset().top;
+    //       isAnimating = true;
 
-          $("html, body").animate(
-            {
-              scrollTop: offsetTop - 0
-            },
-          1000, 
-            stopAnimation
-          );
-        } else {
+    //       $("html, body").animate(
+    //         {
+    //           scrollTop: offsetTop - 0
+    //         },
+    //       1000, 
+    //         stopAnimation
+    //       );
+    //     } else {
       
-          if (currentSlide - 1 < 0) return;
-          if (!topIsReached($currentSlide)) return;
-          event.preventDefault();
-          currentSlide--;
-          var $slide = $($slides[currentSlide]);
-          var offsetTop = $slide.offset().top;
-          isAnimating = true;
-          $("html, body").animate(
-            {
-              scrollTop: offsetTop - 0
-            },
-          1000, 
-            stopAnimation
-          );
-        }
-      },
-      { passive: false }
-    );
+    //       if (currentSlide - 1 < 0) return;
+    //       if (!topIsReached($currentSlide)) return;
+    //       event.preventDefault();
+    //       currentSlide--;
+    //       var $slide = $($slides[currentSlide]);
+    //       var offsetTop = $slide.offset().top;
+    //       isAnimating = true;
+    //       $("html, body").animate(
+    //         {
+    //           scrollTop: offsetTop - 0
+    //         },
+    //       1000, 
+    //         stopAnimation
+    //       );
+    //     }
+    //   },
+    //   { passive: false }
+    // );
   //--------------------------- Snap Scroll Code END
     var parallax, speed;
     parallax = document.querySelectorAll('.parallax-image');
@@ -551,6 +552,13 @@ export default {
 // .fold_main {
 //     overflow: hidden;
 // }
+
+.fold_main {
+
+}
+.fold_main .snap {
+
+}
 .header-main video {
     width: 100%;
 }

@@ -107,6 +107,31 @@ export default {
       this.$Progress.finish()
     })
     this.$bus.$on('offline-order-confirmation', this.onOrderConfirmation)
+
+  },
+  mounted () {
+
+    $(window).on('resize scroll', function() {
+        if ($('.prd_detail_col').isInViewport()) {
+          $('.prd_detail_col').addClass('dv_sticky');
+          $('#app').css('overflow-x','clip');
+          $('#viewport').css('overflow-x','clip');
+        } else {
+          $('.prd_detail_col').removeClass('dv_sticky');
+          $('#app').css('overflow-x','hidden');
+          $('#viewport').css('overflow-x','hidden');
+        }
+    });
+
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+
   },
   beforeDestroy () {
     this.$bus.$off('offline-order-confirmation', this.onOrderConfirmation)

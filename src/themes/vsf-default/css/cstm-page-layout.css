@@ -2,6 +2,7 @@
     max-width: 1240px;
     margin: 0 auto;
     display: grid;
+    padding-bottom: 60px;
 }
 .hd-img{
     width: 100%;

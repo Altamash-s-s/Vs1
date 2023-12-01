@@ -1,167 +1,205 @@
 <template>
-  <div id="product" > 
+  <div id="product" >
+    <video class="product-video" autoplay muted loop>
+      <source :src="getCurrentProduct.product_video" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>  
     <section class="bg-cl-secondary px20 product-top-section">
-      <div class="container">
-        <section class="row m0 between-xs">
-          <div class="col-xs-12 col-md-6 center-xs middle-xs image">
+      <div class="container product_container">
+        <section class="row m0">
+          <div class="col-xs-12 col-md-6 center-xs middle-xs image img_slider_col">
             <product-gallery
               :offline="getOfflineImage"
               :gallery="getProductGallery"
               :configuration="getCurrentProductConfiguration"
               :product="getCurrentProduct"
             />
-          </div>         
-          <div class="col-xs-12 col-md-5 data">
-            <breadcrumbs
-              class="pt40 pb20 hidden-xs"
-            />
-            <h1
-              class="mb20 mt0 cl-mine-shaft product-name"
-              data-testid="productName"
-            >
-              {{ getCurrentProduct.name | htmlDecode }}
-              <web-share
-                :title="getCurrentProduct.name | htmlDecode"
-                text="Check this product!"
-                class="web-share"
-              />
-            </h1>
-            <div
-              class="mb20 uppercase cl-secondary"
-              :content="getCurrentProduct.sku"
-            >
-              {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
-            </div>
-            <div>
-              <product-price
-                class="mb40"
-                v-if="getCurrentProduct.type_id !== 'grouped'"
-                :product="getCurrentProduct"
-                :custom-options="getCurrentCustomOptions"
-              />
-              <div class="cl-primary variants" v-if="getCurrentProduct.type_id =='configurable'">
-                <div
-                  class="error"
-                  v-if="getCurrentProduct.errors && Object.keys(getCurrentProduct.errors).length > 0"
-                >
-                  {{ getCurrentProduct.errors | formatProductMessages }}
-                </div>
-                <div class="h5" v-for="option in getProductOptions" :key="option.id">
-                  <div class="variants-label" data-testid="variantsLabel">
-                    {{ option.label }}
-                    <span
-                      class="weight-700"
-                    >{{ getOptionLabel(option) }}</span>
+          </div>
+          <div class="col-xs-12 col-md-5 data prd_detail_col">
+
+            <div class="prd_dtls_inner">
+              <!-- <breadcrumbs
+                class="pt40 pb20 hidden-xs"
+              /> -->
+              <h1
+                class="mb20 mt0 cl-mine-shaft product-name"
+                data-testid="productName"
+              >
+                {{ getCurrentProduct.name | htmlDecode }}
+                <web-share
+                  :title="getCurrentProduct.name | htmlDecode"
+                  text="Check this product!"
+                  class="web-share"
+                />
+
+                <AddToWishlist 
+                  :product="getCurrentProduct" 
+                  class="wishlist_cstm"  
+                />
+
+              </h1>
+              
+              <div
+                class="mb20 uppercase cl-secondary"
+                :content="getCurrentProduct.sku"
+              >
+                {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
+              </div>
+              <div>
+                <product-price
+                  class="mb40 price-cstm"
+                  v-if="getCurrentProduct.type_id !== 'grouped'"
+                  :product="getCurrentProduct"
+                  :custom-options="getCurrentCustomOptions"
+                />
+                <div class="short-description" v-html="getCurrentProduct.short_description"> </div>
+                <div class="cl-primary variants" v-if="getCurrentProduct.type_id =='configurable'">
+                  <div
+                    class="error"
+                    v-if="getCurrentProduct.errors && Object.keys(getCurrentProduct.errors).length > 0"
+                  >
+                    {{ getCurrentProduct.errors | formatProductMessages }}
                   </div>
-                  <div class="row top-xs m0 pt15 pb40 variants-wrapper">
-                    <div v-if="option.label == 'Color'">
-                      <color-selector
-                        v-for="filter in getAvailableFilters[option.attribute_code]"
-                        :key="filter.id"
-                        :variant="filter"
-                        :selected-filters="getSelectedFilters"
-                        @change="changeFilter"
-                      />
+                  <div class="h5" v-for="option in getProductOptions" :key="option.id">
+                    <div class="variants-label" data-testid="variantsLabel">
+                      {{ option.label === 'Color' ? 'Color : -' : (option.label === 'Size' ? 'Size : -' : option.label) }}
+                      <span
+                        class="weight-700"
+                      >{{ getOptionLabel(option) }}</span>
                     </div>
-                    <div class="sizes" v-else-if="option.label == 'Size'">
-                      <size-selector
-                        class="mr10 mb10"
-                        v-for="filter in getAvailableFilters[option.attribute_code]"
-                        :key="filter.id"
-                        :variant="filter"
-                        :selected-filters="getSelectedFilters"
-                        @change="changeFilter"
-                      />
+                    <div class="row top-xs m0 pt15 pb40 variants-wrapper">
+                      <div v-if="option.label == 'Color'" class="color-bt-border prd_color">
+                        <color-selector
+                          v-for="filter in getAvailableFilters[option.attribute_code]"
+                          :key="filter.id"
+                          :variant="filter"
+                          :selected-filters="getSelectedFilters"
+                          @change="changeFilter"
+                          class='color_button'
+                        />
+                      </div>
+                      <div class="sizes" v-else-if="option.label == 'Size'">
+                        <size-selector
+                          class="mr10 mb10"
+                          v-for="filter in getAvailableFilters[option.attribute_code]"
+                          :key="filter.id"
+                          :variant="filter"
+                          :selected-filters="getSelectedFilters"
+                          @change="changeFilter"
+                        />
+                      </div>
+                      <div :class="option.attribute_code" v-else>
+                        <generic-selector
+                          class="mr10 mb10"
+                          v-for="filter in getAvailableFilters[option.attribute_code]"
+                          :key="filter.id"
+                          :variant="filter"
+                          :selected-filters="getSelectedFilters"
+                          @change="changeFilter"
+                        />
+                      </div>
+                      <span
+                        v-if="option.label == 'Size'"
+                        @click="openSizeGuide"
+                        class="p0 ml30 inline-flex middle-xs no-underline h5 action size-guide pointer cl-secondary"
+                      >
+                        <i class="pr5 material-icons">accessibility</i>
+                        <span>{{ $t('Size guide') }}</span>
+                      </span>
                     </div>
-                    <div :class="option.attribute_code" v-else>
-                      <generic-selector
-                        class="mr10 mb10"
-                        v-for="filter in getAvailableFilters[option.attribute_code]"
-                        :key="filter.id"
-                        :variant="filter"
-                        :selected-filters="getSelectedFilters"
-                        @change="changeFilter"
-                      />
-                    </div>
-                    <span
-                      v-if="option.label == 'Size'"
-                      @click="openSizeGuide"
-                      class="p0 ml30 inline-flex middle-xs no-underline h5 action size-guide pointer cl-secondary"
-                    >
-                      <i class="pr5 material-icons">accessibility</i>
-                      <span>{{ $t('Size guide') }}</span>
-                    </span>
                   </div>
                 </div>
               </div>
-            </div>
-            <product-links
-              v-if="getCurrentProduct.type_id =='grouped'"
-              :products="getCurrentProduct.product_links"
-            />
-            <product-bundle-options
-              v-if="getCurrentProduct.bundle_options && getCurrentProduct.bundle_options.length > 0"
-              :product="getCurrentProduct"
-            />
-            <product-custom-options
-              v-else-if="getCurrentProduct.custom_options && getCurrentProduct.custom_options.length > 0"
-              :product="getCurrentProduct"
-            />
-            <product-quantity
-              class="row m0 mb35"
-              v-if="getCurrentProduct.type_id !== 'grouped' && getCurrentProduct.type_id !== 'bundle'"
-              v-model="getCurrentProduct.qty"
-              :max-quantity="maxQuantity"
-              :loading="isStockInfoLoading"
-              :is-simple-or-configurable="isSimpleOrConfigurable"
-              :show-quantity="manageQuantity"
-              :check-max-quantity="manageQuantity"
-              @error="handleQuantityError"
-            />
-            <div class="row m0">
-              <add-to-cart
-                :product="getCurrentProduct"
-                :disabled="isAddToCartDisabled"
-                class="col-xs-12 col-sm-4 col-md-6"
+              <product-links
+                v-if="getCurrentProduct.type_id =='grouped'"
+                :products="getCurrentProduct.product_links"
               />
-            </div>
-            <div class="row py40 add-to-buttons">
+              <product-bundle-options
+                v-if="getCurrentProduct.bundle_options && getCurrentProduct.bundle_options.length > 0"
+                :product="getCurrentProduct"
+              />
+              <product-custom-options
+                v-else-if="getCurrentProduct.custom_options && getCurrentProduct.custom_options.length > 0"
+                :product="getCurrentProduct"
+              />
+              <!-- <product-quantity
+                class="row m0 mb35"
+                v-if="getCurrentProduct.type_id !== 'grouped' && getCurrentProduct.type_id !== 'bundle'"
+                v-model="getCurrentProduct.qty"
+                :max-quantity="maxQuantity"
+                :loading="isStockInfoLoading"
+                :is-simple-or-configurable="isSimpleOrConfigurable"
+                :show-quantity="manageQuantity"
+                :check-max-quantity="manageQuantity"
+                @error="handleQuantityError"
+              /> -->
+              <div class="row m0">
+                <add-to-cart
+                  :product="getCurrentProduct"
+                  :disabled="isAddToCartDisabled"
+                  class="col-xs-12 col-sm-4 col-md-6"
+                />
+              </div>
+              <!-- <div class="row py40 add-to-buttons">
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToWishlist :product="getCurrentProduct" />
               </div>
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToCompare :product="getCurrentProduct" />
               </div>
-            </div>
-         
-        </div>
+            </div> -->
+            </div>          
+          </div>
+
         </section>
       </div>
     </section>
-    <section class="container px15 pt50 pb35 cl-accent details">
-      <h2 class="h3 m0 mb10 serif lh20 details-title">
-        {{ $t('Product details') }}
-      </h2>
-      <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
-        <div class="row between-md m0">
-          <div class="col-xs-12 col-sm-6">
-            <div class="lh30 h5" v-html="getCurrentProduct.description" />
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <ul class="attributes p0 pt5 m0">
-              <product-attribute
-                :key="attr.attribute_code"
-                v-for="attr in getCustomAttributes"
-                :product="getCurrentProduct"
-                :attribute="attr"
-                empty-placeholder="N/A"
-              />
-            </ul>
-          </div>
-          <div class="details-overlay" @click="showDetails" />
+
+    <section class="container px15 pt50 pb35 cl-accent details prd_tab_section">
+
+        <div class="tab-navigation">
+          <button @click="showTab('productDetailsTab')">Product Details</button>
+          <button @click="showTab('careTab')">Care</button>
+          <button @click="showTab('productCareTab')">Product Care</button>
         </div>
-      </div>
+
+        <!-- Tab content -->
+        <div class="tab-content active" id="productDetailsTab">
+          <h2 class="h3 m0 mb10 serif lh20 details-title">
+            {{ $t('FABRIC COMPOSITION') }}
+          </h2>
+          <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
+            <div class="row between-md m0">
+              <div class="col-lg-12">
+                <div class="lh30 h5" v-html="getCurrentProduct.description" />
+              </div>
+              <!-- ... Other content for the Product Details tab ... -->
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="careTab">
+          <h2 class="h3 m0 mb10 serif lh20 details-title">
+            Care
+          </h2>
+          <div class="care_description">
+            {{ getCurrentProduct.care }}
+          </div>
+        </div>
+
+        <div class="tab-content" id="productCareTab">
+          <h2 class="h3 m0 mb10 serif lh20 details-title">
+            Product Care
+          </h2>
+          <div class="care_description">
+            <div class="flex-dsc" v-html="getCurrentProduct.product_care">
+            </div>
+
+          </div>
+        </div>
     </section>
+    
+
     <lazy-hydrate when-idle>
       <reviews
         :product-name="getCurrentProduct.name"
@@ -170,12 +208,12 @@
         :product="getCurrentProduct"
       />
     </lazy-hydrate>
-    <lazy-hydrate when-idle>
+    <!-- <lazy-hydrate when-idle>
       <related-products type="upsell" :heading="$t('We found other products you might like')" />
-    </lazy-hydrate>
-    <lazy-hydrate when-idle>
+    </lazy-hydrate> -->
+    <!-- <lazy-hydrate when-idle>
       <promoted-offers single-banner />
-    </lazy-hydrate>
+    </lazy-hydrate> -->
     <lazy-hydrate when-idle>
       <related-products type="related" />
     </lazy-hydrate>
@@ -225,7 +263,6 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
-
 export default {
   components: {
     AddToCart,
@@ -247,9 +284,8 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice,
-    product
-},
+    ProductPrice
+  },
   mixins: [ProductOption],
   directives: { focusClean },
   beforeCreate () {
@@ -333,6 +369,21 @@ export default {
   },
   async mounted () {
     await this.$store.dispatch('recently-viewed/addItem', this.getCurrentProduct)
+
+    $(document).ready(function(){
+      $('.color_button').click(function(){
+        console.log('color selected');
+        if($(".VueCarousel-slide").hasClass("VueCarousel-slide-active"))
+        {
+          console.log('class found');
+        }
+        else {
+          console.log('class not found');
+        }
+        
+      });
+    }); 
+
   },
   async asyncData ({ store, route, context }) {
     if (context) context.output.cacheTags.add('product')
@@ -360,6 +411,16 @@ export default {
     }
   },
   methods: {
+    showTab(tabName) {
+      // Hide all tabs
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach((tab) => {
+        tab.style.display = 'none';
+      });
+
+      // Show the selected tab
+      document.getElementById(tabName).style.display = 'block';
+    },
     showDetails (event) {
       this.detailsOpen = true
       event.target.classList.add('hidden')
@@ -447,6 +508,23 @@ $color-tertiary: color(tertiary);
 $color-secondary: color(secondary);
 $color-white: color(white);
 $bg-secondary: color(secondary, $colors-background);
+
+.prd_detail_col {
+  padding-left: 50px;
+}
+
+.product_container {
+  max-width:100%;
+  width:100%;
+  padding-left: 0px;
+}
+.product-top-section {
+  padding: 0px;
+  margin-top: -4px;
+}
+.img_slider_col {
+  padding-left: 0px;
+}
 
 .product {
   &__add-to-compare {
@@ -593,11 +671,158 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .product-image {
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: multiply; */
   width: 460px;
 }
 
 .web-share {
   float: right;
+  cursor: pointer;
+  padding-left: 10px;
 }
+.product-video {
+    width: 100%;
+}
+.wishlist_cstm {
+    float: right;
+    color: #969696;
+    border-right: 1px solid;
+}
+.product-name{
+    color: #302A2A;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #C1C1C1;
+    padding-top: 30px;
+}
+.cl-secondary {
+    color: #828282;
+    font-size: 13px;
+}
+.price-cstm {
+  color: #302A2A;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.short-description {
+    color: #302A2A;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-bottom: 40px;
+}
+.color-bt-border {
+  border-bottom: 1px solid #C1C1C1;
+  width: 100%;
+  padding-bottom: 25px;
+}
+.bg-cl-secondary{
+  background-color: #FFFF;
+}
+.row.top-xs.m0.pt15.pb40.variants-wrapper{
+  display: flex;
+    justify-content: space-between;
+}
+.dv_sticky {
+  position: sticky;
+  height: fit-content;
+  width: 100%;
+  top: 20px;
+}
+/* Tab Styling  */
+#productCareTab {
+    display: none;
+}
+#careTab {
+    display: none;
+}
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+  }
+
+  .tab-navigation button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .tab-navigation button:hover {
+    background-color: #777;
+  }
+
+  .tab-navigation {
+    display: flex;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tab-navigation button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    flex: 1;
+    transition: background-color 0.3s;
+    color: #000;
+  }
+
+  .tab-navigation button:hover {
+    background-color: #ddd;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .details-title {
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
+
+  .details-wrapper {
+    margin-top: 20px;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .details-wrapper--open {
+    max-height: 1000px;
+  }
+
+  .care_description {
+    line-height: 1.5;
+  }
+
+  .prd_tab_section {
+    margin-top: 50px;
+  }
+  .flex-dsc div{
+    display: flex;
+    padding: 7px;
+}
+
 </style>

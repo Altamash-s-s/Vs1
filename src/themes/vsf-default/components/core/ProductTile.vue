@@ -1,28 +1,6 @@
 <template>
-  <div class="product align-center w-100 pb20" v-observe-visibility="visibilityChanged">
-    <div class="product__icons">
-      <AddToWishlist :product="product">
-        <div
-          class="product__icon"
-          :class="{'product__icon--active': isOnWishlist }"
-          :title="isOnWishlist ? $t('Remove') : $t('Add to favorite') "
-          @click="toggleActiveState"
-        >
-          <!-- <i class="material-icons">{{ favoriteIcon }}</i> -->
-          <img v-if="!isActive" src="../core/icon/bookmark.png" class="bookmar-icon" >
-          <img v-else src="../core/icon/fill-bookmark.png" class="bookmar-icon">
-        </div>
-      </AddToWishlist>
-      <AddToCompare :product="product">
-        <div
-          class="product__icon"
-          :class="{'product__icon--active':isOnCompare } "
-          :title="isOnCompare ? $t('Remove from compare') : $t('Add to compare')"
-        >
-          <!-- <i class="material-icons">compare</i> -->
-        </div>
-      </AddToCompare>
-    </div>
+<div class="product align-center w-100 pb20" v-observe-visibility="visibilityChanged">
+    <!-- ... other code ... -->
     <router-link
       class="block no-underline product-link"
       :to="productLink"
@@ -40,17 +18,21 @@
           data-testid="productImage"
         />
       </div>
-      
+
       <div class="add_card">
-      <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
-         <img class="icon-img" src="./icon/plus-icon-1.svg">
+        <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
+          <img class="icon-img" src="./icon/plus-icon-1.svg">
         </button>
 
-      <p class="mb0 cl-accent mt10" v-if="!onlyImage">
-        {{ product.name | htmlDecode }}
-      </p>
+        <p class="mb0 cl-accent mt10" v-if="!onlyImage">
+          {{ product.name | htmlDecode }}
+        </p>
 
-    </div>
+        <!-- Conditionally render the price based on category ID -->
+        <p class="mb0 cl-accent mt10" v-if="shouldShowPrice">
+          {{ product.price }}
+        </p>
+      </div>
 
       <span
         class="price-original mr5 lh30 cl-secondary"
@@ -110,7 +92,22 @@ export default {
     },
     storeView () {
       return currentStoreView()
+    },
+    shouldShowPrice() {
+    if (!this.product || !this.product.categories) {
+      return false;
     }
+
+    const saleCategoryId = 16; // Change this to your sale category ID
+    const categoryArray = this.product.categories;
+
+    if (categoryArray.length > 0) {
+      const currentCategory = categoryArray[0];
+      return currentCategory.id === saleCategoryId;
+    }
+
+    return false;
+  },
   },
   methods: {
     onProductPriceUpdate (product) {

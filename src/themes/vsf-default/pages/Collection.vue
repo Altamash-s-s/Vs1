@@ -71,13 +71,34 @@ export default {
         //------------------------------------- Custom JS Code START Here
         var pathname = window.location.pathname;
         if(pathname === '/collection'){
-            $('#app').css('overflow-x','unset');
-            $('#viewport').css('overflow-x','unset');
+            $('#app').css('overflow-x','clip');
+            $('#viewport').css('overflow-x','clip');
         }
-        else {
+        else if(pathname === '/Collection'){
+            $('#app').css('overflow-x','clip');
+            $('#viewport').css('overflow-x','clip');
+        }
+        else if(pathname != '/collection'){ 
             $('#app').css('overflow-x','hidden');
             $('#viewport').css('overflow-x','hidden');
         }
+
+        $('a').click(function(){
+            console.log('collection Button Trigger');
+            var pathname = window.location.pathname;
+            if(pathname === '/collection'){
+                $('#app').css('overflow-x','clip');
+                $('#viewport').css('overflow-x','clip');
+            }
+            else if(pathname === '/Collection'){
+                $('#app').css('overflow-x','clip');
+                $('#viewport').css('overflow-x','clip');
+            }
+            else if(pathname != '/collection'){ 
+                $('#app').css('overflow-x','hidden');
+                $('#viewport').css('overflow-x','hidden');
+            }
+        });
         const items = $('.bg_sec');
         let currentItemIndex = 0;
 

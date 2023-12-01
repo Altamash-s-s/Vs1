@@ -1,7 +1,7 @@
 <template>
   <div id="about" class="cstm-page-layout">
     <div class="head-section">
-      <img class="hd-img" src="../assets/home/hs1.png">
+      <img class="hd-img" src="../assets/home/img-1.png">
     </div>
 
     <div class="main-section">
@@ -19,21 +19,21 @@
         <div id="firstTab" class="tabcontent" v-show="activeTab === 'firstTab'">
           
           <h3 class="heading-para">TEAM</h3>
-          <img class="tab-img" src="../assets/home/hs11.png">
+          <img class="tab-img" src="../assets/home/img-2.png">
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
         </div>
 
         <div id="secondTab" class="tabcontent" v-show="activeTab === 'secondTab'">
           <h3 class="heading-para">BRAND VISION</h3>
-          <img class="tab-img" src="../assets/home/hs13.png">
+          <img class="tab-img" src="../assets/home/img-1.png">
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
         </div>
 
         <div id="thirdTab" class="tabcontent" v-show="activeTab === 'thirdTab'">
           <h3 class="heading-para">ABOUT US</h3>
-          <img class="tab-img" src="../assets/home/hs2.png">
+          <img class="tab-img" src="../assets/home/img-2.png">
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
           <p class="para-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
         </div>
@@ -121,4 +121,73 @@ border-radius: 4px;
   line-height: normal;
   padding-bottom: 37px;
 }
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+  .tabcontent {
+    margin-left: 47px;
+    width: 76%;
+}
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+                .cstm-page-layout {
+                  padding: 0px 30px;
+              }
+              .tabcontent{
+                width: 75%;
+                margin-left: 45px;
+              }
+              .heading-para{
+                padding-bottom: 15px;
+              }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+            .tabcontent {
+              width: 75%;
+              margin-left: 33px;
+          }
+          .heading-para{
+            padding-bottom: 15px;
+          }
+          .tab button{
+            padding: 16px 16px;
+          }
+          .tab{
+            height: 215px;
+          }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+            .tab{
+              width: 75%;
+            }
+            .tabcontent {
+              margin-left: 0;
+              width: 97%;
+          }
+          .main-section {
+              margin-top: 35px;
+              margin-bottom: -35px;
+          }
+          .heading-para {
+              padding-bottom: 5px;
+              padding-top: 21px;
+          }
+}
+
+
+
 </style>

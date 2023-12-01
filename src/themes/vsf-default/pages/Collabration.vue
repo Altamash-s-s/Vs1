@@ -1,7 +1,7 @@
 <template>
     <div id="collabration" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/hs1.png">
+            <img class="hd-img" src="../assets/home/img-1.png">
         </div>
         <div class="cr-head">
             <h3 class="inside-hd"> WELCOME MESSAGE </h3>
@@ -128,4 +128,5 @@ button:hover .arrow {
 button:hover .arrow:before {
     right: 0;
 }
+
 </style>

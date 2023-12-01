@@ -6,8 +6,8 @@
         <button class="close_btn" @click="closeSidebar">
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
-        <div class="giveaway_from" style="height: calc(100% - 80px); overflow-y: auto;" >
-          <h2 class="giveaway_hd">Giveaway Form</h2>
+        <div class="mina-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+          <h2 class="main-hd main-hd">Giveaway Form</h2>
           <Giveaway_from /> 
         </div>
       </div>
@@ -43,7 +43,7 @@ import Giveaway_from from './Giveaway_from.vue';
             this.isOpen = false;
         },
     },
-    components: { Giveaway_from }
+
 };
   </script>
   
@@ -58,6 +58,10 @@ import Giveaway_from from './Giveaway_from.vue';
     z-index: 999; /* Place it below the sidebar */
     pointer-events: none; /* Make the overlay non-interactive */
   }
+  .main-hd.main-hd {
+    padding-left: 37px;
+}
+
   
   .right-sidebar {
     position: fixed;
@@ -98,7 +102,35 @@ import Giveaway_from from './Giveaway_from.vue';
     margin: 0 auto;
     float: right;
 }
-
+@media only screen and (max-width: 767px) {
+    .right-sidebar.open {
+        right: 0 !important;
+        width: auto !important;
+        padding: 0 20px !important;
+    }
+    
+    .main-hd{
+        margin-left: 0;
+        margin-top: 0;
+        font-family: 'PoppinsRegular';
+    }
+    
+    .close_btn {
+        background: #FFF;
+        display: block;
+        margin: auto;
+        margin-right: 0;
+        padding-right: 0px;
+        padding-top: 15px;
+    }
+    
+    .inside-hd {
+        margin-top: 20px;
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 0;
+    }
+    }
 
 
 

@@ -40,7 +40,7 @@
   
         <label for="description">Description (100-125 words):</label>
         <textarea class="description" v-model="formData.description" required></textarea>
-        <button type="submit">Submit</button>
+        <button class="submit" type="submit">Submit</button>
       </form>
       <div v-else>
         <div class="thanks-message">
@@ -152,70 +152,5 @@
   };
   </script>
   
-  <style scoped>
-  
-  form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-  
-    label {
-      display: block;
-      margin-top: 10px;
-      font-family: 'PoppinsRegular';
-    }
-  
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-      border: 1px solid #00000026;
-    }
-  
-    button {
-      background-color: #444444;
-      color: white;
-      padding: 18px 50px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 0 auto;
-      font-size: 15px;
-      text-transform: uppercase;
-    }
-  
-    button:hover {
-      background-color: #252525;
-    }
-    .thumbs-img {
-      width: 50%;
-  }
-    .thanks-message {
-    text-align: center;
-    animation: fadeIn 2s ease; /* Adjust animation duration as needed */
-  }
-  
-  .thumbs-up-icon {
-    font-size: 48px; /* Adjust icon size as needed */
-    color: #4CAF50; /* Green color for the thumbs-up icon */
-  }
-  
-  .message {
-    font-size: 28px;
-    margin-top: 5rem;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  </style>
+
     

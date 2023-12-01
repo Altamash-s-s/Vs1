@@ -181,4 +181,71 @@
 .inside-section {
     margin-top: -40px;
 }
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+  .tabcontent {
+    margin-left: 47px;
+    width: 76%;
+}
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
+
+
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+ 
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+                .cstm-page-layout {
+                  padding: 0px 30px;
+              }
+              .tabcontent{
+                margin-left: 43px;
+              }
+             
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .tabcontent{
+    width: 73%;
+    margin-left: 30px;
+  }
+  .tab button{
+        font-size: 14px;
+              }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .tab {
+    width: 60%;
+}
+.tabcontent{
+  margin-left: 0;
+  width: 95%;
+}
+.heading-para {
+    padding-bottom: 25px !important;
+    padding-top: 12px;
+}
+.content-section {
+    margin-top: 25px;
+    float: left;
+}
+.main-section {
+    margin-top: 25px;
+}
+.para-txt {
+    font-size: 18px;
+}
+}
   </style>  

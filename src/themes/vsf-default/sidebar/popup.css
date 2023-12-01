@@ -1,0 +1,54 @@
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
+
+
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+ 
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+          .popup{
+            padding: 49px;
+            max-width: 75%;
+        }
+             
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .popup{
+    background: #fff;
+    padding: 54px;
+    max-width: 78%;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .popup-content {
+    max-height: 500px;
+    overflow: scroll;
+}
+.popup {
+    background: #fff;
+    padding: 15px;
+    max-width: 80%;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+}

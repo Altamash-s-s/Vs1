@@ -6,7 +6,7 @@
       class="col-sm-6 flex"
       :class="['col-md-' + (12/columns)%10, wide(product.sale, product.new, key)]"
     >
-      <product-tile :product="product" />
+      <product-tile :product="product" :showPrice="showPrice" />
     </div>
   </div>
 </template>
@@ -27,7 +27,11 @@ export default {
     columns: {
       type: [Number, String],
       required: true
-    }
+    },
+    showPrice: {
+      type: Boolean,
+      default: true,
+    },
   },
   methods: {
     wide (isOnSale, isNew, index) {

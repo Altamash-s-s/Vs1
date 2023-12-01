@@ -20,10 +20,24 @@ const sidebarForm = () => import(/* webpackChunkName: "vsf-sidebarForm" */ 'them
 const collabrationForm = () => import(/* webpackChunkName: "vsf-collabrationForm" */ 'theme/forms/collabrationForm.vue');
 const collabrationSidebar = () => import(/* webpackChunkName: "vsf-collabrationSidebar" */ 'theme/forms/collabrationSidebar.vue');
 const videoapi = () => import(/* webpackChunkName: "vsf-videoapi" */ 'theme/pages/videoapi.vue');
+const ProductCare = () => import(/* webpackChunkName: "vsf-productcare" */ 'theme/pages/ProductCare.vue');
+const WashCarePopup = () => import(/* webpackChunkName: "vsf-washcarepopup" */ 'theme/sidebar/WashCarePopup.vue');
+const CareerForm = () => import(/* webpackChunkName: "vsf-careerform" */ 'theme/forms/CareerForm.vue');
+const CareerSidebar = () => import(/* webpackChunkName: "vsf-careersidebar" */ 'theme/forms/CareerSidebar.vue');
+const CustomerFeedback = () => import(/* webpackChunkName: "vsf-customerfeedback" */ 'theme/pages/CustomerFeedback.vue');
+const BlogCms = () => import(/* webpackChunkName: "vsf-blogcms" */ 'theme/pages/BlogCms.vue');
+const New = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/New.vue');
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
   { name: 'about', path: '/about', component: About },
+  { name: 'new', path: '/new', component: New },
+  { name: 'blogcms', path: '/blogcms', component: BlogCms },
+  { name: 'customerfeedback', path: '/customerfeedback', component: CustomerFeedback },
+  { name: 'productcare', path: '/productcare', component: ProductCare },
+  { name: 'careersidebar', path: '/careersidebar', component: CareerSidebar },
+  { name: 'careerform', path: '/careerform', component: CareerForm },
+  { name: 'washcarepopup', path: '/washcarepopup', component: WashCarePopup },
   { name: 'videoapi', path: '/videoapi', component: videoapi },
   { name: 'sidebarform', path: '/sidebarform', component: sidebarForm },
   { name: 'collabrationform', path: '/collabrationform', component: collabrationForm },

@@ -17,6 +17,7 @@
           @toggle="openOverlay"
           @close="onEscapePress"
           @loaded="carouselLoaded = true"
+          :productsku="prdsku"
         />
       </no-ssr>
     </div>
@@ -39,6 +40,12 @@ export default {
     'no-ssr': NoSSR,
     ProductGalleryOverlay,
     ProductImage
+  },
+  props: {
+    prdsku: {
+      type: String,
+      required: false
+    }
   },
   mixins: [
     ProductGallery,

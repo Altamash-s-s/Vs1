@@ -1,7 +1,7 @@
 <template>
     <div id="career" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/hs1.png">
+            <img class="hd-img" src="../assets/home/img-1.png">
 
         </div>
         <div class="cr-head">
@@ -31,33 +31,35 @@
 
             </P>
         </div>
-        <div class="apply-btn">
-            <button>
-                APPLY NOW
-                <div class="arrow-wrapper">
-                    <div class="arrow"></div>
+        <div class="form_dv apply-btn">
+                 <button @click="openSidebar">APPLY NOW</button>
+                    <div class="arrow-wrapper">
+                         <div class="arrow"></div>
+                    </div>
+            <CareerSidebar ref="CareerSidebar"></CareerSidebar>
+                  </div>
 
-                </div>
-            </button>
-
-            
-
-        </div>
     </div>
 </template>
 <script>
 import '../css/cstm-page-layout.css';
+import CareerSidebar from '../forms/CareerSidebar.vue';
 
 export default {
     name: 'career',
     components: {
-
+      CareerSidebar,
     },
+    methods: {
+    openSidebar() {
+      this.$refs.CareerSidebar.openSidebar();
+    },
+  },
 
 };
 </script>
 
-<style>
+<style scoped>
 .apply-btn {
     display: flex;
     justify-content: center;
@@ -123,6 +125,38 @@ button:hover .arrow {
 
 button:hover .arrow:before {
   right: 0;
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+                .cstm-page-layout {
+                  padding: 0px 30px;
+              }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .inside-hd {
+    font-size: 21px;
+    line-height: 28px;
+    margin-top: 26px;
+}
+
 }
 
 

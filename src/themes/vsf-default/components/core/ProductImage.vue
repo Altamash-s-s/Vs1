@@ -46,7 +46,8 @@ export default {
       type: Object,
       default: () => ({
         src: '',
-        loading: ''
+        loading: '',
+        color:''
       })
     },
     alt: {

@@ -1,0 +1,270 @@
+<template>
+    <div id="productcare" class="cstm-page-layout">
+        <div class="head-section">
+            <img class="hd-img" src="../assets/home/img-1.png">
+        </div>
+        <WashCarePopup v-if="showWashCarePopup" @close-popup="showWashCarePopup = false" />
+        <DryCarePopup v-if="showDryCarePopup" @close-popup="showDryCarePopup = false" />
+        <StoreCarePopup v-if="showStoreCarePopup" @close-popup="showStoreCarePopup = false" />
+        <ExtraCarePopup v-if="showExtraCarePopup" @close-popup="showExtraCarePopup = false" />
+        <EcoCarePopup v-if="showEcoCarePopup" @close-popup="showEcoCarePopup = false" />
+
+
+        <div class="main-section one top">
+            <div class="video-part">
+                <video class="care-video" autoplay muted loop>
+                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content_part">
+                <h3 class="care-head">Wash Care</h3>
+                <P class="care-par">Following the right wash care instructions and methods are essential to preserve the condition and
+                    functionality of the products, reducing environmental impact and utility costs.
+                </P>
+                <button class="care-btn" @click="showWashCarePopup = true">Know More</button>
+
+            </div>
+        </div>
+
+        <div class="main-section two">
+
+            <div class="content_part two">
+                <h3 class="care-head">Drying Your Clothes</h3>
+                <P class="care-par">Drying clothes improperly can cause damage to the fabric and shape of the garments. 
+                </P>
+                <button class="care-btn" @click="showDryCarePopup = true">Know More</button>
+            </div>
+
+            <div class="video-part">
+                <video class="care-video" autoplay muted loop>
+                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+
+        <div class="main-section one">
+            <div class="video-part">
+                <video class="care-video" autoplay muted loop>
+                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content_part">
+                <h3 class="care-head">Store your clothing the right way</h3>
+                <P class="care-par">Proper clothing storage not only helps maintain the condition of your garments but also makes it easier to keep your wardrobe organized and accessible.
+                </P>
+                <button class="care-btn" @click="showStoreCarePopup = true" >Know More</button>
+            </div>
+        </div>
+
+        <div class="main-section two">
+
+            <div class="content_part two">
+                <h3 class="care-head">Extra Care</h3>
+                <P class="care-par">Treating your clothing with care and following proper care instructions is a wise investment that can lead to a more sustainable, cost-effective, and enjoyablewardrobe.
+                        </P>
+                <button class="care-btn" @click="showExtraCarePopup = true">Know More</button>
+            </div>
+
+            <div class="video-part">
+                <video class="care-video" autoplay muted loop>
+                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+
+
+        <div class="main-section one">
+            <div class="video-part">
+                <video class="care-video" autoplay muted loop>
+                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="content_part">
+                <h3 class="care-head">Eco Friendly Tips</h3>
+                <P class="care-par">By making more eco-conscious choices in your clothing care routine, you can be a part of the solution to the environmental challenges
+                        </P>
+                <button class="care-btn" @click="showEcoCarePopup = true">Know More</button>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+import '../css/cstm-page-layout.css';
+import WashCarePopup from '../sidebar/WashCarePopup.vue'
+import DryCarePopup from '../sidebar/DryCarePopup.vue'
+import StoreCarePopup from '../sidebar/StoreCarePopup.vue'
+import ExtraCarePopup from '../sidebar/ExtraCarePopup.vue'
+import EcoCarePopup from '../sidebar/EcoCarePopup.vue'
+
+export default {
+    name: 'ProductCare',
+    components: {
+        WashCarePopup,
+        DryCarePopup,
+        StoreCarePopup,
+        ExtraCarePopup,
+        EcoCarePopup,
+    },
+    data() {
+    return {
+      showWashCarePopup: false,
+      showDryCarePopup: false,
+      showStoreCarePopup: false,
+      showExtraCarePopup: false,
+      showEcoCarePopup: false,
+      // Add similar data properties for other sections and their popups
+    };
+  },
+}
+
+
+</script>
+
+
+<style scoped>
+.main-section.one.top{
+    margin-top: 150px;
+}
+.care-video {
+    width: 100%;
+}
+
+.main-section {
+    display: flex;
+    gap: 20px;
+}
+
+.video-part {
+    width: 50%;
+}
+
+.content_part {
+    width: 50%;
+    margin: 15px auto;
+    padding-left: 30px;
+}
+
+.main-section.two {
+    margin-top: 200px;
+}
+
+.main-section.one {
+    margin-top: 200px;
+}
+.content_part.two{
+    padding-left: 0;
+    padding-right: 30px;
+}
+.care-head {
+    color: #000;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.care-btn {
+    border: 0;
+    padding: 22px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 4px;
+    background-color: #444;
+    color: #FFFF;
+}
+
+.apply-btn {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px 30px 0px;
+}
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
+
+
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+ 
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+                .cstm-page-layout {
+                  padding: 0px 30px;
+              }
+             
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+    .content_part{
+    margin: -40px auto;
+}
+.care-head {
+    font-size: 30px !important;
+}
+.care-par {
+    font-size: 15px;
+}
+.care-btn{
+  padding: 15px;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .main-section {
+        flex-direction: column;
+    }
+
+    .content_part, .video-part {
+        width: 100%;
+        order: 1;
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .content_part {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .video-part {
+        order: 2;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .main-section.one{
+    margin-top: 0px;
+
+}
+.main-section.two {
+    margin-top: 0px;
+}
+.main-section.one.top {
+    margin-top: 50px;
+}
+.care-video {
+    width: 90%;
+}
+.content_part.two{
+    padding-left: 15px;
+}
+
+
+}
+</style>
