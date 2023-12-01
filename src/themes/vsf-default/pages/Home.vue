@@ -17,7 +17,7 @@
             <!-- <h6 class="para">EYEWEAR</h6> -->
             <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
               HA - ONELINER 23-24 </h2>
-            <a href="./liner-collection" class="section_btn">
+            <a href="#" class="section_btn">
               <div class="">
                 <p>See More</p>
               </div>
@@ -59,7 +59,7 @@
             <!-- <h6 class="para">EYEWEAR</h6> -->
             <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
               HA - WINTER 23-24 </h2>
-            <a href="./winter-collection" class="section_btn">
+            <a href="#" class="section_btn">
               <div class="">
                 <p>See More</p>
               </div>
