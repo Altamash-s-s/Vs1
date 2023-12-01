@@ -1,7 +1,7 @@
 <template>
     <div id="collabration" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/img-1.png">
+            <img class="hd-img" src="../assets/home/collabration.png">
         </div>
         <div class="cr-head">
             <h3 class="inside-hd"> WELCOME MESSAGE </h3>
@@ -128,5 +128,39 @@ button:hover .arrow {
 button:hover .arrow:before {
     right: 0;
 }
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
 
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .para-txt {
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+.cr-head {
+    margin-top: 5px;
+}
+
+}
 </style>
+
+

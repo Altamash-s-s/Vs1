@@ -84,6 +84,18 @@ h2.hd-heading {
     .cstm-page-layout {
         padding: 0 20px;
     }
+    .hd-img{
+        margin-top: 30px;
+    }
+    .wl-msg {
+        margin-top: 30px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .inside-para {
+        line-height: 25px;
+        font-size: 16px;
+    }
 }
 
 

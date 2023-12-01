@@ -1,11 +1,37 @@
 <template>
-<div class="product align-center w-100 pb20" v-observe-visibility="visibilityChanged">
-    <!-- ... other code ... -->
+
+
+  <div class="product align-center w-100 pb20" v-observe-visibility="visibilityChanged">
+    <div class="product__icons">
+      <AddToWishlist :product="product">
+        <div
+          class="product__icon"
+          :class="{'product__icon--active': isOnWishlist }"
+          :title="isOnWishlist ? $t('Remove') : $t('Add to favorite') "
+          @click="toggleActiveState"
+        >
+          <!-- <i class="material-icons">{{ favoriteIcon }}</i> -->
+          <img v-if="!isActive" src="../core/icon/bookmark.png" class="bookmar-icon" >
+          <img v-else src="../core/icon/fill-bookmark.png" class="bookmar-icon">
+        </div>
+      </AddToWishlist>
+      <AddToCompare :product="product">
+        <div
+          class="product__icon"
+          :class="{'product__icon--active':isOnCompare } "
+          :title="isOnCompare ? $t('Remove from compare') : $t('Add to compare')"
+        >
+          <!-- <i class="material-icons">compare</i> -->
+        </div>
+      </AddToCompare>
+    </div>
+
     <router-link
       class="block no-underline product-link"
       :to="productLink"
       data-testid="productLink"
     >
+
       <div
         class="product-cover bg-cl-secondary"
         :class="[{ sale: labelsActive && isOnSale }, { new: labelsActive && isNew }]"
@@ -18,22 +44,18 @@
           data-testid="productImage"
         />
       </div>
-
+      
       <div class="add_card">
-        <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
-          <img class="icon-img" src="./icon/plus-icon-1.svg">
+      <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
+         <img class="icon-img1" src="./icon/plus-icon-1.svg">
         </button>
 
-        <p class="mb0 cl-accent mt10" v-if="!onlyImage">
-          {{ product.name | htmlDecode }}
-        </p>
+      <p class="mb0 cl-accent mt10" v-if="!onlyImage">
+        {{ product.name | htmlDecode }}
+      </p>
 
-        <!-- Conditionally render the price based on category ID -->
-        <p class="mb0 cl-accent mt10" v-if="shouldShowPrice">
-          {{ product.price }}
-        </p>
-      </div>
-
+    </div>
+  
       <span
         class="price-original mr5 lh30 cl-secondary"
         v-if="product.special_price && parseFloat(product.original_price_incl_tax) > 0 && !onlyImage"
@@ -43,10 +65,10 @@
         class="price-special lh30 cl-accent weight-700"
         v-if="product.special_price && parseFloat(product.special_price) > 0 && !onlyImage"
       >{{ product.price_incl_tax | price(storeView) }}</span>
-
+      
       <span
         class="lh30 cl-secondary"
-        v-if="!product.special_price && parseFloat(product.price_incl_tax) > 0 && !onlyImage"
+        v-if="!product.special_price && parseFloat(product.price_incl_tax) > 0 && !onlyImage && cateId === 16"
       >{{ product.price_incl_tax | price(storeView) }}</span>
     </router-link>
   </div>
@@ -70,6 +92,7 @@ export default {
     AddToWishlist,
     AddToCompare
   },
+  
   props: {
     labelsActive: {
       type: Boolean,
@@ -78,6 +101,10 @@ export default {
     onlyImage: {
       type: Boolean,
       default: false
+    },
+    cateId: {
+      type: Number,  // Adjust the type based on your actual data type
+      required: false
     }
   },
   computed: {
@@ -92,22 +119,7 @@ export default {
     },
     storeView () {
       return currentStoreView()
-    },
-    shouldShowPrice() {
-    if (!this.product || !this.product.categories) {
-      return false;
     }
-
-    const saleCategoryId = 16; // Change this to your sale category ID
-    const categoryArray = this.product.categories;
-
-    if (categoryArray.length > 0) {
-      const currentCategory = categoryArray[0];
-      return currentCategory.id === saleCategoryId;
-    }
-
-    return false;
-  },
   },
   methods: {
     onProductPriceUpdate (product) {
@@ -190,9 +202,7 @@ $color-white: color(white);
     }
   }
 }
-.lh30.cl-secondary {
-    display: none;
-}
+
 .price-original {
   text-decoration: line-through;
 }
@@ -253,7 +263,7 @@ $color-white: color(white);
 }
 ///cstm css //
 
-img.icon-img {
+img.icon-img1 {
     width: 20px;
     height: 20px;
 }
@@ -262,10 +272,16 @@ img.icon-img {
     border: 0;
     padding: 10px;
     margin-top: 0;
-    background-color: rgba(255, 255, 255, 0.4);
+    height: 40px;
+    width: 40px;
+    background-color: #ffffff80;
+}
+.product-listing .product {
+  background-color: #cdced2;
+  margin: 0 8px;
 }
 .add_card {
-    margin-top: -81px;
+    margin-top: -46px;
 }
 .bookmar-icon {
     width: 10%;
@@ -273,6 +289,12 @@ img.icon-img {
     float: right;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
+  .add_card {
+    padding-bottom: 15px;
+  }
+
+}
 /// css css end//
 </style>

@@ -27,8 +27,8 @@ export default {
   $color-disabled: color(secondary, $colors-border);
 
   .size-selector {
-    width: 40px;
-    height: 40px;
+    width: 39px;
+    height: 25px;
 
     &:hover,
     &:focus {
@@ -36,9 +36,10 @@ export default {
     }
 
     &.active {
-      border-color: $color-active;
-      border-width: 2px;
-      color: $color-active;
+      border-color: #000;
+    border-width: 2px;
+    color: #FFF;
+    background-color: #313131;
     }
 
     &:disabled {

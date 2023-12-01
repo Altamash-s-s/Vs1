@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="checkout_summary_dv">
     <div class="brdr-bottom-1 brdr-cl-primary pb60">
       <h3 class="cl-accent ml30 mt50 summary-title">
         {{ $t('Order Summary') }}
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="py50 px25">
+    <!-- <div class="py50 px25">
       <h4 class="h3 m0">
         {{ $t('Safety') }}
       </h4>
@@ -49,7 +49,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Nullam sed tempor lorem. Vivamus volutpat eros id est semper accumsan.
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -76,5 +76,9 @@ export default {
     @media (max-width: 767px) {
       margin-left: 0;
     }
+  }
+
+  .checkout_summary_dv {
+    width: 100%;
   }
 </style>

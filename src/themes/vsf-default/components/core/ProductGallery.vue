@@ -17,7 +17,7 @@
           @toggle="openOverlay"
           @close="onEscapePress"
           @loaded="carouselLoaded = true"
-          :productsku="prdsku"
+          :prd_c_vdo="prd_video"
         />
       </no-ssr>
     </div>
@@ -42,8 +42,8 @@ export default {
     ProductImage
   },
   props: {
-    prdsku: {
-      type: String,
+    prd_video: {
+      type: [Number, String],
       required: false
     }
   },

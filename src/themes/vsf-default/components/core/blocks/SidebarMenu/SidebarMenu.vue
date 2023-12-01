@@ -23,10 +23,10 @@
         <ul class="p0 m0 relative sidebar-menu__list" :style="mainListStyles">
           <li
             @click="closeMenu"
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+            class="brdr-bottom-1 brdr-cl-bg-secondary "
           >
             <router-link
-              class="block px25 py20 cl-accent no-underline"
+              class="block px25 py20 cl-accent no-underline col-xs fs-medium-small"
               :to="localizedRoute('/')"
               exact
             >
@@ -34,7 +34,7 @@
             </router-link>
           </li>
           <li
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+            class="brdr-bottom-1 brdr-cl-bg-secondary flex bg-cl-secondary"
             :key="category.slug"
             @click="closeMenu"
             v-for="category in visibleCategories"
@@ -51,7 +51,7 @@
               />
               <router-link
                 v-else
-                class="px25 py20 cl-accent no-underline col-xs"
+                class="px25 py20 cl-accent no-underline col-xs fs-medium-small"
                 :to="categoryLink(category)"
               >
                 {{ category.name }}
@@ -65,7 +65,7 @@
               :parent-path="category.url_path"
             />
           </li>
-          <li
+           <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
@@ -77,8 +77,8 @@
             >
               {{ $t('Sale') }}
             </router-link>
-          </li>
-          <li
+          </li>  -->
+          <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
@@ -90,7 +90,7 @@
             >
               {{ $t('Magazine') }}
             </router-link>
-          </li>
+          </li> -->
           <li
             v-if="compareIsActive && isCurrentMenuShowed"
             @click="closeMenu"
@@ -325,5 +325,7 @@ $color-mine-shaft: color(mine-shaft);
     display: block;
   }
 }
-
+.brdr-cl-bg-secondary {
+  border-color: #dddddd !important; 
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
+  
   <div class="media-gallery-carousel">
 
-    
+   
+      
     <carousel
       :per-page="1"
       :mouse-drag="false"
@@ -14,9 +16,17 @@
       :speed="carouselTransitionSpeed"
       @pageChange="pageChange"
       :navigate-to="currentPage"
+      
     >
+      <slide>
+        <div class="product_closeup_video_dv">
+          <video class="product-video" autoplay muted loop>
+            <source :src="prd_c_vdo" type="video/mp4">
+          </video> 
+        </div>
+      </slide>
       <slide
-        v-for="(attributes ,images, index) in gallery"
+        v-for="(images, index ) in gallery"
         :key="images.src"
       >
         <div
@@ -39,17 +49,12 @@
         </div>
       </slide>
     </carousel>
-<!-- 
-    {{ configuration.color.label }}
-    <p >{{ configuration.color }}</p> -->
-      
+
     <!-- <div
-        v-for="(images, index) in gallery"
+        v-for="(images, index ) in gallery"
         :key="images.src"
-        class="prd_image"
-        :data-datacolor="configuration.color.label"
+        class="prd_img"
       >
-     
         <div
           class="product-image-container bg-cl-secondary"
           :class="{'video-container w-100 h-100 flex relative': images.video}"
@@ -61,7 +66,6 @@
             :image="images"
             :alt="productName | htmlDecode"
           />
-          
           <product-video
             v-if="images.video && (index === currentPage)"
             v-bind="images.video"
@@ -70,24 +74,11 @@
           />
         </div>
       </div> -->
-<!-- 
-      <div class="thumbnail-gallery">
-        <img
-          v-for="(images, index) in gallery"
-          :key="images.src"
-          :src="images.src"
-          :alt="productName | htmlDecode"
-          @click="navigate(index)"
-          :class="{ active: index === currentPage }"
-          :data-color="images.color"
-        />
-        </div> -->
-        
     
-    <i
+    <!-- <i
       class="zoom-in material-icons p15 cl-bgs-tertiary pointer"
       @click="openOverlay"
-    >zoom_in</i>
+    >zoom_in</i> -->
   </div>
 </template>
 
@@ -118,6 +109,10 @@ export default {
     configuration: {
       type: Object,
       required: true
+    },
+    prd_c_vdo: {
+      type: [Number, String],
+      required: false
     }
   },
   data () {
@@ -148,88 +143,33 @@ export default {
       var color =  $(this).data('datacolor'); 
       // alert(color);
     });
-
-
   },
   beforeDestroy () {
     this.$bus.$off('product-after-configure', this.selectVariant)
     this.$bus.$off('product-after-load', this.selectVariant)
   },
   methods: {
-
-    selectVariant(configuration) {
-      this.$nextTick(async () => {
-        if (config.products.gallery.mergeConfigurableChildren) {
-          const option = reduce(
-            map(this.configuration, 'attribute_code'),
-            (result, attribute) => {
-              result[attribute] = this.configuration[attribute].id
-              return result
-            },
-            {}
-          )
-
-          if (option) {
-            let index = this.gallery.findIndex(
-              (obj) =>
-                obj.id &&
-                Object.entries(obj.id).toString() ===
-                  Object.entries(option).toString(),
-              option
-            )
-
-            if (index < 0) {
-              index = this.gallery.findIndex(
-                (obj) =>
-                  String(obj.id && obj.id.color) === String(option.color)
-              )
-            }
-
-            if (index >= 0) {
-              const selectedVariant = this.gallery[index]
-
-              // Assuming 'configurable_children' is an array of objects
-              const configurableChildren = selectedVariant.configurable_children
-
-              // Extract color data from configurable children
-              const colorData = configurableChildren.map((child) => {
-                return {
-                  color: child.color, // Assuming 'color' is a property in configurable_children
-                  image: child.small_image, // Adjust the property accordingly
-                  // Add other properties as needed
-                }
-              })
-
-              console.log(colorData) // Log or use the extracted color data
-            }
-          }
-        }
-
-        this.$emit('close')
-      })
-    },
-
     navigate (index) {
       if (index < 0) return
       this.currentPage = index
     },
-    // async selectVariant (configuration) {
-    //   await this.$nextTick()
-    //   if (config.products.gallery.mergeConfigurableChildren) {
-    //     const option = reduce(map(this.configuration, 'attribute_code'), (result, attribute) => {
-    //       result[attribute] = this.configuration[attribute].id
-    //       return result
-    //     }, {})
-    //     if (option) {
-    //       let index = this.gallery.findIndex(
-    //         obj => obj.id && Object.entries(obj.id).toString() === Object.entries(option).toString(), option)
-    //       if (index < 0) index = this.gallery.findIndex(obj => String(obj.id && obj.id.color) === String(option.color))
-    //       this.navigate(index)
-    //     }
-    //   }
+    async selectVariant (configuration) {
+      await this.$nextTick()
+      if (config.products.gallery.mergeConfigurableChildren) {
+        const option = reduce(map(this.configuration, 'attribute_code'), (result, attribute) => {
+          result[attribute] = this.configuration[attribute].id
+          return result
+        }, {})
+        if (option) {
+          let index = this.gallery.findIndex(
+            obj => obj.id && Object.entries(obj.id).toString() === Object.entries(option).toString(), option)
+          if (index < 0) index = this.gallery.findIndex(obj => String(obj.id && obj.id.color) === String(option.color))
+          this.navigate(index)
+        }
+      }
 
-    //   this.$emit('close')
-    // },
+      this.$emit('close')
+    },
     openOverlay () {
       const currentSlide = this.$refs.carousel.currentPage
       this.$emit('toggle', currentSlide)
@@ -238,6 +178,8 @@ export default {
       const { color } = this.configuration
       if (color && this.currentColor !== color.id) {
         this.currentColor = color.id
+        var abc = this.currentColor = color.value
+        $('.VueCarousel-slide').attr('data-parentID', abc);
         this.carouselTransitionSpeed = 0
       } else {
         this.carouselTransitionSpeed = 500
@@ -286,15 +228,26 @@ export default {
 <style lang="scss">
 
 .VueCarousel-inner {
-  //  display: contents !important;
-  //  visibility: visible !important;
-  // -ms-flex-direction: column;
-  //   flex-direction: column !important;
+    // -ms-flex-direction: column;
+    // flex-direction: column !important;
+    // transform: translate(0px, 0px) !important;
 }
 .VueCarousel-slide {
-  // -webkit-backface-visibility: hidden;
-  //   backface-visibility: hidden !important;
+    // -webkit-backface-visibility: hidden;
+    // backface-visibility: hidden !important;
 }
+button.VueCarousel-dot {
+  background-color: #969696 !important;
+}
+button.VueCarousel-dot.VueCarousel-dot--active {
+  background-color: #666 !important;
+}
+.VueCarousel-navigation-button i {
+    font-size: 35px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .media-gallery-carousel,
 .media-zoom-carousel {
   .VueCarousel-pagination {
@@ -335,4 +288,28 @@ export default {
     }
   }
 }
+.product_closeup_video_dv {
+    width: 100%;
+    height: 100%;
+}
+.product_closeup_video_dv video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width:1023px) {
+
+  .VueCarousel {
+    height: 100%;
+  }
+  .media-gallery .relative {
+    height: 100%;
+  }
+
+
+}
+
+
 </style>   

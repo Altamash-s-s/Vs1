@@ -42,6 +42,10 @@ export default {
     {
       src: 'https://smtpjs.com/v3/smtp.js',
       async: true
+    },
+    {
+      src: 'https://js.stripe.com/v3',
+      async: true
     }
   ],
   noscript: [

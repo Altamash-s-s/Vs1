@@ -143,14 +143,13 @@ body {
 }
 .dv3 {
   width: 100%;
-  min-height: 350vh;
+  min-height: 100vh;
   position: relative;
 }
 .dv3_inner {
   top: 0;
   position: sticky;
   position: -webkit-sticky;
-  
   width: 100%;
   height: 100vh;
   background:url('../assets/collection/collection_bg1.png');
@@ -158,6 +157,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+/* .dv3_sticky {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+} */
 .bg {
   width: 100%;
   height: 100%;
@@ -258,45 +262,5 @@ h1.collection-hd {
     top: 50%;
     left: 3%;
     height: auto !important; 
-}
-@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
-}
-@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
-}
-@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
-}
-@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
-}
-@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
-  .head-img-cl {
-    width: 600px !important;
-  }
-  .section_btn {
-    top: 60%;
-    left: 23%;
-  }
-  .dscrpt-txt{
-    font-size: 17px;
-}
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
-  .bg .model_img {
-    object-position: right;
-  }
-  .head-img-cl {
-    width: 350PX !important;
-  }
-  .section_btn div p {
-    margin-left: 0px;
-  }
-  .section_btn {
-    padding: 14px 24px;
-    top: 56%;
-    left: 14%;
-}
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-
 }
 </style>

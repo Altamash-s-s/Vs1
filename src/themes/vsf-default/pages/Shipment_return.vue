@@ -245,7 +245,7 @@
     margin-top: 25px;
 }
 .para-txt {
-    font-size: 18px;
+    font-size: 20px;
 }
 }
   </style>  

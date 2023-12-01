@@ -2,7 +2,6 @@
   <div id="product" >
     <video class="product-video" autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
-      Your browser does not support the video tag.
     </video>  
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container product_container">
@@ -13,6 +12,7 @@
               :gallery="getProductGallery"
               :configuration="getCurrentProductConfiguration"
               :product="getCurrentProduct"
+              :prd_video="getCurrentProduct.product_closeup_video"
             />
           </div>
           <div class="col-xs-12 col-md-5 data prd_detail_col">
@@ -44,6 +44,8 @@
                 :content="getCurrentProduct.sku"
               >
                 {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
+
+               <!-- <div class="zaid" v-html="getCurrentProduct.size_guide"></div>  -->
               </div>
               <div>
                 <product-price
@@ -165,49 +167,34 @@
 
         <!-- Tab content -->
         <div class="tab-content active" id="productDetailsTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">
-            {{ $t('FABRIC COMPOSITION') }}
-          </h2>
-          <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
-            <div class="row between-md m0">
-              <div class="col-lg-12">
-                <div class="lh30 h5" v-html="getCurrentProduct.description" />
-              </div>
-              <!-- ... Other content for the Product Details tab ... -->
-            </div>
-          </div>
+          <h2 class="h3 m0 mb10 serif lh20 details-title">Product Details</h2>
+          <p class="care_description lh30 h5" v-html="getCurrentProduct.description"></p>
         </div>
 
         <div class="tab-content" id="careTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">
-            Care
-          </h2>
-          <div class="care_description">
-            {{ getCurrentProduct.care }}
-          </div>
+          <h2 class="h3 m0 mb10 serif lh20 details-title">Care</h2>
+          <p class="care_description lh30 h5" >{{ getCurrentProduct.care }}</p>
         </div>
 
         <div class="tab-content" id="productCareTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">
-            Product Care
-          </h2>
+          <h2 class="h3 m0 mb10 serif lh20 details-title">Product Care</h2>
           <div class="care_description">
             <div class="flex-dsc" v-html="getCurrentProduct.product_care">
             </div>
-
           </div>
         </div>
     </section>
-    
 
-    <lazy-hydrate when-idle>
+    <!-- <lazy-hydrate when-idle>
       <reviews
         :product-name="getCurrentProduct.name"
         :product-id="getCurrentProduct.id"
         v-show="isOnline"
         :product="getCurrentProduct"
       />
-    </lazy-hydrate>
+    </lazy-hydrate> -->
+
+
     <!-- <lazy-hydrate when-idle>
       <related-products type="upsell" :heading="$t('We found other products you might like')" />
     </lazy-hydrate> -->
@@ -217,7 +204,7 @@
     <lazy-hydrate when-idle>
       <related-products type="related" />
     </lazy-hydrate>
-    <SizeGuide />
+    <SizeGuide :size_chart="getCurrentProduct.size_guide" />
     <script v-html="getJsonLd" type="application/ld+json" />
   </div>
 </template>
@@ -382,6 +369,12 @@ export default {
         }
         
       });
+      
+      $('.tab-navigation button').click(function(){
+        $('.tab-navigation button').removeClass('active');
+        $(this).addClass('active');
+      });
+
     }); 
 
   },
@@ -517,6 +510,7 @@ $bg-secondary: color(secondary, $colors-background);
   max-width:100%;
   width:100%;
   padding-left: 0px;
+  padding-right: 0px;
 }
 .product-top-section {
   padding: 0px;
@@ -524,6 +518,7 @@ $bg-secondary: color(secondary, $colors-background);
 }
 .img_slider_col {
   padding-left: 0px;
+  padding-right: 0;
 }
 
 .product {
@@ -742,12 +737,6 @@ $bg-secondary: color(secondary, $colors-background);
 #careTab {
     display: none;
 }
-.tab-navigation {
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    padding: 10px;
-  }
 
   .tab-navigation button {
     background-color: #555;
@@ -764,10 +753,9 @@ $bg-secondary: color(secondary, $colors-background);
 
   .tab-navigation {
     display: flex;
-    background-color: #f1f1f1;
-    overflow: hidden;
-    border-radius: 8px;
+    background-color: #fff;
     margin-bottom: 20px;
+    border-bottom: 1px solid #C1C1C1;
   }
 
   .tab-navigation button {
@@ -779,18 +767,23 @@ $bg-secondary: color(secondary, $colors-background);
     flex: 1;
     transition: background-color 0.3s;
     color: #000;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .tab-navigation button.active {
+    border-bottom: 1px solid #000;
   }
 
   .tab-navigation button:hover {
-    background-color: #ddd;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
   }
 
   .tab-content {
     display: none;
-    padding: 20px;
+    padding: 40px 20px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 8px;
   }
 
   .tab-content.active {
@@ -799,8 +792,9 @@ $bg-secondary: color(secondary, $colors-background);
 
   .details-title {
     color: #333;
-    border-bottom: 2px solid #ccc;
+    border-bottom:1px solid #ccc;
     padding-bottom: 10px;
+    font-weight: 400;
   }
 
   .details-wrapper {
@@ -819,7 +813,57 @@ $bg-secondary: color(secondary, $colors-background);
 
   .prd_tab_section {
     margin-top: 50px;
+    margin-bottom: 30px;
   }
 
+  .related_prd_div {
+      margin-bottom: 50px;
+  }
+ 
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .prd_detail_col{
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+  .prd_tab_section {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .related_prd_div .prd_lst_col {
+    margin-bottom: 15px;
+  }
+}
+
+
+</style>
+
+<style>
+  .related_prd_div .product {
+    background: #cecece;
+  }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 834px) {
+
+    .prd_detail_col{
+        padding-left: 20px ;
+        padding-right: 20px !important;
+    }
+    .prd_tab_section {
+      margin-top: 10px !important;
+      margin-bottom: 0px !important;
+    }
+    .related_prd_div .prd_lst_col {
+      margin-bottom: 15px !important;
+    }
+    .related_prd_div .product-listing {
+        justify-content: unset !important;
+    }
+  }
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
+      .prd_detail_col {
+        padding-left: 30px !important;
+      }
+  }
 </style>

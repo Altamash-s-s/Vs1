@@ -57,7 +57,7 @@
             {{ $t('Filter') }}
           </button-full>
         </div>
-        <div class="col-md-9 px10 border-box products-list">
+        <div class="col-md-12 px10 border-box products-list">
           <!-- <p class="col-xs-12 end-md m0 pb20 cl-secondary">
             {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
           </p> -->
@@ -67,10 +67,11 @@
             </h4>
             <p>{{ $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!') }}</p>
           </div>
-          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled" >
-            <product-listing  :columns="defaultColumn" :products="getCategoryProducts" :showPrice="shouldShowPrice" />
-          </lazy-hydrate>
-          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" :showPrice="shouldShowPrice" />
+          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
+        <!-- Pass category ID to ProductListing component -->
+        <product-listing :columns="defaultColumn" :products="getCategoryProducts" :categoryid="getCurrentCategory.id" />
+      </lazy-hydrate>
+      <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" :categoryid="getCurrentCategory.id" />
         </div>
       </div>
     </div>
@@ -134,11 +135,6 @@ export default {
     }
   },
   computed: {
-    shouldShowPrice() {
-      // Logic to determine whether to show price based on category ID
-      const saleCategoryId = 16; // Change this to your sale category ID
-      return this.getCurrentCategory.id === saleCategoryId;
-    },
     ...mapGetters({
       getCurrentSearchQuery: 'category-next/getCurrentSearchQuery',
       getCategoryProducts: 'category-next/getCategoryProducts',
@@ -147,10 +143,10 @@ export default {
       getAvailableFilters: 'category-next/getAvailableFilters'
     }),
     isLazyHydrateEnabled () {
-      return config.ssr.lazyHydrateFor.includes('category-next.products')
+      return config.ssr.lazyHydrateFor.includes('category-next.products');
     },
     isCategoryEmpty () {
-      return this.getCategoryProductsTotal === 0
+      return this.getCategoryProductsTotal === 0;
     }
   },
   async asyncData ({ store, route, context }) { // this is for SSR purposes to prefetch data - and it's always executed before parent component methods
@@ -263,19 +259,16 @@ export default {
     }
   }
 
-  @media (max-width: 64em) {
-    .products-list {
-      max-width: 530px;
-    }
-  }
 
   @media (max-width: 770px) {
     .category-title {
       margin: 0;
-      font-size: 36px;
+      font-size: 25px;
       line-height: 40px;
     }
-
+    .prd_lst_col {
+        margin-bottom: 20px;
+    }
     .products-list {
       width: 100%;
       max-width: none;
@@ -341,4 +334,24 @@ export default {
 .product-cover.bg-cl-secondary {
     background-color: #F1F2F7;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+
+  .pb60 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }   
+  .product-listing {
+    justify-content: unset !important;
+  }
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 991px) {
+
+  .prd_lst_col {
+    margin-bottom: 25px;
+  }
+
+}
+
 </style>

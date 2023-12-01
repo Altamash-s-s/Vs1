@@ -107,7 +107,6 @@ export default {
       this.$Progress.finish()
     })
     this.$bus.$on('offline-order-confirmation', this.onOrderConfirmation)
-
   },
   mounted () {
 
@@ -121,6 +120,20 @@ export default {
           $('#app').css('overflow-x','hidden');
           $('#viewport').css('overflow-x','hidden');
         }
+
+
+        // if ($('.dv3_inner').isInViewport()) {
+        //   $('.dv3_inner').addClass('dv3_sticky');
+        //   $('#app').css('overflow-x','clip');
+        //   $('#viewport').css('overflow-x','clip');
+        // }
+        // else {
+        //   $('.dv3_inner').removeClass('dv3_sticky');
+        //   $('#app').css('overflow-x','hidden');
+        //   $('#viewport').css('overflow-x','hidden');
+        // }
+
+        
     });
 
     $.fn.isInViewport = function() {
@@ -154,3 +167,17 @@ export default {
 </script>
 
 <style lang="scss" src="theme/css/main.scss"></style>
+
+
+<style>
+@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+
+  .pb60[data-v-1437de77] {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }   
+
+}
+
+
+</style>

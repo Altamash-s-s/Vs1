@@ -7,16 +7,16 @@
 
         <div class="product-img">
             <div class="pro-img-one">
-                <img class="img-one" src="../assets/giveaway/productA.jpg">
+                <img class="img-one" src="../assets/giveaway/black 2.png">
             </div>
             <div class="pro-img-two">
-                <img class="img-one" src="../assets/giveaway/productB.jpg">
+                <img class="img-one" src="../assets/giveaway/b2.png">
             </div>
             <div class="pro-img-three">
-                <img class="img-one" src="../assets/giveaway/productA.jpg">
+                <img class="img-one" src="../assets/giveaway/black1.png">
             </div>
             <div class="pro-img-four">
-                <img class="img-one" src="../assets/giveaway/productB.jpg">
+                <img class="img-one" src="../assets/giveaway/black 2.png">
             </div>
         </div>
 
@@ -142,5 +142,50 @@ button:hover .arrow {
 button:hover .arrow:before {
   right: 0;
 }
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
 
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+                .cstm-page-layout {
+                  padding: 0px 30px;
+              }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .product-img {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+.inside-hd {
+    margin-top: 26px;
+    font-size: 21px;
+}
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .product-img {
+    display: flex;
+    gap: 20px;
+    margin-top: 0px;
+    flex-wrap: wrap;
+}
+.inside-hd {
+    font-size: 21px;
+    line-height: 28px;
+    margin-top: 26px;
+}
+
+}
 </style>

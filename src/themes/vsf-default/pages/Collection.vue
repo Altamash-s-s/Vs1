@@ -5,8 +5,11 @@
                 <div class="parallax-image section5">
                     <!-- <video src="../static/homepage/home-video.mp4" playsinline autoplay muted loop></video> -->
                     <img class=top-img src="../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
+
                 </div>
+
             </div>
+
             
         </div>
         <div class="description-container">
@@ -17,11 +20,13 @@
         <div class="collection-section">
             <Collection_slider></Collection_slider>
         </div>
+
     </div>
 </template>
   
 <script>
 import Collection_slider from '../pages/Collection_slider.vue'
+
 export default {
     name: 'collection',
     data() {
@@ -49,16 +54,20 @@ export default {
         }
         const items = $('.bg_sec');
         let currentItemIndex = 0;
+
         // Function to remove the active class from all items
         function removeActiveClass() {
             items.removeClass('active');
         }
+
         // Function to add the active class to the current item
         function setActiveClass() {
             items.eq(currentItemIndex).addClass('active');
         }
+
         // Initial set active class
         setActiveClass();
+
         // Mouse wheel scroll event listener
         $('.dv3_inner').on('mousewheel', function (e) {
             // Check if the user scrolled up or down
@@ -84,14 +93,17 @@ export default {
                 $("#banner_video").prop('muted', false);
                 $('.mute_icon').show();
                 $('.unmute_icon').hide();
+
             } else {
                 $("#banner_video").prop('muted', true);
                 $('.mute_icon').hide();
                 $('.unmute_icon').show();
             }
         });
+
         const videoElement = document.querySelector('#banner_video');
         const playPauseButton = document.querySelector('.video-control');
+
         playPauseButton.addEventListener('click', () => {
             playPauseButton.classList.toggle('playing');
             if (playPauseButton.classList.contains('playing')) {
@@ -101,19 +113,25 @@ export default {
                 videoElement.play();
             }
         });
+
         videoElement.addEventListener('ended', () => {
             playPauseButton.classList.remove('playing');
         });
+
         window.addEventListener('load', videoScroll);
         window.addEventListener('scroll', videoScroll);
+
         function videoScroll() {
             var videoElements = document.querySelectorAll('#banner_video[autoplay]');
+
             if (videoElements.length > 0) {
                 var windowHeight = window.innerHeight;
+
                 videoElements.forEach(function (thisVideoEl) {
                     var videoElement = thisVideoEl;
                     var videoHeight = videoElement.clientHeight;
                     var videoClientRect = videoElement.getBoundingClientRect().top;
+
                     if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
                         videoElement.play();
                     } else {
@@ -127,6 +145,7 @@ export default {
     methods: {
     openFullScreenVideo() {
         const videoElement = document.getElementById("banner_video");
+
         if (videoElement) {
             if (videoElement.requestFullscreen) {
                 videoElement.requestFullscreen();
@@ -134,8 +153,13 @@ export default {
         }
     },
 },
+
+
+
 };
 </script>
+
+
 <style scoped>
 .mute_icon {
     display: none;
@@ -287,6 +311,7 @@ video {
     height: 100%;
     z-index: 2;
     transition: opacity .3s cubic-bezier(.39, .575, .565, 1);
+
 }
 .parallax-section .parallax-image {
     background-repeat: no-repeat;
@@ -347,15 +372,22 @@ p.dscrpt-txt {
     height: 100%;
 }
 @media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+
 }
+
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
 }
+
 @media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
 }
+
 @media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
 }
+
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+
 }
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
     .head-text{
        left: 35%;
@@ -365,7 +397,9 @@ p.dscrpt-txt {
     line-height: 25px;
     padding: 38px;
 }
+
 }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
     .head-text{
         left: 20%;
@@ -375,6 +409,7 @@ p.dscrpt-txt {
     line-height: 17px;
     padding: 50px;
     }
+
 .head-img-cl {
     left: 6%;
     bottom: 80px;
@@ -384,5 +419,16 @@ p.dscrpt-txt {
     margin-left: 16px;
     font-size: 35px;
 }
+
+
 }
 </style>
+
+
+
+
+
+
+
+
+

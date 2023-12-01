@@ -51,10 +51,10 @@
       v-if="!isCheckoutPage"
     >
 
-      <div class="container">
+      <div class="container footer_container">
         <div class="row m0 center-xs between-md">
           <div
-            class="row m0 col-lg-7 col-md-8 col-xs-12 start-md between-md between-xs no-mobile"
+            class="row m0 col-lg-10 col-md-8 col-xs-12 start-md between-md between-xs no-mobile links_row"
           >
             <div class="start-md">
               <h3 class="cl-accent weight-400">
@@ -101,7 +101,7 @@
             </div>
             <div class="start-md">
               <h3 class="cl-accent weight-400">
-                {{ $t('About us') }}
+                {{ $t('Quick Links') }}
               </h3>
               <div class="mt15">
                 <router-link class="cl-secondary" :to="localizedRoute('/about')" exact>
@@ -124,6 +124,14 @@
                   {{ $t('Collabration') }}
                 </router-link>
               </div>
+              
+            </div>
+            
+            <div class="start-md">
+              <h3 class="cl-accent weight-400 quick_link2" style="visibility: hidden;">
+                {{ $t('Quick Links') }}
+              </h3>
+
               <div class="mt15">
                 <router-link class="cl-secondary" :to="localizedRoute('/shipment-&-return')" exact>
                   {{ $t('Shipping & Return') }}
@@ -140,7 +148,7 @@
                 </router-link>
               </div>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/BlogCms')" exact>
+                <router-link class="cl-secondary" :to="localizedRoute('/blog')" exact>
                   {{ $t('Blog') }}
                 </router-link>
               </div>
@@ -164,13 +172,10 @@
                   {{ $t('collabrationSidebar') }}
                 </router-link>
               </div> -->
-              <div class="mt15">
-                <!-- Link to synced Magento Cms Page -->
-                <router-link class="cl-secondary" :to="localizedRoute('/cms-page-sync')" exact>
-                  {{ $t('Cms Page Sync') }}
-                </router-link>
-              </div>
+             
             </div>
+
+
           </div>
 
         </div>
@@ -320,22 +325,22 @@ footer {
 }
 .legal-entity-link {
   text-align: center;
-  @media (min-width: 768px) {
-    display: none;
-  }
+  // @media (min-width: 768px) {
+  //   display: none;
+  // }
 }
 
 .privacy-policy-link {
   text-align: right;
-  @media (min-width: 768px) {
-    display: none;
-  }
+  // @media (min-width: 768px) {
+  //   display: none;
+  // }
 }
 
 @media (max-width: 595px) {
-  .no-mobile {
-    display: none;
-  }
+  // .no-mobile {
+  //   display: none;
+  // }
 
   .social {
     margin-top: 0;
@@ -378,5 +383,46 @@ img.ft-heading {
 
 // Cstm Footer Css start end here
 
+
+</style>
+
+
+<style>
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .footer-hd img.ft-heading {
+    width: 75%;
+    padding: 40px 0;
+  }
+  .row.social.mt30{
+	  gap: 3px !important;
+  }
+  .social-icon{
+      width: 30px;
+      height: 30px;
+  }
+  .social-icon svg {
+      width: 30px;
+      height: 30px;
+  }
+  .footer-links {
+    padding: 15px 15px 25px 15px !important;
+  }
+  .links_row {
+    display: block !important;
+    text-align: left;
+  }
+  .footer_container {
+    width: 100%;
+  }
+  .quick_link2 {
+    display: none;
+  }
+  .links_row ~ div:nth-child(1) , .links_row ~ div:nth-child(2){
+    margin-bottom: 45px !important;
+  }
+
+}
 
 </style>

@@ -96,4 +96,7 @@ input.image_upload {
         line-height: 36px;
         margin-bottom: 0;
     }
+    .main-hd.main-hd {
+      padding-left: 0px !important;
+  }
     }

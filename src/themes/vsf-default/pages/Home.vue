@@ -1,88 +1,23 @@
 <template>
     <div id="home">
 
-
     <div class="fold_main">
+
+
       <!-- fold 1 -->
       <div class="header-main snap">
         <video autoplay muted loop>
           <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
         </video>
       </div>
-      <!-- fold 2 -->
-      <div class="parallax-section snap">
-        <div class="parallax-content">
-          <div class="head-text">
-            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              One liner</h2>
-
-            <a href="./Collection" class="section_btn">
-              <div class="">
-                <p>See More</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="parallax-image section1"></div>
-      </div>
-      <!-- fold 3 -->
+            <!-- linear Video  -->
       <div class="parallax-section snap">
         <div class="parallax-content">
           <div class="head-text">
             <!-- <h6 class="para">EYEWEAR</h6> -->
             <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              HA - WINTER</h2>
-            <a href="#" class="section_btn">
-              <div class="">
-                <p>See More</p>
-              </div>
-            </a>
-
-          </div>
-        </div>
-        <div class="parallax-image section2"></div>
-      </div>
-      <!-- fold 4 -->
-      <div class="parallax-section snap">
-        <div class="parallax-content">
-          <div class="head-text">
-            <!-- <h6 class="para">EYEWEAR</h6> -->
-            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              ABSTRACT</h2>
-            <a href="#" class="section_btn">
-              <div class="">
-                <p>See More</p>
-              </div>
-            </a>
-
-          </div>
-        </div>
-        <div class="parallax-image section3"></div>
-      </div>
-      <!-- fold 5 -->
-      <div class="parallax-section snap">
-        <div class="parallax-content">
-          <div class="head-text">
-            <!-- <h6 class="para">EYEWEAR</h6> -->
-            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              WINTER POP</h2>
-            <a href="#" class="section_btn">
-              <div class="">
-                <p>See More</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="parallax-image section4"></div>
-      </div>
-      <!-- fold 6 -->
-      <div class="parallax-section snap">
-        <div class="parallax-content">
-          <div class="head-text">
-            <!-- <h6 class="para">EYEWEAR</h6> -->
-            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              HA WINTER CRAFT</h2>
-            <a href="#" class="section_btn">
+              HA - ONELINER 23-24 </h2>
+            <a href="./liner-collection" class="section_btn">
               <div class="">
                 <p>See More</p>
               </div>
@@ -111,26 +46,76 @@
         <div class="parallax-image section5">
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
           <video id="banner_video" autoplay control muted loop>
-            <source src="/assets/home/home-video.mp4" type="video/mp4" />
+            <source src="/assets/home/1-liner-horizontal_4.mp4" type="video/mp4" />
           </video>
         </div>
 
       </div>
-      <!-- fold 7 -->
+
+     <!-- Winter Video  -->
       <div class="parallax-section snap">
         <div class="parallax-content">
           <div class="head-text">
+            <!-- <h6 class="para">EYEWEAR</h6> -->
             <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-            HA WINTER ART </h2>
-            <a href="#" class="section_btn">
+              HA - WINTER 23-24 </h2>
+            <a href="./winter-collection" class="section_btn">
+              <div class="">
+                <p>See More</p>
+              </div>
+            </a>
+
+
+          </div>
+
+          <div id="audio-control" class="muted">
+              <img src="/assets/icons/unmute.png" class="mute_icon">
+              <img src="/assets/icons/mute.png" class="unmute_icon">
+            </div>
+
+            <div class="video-control">
+              <div class="video-control-play">
+                <div class="video-control-symbol" aria-hidden="true">
+                  <img class="play-img" src="/assets/icons/play-1.png"></div>
+              </div>
+              <div class="video-control-pause">
+                <div class="video-control-symbol" aria-hidden="true">
+                  <img class="pause-img" src="/assets/icons/pause-1.png"></div>
+              </div>
+            </div>
+
+        </div>
+        <div class="parallax-image section5">
+          <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
+          <video id="banner_video" autoplay control muted loop>
+            <source src="/assets/home/Winter-horizontal_2.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+      </div>
+      <!-- fold 2 -->
+      <div class="parallax-section snap">
+        <!-- <div class="parallax-content">
+          <div class="head-text">
+            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
+              HA - ONELINER 23-24</h2>
+
+            <a href="./Collection" class="section_btn">
               <div class="">
                 <p>See More</p>
               </div>
             </a>
           </div>
-
-        </div>
-        <div class="parallax-image section6"></div>
+        </div> -->
+        <div class="parallax-image section1"></div>
+      </div>
+      <!-- fold 3 -->
+      <div class="parallax-section snap">
+        <div class="parallax-image section2"></div>
+      </div>
+      <!-- fold 4 -->
+      <div class="parallax-section snap">
+        <div class="parallax-image section3"></div>
       </div>
       <!-- fold 8 -->
       <div class="marquee-box frame snap">
@@ -552,13 +537,6 @@ export default {
 // .fold_main {
 //     overflow: hidden;
 // }
-
-.fold_main {
-
-}
-.fold_main .snap {
-
-}
 .header-main video {
     width: 100%;
 }
@@ -619,13 +597,13 @@ body {
     background-attachment: fixed;
 }
 .section1 {
-    background-image: url('../assets/home/hs2.png');
+    background-image: url('../assets/home/Home-page-1.jpg');
 }
 .section2 {
-    background-image: url('../assets/home/hs6.png');
+    background-image: url('../assets/home/Home-page-2.jpg');
 }
 .section3 {
-    background-image: url('../assets/home/hs1.png');
+    background-image: url('../assets/home/Home-page-3.jpg');
 }
 .section4 {
     background-image: url('../assets/home/hs11.png');
@@ -767,6 +745,10 @@ h6.para {
     position: absolute;
     bottom: 60px;
 }
+#banner_video {
+    width: 100%;
+    height: 100vh;
+}
 .parallax-section .parallax-content {
     -webkit-box-align: center;
     -moz-box-align: center;
@@ -794,7 +776,7 @@ h6.para {
     z-index: 2;
 }
 .parallax-section .parallax-image {
-    background-repeat: no-repeat;
+    background-repeat: round;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

@@ -9,7 +9,7 @@ const Compare = () => import(/* webpackChunkName: "vsf-compare" */ 'theme/pages/
 const MyAccount = () => import(/* webpackChunkName: "vsf-my-account" */ 'theme/pages/MyAccount.vue')
 const Static = () => import(/* webpackChunkName: "vsf-static" */ 'theme/pages/Static.vue')
 const ResetPassword = () => import(/* webpackChunkName: "vsf-reset-password" */ 'theme/pages/ResetPassword.vue');
-const About = () => import(/* webpackChunkName: "vsf-about" */ 'theme/pages/About.vue');
+const About = () => import(/* webpackChunkName: "vsf-about" */ 'theme/Insied-Page/About.vue');
 const Collection = () => import(/* webpackChunkName: "vsf-collection" */ 'theme/pages/Collection.vue');
 const Career = () => import(/* webpackChunkName: "vsf-career" */ 'theme/pages/Career.vue');
 const Collabration = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Collabration.vue');
@@ -25,14 +25,42 @@ const WashCarePopup = () => import(/* webpackChunkName: "vsf-washcarepopup" */ '
 const CareerForm = () => import(/* webpackChunkName: "vsf-careerform" */ 'theme/forms/CareerForm.vue');
 const CareerSidebar = () => import(/* webpackChunkName: "vsf-careersidebar" */ 'theme/forms/CareerSidebar.vue');
 const CustomerFeedback = () => import(/* webpackChunkName: "vsf-customerfeedback" */ 'theme/pages/CustomerFeedback.vue');
-const BlogCms = () => import(/* webpackChunkName: "vsf-blogcms" */ 'theme/pages/BlogCms.vue');
+const Blog = () => import(/* webpackChunkName: "vsf-blog" */ 'theme/pages/Blog.vue');
 const New = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/New.vue');
+const HopeBlog = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HopeBlog.vue');
+const Abstract = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/Abstract.vue');
+const codelife = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/codelife.vue');
+const HumanAI = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HumanAI.vue');
+const WhoCare = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/WhoCare.vue');
+const Dragonfly = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/Dragonfly.vue');
+const HABranding = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HABranding.vue');
+const HandGestures = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HandGestures.vue');
+const LoveWithoutLimits = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/LoveWithoutLimits.vue');
+const MultipleIs = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/MultipleIs.vue');
+const NotLazy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/NotLazy.vue');
+const WarmEmbrace = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/WarmEmbrace.vue');
+const HotSpicy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HotSpicy.vue');
+
+const WinterCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/collection/WinterCollection.vue');
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
   { name: 'about', path: '/about', component: About },
   { name: 'new', path: '/new', component: New },
-  { name: 'blogcms', path: '/blogcms', component: BlogCms },
+  { name: 'blog', path: '/blog', component: Blog },
+  { name: 'whocare', path: '/whocare', component: WhoCare },
+  { name: 'multipleis', path: '/multipleis', component: MultipleIs },
+  { name: 'hotspicy', path: '/hotspicy', component: HotSpicy },
+  { name: 'warmembrace', path: '/warmembrace', component: WarmEmbrace },
+  { name: 'notlazy', path: '/notlazy', component: NotLazy },
+  { name: 'dragonfly', path: '/dragonfly', component: Dragonfly },
+  { name: 'lovewithoutlimits', path: '/lovewithoutlimits', component: LoveWithoutLimits },
+  { name: 'handgestures', path: '/handgestures', component: HandGestures },
+  { name: 'habranding', path: '/habranding', component: HABranding },
+  { name: 'hopeblog', path: '/hopeblog', component: HopeBlog },
+  { name: 'codelife', path: '/codelife', component: codelife },
+  { name: 'humanai', path: '/humanai', component: HumanAI },
+  { name: 'abstract', path: '/abstract', component: Abstract },
   { name: 'customerfeedback', path: '/customerfeedback', component: CustomerFeedback },
   { name: 'productcare', path: '/productcare', component: ProductCare },
   { name: 'careersidebar', path: '/careersidebar', component: CareerSidebar },
@@ -43,7 +71,8 @@ let routes = [
   { name: 'collabrationform', path: '/collabrationform', component: collabrationForm },
   { name: 'collabrationsidebar', path: '/collabrationsidebar', component: collabrationSidebar },
   { name: 'giveaway_from', path: '/giveaway_from', component: Giveaway_from },
-  { name: 'collection', path: '/collection', component: Collection },
+  { name: 'WinterCollection', path: '/winter-collection', component: WinterCollection },
+  { name: 'collection', path: '/liner-collection', component: Collection },
   { name: 'career', path: '/career', component: Career },
   { name: 'collabration', path: '/collabration', component: Collabration },
   { name: 'shipment_return', path: '/shipment-&-return', component: Shipment_return },
@@ -70,7 +99,7 @@ let routes = [
   { name: 'order-from-catalog', path: '/order-from-catalog', component: Static, props: { page: 'lorem', title: 'Order from catalog' } },
   { name: 'contact', path: '/contact', component: Static, props: { page: 'contact', title: 'Contact' } },
   { name: 'compare', path: '/compare', component: Compare, props: { title: 'Compare Products' } },
-  { name: 'error', path: '/error', component: ErrorPage, meta: { layout: 'minimal' } },
+  { name: 'error', path: '/error', component: ErrorPage },
   { name: 'virtual-product', path: '/p/:parentSku/:slug', component: Product }, // :sku param can be marked as optional with ":sku?" (https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L16), but it requires a lot of work to adjust the rest of the site
   { name: 'bundle-product', path: '/p/:parentSku/:slug', component: Product }, // :sku param can be marked as optional with ":sku?" (https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L16), but it requires a lot of work to adjust the rest of the site
   { name: 'simple-product', path: '/p/:parentSku/:slug', component: Product }, // :sku param can be marked as optional with ":sku?" (https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L16), but it requires a lot of work to adjust the rest of the site

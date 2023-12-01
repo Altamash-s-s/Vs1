@@ -1,5 +1,7 @@
+
 <template>
-  <button-full @click.native="addToCart(product)" :disabled="isProductDisabled" data-testid="addToCart">
+  <button-full @click.native="addToCart(product)" :disabled="isProductDisabled" data-testid="addToCart" class="addtocart_product"
+  >
     {{ $t('Add to cart') }}
   </button-full>
 </template>
@@ -58,3 +60,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.addtocart_product {
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+</style>

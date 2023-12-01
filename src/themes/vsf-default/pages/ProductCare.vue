@@ -1,7 +1,7 @@
 <template>
     <div id="productcare" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/img-1.png">
+            <img class="hd-img" src="../assets/home/care-fit.png">
         </div>
         <WashCarePopup v-if="showWashCarePopup" @close-popup="showWashCarePopup = false" />
         <DryCarePopup v-if="showDryCarePopup" @close-popup="showDryCarePopup = false" />
@@ -75,7 +75,7 @@
         </div>
 
 
-        <div class="main-section one">
+        <div class="main-section one bottom">
             <div class="video-part">
                 <video class="care-video" autoplay muted loop>
                     <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
@@ -213,17 +213,32 @@ export default {
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
 
     .content_part{
-    margin: -40px auto;
-}
-.care-head {
-    font-size: 30px !important;
-}
-.care-par {
-    font-size: 15px;
-}
-.care-btn{
-  padding: 15px;
-}
+    margin: -25px auto;
+    }
+    .care-head {
+        font-size: 25px !important;
+    }
+    .care-par {
+        font-size: 15px;
+    }
+    .care-btn{
+    padding: 15px;
+    }
+    .main-section.one.top {
+    margin-top: 50px;
+    }
+    .main-section.two{
+    margin-top: 100px;
+    }
+    .main-section.one{
+    margin-top: 100px;
+    }
+    .content_part{
+    padding-left: 0;
+    }
+    .main-section.one.bottom {
+    margin-bottom: 100px;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -251,20 +266,29 @@ export default {
     .main-section.one{
     margin-top: 0px;
 
-}
-.main-section.two {
-    margin-top: 0px;
-}
-.main-section.one.top {
-    margin-top: 50px;
-}
-.care-video {
-    width: 90%;
-}
-.content_part.two{
-    padding-left: 15px;
-}
-
+    }
+    .main-section.two {
+        margin-top: 0px;
+    }
+    .main-section.one.top {
+        margin-top: 50px;
+    }
+    .care-video {
+        width: 90%;
+        padding-bottom: 30px;
+    }
+    .content_part.two{
+        padding-left: 15px;
+    }
+    .care-head {
+        font-size: 25px;
+    }
+    .care-par {
+        font-size: 16px;
+    }
+    .care-btn {
+    padding: 16px !important;
+    }
 
 }
 </style>

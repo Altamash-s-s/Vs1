@@ -1,7 +1,7 @@
 <template>
     <div id="career" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/img-1.png">
+            <img class="hd-img" src="../assets/home/join.png">
 
         </div>
         <div class="cr-head">

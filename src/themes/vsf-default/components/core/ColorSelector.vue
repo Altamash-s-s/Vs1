@@ -43,8 +43,9 @@ export default {
   $color-active: color(primary);
 
   .color {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+    border-radius: 0;
 
     &.active {
       border-color: $color-active;
@@ -52,8 +53,9 @@ export default {
   }
 
   .color-inside {
-    width: 34px;
-    height: 34px;
+    border-radius: 0;
+    width: 27px;
+    height: 27px;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%)

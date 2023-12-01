@@ -140,7 +140,7 @@
                 </router-link>
               </div>
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/BlogCms')" exact>
+                <router-link class="cl-secondary" :to="localizedRoute('/blog')" exact>
                   {{ $t('Blog') }}
                 </router-link>
               </div>

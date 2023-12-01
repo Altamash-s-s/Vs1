@@ -1,6 +1,6 @@
 <template>
   <section
-    class="py20 new-collection container px15"
+    class="py20 new-collection container px15 related_prd_div"
     v-if="getCurrentRelatedProducts.length"
   >
     <div>
@@ -31,7 +31,7 @@ export default {
     heading: {
       type: String,
       required: false,
-      default: i18n.t('Similar products')
+      default: i18n.t('Do not miss these Collections')
     }
   },
   components: {
@@ -100,3 +100,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.cl-accent{
+  color: #000;
+}
+
+</style>
