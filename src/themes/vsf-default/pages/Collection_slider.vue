@@ -1,7 +1,6 @@
 <template>
   <div class="dv3">
     <div class="dv3_inner">
-
       <!-- 1 -->
       <div class="bg bg1 bg_sec">
         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
@@ -11,9 +10,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/c1.png" />
+        <img class="model_img" src="/assets/collection/collection-3.png" />
       </div>
-
       <div class="bg bg1 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -22,9 +20,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/c1.png" />
+        <img class="model_img" src="/assets/collection/collection-3.png" />
       </div>
-
       <div class="bg bg1 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -33,9 +30,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/c1.png" />
+        <img class="model_img" src="/assets/collection/collection-3.png" />
       </div>
-
     
       <!-- 2 -->
       <div class="bg bg2 bg_sec">
@@ -46,10 +42,8 @@
             <p>See All</p>
           </div>
         </a>
-
-        <img class="model_img" src="/assets/collection/collection-2.png" />
+        <img class="model_img" src="/assets/collection/collection-6.png" />
       </div>
-
       <div class="bg bg2 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -58,10 +52,8 @@
             <p>See All</p>
           </div>
         </a>
-
-        <img class="model_img" src="/assets/collection/collection-2.png" />
+        <img class="model_img" src="/assets/collection/collection-6.png" />
       </div>
-
       <div class="bg bg2 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -70,11 +62,8 @@
             <p>See All</p>
           </div>
         </a>
-
-        <img class="model_img" src="/assets/collection/collection-2.png" />
+        <img class="model_img" src="/assets/collection/collection-6.png" />
       </div>
-
-
       <!-- 3 -->
       <div class="bg bg3 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
@@ -84,9 +73,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/collection-3.png" />
+        <img class="model_img" src="/assets/collection/c1.png" />
       </div>
-
       <div class="bg bg3 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -95,9 +83,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/collection-3.png" />
+        <img class="model_img" src="/assets/collection/c1.png" />
       </div>
-
       <div class="bg bg3 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -106,10 +93,8 @@
             <p>See All</p>
           </div>
         </a>
-        <img class="model_img" src="/assets/collection/collection-3.png" />
+        <img class="model_img" src="/assets/collection/c1.png" />
       </div>
-
-
       <!-- 4 -->
       <div class="bg bg4 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
@@ -121,7 +106,6 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-4.png" />
       </div>
-
       <div class="bg bg4 bg_sec">
        <!-- <h1 class="collection-hd">Human Abstract</h1> -->
        <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -132,7 +116,6 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-4.png" />
       </div>
-
       <div class="bg bg4 bg_sec">
          <!-- <h1 class="collection-hd">Human Abstract</h1> -->
          <img class="head-img-cl" src="../assets/collection/ha_text.svg">
@@ -143,85 +126,15 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-4.png" />
       </div>
-
-
       <!-- 5 -->
-      <div class="bg bg5 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-5.png" />
-      </div>
-
-      <div class="bg bg5 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-5.png" />
-      </div>
-
-      <div class="bg bg5 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-5.png" />
-      </div>
-
+ 
       <!-- 6 -->
-      <div class="bg bg6 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-6.png" />
-      </div>
-
-      <div class="bg bg6 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-        <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-6.png" />
-      </div>
-
-      <div class="bg bg6 bg_sec">
-        <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-        <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-6.png" />
-      </div>
-
-
-
-
+  
     </div>
   </div>
 </template>
 <script>
 export default {
-
 };
 </script>
 <style>
@@ -345,5 +258,45 @@ h1.collection-hd {
     top: 50%;
     left: 3%;
     height: auto !important; 
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .head-img-cl {
+    width: 600px !important;
+  }
+  .section_btn {
+    top: 60%;
+    left: 23%;
+  }
+  .dscrpt-txt{
+    font-size: 17px;
+}
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .bg .model_img {
+    object-position: right;
+  }
+  .head-img-cl {
+    width: 350PX !important;
+  }
+  .section_btn div p {
+    margin-left: 0px;
+  }
+  .section_btn {
+    padding: 14px 24px;
+    top: 56%;
+    left: 14%;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
 }
 </style>

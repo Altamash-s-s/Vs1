@@ -820,9 +820,6 @@ $bg-secondary: color(secondary, $colors-background);
   .prd_tab_section {
     margin-top: 50px;
   }
-  .flex-dsc div{
-    display: flex;
-    padding: 7px;
-}
+
 
 </style>

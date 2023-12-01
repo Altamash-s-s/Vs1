@@ -2,44 +2,11 @@
     <div>
         <div class="video-element">
             <div class="parallax-section snap">
-                <div class="parallax-content">
-                    <div class="head-text">
-                        <!-- <h6 class="para">EYEWEAR</h6> -->
-                        <h2 class="text-hd"> One Linear</h2>
-                        <a href="#" class="section_btn" @click="openFullScreenVideo">
-                            <div class="">
-                                <p>See The Film</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div id="audio-control" class="muted">
-                        <img src="../assets/icons/unmute.png" class="mute_icon">
-                        <img src="../assets/icons/mute.png" class="unmute_icon">
-                    </div>
-
-                    <div class="video-control">
-                        <span class="video-control-play">
-                            <span class="video-control-symbol" aria-hidden="true"><img class="play-img"
-                                    src="../assets/icons/play-1.png"></span>
-                        </span>
-                        <span class="video-control-pause">
-                            <span class="video-control-symbol" aria-hidden="true"><img class="pause-img"
-                                    src="../assets/icons/pause-1.png"></span>
-                        </span>
-                    </div>
-
-                </div>
                 <div class="parallax-image section5">
                     <!-- <video src="../static/homepage/home-video.mp4" playsinline autoplay muted loop></video> -->
-                    <video id="banner_video" autoplay muted loop>
-                        <source src="/assets/home/home-video.mp4" type="video/mp4" />
-                    </video>
-
+                    <img class=top-img src="../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
                 </div>
-
             </div>
-
             
         </div>
         <div class="description-container">
@@ -50,13 +17,11 @@
         <div class="collection-section">
             <Collection_slider></Collection_slider>
         </div>
-
     </div>
 </template>
   
 <script>
 import Collection_slider from '../pages/Collection_slider.vue'
-
 export default {
     name: 'collection',
     data() {
@@ -82,39 +47,18 @@ export default {
             $('#app').css('overflow-x','hidden');
             $('#viewport').css('overflow-x','hidden');
         }
-
-        $('a').click(function(){
-            console.log('collection Button Trigger');
-            var pathname = window.location.pathname;
-            if(pathname === '/collection'){
-                $('#app').css('overflow-x','clip');
-                $('#viewport').css('overflow-x','clip');
-            }
-            else if(pathname === '/Collection'){
-                $('#app').css('overflow-x','clip');
-                $('#viewport').css('overflow-x','clip');
-            }
-            else if(pathname != '/collection'){ 
-                $('#app').css('overflow-x','hidden');
-                $('#viewport').css('overflow-x','hidden');
-            }
-        });
         const items = $('.bg_sec');
         let currentItemIndex = 0;
-
         // Function to remove the active class from all items
         function removeActiveClass() {
             items.removeClass('active');
         }
-
         // Function to add the active class to the current item
         function setActiveClass() {
             items.eq(currentItemIndex).addClass('active');
         }
-
         // Initial set active class
         setActiveClass();
-
         // Mouse wheel scroll event listener
         $('.dv3_inner').on('mousewheel', function (e) {
             // Check if the user scrolled up or down
@@ -140,17 +84,14 @@ export default {
                 $("#banner_video").prop('muted', false);
                 $('.mute_icon').show();
                 $('.unmute_icon').hide();
-
             } else {
                 $("#banner_video").prop('muted', true);
                 $('.mute_icon').hide();
                 $('.unmute_icon').show();
             }
         });
-
         const videoElement = document.querySelector('#banner_video');
         const playPauseButton = document.querySelector('.video-control');
-
         playPauseButton.addEventListener('click', () => {
             playPauseButton.classList.toggle('playing');
             if (playPauseButton.classList.contains('playing')) {
@@ -160,25 +101,19 @@ export default {
                 videoElement.play();
             }
         });
-
         videoElement.addEventListener('ended', () => {
             playPauseButton.classList.remove('playing');
         });
-
         window.addEventListener('load', videoScroll);
         window.addEventListener('scroll', videoScroll);
-
         function videoScroll() {
             var videoElements = document.querySelectorAll('#banner_video[autoplay]');
-
             if (videoElements.length > 0) {
                 var windowHeight = window.innerHeight;
-
                 videoElements.forEach(function (thisVideoEl) {
                     var videoElement = thisVideoEl;
                     var videoHeight = videoElement.clientHeight;
                     var videoClientRect = videoElement.getBoundingClientRect().top;
-
                     if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
                         videoElement.play();
                     } else {
@@ -192,7 +127,6 @@ export default {
     methods: {
     openFullScreenVideo() {
         const videoElement = document.getElementById("banner_video");
-
         if (videoElement) {
             if (videoElement.requestFullscreen) {
                 videoElement.requestFullscreen();
@@ -200,14 +134,9 @@ export default {
         }
     },
 },
-
-
-
 };
 </script>
-
-
-<style>
+<style scoped>
 .mute_icon {
     display: none;
 }
@@ -285,7 +214,7 @@ img.unmute_icon {
     left: 40%;
 }
 h2.text-hd {
-    margin-left: 40px;
+    margin-left: 6px;
 }
 .section_btn {
     background-color: rgba(25, 17, 11, .2);
@@ -352,14 +281,12 @@ video {
 .parallax-section::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 1px;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-image: linear-gradient(0deg, rgb(0 0 0 / 82%) 0, transparent);
     transition: opacity .3s cubic-bezier(.39, .575, .565, 1);
-
 }
 .parallax-section .parallax-image {
     background-repeat: no-repeat;
@@ -415,13 +342,47 @@ p.dscrpt-txt {
     line-height: 34px;
     font-weight: 300;
 }
+.top-img{
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .head-text{
+       left: 35%;
+    }
+    p.dscrpt-txt{
+    font-size: 14px;
+    line-height: 25px;
+    padding: 38px;
+}
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .head-text{
+        left: 20%;
+    }
+    p.dscrpt-txt{
+    font-size: 14px;
+    line-height: 17px;
+    padding: 50px;
+    }
+.head-img-cl {
+    left: 6%;
+    bottom: 80px;
+    width: 381px;
+    }
+    h2.text-hd{
+    margin-left: 16px;
+    font-size: 35px;
+}
+}
 </style>
-
-
-
-
-
-
-
-
-
