@@ -1,5 +1,8 @@
 <template>
   <div id="product" >
+
+    <storypopup v-if="showstorypopup" @close-popup="showstorypopup = false" />
+
     <video class="product-video" autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>  
@@ -142,6 +145,19 @@
                   class="col-xs-12 col-sm-4 col-md-6"
                 />
               </div>
+
+              <!-- <div class="popup-story">
+                <button class="care-btn" @click="showstorypopup = true">Read Story</button>
+              </div> -->
+
+              <button id="story_btn">Read Story</button>
+
+              <div id="story_overlay"></div>
+              <div id="story_container">
+                  <button class="popup-cancel" id="close-btn">&#10005;</button>
+                  <div v-html="getCurrentProduct.product_story"></div> 
+              </div>
+          
               <!-- <div class="row py40 add-to-buttons">
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToWishlist :product="getCurrentProduct" />
@@ -205,6 +221,8 @@
       <related-products type="related" />
     </lazy-hydrate>
     <SizeGuide :size_chart="getCurrentProduct.size_guide" />
+
+    
     <script v-html="getJsonLd" type="application/ld+json" />
   </div>
 </template>
@@ -250,6 +268,8 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
+import storypopup from './storypopup.vue'
+
 export default {
   components: {
     AddToCart,
@@ -271,7 +291,8 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice
+    ProductPrice,
+    storypopup
   },
   mixins: [ProductOption],
   directives: { focusClean },
@@ -286,7 +307,8 @@ export default {
       quantityError: false,
       isStockInfoLoading: false,
       hasAttributesLoaded: false,
-      manageQuantity: true
+      manageQuantity: true,
+      showstorypopup: false,
     }
   },
   computed: {
@@ -368,6 +390,16 @@ export default {
           console.log('class not found');
         }
         
+      });
+
+      $("#story_btn").click(function() {
+          $("#story_overlay").fadeIn(300);
+          $("#story_container").fadeIn(300);
+      });
+
+      $("#close-btn, #story_overlay").click(function() {
+          $("#story_overlay").fadeOut(300);
+          $("#story_container").fadeOut(300);
       });
       
       $('.tab-navigation button').click(function(){
@@ -502,6 +534,65 @@ $color-secondary: color(secondary);
 $color-white: color(white);
 $bg-secondary: color(secondary, $colors-background);
 
+#story_container {
+  display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 100%;
+    max-height: 80%;
+    overflow: auto;
+    height: 500px;
+    width: 800px;
+    z-index: 5;
+
+}
+
+#story_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#close-btn {
+  position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 19px;
+
+}
+button#story_btn {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: transparent;
+    border: none;
+    margin-top: 36px;
+    border-bottom: 1px solid;
+    padding: 0;
+    padding-bottom: 2px;
+}
+#story_container p {
+    font-size: 14px;
+    line-height: 21px;
+}
 .prd_detail_col {
   padding-left: 50px;
 }
@@ -629,7 +720,7 @@ $bg-secondary: color(secondary, $colors-background);
   }
 }
 
-.details-overlay {
+.details-story_overlay {
   @media (max-width: 767px) {
     position: absolute;
     height: 75%;
@@ -819,7 +910,6 @@ $bg-secondary: color(secondary, $colors-background);
   .related_prd_div {
       margin-bottom: 50px;
   }
- 
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
@@ -843,6 +933,47 @@ $bg-secondary: color(secondary, $colors-background);
   .related_prd_div .product {
     background: #cecece;
   }
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+  #story_container
+  {
+    top: 45% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+  #story_container
+  {
+    top: 45% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+  #story_container
+  {
+    top: 45% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+  #story_container
+  {
+    top: 48% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+  #story_container
+  {
+    top: 48% !important;
+  }
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+
+
   @media only screen and (min-device-width: 320px) and (max-device-width: 834px) {
 
     .prd_detail_col{
@@ -859,7 +990,16 @@ $bg-secondary: color(secondary, $colors-background);
     .related_prd_div .product-listing {
         justify-content: unset !important;
     }
+
+    #story_container{
+        top: 33% !important;
+        height: 400px !important;
+        width: 80% !important;
+    }
+
   }
+
+
 
   @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
       .prd_detail_col {

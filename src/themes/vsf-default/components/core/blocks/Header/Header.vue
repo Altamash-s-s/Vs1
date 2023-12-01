@@ -7,8 +7,9 @@
       <div class="header_container px40">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-2 middle-xs">
-            <div>
+            <div class="logo_dv">
               <hamburger-icon class="p15 icon  pointer" />
+              <img class="ha_logo" src="../../../../assets/logo.png"/>
             </div>
           </div>
           <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
@@ -147,6 +148,16 @@ export default {
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon-hover: color(secondary, $colors-background);
+
+.ha_logo {
+  width: 34px;
+}
+.logo_dv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .header_container {
   max-width:1850px;
   width: -webkit-fill-available;
@@ -228,8 +239,10 @@ header {
   .header_container {
     padding: 0 20px;
   }
+  .logo_dv img{
+    display: none;
+  }
 }
-
 
 
 </style>
