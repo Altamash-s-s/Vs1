@@ -25,13 +25,13 @@
             @click="closeMenu"
             class="brdr-bottom-1 brdr-cl-bg-secondary "
           >
-            <router-link
+            <a 
               class="block px25 py20 cl-accent no-underline col-xs fs-medium-small"
-              :to="localizedRoute('/')"
+              href='/'
               exact
             >
               {{ $t('Home') }}
-            </router-link>
+            </a >
           </li>
           <li
             class="brdr-bottom-1 brdr-cl-bg-secondary flex bg-cl-secondary"
@@ -49,13 +49,13 @@
                 :id="category.id"
                 :name="category.name"
               />
-              <router-link
+              <a 
                 v-else
                 class="px25 py20 cl-accent no-underline col-xs fs-medium-small"
-                :to="categoryLink(category)"
+                :href="categoryLink(category)"
               >
                 {{ category.name }}
-              </router-link>
+              </a >
             </div>
 
             <sub-category
@@ -70,39 +70,39 @@
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/sale')"
               exact
             >
               {{ $t('Sale') }}
-            </router-link>
+            </a >
           </li>  -->
           <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/magazine')"
               exact
             >
               {{ $t('Magazine') }}
-            </router-link>
+            </a >
           </li> -->
           <li
             v-if="compareIsActive && isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/compare')"
+              href='/compare'
               exact
             >
               {{ $t('Compare products') }}
-            </router-link>
+            </a >
           </li>
           <li
             @click="login"

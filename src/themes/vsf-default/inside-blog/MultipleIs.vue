@@ -1,11 +1,27 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-I'S.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Multiple I'S</span></h3>
+          <h2 class="blg-title">The 'I' Within Our Shared Humanity </h2>
+          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-I'S.jpg">
     </div>
 
+    <div class="main-section blog">
+      <div class="social-media">
+
+              <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+
+              <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+
+              <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+
+              <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+        </div>
+
+
+      
     <div class="blg-section">
-         <h2 class="blg-title">The 'I' Within Our Shared Humanity </h2>
+        
 
         <p class="blg-parapragh">Amidst the ceaseless energy, where life moves at a frenzied pace– whispers are hushed. This silent message transcends words and finds its expression in everyday life. It's a story about the complexities of human identity and the shared humanity that binds us all, regardless of age, emotions, or background.  </p>
 
@@ -39,7 +55,7 @@
                 
         <p class="blg-parapragh">Remember that we're all in this together navigating the complex, colorful labyrinth of life. It's an invitation to embrace your 'I' and celebrate the 'Multiple I's' that unite us, regardless of where we're from or where we're headed. Cause the 'I' in the mirror is the 'I' in them, the 'I' in you and the 'I' in us all. </p>
 
-        <h3 class="blg-short-title bottom-brdr">Summary (For lookbook and website)</h3>
+        <h3 class="blg-summary-title bottom-brdr">Summary (For lookbook and website)</h3>
 
         <h3 class="blg-short-title">The 'I' Within Our Shared Humanity. </h3>
                         
@@ -48,6 +64,8 @@
         <p class="blg-parapragh">Our design philosophy transcends differences, encouraging reflection on the essence of human identity. The typography-based design seamlessly weaves these 'I's together, symbolizing the unity in diversity.  </p>
 
         <p class="blg-parapragh">Beyond fashion, our commitment to the environment echoes in every step. As you wear this unique canvas of stories, remember that your 'I' is both personal and universal, a note in the symphony of life. We are all in this colorful labyrinth together, celebrating 'Multiple I's.'</p>
+    </div>
+
     </div>
 
 
@@ -62,6 +80,34 @@ import './blog.css'
 
 export default {
   name: 'multipleis',
+
+  mounted () {
+
+          $(window).on('resize scroll', function() {  
+
+              if ($('.social-media').isInViewport()) {
+                $('.social-media').addClass('social-sticky');
+                $('#app').css('overflow-x','clip');
+                $('#viewport').css('overflow-x','clip');
+              } else {
+                $('.social-media').removeClass('social-sticky');
+                $('#app').css('overflow-x','hidden');
+                $('#viewport').css('overflow-x','hidden');
+              }
+
+              
+          });
+
+          $.fn.isInViewport = function() {
+              var elementTop = $(this).offset().top;
+              var elementBottom = elementTop + $(this).outerHeight();
+              var viewportTop = $(window).scrollTop();
+              var viewportBottom = viewportTop + $(window).height();
+              return elementBottom > viewportTop && elementTop < viewportBottom;
+          };
+
+
+          },
 
 };
 </script>

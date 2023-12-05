@@ -1,11 +1,25 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-ABSTRACT FACES.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Abstract Human Face</span></h3>
+           <h2 class="blg-title">Unraveling the Multifaceted You</h2>
+      <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-ABSTRACT FACES.jpg">
     </div>
 
+    <div class="main-section blog">
+
+      <div class="social-media">
+
+            <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+
+            <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+
+            <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+
+            <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+      </div>
+
     <div class="blg-section">
-         <h2 class="blg-title">Unraveling the Multifaceted You</h2>
 
         <p class="blg-parapragh">In a world that often seems to be moving at the speed of light, there is something extraordinary in slowing down and observing the intricacies of our surroundings.Human faces, the very windows to the soul, can tell tales that are both profound and multifaceted. We're living in a world where faces cease to be mere masks of skin and bones, and instead, emerge as vibrant works of art weaving together the intricate threads of human emotions and identity.</p>
 
@@ -33,7 +47,7 @@
 
         <p class="blg-parapragh">In a world where superficiality often takes the stage, we offer a glimpse into the profound. We invite you to connect, reflect, and celebrate the beautiful complexity of emotions and the many faces of our identity, a testament to the depth and diversity of the human experience. After all, we are all Abstract Human Faces, waiting to be understood, cherished, and celebrated.</p>
 
-        <h3 class="blg-short-title bottom-brdr">Summary (For lookbook and website)</h3>
+        <h3 class="blg-summary-title bottom-brdr">Summary (For lookbook and website)</h3>
 
         <h3 class="blg-short-title">Unraveling the Multifaceted You</h3>
                         
@@ -48,6 +62,12 @@
 
     </div>
 
+  
+
+    </div>
+
+
+
 
 
     </div>
@@ -61,11 +81,36 @@ import './blog.css'
 export default {
   name: 'hopeblog',
 
+  mounted () {
+
+$(window).on('resize scroll', function() {  
+
+    if ($('.social-media').isInViewport()) {
+      $('.social-media').addClass('social-sticky');
+      $('#app').css('overflow-x','clip');
+      $('#viewport').css('overflow-x','clip');
+    } else {
+      $('.social-media').removeClass('social-sticky');
+      $('#app').css('overflow-x','hidden');
+      $('#viewport').css('overflow-x','hidden');
+    }
+
+    
+});
+
+$.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
 };
+
+
+},
+
+};
+
+
 </script>
 
-<style>
-
-
-
-</style>

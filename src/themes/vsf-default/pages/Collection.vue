@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="video-element">
-            <div class="parallax-section snap">
+            <div class="parallax-section snap first_fold">
                 <div class="parallax-image section5">
                     <!-- <video src="../static/homepage/home-video.mp4" playsinline autoplay muted loop></video> -->
                     <img class=top-img src="../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
@@ -39,6 +39,33 @@ export default {
     },
     mounted () {
         //------------------------------------- Custom JS Code START Here
+
+        $(window).on('resize scroll', function() {
+
+            if ($('.dv3_inner').isInViewport()) {
+            $('.dv3_inner').addClass('dv3_sticky');
+            $('#app').css('overflow-x','clip');
+            $('#viewport').css('overflow-x','clip');
+            }
+            else {
+            $('.dv3_inner').removeClass('dv3_sticky');
+            $('#app').css('overflow-x','hidden');
+            $('#viewport').css('overflow-x','hidden');
+            }
+
+        });
+
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+
+
+
         var pathname = window.location.pathname;
         if(pathname === '/collection'){
             $('#app').css('overflow-x','clip');
@@ -281,8 +308,8 @@ h2.text-hd {
     margin-left: 7px;
     transition: all 0.4s;
 }
-.parallax-section {
-    height: 90vh;
+.parallax-section.snap.first_fold {
+    height: 100vh;
     overflow: visible;
     position: relative;
 }
@@ -386,6 +413,10 @@ p.dscrpt-txt {
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
 
+    .parallax-section.snap.first_fold{
+        height: 100vh;
+    }
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
@@ -393,10 +424,13 @@ p.dscrpt-txt {
        left: 35%;
     }
     p.dscrpt-txt{
-    font-size: 14px;
-    line-height: 25px;
-    padding: 38px;
-}
+        font-size: 14px;
+        line-height: 25px;
+        padding: 38px;
+    }
+    .parallax-section.snap.first_fold{
+        height: 100vh;
+    }
 
 }
 
@@ -405,21 +439,28 @@ p.dscrpt-txt {
         left: 20%;
     }
     p.dscrpt-txt{
-    font-size: 14px;
-    line-height: 17px;
-    padding: 50px;
+        font-size: 14px;
+        line-height: 17px;
+        padding: 50px;
     }
 
-.head-img-cl {
-    left: 6%;
-    bottom: 80px;
-    width: 381px;
+    .head-img-cl {
+        left: 6%;
+        bottom: 80px;
+        width: 381px;
     }
     h2.text-hd{
-    margin-left: 16px;
-    font-size: 35px;
-}
+        margin-left: 16px;
+        font-size: 35px;
+    }
 
+    .parallax-section.snap.first_fold{
+        height: 96vh;
+    }
+    .top-img {
+    object-fit: cover;
+    object-position: left;
+    }
 
 }
 </style>

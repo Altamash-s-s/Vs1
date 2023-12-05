@@ -9,7 +9,9 @@
           <div class="col-md-4 col-xs-2 middle-xs">
             <div class="logo_dv">
               <hamburger-icon class="p15 icon  pointer" />
-              <img class="ha_logo" src="../../../../assets/logo.png"/>
+              <a href="/">
+              <img  class="ha_logo" src="../../../../assets/logo.png"/>
+            </a>
             </div>
           </div>
           <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
@@ -157,16 +159,23 @@ $color-icon-hover: color(secondary, $colors-background);
     align-items: center;
     gap: 10px;
 }
-
 .header_container {
-  max-width:1850px;
-  width: -webkit-fill-available;
-  margin: auto;
-  background-color: rgba(0,0,0,.4);
+  max-width: 100%;
+    width: -webkit-fill-available;
+    margin: auto;
+    background-color: #0000002e;
+    height: 70px;
+    display: grid;
+    align-items: center;
+    transition: all 0.3s;
+}
+.header_container:hover {
+    background-color: #FFF;
+    cursor: pointer;
 }
 header {
   height: 54px;
-  top: -55px;
+  top: -70px;
   z-index: 3;
   transition: top 0.2s ease-in-out;
   &.is-visible {
@@ -185,9 +194,9 @@ header {
   //for edge
   float: right;
 }
-.header-placeholder {
-  height: 54px;
-}
+// .header-placeholder {
+//   height: 54px;
+// }
 .links {
   text-decoration: underline;
 }
@@ -243,6 +252,7 @@ header {
     display: none;
   }
 }
+
 
 
 </style>

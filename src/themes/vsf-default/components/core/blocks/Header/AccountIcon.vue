@@ -14,7 +14,8 @@
       type="button"
       class="bg-cl-transparent brdr-none p0"
     >
-      <i class="material-icons block">account_circle</i>
+      <!-- <i class="material-icons block">account_circle</i> -->
+      <img class="user-icon" src="../../../../assets/header/user.png">
     </button>
 
     <no-ssr>
@@ -121,5 +122,8 @@ $color-icon-hover: color(secondary, $colors-background);
     }
   }
 
+}
+.user-icon{
+  width: 24px;
 }
 </style>

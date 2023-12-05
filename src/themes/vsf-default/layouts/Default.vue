@@ -120,19 +120,6 @@ export default {
           $('#app').css('overflow-x','hidden');
           $('#viewport').css('overflow-x','hidden');
         }
-
-
-        // if ($('.dv3_inner').isInViewport()) {
-        //   $('.dv3_inner').addClass('dv3_sticky');
-        //   $('#app').css('overflow-x','clip');
-        //   $('#viewport').css('overflow-x','clip');
-        // }
-        // else {
-        //   $('.dv3_inner').removeClass('dv3_sticky');
-        //   $('#app').css('overflow-x','hidden');
-        //   $('#viewport').css('overflow-x','hidden');
-        // }
-
         
     });
 

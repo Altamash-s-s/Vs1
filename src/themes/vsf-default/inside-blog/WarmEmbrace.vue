@@ -1,11 +1,27 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-WARM EMBRACE.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Warm Embrace</span></h3>
+          <h2 class="blg-title">Embracing Inclusivity and Celebrating You!</h2>
+          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-WARM EMBRACE.jpg">
     </div>
 
-    <div class="blg-section">
-         <h2 class="blg-title">Embracing Inclusivity and Celebrating You!</h2>
+    <div class="main-section blog">
+
+      <div class="social-media">
+
+            <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+
+            <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+
+            <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+
+            <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+        </div>
+
+
+      <div class="blg-section">
+        
 
         <p class="blg-parapragh">In a world brimming with myriad emotions and experiences, we often seek ways to convey our values, beliefs, and the essence of who we are. In the heart of this quest, art becomes a powerful medium. It speaks to us through colors, shapes, and symbols, allowing us to connect on a deeper level with the world around us. It is in this spirit that we introduce "Warm Embrace" a transformative thought that transcends the boundaries of traditional fashion and opens the door to a world of symbolism, inclusivity, and vibrant energy. </p>
 
@@ -40,6 +56,12 @@
 
 
     </div>
+
+
+
+
+
+    </div>
 </template>
 
 <script>
@@ -49,6 +71,34 @@ import './blog.css'
 
 export default {
   name: 'warmembrace',
+
+  mounted () {
+
+            $(window).on('resize scroll', function() {  
+
+                if ($('.social-media').isInViewport()) {
+                  $('.social-media').addClass('social-sticky');
+                  $('#app').css('overflow-x','clip');
+                  $('#viewport').css('overflow-x','clip');
+                } else {
+                  $('.social-media').removeClass('social-sticky');
+                  $('#app').css('overflow-x','hidden');
+                  $('#viewport').css('overflow-x','hidden');
+                }
+
+                
+            });
+
+            $.fn.isInViewport = function() {
+                var elementTop = $(this).offset().top;
+                var elementBottom = elementTop + $(this).outerHeight();
+                var viewportTop = $(window).scrollTop();
+                var viewportBottom = viewportTop + $(window).height();
+                return elementBottom > viewportTop && elementTop < viewportBottom;
+            };
+
+
+},
 
 };
 </script>

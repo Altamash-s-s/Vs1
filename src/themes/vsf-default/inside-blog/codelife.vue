@@ -1,11 +1,25 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-CODE LIFE.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Code Life</span></h3>
+          <h2 class="blg-title">Cracking the Code of Life</h2>
+          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-CODE LIFE.jpg">
     </div>
 
-    <div class="blg-section">
-         <h2 class="blg-title">Cracking the Code of Life</h2>
+    <div class="main-section blog">
+      <div class="social-media">
+
+                <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+
+                <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+
+                <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+
+                <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+      </div>
+
+      <div class="blg-section">
+        
 
         <p class="blg-parapragh">In the digital realm, an intriguing life unfolds, hidden in plain sight—a life known intimately by those who navigate the intricate maze of code. It's a life that tests the mettle of problem solvers, ignites one’s creative spark, and often leaves us grinning in the face of perplexing puzzles. </p>
 
@@ -29,7 +43,7 @@
                 
         <p class="blg-parapragh">In conclusion, it's more than just a purchase; it's an invitation to be part of something greater. By embracing your inner coder, you become a member of a subtle, unspoken fraternity. We're not merely crafting products; we're shaping a greener, more responsible future , rooted in the idea of a world where art, culture, and craft come together and are celebrated. Join us in this collective experience, wear your values proudly, and contribute to a world where style and creativity go hand in hand. </p>
 
-        <h3 class="blg-short-title bottom-brdr">Summary (For lookbook and website)</h3>
+        <h3 class="blg-summary-title bottom-brdr">Summary (For lookbook and website)</h3>
 
         <h3 class="blg-short-title">Cracking the Code of Life:</h3>
                         
@@ -38,7 +52,11 @@
         <p class="blg-parapragh">It's more than a purchase; it's an invitation to a shared journey, where embracing your inner coder connects you to a subtle, unspoken fraternity. </p>
 
         <p class="blg-parapragh">We craft not just products but a sustainable future where art, culture, and craft unite. Join us, wear your values, and contribute to a world where style and creativity intertwine, celebrating life's challenges and triumphs.</p>
-    </div>
+      </div>
+
+  </div>
+
+
 
 
 
@@ -52,6 +70,34 @@ import './blog.css'
 
 export default {
   name: 'codelife',
+
+  mounted () {
+
+        $(window).on('resize scroll', function() {  
+
+            if ($('.social-media').isInViewport()) {
+              $('.social-media').addClass('social-sticky');
+              $('#app').css('overflow-x','clip');
+              $('#viewport').css('overflow-x','clip');
+            } else {
+              $('.social-media').removeClass('social-sticky');
+              $('#app').css('overflow-x','hidden');
+              $('#viewport').css('overflow-x','hidden');
+            }
+
+            
+        });
+
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+
+},
 
 };
 </script>

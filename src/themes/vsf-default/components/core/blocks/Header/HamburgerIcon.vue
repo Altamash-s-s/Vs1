@@ -17,3 +17,8 @@ export default {
   mixins: [HamburgerIcon]
 }
 </script>
+
+<style>
+
+
+</style>

@@ -1,20 +1,19 @@
 <template>
     <div>
         <div class="video-element">
-            <div class="parallax-section snap">
+            <div class="parallax-section winter_frst_fold">
                 <div class="parallax-image section5">
                     <!-- <video src="../static/homepage/home-video.mp4" playsinline autoplay muted loop></video> -->
                     <img class=top-img src="../../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
                 </div>
             </div>
-            
         </div>
-        <div class="description-container">
+        <div class="description-container winter_scnd_fold">
             <p class="dscrpt-txt">In publishing and graphic design, &amp;Lorem ipsum is a placeholder text commonly used to
                     demonstrate <br> The visual form of a document or a typeface without relying on meaningful content. <br>Lorem
                     ipsum may be used as a placeholder before final copy is available</p>
         </div>
-        <div class="collection-section">
+        <div class="collection-section winter_thrd_fold">
             <WinterCollectionSlider></WinterCollectionSlider>
         </div>
     </div>
@@ -34,6 +33,32 @@ export default {
     },
     mounted () {
         //------------------------------------- Custom JS Code START Here
+
+
+        $(window).on('resize scroll', function() {
+
+            if ($('.winter_collection .dv3_inner').isInViewport()) {
+                $('.winter_collection .dv3_inner').addClass('winter_sticky');
+                $('#app').css('overflow-x','clip');
+                $('#viewport').css('overflow-x','clip');
+            }
+            else {
+                $('.winter_collection .dv3_inner').removeClass('winter_sticky');
+                $('#app').css('overflow-x','hidden');
+                $('#viewport').css('overflow-x','hidden');
+            }
+
+        });
+
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+
         var pathname = window.location.pathname;
         if(pathname === '/collection'){
             $('#app').css('overflow-x','clip');
@@ -257,8 +282,8 @@ h2.text-hd {
     margin-left: 7px;
     transition: all 0.4s;
 }
-.parallax-section {
-    height: 90vh;
+.parallax-section.winter_frst_fold {
+    height: 100vh;
     overflow: visible;
     position: relative;
 }
@@ -308,44 +333,44 @@ video {
     width: 100%;
     z-index: 1;
 }
-.section_btn:hover div p {
-    margin-left: -6px;
-}
-.section_btn div img {
-    width: 20px;
-    margin-left: 7px;
-    display: none;
-}
-.section_btn div::after {
-    content: '';
-    background-image: url('/assets/icons/chevron-1.svg');
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: -2px;
-    right: -12px;
-    background-size: cover;
-    opacity: 0;
-    transition: all 0.4s;
-}
-.section_btn:hover div::after {
-    opacity: 1;
-}
-.description-container {
-    padding: 9.2% 0 9.2%;
-    background-color: #000;
-}
-p.dscrpt-txt {
-    color: #FFF;
-    text-align: center;
-    font-size: 24px;
-    line-height: 34px;
-    font-weight: 300;
-}
-.top-img{
-    width: 100%;
-    height: 100%;
-}
+    .section_btn:hover div p {
+        margin-left: -6px;
+    }
+    .section_btn div img {
+        width: 20px;
+        margin-left: 7px;
+        display: none;
+    }
+    .section_btn div::after {
+        content: '';
+        background-image: url('/assets/icons/chevron-1.svg');
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -2px;
+        right: -12px;
+        background-size: cover;
+        opacity: 0;
+        transition: all 0.4s;
+    }
+    .section_btn:hover div::after {
+        opacity: 1;
+    }
+    .description-container {
+        padding: 9.2% 0 9.2%;
+        background-color: #000;
+    }
+    p.dscrpt-txt {
+        color: #FFF;
+        text-align: center;
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 300;
+    }
+    .top-img{
+        width: 100%;
+        height: 100%;
+    }
 @media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
 }
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
@@ -355,34 +380,47 @@ p.dscrpt-txt {
 @media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
 }
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+    .parallax-section.winter_frst_fold{
+        height: 100vh;
+    }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
     .head-text{
-       left: 35%;
+        left: 35%;
     }
     p.dscrpt-txt{
-    font-size: 14px;
-    line-height: 25px;
-    padding: 38px;
-}
+        font-size: 14px;
+        line-height: 25px;
+        padding: 38px;
+    }
+    .parallax-section.winter_frst_fold{
+        height: 100vh;
+    }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
     .head-text{
         left: 20%;
     }
     p.dscrpt-txt{
-    font-size: 14px;
-    line-height: 17px;
-    padding: 50px;
+        font-size: 14px;
+        line-height: 17px;
+        padding: 50px;
     }
-.head-img-cl {
-    left: 6%;
-    bottom: 80px;
-    width: 381px;
+    .head-img-cl {
+        left: 6%;
+        bottom: 80px;
+        width: 381px;
     }
     h2.text-hd{
-    margin-left: 16px;
-    font-size: 35px;
-}
+        margin-left: 16px;
+        font-size: 35px;
+    }
+    .parallax-section.winter_frst_fold{
+        height: 96vh;
+    }
+    .top-img {
+    object-fit: cover;
+    object-position: left;
+    }
 }
 </style>

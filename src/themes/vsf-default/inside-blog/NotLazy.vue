@@ -1,11 +1,29 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-NOT LAZY.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Not Lazy, Just Resting Blog</span></h3>
+          <h2 class="blg-title">The Art of Downtime </h2>
+          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-NOT LAZY.jpg">
     </div>
 
+
+
+    <div class="main-section blog">
+      <div class="social-media">
+
+              <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+
+              <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+
+              <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+
+              <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+      </div>
+
+
+    
     <div class="blg-section">
-         <h2 class="blg-title">The Art of Downtime </h2>
+        
 
         <p class="blg-parapragh">In the relentless rhythm of today's world, each tick of the clock resonates with the hustle and bustle of life's incessant demands. Amidst this cacophony of ambition and the ceaseless pursuit of success, a silent rebellion has taken root—a celebration of stolen moments from the ticking hands of time. This creation is a visual manifesto, a deliberate reminder for us to embrace the art of downtime. </p>
 
@@ -35,11 +53,13 @@
         <p class="blg-parapragh">As an eco-conscious and sustainable brand, we weave threads of intentionality not just into our designs but into our commitment to a greener future. Wear your values, wear the art, and declare to the world that even in repose, your choices echo a commitment to a sustainable tomorrow. </p>
 
 
-        <h3 class="blg-short-title bottom-brdr">Summary (For lookbook and website)</h3>
+        <h3 class="blg-summary-title bottom-brdr">Summary (For lookbook and website)</h3>
                         
         <p class="blg-parapragh">This visual manifesto celebrates life's lighter side, inviting you to savor intentional rest amidst the relentless rhythm of today's world. Envision ageless Italian sculptures taking a break, infusing modern settings with classical charm—a testament to the universal need for a timeless pause. Step into our canvas, where carefully curated illustrations bring classical sculptures to life, embracing everyday leisure. "I AM ON A BREAK" boldly declares intentional rest, a celebration of balance and rejuvenation.  </p>
                                 
         <p class="blg-parapragh">Painting a vivid portrait of resilience, this garment embodies a mindset finely tuned to modern life's nuances. Embrace the philosophy, wear your values proudly and join a movement that champions intentional rest.</p>
+    </div>
+
     </div>
 
 
@@ -54,6 +74,33 @@ import './blog.css'
 
 export default {
   name: 'notlazy',
+  mounted () {
+
+        $(window).on('resize scroll', function() {  
+
+            if ($('.social-media').isInViewport()) {
+              $('.social-media').addClass('social-sticky');
+              $('#app').css('overflow-x','clip');
+              $('#viewport').css('overflow-x','clip');
+            } else {
+              $('.social-media').removeClass('social-sticky');
+              $('#app').css('overflow-x','hidden');
+              $('#viewport').css('overflow-x','hidden');
+            }
+
+            
+        });
+
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+
+},
 
 };
 </script>

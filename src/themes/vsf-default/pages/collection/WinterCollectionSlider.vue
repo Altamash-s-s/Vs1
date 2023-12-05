@@ -64,9 +64,7 @@
         </a>
         <img class="model_img" src="../../assets/collection/collection-5.png" />
       </div>
-      <!-- 5 -->
- 
-      <!-- 6 -->
+
   
     </div>
   </div>
@@ -79,22 +77,23 @@ export default {
 body {
   margin: 0;
 }
-.dv3 .winter_collection {
+.dv3.winter_collection {
   width: 100%;
-  min-height: 100vh;
+  min-height: 200vh;
   position: relative;
 }
 .dv3_inner {
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
-  
   width: 100%;
   height: 100vh;
   background:url('../../assets/collection/collection_bg1 (2).png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.winter_sticky {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
 }
 .bg {
   width: 100%;
@@ -112,7 +111,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: right;
   position: absolute;
   top: 0;
   z-index: -1;
@@ -124,7 +123,7 @@ h1.collection-hd {
   color: #FFFF;
   font-size: 67px;
 }
-.section_btn {
+.dv3_inner .section_btn {
   background-color: #FFF;
   border-color: #fff;
   border: 1px solid #FFF;
@@ -148,12 +147,12 @@ h1.collection-hd {
   top: 57%;
   left: 15%;
 }
-.section_btn:hover {
+.dv3_inner .section_btn:hover {
   background: #00000029;
   color: #FFF;
   border: 1px solid #FFF;
 }
-.section_btn div {
+.dv3_inner .section_btn div {
   width: 100%;
   float: left;
   display: flex;
@@ -161,20 +160,20 @@ h1.collection-hd {
   align-items: center;
   position: relative;
 }
-.section_btn div p {
+.dv3_inner .section_btn div p {
   margin: 0;
   margin-left: 12px;
   transition: all 0.4s;
 }
-.section_btn:hover div p {
+.dv3_inner .section_btn:hover div p {
   margin-left: -6px;
 }
-.section_btn div img {
+.dv3_inner .section_btn div img {
   width: 20px;
   margin-left: 7px;
   display: none;
 }
-.section_btn div::after {
+.dv3_inner .section_btn div::after {
   content: '';
   background-image: url('../../assets/icons/chevron-1.svg');
   position: absolute;
@@ -186,7 +185,7 @@ h1.collection-hd {
   opacity: 0;
   transition: all 0.4s;
 }
-.section_btn:hover div::after {
+.dv3_inner .section_btn:hover div::after {
   opacity: 1;
 }
 .head-img-cl {
@@ -210,66 +209,56 @@ h1.collection-hd {
   .head-img-cl {
     width: 600px !important;
   }
-  .section_btn {
+  .dv3_inner .section_btn {
     top: 60%;
     left: 23%;
   }
   .dscrpt-txt{
-    font-size: 19px !important;
-    line-height: 32px !important;
-}
-.parallax-section {
-    height: 60vh !important;
-}
-.bg .model_img {
-    object-fit: fill;
-    object-position: right;
-}
+      font-size: 19px !important;
+      line-height: 32px !important;
+  }
+  .bg .model_img {
+      object-fit: fill;
+      object-position: right;
+  }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
   .bg .model_img {
     object-position: right;
   }
   .head-img-cl {
-    width: 550PX !important;
+    width: 550px!important;
     left: 17%;
-    bottom: 15% !important;
+    bottom: 200px !important;
     top: auto;
   }
-  .section_btn div p {
+  .dv3_inner .section_btn div p {
     margin-left: 0px;
   }
-  .section_btn {
+  .dv3_inner .section_btn {
     padding: 14px 24px;
     top: auto;
     left: 42%;
-    bottom: 35px;
-}
-.parallax-section{
-    height: 45vh !important;
-}
+    bottom: 120px;
+  }
+
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
-  .parallax-section{
-    height: 25vh !important;
-  }
   .bg .model_img {
     object-position: right;
   }
   .head-img-cl {
-    width: 372px !important;
-    left: 6%;
-    bottom: 12%;
+    width: 320px !important;
+    left: 10%;
+    bottom: 25%;
     top: auto;
   }
-  .section_btn {
+  .dv3_inner .section_btn {
     top: auto;
-    bottom: 22px;
+    bottom: 128px;
     left: 31%;
-}
-
-
+  }
 }
 </style>

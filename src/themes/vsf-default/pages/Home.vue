@@ -1,17 +1,17 @@
 <template>
-    <div id="home">
+    <div id="home" class="home_page">
 
     <div class="fold_main">
 
 
       <!-- fold 1 -->
-      <div class="header-main snap">
+      <div class="header-main snap ss_section">
         <video autoplay muted loop>
           <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
         </video>
       </div>
             <!-- linear Video  -->
-      <div class="parallax-section snap">
+      <div class="parallax-section sec_overlay snap ss_section">
         <div class="parallax-content">
           <div class="head-text">
             <!-- <h6 class="para">EYEWEAR</h6> -->
@@ -53,7 +53,7 @@
       </div>
 
      <!-- Winter Video  -->
-      <div class="parallax-section snap">
+      <div class="parallax-section sec_overlay snap ss_section">
         <div class="parallax-content">
           <div class="head-text">
             <!-- <h6 class="para">EYEWEAR</h6> -->
@@ -93,8 +93,9 @@
         </div>
 
       </div>
+
       <!-- fold 2 -->
-      <div class="parallax-section snap">
+      <div class="parallax-section snap ss_section">
         <!-- <div class="parallax-content">
           <div class="head-text">
             <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
@@ -110,15 +111,15 @@
         <div class="parallax-image section1"></div>
       </div>
       <!-- fold 3 -->
-      <div class="parallax-section snap">
+      <div class="parallax-section snap ss_section">
         <div class="parallax-image section2"></div>
       </div>
       <!-- fold 4 -->
-      <div class="parallax-section snap">
+      <div class="parallax-section snap ss_section">
         <div class="parallax-image section3"></div>
       </div>
       <!-- fold 8 -->
-      <div class="marquee-box frame snap">
+      <div class="marquee-box frame snap ss_section">
 
         <div class="text">
           <span>E</span>
@@ -315,6 +316,7 @@ import { mapGetters } from 'vuex'
 import config from 'config'
 import { registerModule } from '@vue-storefront/core/lib/modules'
 import { RecentlyViewedModule } from '@vue-storefront/core/modules/recently-viewed'
+
 // import '../css/home.css';
 export default {
   data () {
@@ -358,79 +360,85 @@ export default {
     }
   },
   mounted () {
+    document.body.classList.add('home_snap_scroll');
     if (!this.isLoggedIn && localStorage.getItem('redirect')) this.$bus.$emit('modal-show', 'modal-signup')
     //------------------------------------- Custom JS Code START Here
   //--------------------------- Snap Scroll Code START
-    // var selector = ".snap";
-    // var $slides = $(selector);
-    // var currentSlide = 0;
-    // var isAnimating = false;
 
-    // var stopAnimation = function () {
-    //   setTimeout(function () {
-    //     isAnimating = false;
-    //   }, 0);
-    // };
+      var selector = ".ss_section";
+      var $slides = $(selector);
+      var currentSlide = 0;
+      var isAnimating = false;
 
-    // var bottomIsReached = function ($elem) {
-    //   var rect = $elem[0].getBoundingClientRect();
-    //   return rect.bottom <= $(window).height();
-    // };
+      var stopAnimation = function () {
+        setTimeout(function () {
+          isAnimating = false;
+        }, 0);
+      };
 
-    // var topIsReached = function ($elem) {
-    //   var rect = $elem[0].getBoundingClientRect();
-    //   return rect.top >= 0; 
-    // };
+      var bottomIsReached = function ($elem) {
+        var rect = $elem[0].getBoundingClientRect();
+        return rect.bottom <= $(window).height();
+      };
 
-    // document.addEventListener(
-    //   "wheel",
-    //   function (event) {
-    //     var $currentSlide = $($slides[currentSlide]);
+      var topIsReached = function ($elem) {
+        var rect = $elem[0].getBoundingClientRect();
+        return rect.top >= 0; 
+      };
 
-    //     if (isAnimating) {
-    //       event.preventDefault();
-    //       return;
-    //     }
+      document.addEventListener(
+        "wheel",
+        function (event) {
+          var $currentSlide = $($slides[currentSlide]);
+           if (isAnimating) {
+            event.preventDefault();
+            return;
+          }
 
-    //     var direction = -event.deltaY;
+          var direction = -event.deltaY;
 
-    //     if (direction < 0) {
+          if (direction < 0) {
 
-    //       if (currentSlide + 1 >= $slides.length) return;
-    //       if (!bottomIsReached($currentSlide)) return;
-    //       event.preventDefault();
-    //       currentSlide++;
-    //       var $slide = $($slides[currentSlide]);
-    //       var offsetTop = $slide.offset().top;
-    //       isAnimating = true;
+            if (currentSlide + 1 >= $slides.length) return;
+            if (!bottomIsReached($currentSlide)) return;
+            event.preventDefault();
+            currentSlide++;
+            var $slide = $($slides[currentSlide]);
+            var offsetTop = $slide.offset().top;
+            isAnimating = true;
 
-    //       $("html, body").animate(
-    //         {
-    //           scrollTop: offsetTop - 0
-    //         },
-    //       1000, 
-    //         stopAnimation
-    //       );
-    //     } else {
+            $("html, .home_snap_scroll").animate(
+              {
+                scrollTop: offsetTop - 0
+              },
+            1000, 
+              stopAnimation
+            );
+          } else {
       
-    //       if (currentSlide - 1 < 0) return;
-    //       if (!topIsReached($currentSlide)) return;
-    //       event.preventDefault();
-    //       currentSlide--;
-    //       var $slide = $($slides[currentSlide]);
-    //       var offsetTop = $slide.offset().top;
-    //       isAnimating = true;
-    //       $("html, body").animate(
-    //         {
-    //           scrollTop: offsetTop - 0
-    //         },
-    //       1000, 
-    //         stopAnimation
-    //       );
-    //     }
-    //   },
-    //   { passive: false }
-    // );
+            if (currentSlide - 1 < 0) return;
+            if (!topIsReached($currentSlide)) return;
+            event.preventDefault();
+            currentSlide--;
+            var $slide = $($slides[currentSlide]);
+            var offsetTop = $slide.offset().top;
+            isAnimating = true;
+            $("html, .home_snap_scroll").animate(
+              {
+                scrollTop: offsetTop - 0
+              },
+            1000, 
+              stopAnimation
+            );
+          }
+        },
+        { passive: false }
+      );
+
+
+
+
+
   //--------------------------- Snap Scroll Code END
     var parallax, speed;
     parallax = document.querySelectorAll('.parallax-image');
@@ -487,6 +495,10 @@ export default {
     }
     //------------------------------------- Custom JS Code END Here
   },
+  beforeDestroy() {
+    // Remove the class when the component is destroyed (optional)
+    document.body.classList.remove('home_snap_scroll')
+  },
   watch: {
     isLoggedIn () {
       const redirectObj = localStorage.getItem('redirect')
@@ -528,7 +540,21 @@ export default {
 }
 </script>
 
+<style>
+
+  /* html,
+  body {
+    scroll-snap-type: y mandatory;
+  }
+  .ss_section {
+    scroll-snap-align: start;
+  } */
+</style>
+
 <style lang="scss" scoped>
+
+
+
 .new-collection {
     @media (max-width: 767px) {
       padding-top: 0;
@@ -729,7 +755,7 @@ h6.para {
     overflow: hidden;
     position: relative;
 }
-.parallax-section::before {
+.sec_overlay::before {
     content: '';
     position: absolute;
     top: 0;

@@ -1,45 +1,72 @@
 <template>
-    <div id="hopeblog" class="cstm-page-layout">
+    <div id="hopeblog" class="cstm-page-layout blog">
         <div class="head-section">
-      <img class="hd-img" src="./Blog-Images/BLOG PAGES-HUMAN X AI.jpg">
+          <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Human X AI</span></h3>
+          <h2 class="blg-title">Human X AI: A Symbiotic Relationship</h2>
+      <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-HUMAN X AI.jpg">
     </div>
 
-    <div class="blg-section">
-         <h2 class="blg-title">Human X AI: A Symbiotic Relationship</h2>
 
-        <p class="blg-parapragh">In an age where artificial intelligence (AI) seems to be infiltrating every facet of our lives, there's a critical question that's been lingering in the air like a digital whisper: Is AI bigger than humans? This inquiry may appear abstract at first, but it delves deep into our fundamental relationship with the digital entities we've brought to life. This is about an idea, a connection, and a philosophical exploration of the interplay between human ingenuity and the technology we've ushered into existence - the Human X AI. </p>
+    <div class="main-section blog">
 
-        <h3 class="blg-short-title">Design Philosophy </h3>
+      <div class="social-media">
 
-        <p class="blg-parapragh">Our concept hinges on the interconnection between humans and AI, an intricate choreography that unfolds daily in our existence. It's not about establishing superiority; it's about the unique symbiosis evolving. What adorns your attire isn't just fabric; it's a vessel of thought. </p>
+              <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
 
-        <p class="blg-parapragh">Picture a world where thoughts pulse in binary code, where lines of code resonate like human heartbeats AI doesn't reign as superior or inferior; it's a marvel born from human ingenuity. </p>
-        
-        <p class="blg-parapragh">The bold font on the garment’s facade signifies the omnipresence of AI, while digital nuances echo its heartbeat within us. These design elements bridge the ethereal connection between humanity and technology, creating a convergence of the abstract and tangible. AI, an offspring of human creativity, symbolizes our intentions and control. </p>
-                
-        <p class="blg-parapragh">As you embrace this concept, you're not just adorning clothing; you're an embodiment of an idea, an invitation to engage in dialogue and contemplation regarding AI's role in your life and the broader society. </p>
+              <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
 
-        <h3 class="blg-short-title">The Designer’s Note</h3>
+              <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
 
-        <p class="blg-parapragh">In a world racing towards a digital horizon, we pause to reflect on our tangible reality. The Human X AI concept transcends mere fashion; it's a viewpoint on the interplay between the digital and tangible. </p>
-        
-        <p class="blg-parapragh">The colors chosen, black and blue, aren't arbitrary but a representation of the challenges and solutions within our community. Our world may be vast, but AI's impact is localized, influencing our daily lives, professions, and society in our own backyard.Our concept, like a well-choreographed dance, harmonizes global and local influences, seamlessly blending abstract concepts with tangible realities and the digital concept with the physical reality we experience every day. </p>
-                
-        <p class="blg-parapragh">Is AI bigger than humans? This isn't a challenge, but a call for reflection. We are integral to a narrative where AI and humanity dance in unison, where we breathe life into technology and shape its trajectory. The question isn't about who is superior; it's about understanding our place in a world where humanity and technology intricately intertwine. </p>
+              <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
+          </div>
 
-        <p class="blg-parapragh">So let’s embrace this conversation, and as you don this apparel, you're not just wearing a garment; you envelop yourself in a profound philosophy. You become a part of a movement that values sustainability, community, and discourse. Conversations will spark, introspection will stir, and you’ll come to explore the grand interplay between humanity and technology and who truly leads this dance.  </p>
+      <div class="blg-section">
+         
 
-        <h3 class="blg-short-title bottom-brdr">Summary (For lookbook and website)</h3>
+         <p class="blg-parapragh">In an age where artificial intelligence (AI) seems to be infiltrating every facet of our lives, there's a critical question that's been lingering in the air like a digital whisper: Is AI bigger than humans? This inquiry may appear abstract at first, but it delves deep into our fundamental relationship with the digital entities we've brought to life. This is about an idea, a connection, and a philosophical exploration of the interplay between human ingenuity and the technology we've ushered into existence - the Human X AI. </p>
+ 
+         <h3 class="blg-short-title">Design Philosophy </h3>
+ 
+         <p class="blg-parapragh">Our concept hinges on the interconnection between humans and AI, an intricate choreography that unfolds daily in our existence. It's not about establishing superiority; it's about the unique symbiosis evolving. What adorns your attire isn't just fabric; it's a vessel of thought. </p>
+ 
+         <p class="blg-parapragh">Picture a world where thoughts pulse in binary code, where lines of code resonate like human heartbeats AI doesn't reign as superior or inferior; it's a marvel born from human ingenuity. </p>
+         
+         <p class="blg-parapragh">The bold font on the garment’s facade signifies the omnipresence of AI, while digital nuances echo its heartbeat within us. These design elements bridge the ethereal connection between humanity and technology, creating a convergence of the abstract and tangible. AI, an offspring of human creativity, symbolizes our intentions and control. </p>
+                 
+         <p class="blg-parapragh">As you embrace this concept, you're not just adorning clothing; you're an embodiment of an idea, an invitation to engage in dialogue and contemplation regarding AI's role in your life and the broader society. </p>
+ 
+         <h3 class="blg-short-title">The Designer’s Note</h3>
+ 
+         <p class="blg-parapragh">In a world racing towards a digital horizon, we pause to reflect on our tangible reality. The Human X AI concept transcends mere fashion; it's a viewpoint on the interplay between the digital and tangible. </p>
+         
+         <p class="blg-parapragh">The colors chosen, black and blue, aren't arbitrary but a representation of the challenges and solutions within our community. Our world may be vast, but AI's impact is localized, influencing our daily lives, professions, and society in our own backyard.Our concept, like a well-choreographed dance, harmonizes global and local influences, seamlessly blending abstract concepts with tangible realities and the digital concept with the physical reality we experience every day. </p>
+                 
+         <p class="blg-parapragh">Is AI bigger than humans? This isn't a challenge, but a call for reflection. We are integral to a narrative where AI and humanity dance in unison, where we breathe life into technology and shape its trajectory. The question isn't about who is superior; it's about understanding our place in a world where humanity and technology intricately intertwine. </p>
+ 
+         <p class="blg-parapragh">So let’s embrace this conversation, and as you don this apparel, you're not just wearing a garment; you envelop yourself in a profound philosophy. You become a part of a movement that values sustainability, community, and discourse. Conversations will spark, introspection will stir, and you’ll come to explore the grand interplay between humanity and technology and who truly leads this dance.  </p>
+ 
+         <h3 class="blg-short-summary bottom-brdr">Summary (For lookbook and website)</h3>
+ 
+         <h3 class="blg-short-title">Human X AI: A Symbiotic Relationship </h3>
+                         
+         <p class="blg-parapragh">In a world dominated by AI, a fundamental question lingers: Is AI bigger than humans? The concept explores the intricate dance between human ingenuity and technology in the Human X AI collection. </p>
+                                 
+         <p class="blg-parapragh">Our design concept emphasizes the unique symbiosis between humans and AI. Attire becomes more than fabric; it's a vessel of thought, bridging humanity and technology. </p>
+ 
+         <p class="blg-parapragh">As we navigate a digital future, we find meaning in the tangible. Our concept represents the interplay between digital and reality, harmonizing global and local influences. </p>
+         
+         <p class="blg-parapragh">Embrace this conversation, envelop yourself in profound philosophy, and join a movement valuing sustainability, community, and discourse. Conversations spark, introspection stirs, and you explore the grand interplay between humanity and technology.</p>
+ 
+     </div>
+ 
+ 
 
-        <h3 class="blg-short-title">Human X AI: A Symbiotic Relationship </h3>
-                        
-        <p class="blg-parapragh">In a world dominated by AI, a fundamental question lingers: Is AI bigger than humans? The concept explores the intricate dance between human ingenuity and technology in the Human X AI collection. </p>
-                                
-        <p class="blg-parapragh">Our design concept emphasizes the unique symbiosis between humans and AI. Attire becomes more than fabric; it's a vessel of thought, bridging humanity and technology. </p>
 
-        <p class="blg-parapragh">As we navigate a digital future, we find meaning in the tangible. Our concept represents the interplay between digital and reality, harmonizing global and local influences. </p>
-        
-        <p class="blg-parapragh">Embrace this conversation, envelop yourself in profound philosophy, and join a movement valuing sustainability, community, and discourse. Conversations spark, introspection stirs, and you explore the grand interplay between humanity and technology.</p>
+
+
+
+
+
 
     </div>
 
@@ -55,6 +82,34 @@ import './blog.css'
 
 export default {
   name: 'humanai',
+
+  mounted () {
+
+        $(window).on('resize scroll', function() {  
+
+            if ($('.social-media').isInViewport()) {
+              $('.social-media').addClass('social-sticky');
+              $('#app').css('overflow-x','clip');
+              $('#viewport').css('overflow-x','clip');
+            } else {
+              $('.social-media').removeClass('social-sticky');
+              $('#app').css('overflow-x','hidden');
+              $('#viewport').css('overflow-x','hidden');
+            }
+
+            
+        });
+
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+
+},
 
 };
 </script>
