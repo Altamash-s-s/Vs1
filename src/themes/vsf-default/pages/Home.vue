@@ -3,14 +3,14 @@
 
     <div class="fold_main">
 
-
       <!-- fold 1 -->
       <div class="header-main snap ss_section">
         <video autoplay muted loop>
           <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
         </video>
       </div>
-            <!-- linear Video  -->
+
+      <!-- linear Video  -->
       <div class="parallax-section sec_overlay snap ss_section">
         <div class="parallax-content">
           <div class="head-text">
@@ -22,8 +22,6 @@
                 <p>See More</p>
               </div>
             </a>
-
-
           </div>
 
           <div id="audio-control" class="muted">
@@ -44,10 +42,15 @@
 
         </div>
         <div class="parallax-image section5">
+
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
-          <video id="banner_video" autoplay control muted loop>
+          <video class="desktop_liner_video" id="banner_video" autoplay control muted loop>
             <source src="/assets/home/1-liner-horizontal_4.mp4" type="video/mp4" />
           </video>
+          <video class="tab_liner_video" id="banner_video" autoplay control muted loop>
+            <source src="/assets/home/liner_mob_video.mp4" type="video/mp4" />
+          </video>
+
         </div>
 
       </div>
@@ -87,29 +90,31 @@
         </div>
         <div class="parallax-image section5">
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
-          <video id="banner_video" autoplay control muted loop>
+          <video class="desktop_wntr_video" id="banner_video" autoplay control muted loop>
             <source src="/assets/home/Winter-horizontal_2.mp4" type="video/mp4" />
+          </video>
+          <video class="tab_wntr_video" id="banner_video" autoplay control muted loop>
+            <source src="/assets/home/winter_mob_video.mp4" type="video/mp4" />
           </video>
         </div>
 
       </div>
 
-      <!-- fold 2 -->
-      <div class="parallax-section snap ss_section">
-        <!-- <div class="parallax-content">
-          <div class="head-text">
-            <h2 class="text" data-aos="slide-down" data-aos-ease='ease' data-aos-duration="1500" data-aos-delay='1000'>
-              HA - ONELINER 23-24</h2>
+      <!-- fold 2 Cubism-->
+      <div class="parallax-section snap ss_section cubism_Sec">
 
-            <a href="./Collection" class="section_btn">
-              <div class="">
-                <p>See More</p>
-              </div>
-            </a>
-          </div>
-        </div> -->
         <div class="parallax-image section1"></div>
+        <img class="cub_img1" src="../assets/home/cubism/cubism_img1.png">
+        <img class="cub_img2" src="../assets/home/cubism/cubism_img2.png">
+        <img class="cub_img3" src="../assets/home/cubism/cubism_img3.png">
+        <div class="cub_img_dv">
+          <img class="cub_img4" src="../assets/home/cubism/cubism_img4.png">
+          <img class="cub_img5" src="../assets/home/cubism/cubism_img5.png">
+          <img class="cub_img6" src="../assets/home/cubism/cubism_img6.png">
+        </div>
+
       </div>
+
       <!-- fold 3 -->
       <div class="parallax-section snap ss_section">
         <div class="parallax-image section2"></div>
@@ -294,6 +299,7 @@
         </div>
 
       </div>
+
     </div>
 
   </div>
@@ -552,9 +558,48 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+img.cub_img1 {
+    position: absolute;
+    top: 30px;
+    bottom: auto;
+    left: 30px;
+    z-index: 1;
+}
+img.cub_img2 {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50% , -50%);
+}
+img.cub_img3 {
+    position: absolute;
+    top: 30px;
+    bottom: auto;
+    right: 30px;
+    z-index: 1;
+}
+.cub_img_dv {
+    position: absolute;
+    top: auto;
+    bottom: 5%;
+    left: 2%;
+    z-index: 1;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+img.cub_img4 {
 
-
-
+}
+img.cub_img5 {
+  height: fit-content;
+}
+img.cub_img6 {
+  
+}
 .new-collection {
     @media (max-width: 767px) {
       padding-top: 0;
@@ -623,7 +668,7 @@ body {
     background-attachment: fixed;
 }
 .section1 {
-    background-image: url('../assets/home/Home-page-1.jpg');
+    background-image: url('../assets/home/cubism/cubism_bg.png');
 }
 .section2 {
     background-image: url('../assets/home/Home-page-2.jpg');
@@ -1019,6 +1064,11 @@ img.unmute_icon {
   display: flex;
   justify-content: center;
 }
+
+.tab_liner_video , .tab_wntr_video{
+  display: none;
+}
+
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .frame {
         max-width: 95% !important;
@@ -1034,7 +1084,6 @@ img.unmute_icon {
         height: 93vh;
     }
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {}
 @media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
   .frame {
     max-width: 97%  !important;
@@ -1184,7 +1233,43 @@ z-index: 3;
   }
   #banner_video {
     object-fit: cover;
-}
+  }
+  .tab_liner_video , .tab_wntr_video{
+    display: block;
+  }
+  .desktop_liner_video , .desktop_wntr_video{
+    display: none;
+  }
+
+
+  // Cubism CSS
+  img.cub_img1{
+    left: 15px;
+    width: 150px;
+  }
+  img.cub_img2 {
+    width:500px;
+  }
+  img.cub_img3 {
+    width: 100px;
+    right: 15px;
+  }
+  .cub_img_dv {
+    bottom: 3%;
+    left: 4%;
+    width: 94%;
+  }
+  img.cub_img4 {
+      width: 200px;
+  }
+  img.cub_img5 {
+      width: 330px;
+  }
+  img.cub_img6 {
+      width: 150px;
+  }
+
+
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -1223,6 +1308,43 @@ z-index: 3;
   .text.sl-txt {
     left: 0;
   }
+
+  .tab_liner_video , .tab_wntr_video{
+    display: block;
+  }
+  .desktop_liner_video , .desktop_wntr_video{
+    display: none;
+  }
+
+
+
+  // Cubism CSS
+  img.cub_img1{
+    left: 15px;
+    width: 85px;
+  }
+  img.cub_img2 {
+    width:300px;
+  }
+  img.cub_img3 {
+    width: 60px;
+    right: 15px;
+  }
+  .cub_img_dv {
+    bottom: 3%;
+    left: 4%;
+    width: 94%;
+  }
+  img.cub_img4 {
+      width: 100px;
+  }
+  img.cub_img5 {
+      width: 180px;
+  }
+  img.cub_img6 {
+      width: 80px;
+  }
+
 }
 
 /* Cstm CSS End here */

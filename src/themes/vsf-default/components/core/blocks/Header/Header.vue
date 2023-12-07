@@ -8,7 +8,7 @@
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-2 middle-xs">
             <div class="logo_dv">
-              <hamburger-icon class="p15 icon  pointer" />
+              <hamburger-icon class="p15 icon  pointer menu_icon" />
               <a href="/">
               <img  class="ha_logo" src="../../../../assets/logo.png"/>
             </a>
@@ -153,6 +153,9 @@ $color-icon-hover: color(secondary, $colors-background);
 
 .ha_logo {
   width: 34px;
+}
+.menu_icon i.material-icons {
+    color: #000;
 }
 .logo_dv {
     display: flex;

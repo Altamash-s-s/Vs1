@@ -1,8 +1,5 @@
 <template>
   <div id="product" >
-
-    <storypopup v-if="showstorypopup" @close-popup="showstorypopup = false" />
-
     <video class="product-video" autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>  
@@ -43,7 +40,7 @@
               </h1>
               
               <div
-                class="mb20 uppercase cl-secondary"
+                class="mb20 uppercase cl-secondary sku_cstm"
                 :content="getCurrentProduct.sku"
               >
                 {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
@@ -67,12 +64,9 @@
                   </div>
                   <div class="h5" v-for="option in getProductOptions" :key="option.id">
                     <div class="variants-label" data-testid="variantsLabel">
-                      {{ option.label === 'Color' ? 'Color : -' : (option.label === 'Size' ? 'Size : -' : option.label) }}
-                      <span
-                        class="weight-700"
-                      >{{ getOptionLabel(option) }}</span>
                     </div>
-                    <div class="row top-xs m0 pt15 pb40 variants-wrapper">
+                    
+                    <div class="row top-xs m0 pt15 pb40 variants-wrapper cstm_size">
                       <div v-if="option.label == 'Color'" class="color-bt-border prd_color">
                         <color-selector
                           v-for="filter in getAvailableFilters[option.attribute_code]"
@@ -82,7 +76,16 @@
                           @change="changeFilter"
                           class='color_button'
                         />
+                        <div class="variants-label" data-testid="variantsLabel">
+                              <span
+                            class="weight-700 color_text"
+                          >{{ getOptionLabel(option) }}
+                        </span>
+
+                         </div>
+
                       </div>
+                      
                       <div class="sizes" v-else-if="option.label == 'Size'">
                         <size-selector
                           class="mr10 mb10"
@@ -92,7 +95,7 @@
                           :selected-filters="getSelectedFilters"
                           @change="changeFilter"
                         />
-                      </div>
+                      </div>   
                       <div :class="option.attribute_code" v-else>
                         <generic-selector
                           class="mr10 mb10"
@@ -103,14 +106,7 @@
                           @change="changeFilter"
                         />
                       </div>
-                      <span
-                        v-if="option.label == 'Size'"
-                        @click="openSizeGuide"
-                        class="p0 ml30 inline-flex middle-xs no-underline h5 action size-guide pointer cl-secondary"
-                      >
-                        <i class="pr5 material-icons">accessibility</i>
-                        <span>{{ $t('Size guide') }}</span>
-                      </span>
+
                     </div>
                   </div>
                 </div>
@@ -123,7 +119,7 @@
                 v-if="getCurrentProduct.bundle_options && getCurrentProduct.bundle_options.length > 0"
                 :product="getCurrentProduct"
               />
-              <product-custom-options
+              <product-custom-options 
                 v-else-if="getCurrentProduct.custom_options && getCurrentProduct.custom_options.length > 0"
                 :product="getCurrentProduct"
               />
@@ -142,22 +138,83 @@
                 <add-to-cart
                   :product="getCurrentProduct"
                   :disabled="isAddToCartDisabled"
-                  class="col-xs-12 col-sm-4 col-md-6"
+                  class="col-xs-12 col-sm-4 col-md-6 cstm_add_cart"
                 />
               </div>
 
-              <!-- <div class="popup-story">
-                <button class="care-btn" @click="showstorypopup = true">Read Story</button>
-              </div> -->
 
-              <button id="story_btn">Read Story</button>
+              <div class="size-part">
+              <i class="pr5 material-icons size-guide-icon">accessibility</i>
+              <button id="size_btn">Size Guide</button>
+                <div id="size_container">
+                    <img class="size_icon" src="../assets/icons/size-guide.png">
+                    <h3 class="size-heading">Size Guide</h3>
+                    <p class="size-para">Human Abstract helps you find your perfect fit.</p>
+                    <div class="size_border-btm"></div>
+                    <button class="popup-cancel" id="size-close-btn">&#10005;</button>
+                    <!-- <div class="size-title" v-html="getCurrentProduct.name"></div>  -->
+                    <div v-html="getCurrentProduct.size_guide"></div> 
+                </div>
+              </div>
 
+
+              <div class="design_story_section">
+                <img src="../assets/icons/g2700.png">
+              <button id="story_btn">know the design Story</button>
+              <img src="../assets/icons/fountain-pen 1.svg">
               <div id="story_overlay"></div>
               <div id="story_container">
                   <button class="popup-cancel" id="close-btn">&#10005;</button>
+                  <div class="stroy-title" v-html="getCurrentProduct.name"></div> 
                   <div v-html="getCurrentProduct.product_story"></div> 
               </div>
-          
+              </div>
+
+
+              <div class="container px15 pt50 pb35 cl-accent details prd_tab_section accordion-sec">
+  <!-- Accordion for Fabric Composition -->
+                                <h2 @click="toggleAccordion('fabricComposition')" class="h3 m0 mb10 serif lh20 details-title accordion-heading">
+                                  Fabric Composition
+                                  <svg v-if="accordionOpen !== 'fabricComposition'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                  </svg>
+                                  <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6"></path>
+                                  </svg>
+                                </h2>
+                                <div v-show="accordionOpen === 'fabricComposition'" class="care_description lh30 h5" v-html="getCurrentProduct.description"></div>
+
+                                <!-- Accordion for Care -->
+                                <h2 @click="toggleAccordion('care')" class="h3 m0 mb10 serif lh20 details-title accordion-heading">
+                                  Care
+                                  <svg v-if="accordionOpen !== 'care'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                  </svg>
+                                  <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6"></path>
+                                  </svg>
+                                </h2>
+                                <div v-show="accordionOpen === 'care'" class="care_description lh30 h5">{{ getCurrentProduct.care }}</div>
+
+                                <!-- Accordion for Product Care -->
+                                <h2 @click="toggleAccordion('productCare')" class="h3 m0 mb10 serif lh20 details-title accordion-heading">
+                                  Product Care
+                                  <svg v-if="accordionOpen !== 'productCare'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                  </svg>
+                                  <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="inline-svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6"></path>
+                                  </svg>
+                                </h2>
+                                <div v-show="accordionOpen === 'productCare'" class="care_description">
+                                  <div class="flex-dsc" v-html="getCurrentProduct.product_care"></div>
+                                </div>
+                      </div>
+
+
+
+
+              
               <!-- <div class="row py40 add-to-buttons">
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToWishlist :product="getCurrentProduct" />
@@ -172,34 +229,9 @@
         </section>
       </div>
     </section>
+    
 
-    <section class="container px15 pt50 pb35 cl-accent details prd_tab_section">
 
-        <div class="tab-navigation">
-          <button @click="showTab('productDetailsTab')">Product Details</button>
-          <button @click="showTab('careTab')">Care</button>
-          <button @click="showTab('productCareTab')">Product Care</button>
-        </div>
-
-        <!-- Tab content -->
-        <div class="tab-content active" id="productDetailsTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">Product Details</h2>
-          <p class="care_description lh30 h5" v-html="getCurrentProduct.description"></p>
-        </div>
-
-        <div class="tab-content" id="careTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">Care</h2>
-          <p class="care_description lh30 h5" >{{ getCurrentProduct.care }}</p>
-        </div>
-
-        <div class="tab-content" id="productCareTab">
-          <h2 class="h3 m0 mb10 serif lh20 details-title">Product Care</h2>
-          <div class="care_description">
-            <div class="flex-dsc" v-html="getCurrentProduct.product_care">
-            </div>
-          </div>
-        </div>
-    </section>
 
     <!-- <lazy-hydrate when-idle>
       <reviews
@@ -221,8 +253,7 @@
       <related-products type="related" />
     </lazy-hydrate>
     <SizeGuide :size_chart="getCurrentProduct.size_guide" />
-
-    
+    <StoryModel />
     <script v-html="getJsonLd" type="application/ld+json" />
   </div>
 </template>
@@ -250,6 +281,7 @@ import focusClean from 'theme/components/theme/directives/focusClean'
 import WebShare from 'theme/components/theme/WebShare'
 import BaseInputNumber from 'theme/components/core/blocks/Form/BaseInputNumber'
 import SizeGuide from 'theme/components/core/blocks/Product/SizeGuide'
+import StoryModel from 'theme/components/core/blocks/Product/StoryModel.vue'
 import AddToWishlist from 'theme/components/core/blocks/Wishlist/AddToWishlist'
 import AddToCompare from 'theme/components/core/blocks/Compare/AddToCompare'
 import { mapGetters } from 'vuex'
@@ -268,7 +300,7 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
-import storypopup from './storypopup.vue'
+import StoryPopup from './storypopup.vue'
 
 export default {
   components: {
@@ -292,7 +324,7 @@ export default {
     LazyHydrate,
     ProductQuantity,
     ProductPrice,
-    storypopup
+    StoryPopup
   },
   mixins: [ProductOption],
   directives: { focusClean },
@@ -308,7 +340,9 @@ export default {
       isStockInfoLoading: false,
       hasAttributesLoaded: false,
       manageQuantity: true,
-      showstorypopup: false,
+      isStoryPopupOpen: false,
+      accordionOpen: 'fabricComposition', 
+      accordionOpen: null,
     }
   },
   computed: {
@@ -391,8 +425,15 @@ export default {
         }
         
       });
+      
+      $('.tab-navigation button').click(function(){
+        $('.tab-navigation button').removeClass('active');
+        $(this).addClass('active');
+      });
 
-      $("#story_btn").click(function() {
+    }); 
+
+    $("#story_btn").click(function() {
           $("#story_overlay").fadeIn(300);
           $("#story_container").fadeIn(300);
       });
@@ -401,13 +442,16 @@ export default {
           $("#story_overlay").fadeOut(300);
           $("#story_container").fadeOut(300);
       });
-      
-      $('.tab-navigation button').click(function(){
-        $('.tab-navigation button').removeClass('active');
-        $(this).addClass('active');
-      });
 
-    }); 
+      $("#size_btn").click(function() {
+              $("#size_overlay").fadeIn(300);
+              $("#size_container").slideDown(300);
+          }); 
+
+          $("#size-close-btn, #size_overlay").click(function() {
+              $("#size_overlay").fadeOut(300);
+              $("#size_container").slideUp(300);
+          });
 
   },
   async asyncData ({ store, route, context }) {
@@ -436,6 +480,13 @@ export default {
     }
   },
   methods: {
+    toggleAccordion(section) {
+    this.accordionOpen = this.accordionOpen === section ? null : section;
+  },
+    
+    openStoryPopup() {
+    this.isStoryPopupOpen = true;
+  },
     showTab(tabName) {
       // Hide all tabs
       const tabs = document.querySelectorAll('.tab-content');
@@ -475,6 +526,9 @@ export default {
     },
     openSizeGuide () {
       this.$bus.$emit('modal-show', 'modal-sizeguide')
+    },
+    openStoryModel () {
+      this.$bus.$emit('modal-show', 'modal-storymodel')
     },
     isOptionAvailable (option) { // check if the option is available
       const currentConfig = Object.assign({}, this.getCurrentProductConfiguration)
@@ -534,10 +588,97 @@ $color-secondary: color(secondary);
 $color-white: color(white);
 $bg-secondary: color(secondary, $colors-background);
 
+/* product detail changes start here */
+.inline-svg {
+    width: 14px;
+    float: right;
+}
+.details.prd_tab_section.accordion-sec {
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #ccc;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.details-title.accordion-heading {
+    color: #717171;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 1px solid #ccc;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 0;
+    margin-bottom: 13px;
+    padding-bottom: 13px;
+}
+.prd_detail_col {
+  padding-left: 78px;
+}
+.prd_dtls_inner {
+    max-width: 435px;
+    position: relative;
+}
+.mb20.uppercase.cl-secondary.sku_cstm {
+    border: 1px solid #c6c4c4;
+    color: #000;
+    width: fit-content;
+    padding: 4px;
+}
+.color_text{
+  color: #717171;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding-top: 15px;
+}
+.pb40.cstm_size {
+    padding-bottom: 10px;
+}
+.size-guide-icon{
+  font-size: 22px;
+  color: #717171;
+}
+.size-part {
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 47%;
+    display: flex;
+}
+.cstm_add_cart{
+   margin-top: 20px;
+}
+/* product detail changes end here */
+
+.product_container {
+  max-width:100%;
+  width:100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.product-top-section {
+  padding: 0px;
+  margin-top: -4px;
+}
+.img_slider_col {
+  padding-left: 0px;
+  padding-right: 0;
+} 
+.stroy-title {
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+
 #story_container {
-  display: none;
+   display: none;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -553,7 +694,6 @@ $bg-secondary: color(secondary, $colors-background);
     height: 500px;
     width: 800px;
     z-index: 5;
-
 }
 
 #story_overlay {
@@ -565,7 +705,6 @@ $bg-secondary: color(secondary, $colors-background);
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
-
 #close-btn {
   position: absolute;
     top: 10px;
@@ -575,41 +714,34 @@ $bg-secondary: color(secondary, $colors-background);
     border: none;
     font-weight: 700;
     font-size: 19px;
-
 }
-button#story_btn {
+.design_story_section {
+    display: flex;
+    align-items: end;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+#story_btn{
+    color: #717171;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    background: transparent;
-    border: none;
-    margin-top: 36px;
-    border-bottom: 1px solid;
+    text-transform: uppercase;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #cacaca;
+    width: fit-content;
+    margin-top: 30px;
     padding: 0;
-    padding-bottom: 2px;
+    padding-right: 18px;
+    margin-left: 7px;
 }
+
 #story_container p {
     font-size: 14px;
     line-height: 21px;
-}
-.prd_detail_col {
-  padding-left: 50px;
-}
-
-.product_container {
-  max-width:100%;
-  width:100%;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.product-top-section {
-  padding: 0px;
-  margin-top: -4px;
-}
-.img_slider_col {
-  padding-left: 0px;
-  padding-right: 0;
 }
 
 .product {
@@ -720,7 +852,7 @@ button#story_btn {
   }
 }
 
-.details-story_overlay {
+.details-overlay {
   @media (max-width: 767px) {
     position: absolute;
     height: 75%;
@@ -740,6 +872,77 @@ button#story_btn {
   &:hover {
     color: $color-tertiary;
   }
+}
+#size_container {
+    display: none;
+    width: 410px;
+    max-width: 100%;
+    background-color: #141414;
+    height: 440px;
+    border-radius: 30px 30px 0 0;
+    padding: 54px 15px 30px;
+    position: fixed;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 11;
+    bottom: 0%;
+    right: 1%;
+}
+.size-heading {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-left: 14%;
+}
+.size_border-btm{
+  border: 1px solid #FFFF;
+  margin-top: 30px;
+}
+
+.size-para {
+    color: #fff;
+    font-size: 10px;
+    margin-left: 14%;
+}
+.size_icon {
+    width: 42px;
+    float: inline-start;
+}
+
+#size_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#size-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 19px;
+    color: #FFF;
+}
+
+button#size_btn {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: transparent;
+    border: none;
+    margin-top: 4px;
+    padding: 0;
+    padding-bottom: 2px;
+    color: #717171;
 }
 
 .attributes {
@@ -881,12 +1084,6 @@ button#story_btn {
     display: block;
   }
 
-  .details-title {
-    color: #333;
-    border-bottom:1px solid #ccc;
-    padding-bottom: 10px;
-    font-weight: 400;
-  }
 
   .details-wrapper {
     margin-top: 20px;
@@ -910,6 +1107,7 @@ button#story_btn {
   .related_prd_div {
       margin-bottom: 50px;
   }
+ 
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
@@ -933,47 +1131,6 @@ button#story_btn {
   .related_prd_div .product {
     background: #cecece;
   }
-
-
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
-  #story_container
-  {
-    top: 45% !important;
-  }
-}
-
-@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
-  #story_container
-  {
-    top: 45% !important;
-  }
-}
-
-@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
-  #story_container
-  {
-    top: 45% !important;
-  }
-}
-
-@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
-  #story_container
-  {
-    top: 48% !important;
-  }
-}
-
-@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
-  #story_container
-  {
-    top: 48% !important;
-  }
-}
-
-@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
-}
-
-
   @media only screen and (min-device-width: 320px) and (max-device-width: 834px) {
 
     .prd_detail_col{
@@ -990,20 +1147,35 @@ button#story_btn {
     .related_prd_div .product-listing {
         justify-content: unset !important;
     }
-
-    #story_container{
-        top: 33% !important;
-        height: 400px !important;
-        width: 80% !important;
+    .size-part{
+    bottom: 45% !important;
     }
-
+    .design_story_section{
+    margin-top: 5px !important;
+    margin-bottom: 33px !important;
+  } 
+  #size_container {
+    width: 386px !important;
   }
-
-
+  }
 
   @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
       .prd_detail_col {
         padding-left: 30px !important;
-      }
+          }
+          .size-part {
+                bottom: 30%  !important;
+                left: 0;
+        }
+        #story_btn{
+        margin-top: 51px;
+        }
+        #size_container{
+            width: 338px !important;
+        }
+        .design_story_section{
+            margin-top: 47px !important;
+            margin-bottom: 29px !important;
+}
   }
 </style>

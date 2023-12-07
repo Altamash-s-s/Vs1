@@ -27,8 +27,8 @@ export default {
   $color-disabled: color(secondary, $colors-border);
 
   .size-selector {
-    width: 39px;
-    height: 25px;
+    width: 38px;
+    height: 18px;
 
     &:hover,
     &:focus {

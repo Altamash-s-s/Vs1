@@ -11,14 +11,22 @@
     <div class="main-section blog">
       <div class="social-media">
 
-              <a class="icon-link" href="https://www.instagram.com/humansabstract/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626483.png" alt="Facebook"></a>
+                <div @click="shareBlog" class="icon-link">
+                  <img class="ss-icon" src="../assets/social-icon/share.png" alt="Share">
+                </div>
 
-              <a class="icon-link" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter"></a>
+                  <div @click="shareOnTwitter" class="icon-link">
+                      <img class="ss-icon" src="../assets/social-icon/Frame 19626481.png" alt="Twitter">
+                  </div>
 
-              <a class="icon-link" href="https://www.youtube.com/@Humansabstract." target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626482.png" alt="Instagram"></a>
+                  <div @click="shareOnLinkedIn" class="icon-link">
+                      <img class="ss-icon" src="../assets/social-icon/linkedin (1).png" alt="Linkedin">
+                  </div>
 
-              <a class="icon-link" href="https://www.facebook.com/people/Human-Abstract/61551077677068/" target="_blank" rel="noopener noreferrer"><img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="LinkedIn"></a>
-      </div>
+                  <div @click="shareOnFacebook" class="icon-link">
+                      <img class="ss-icon" src="../assets/social-icon/Frame 19626480.png" alt="Facebook">
+                  </div>
+        </div>
 
 
     
@@ -101,6 +109,54 @@ export default {
 
 
 },
+
+methods: {
+    // Function to handle sharing logic using Web Share API
+    shareBlog() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Unraveling the Multifaceted You',
+          text: 'Check out this blog on Abstract Human Faces!',
+          url: window.location.href,
+        })
+          .then(() => console.log('Blog shared successfully'))
+          .catch((error) => console.error('Error sharing blog:', error));
+      } else {
+        alert('Web Share API is not supported in this browser. You can manually copy the URL to share.');
+      }
+    },
+
+    // Function to handle sharing on Facebook
+    shareOnFacebook() {
+      this.shareOnSocialMedia('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href));
+    },
+
+    // Function to handle sharing on Instagram
+    shareOnInstagram() {
+      // Add your Instagram sharing logic here
+      alert('Sharing on Instagram is not supported in this example. You can manually share the URL.');
+    },
+
+    // Function to handle sharing on Twitter
+    shareOnTwitter() {
+      this.shareOnSocialMedia('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href));
+    },
+
+    // Function to handle sharing on YouTube
+    shareOnYouTube() {
+      // Add your YouTube sharing logic here
+      alert('Sharing on YouTube is not supported in this example. You can manually share the URL.');
+    },
+
+    shareOnLinkedIn() {
+      this.shareOnSocialMedia('https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(window.location.href));
+    },
+
+    // Common function to open a new window for social media sharing
+    shareOnSocialMedia(url) {
+      window.open(url, '_blank', 'width=600,height=400');
+    },
+  },
 
 };
 </script>

@@ -7,7 +7,7 @@
     :aria-label="$t('Open microcart')"
   >
     <!-- <i class="material-icons">shopping_cart</i> -->
-    <img class="shopping-icon" src="../../../../assets/header/shopping-cart.png">
+    <img class="shopping-icon" src="../../../../assets/icons/shop_cart_icon.svg">
     <span
       class="minicart-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
       v-cloak

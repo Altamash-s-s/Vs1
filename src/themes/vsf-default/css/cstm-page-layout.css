@@ -6,7 +6,7 @@
 }
 .hd-img{
     width: 100%;
-    margin-top: 80px;
+    margin-top: 150px;
 }
 .main-section {
     margin-top: 65px;
@@ -78,6 +78,9 @@ h2.hd-heading {
     .cstm-page-layout {
         padding: 0 30px;
     }
+    .hd-img{
+        margin-top: 115px;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -85,7 +88,7 @@ h2.hd-heading {
         padding: 0 20px;
     }
     .hd-img{
-        margin-top: 30px;
+        margin-top: 100px;
     }
     .wl-msg {
         margin-top: 30px;
@@ -97,5 +100,3 @@ h2.hd-heading {
         font-size: 16px;
     }
 }
-
-
