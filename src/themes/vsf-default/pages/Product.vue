@@ -259,8 +259,6 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
-import StoryPopup from './StoryPopup.vue'
-
 export default {
   components: {
     AddToCart,
@@ -282,8 +280,7 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice,
-    StoryPopup
+    ProductPrice
   },
   mixins: [ProductOption],
   directives: { focusClean },
