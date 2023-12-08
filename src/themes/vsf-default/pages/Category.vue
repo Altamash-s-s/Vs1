@@ -1,26 +1,18 @@
 <template>
   <div id="category" >
-    <header class="bg-cl-secondary spc py35 pl20">
-      <div class="container">
+
+
+    <header class="bg-cl-secondary spc py35 pl20 category_header">
+      <div class="cstm-page-layout">
         <breadcrumbs />
         <div class="row middle-sm">
           <h1 class="col-sm-8 category-title mb10">
             {{ getCurrentCategory.name }}
           </h1>
-          <!-- <div class="sorting col-sm-2 align-right mt50">
-            <label class="mr10">{{ $t('Columns') }}:</label>
-            <columns @change-column="columnChange" />
-          </div>
-          <div class="sorting col-sm-2 align-right mt50">
-            <sort-by
-              :has-label="true"
-              @change="changeFilter"
-              :value="getCurrentSearchQuery.sort"
-            />
-          </div> -->
         </div>
       </div>
-      <div class="container">
+
+      <!-- <div class="cstm-page-layout">
         <div class="row m0">
           <button
             class="col-xs-5 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
@@ -35,9 +27,12 @@
             />
           </div>
         </div>
-      </div>
+      </div> -->
+
+
     </header>
-    <div class="container pb60">
+
+    <div class="cstm-page-layout pb60">
       <div class="row m0 pt15">
         <div class="col-md-3 start-xs category-filters">
           <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
@@ -325,14 +320,13 @@ export default {
   }
 </style>
 <style lang="scss">
-.product-image {
-  max-height: unset !important;
-}
+
 .bg-cl-secondary.spc{
     padding: 15px;
 }
-.product-cover.bg-cl-secondary {
-    background-color: #F1F2F7;
+
+.category_header {
+    padding-top: 150px !important;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
@@ -346,12 +340,16 @@ export default {
   }
 
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 991px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
 
   .prd_lst_col {
     margin-bottom: 25px;
   }
 
 }
-
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .prd_lst_col {
+    margin-bottom: 30px;
+  }
+}
 </style>

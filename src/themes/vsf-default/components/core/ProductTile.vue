@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="product align-center w-100 pb20" v-observe-visibility="visibilityChanged">
+  <div class="product align-center w-100" v-observe-visibility="visibilityChanged">
     <div class="product__icons">
       <AddToWishlist :product="product">
         <div
@@ -33,7 +33,7 @@
     >
 
       <div
-        class="product-cover bg-cl-secondary"
+        class="product-cover"
         :class="[{ sale: labelsActive && isOnSale }, { new: labelsActive && isNew }]"
       >
         <product-image
@@ -46,15 +46,13 @@
       </div>
       
       <div class="add_card">
-      <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
-         <img class="icon-img1" src="./icon/plus-icon-1.svg">
-        </button>
-
-      <p class="mb0 cl-accent mt10" v-if="!onlyImage">
-        {{ product.name | htmlDecode }}
-      </p>
-
-    </div>
+        <!-- <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
+          <img class="icon-img1" src="./icon/plus-icon-1.svg">
+          </button> -->
+        <p class="mb0 cl-accent mt0" v-if="!onlyImage">
+          {{ product.name | htmlDecode }}
+        </p>
+      </div>
   
       <span
         class="price-original mr5 lh30 cl-secondary"
@@ -171,22 +169,23 @@ $border-secondary: color(secondary, $colors-border);
 $color-white: color(white);
 
 .product {
+  width: 90%;
   position: relative;
   @media (max-width: 767px) {
     padding-bottom: 10px;
   }
   &__icons {
     position: absolute;
-    top: 0;
+    top:auto;
+    bottom:0px;
     right: 0;
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
-    padding-top: 10px;
+    padding-top: 0px;
   }
   &__icon {
-    padding-top: 10px;
-    opacity: 0;
+    padding-top: 0px;
+    opacity: 1;
     z-index: 2;
     transition: 0.3s opacity $motion-main;
     @media (max-width: 767px) {
@@ -223,23 +222,12 @@ $color-white: color(white);
 }
 
 .product-cover {
-  overflow: hidden;
-
-  &__thumb {
-    padding-bottom: calc(143.88% / (164.5 / 100));
-    @media screen and (min-width: 768px) {
-      padding-bottom: calc(300% / (276.5 / 115));
-    }
-    opacity: 0.8;
-    will-change: opacity, transform;
-    transition: 0.3s opacity $motion-main, 0.3s transform $motion-main;
-  }
-
+  float: left;
+  width: 100%;
   @media screen and (min-width: 768px) {
     &:hover {
       .product-cover__thumb {
         opacity: 1;
-        transform: scale(1.1);
       }
       &.sale::after,
       &.new::after {
@@ -276,24 +264,34 @@ img.icon-img1 {
     width: 40px;
     background-color: #ffffff80;
 }
-.product-listing .product {
-  background-color: #cdced2;
-  margin: 0 8px;
-}
+// .product-listing .product {
+//   background-color: #cdced2;
+//   margin: 0 8px;
+// }
 .add_card {
-    margin-top: -46px;
+  text-align: left;
+  margin-top: 10px;
+  float: left;
+}
+.add_card p {
+  line-height: 20px;
+  font-size: 15px;
 }
 .bookmar-icon {
-    width: 10%;
-    height: 10%;
+    width: 19px;
     float: right;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
-  .add_card {
-    padding-bottom: 15px;
+  .product {
+    width: 100%;
+    &__icons {
+      bottom: 11px;
+    }
   }
+
+  
 
 }
 /// css css end//

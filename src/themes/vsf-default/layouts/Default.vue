@@ -157,6 +157,15 @@ export default {
 
 
 <style>
+
+.cstm-page-layout{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    padding-bottom: 60px;
+}
+
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
 
   .pb60[data-v-1437de77] {
@@ -166,5 +175,20 @@ export default {
 
 }
 
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
 
+  .cstm-page-layout {
+      padding: 0 30px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .cstm-page-layout {
+        padding: 0 30px;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .cstm-page-layout {
+        padding: 0 20px;
+    }
+}
 </style>

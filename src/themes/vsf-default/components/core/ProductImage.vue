@@ -110,10 +110,8 @@ export default {
     mix-blend-mode: multiply;
     &__placeholder,
     &__thumb {
-      position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
     }
     &__placeholder {
       max-width: 50%;
@@ -131,9 +129,11 @@ export default {
   }
   .product-image.product-cover__thumb.product-image--width{
     opacity: 2.8;
+    background: #d9d9d9;
+    padding-top: 15px;
   }
   .product-cover__thumb{
-    padding-bottom: calc(305% / (272.5 / 133)) !important;
+    padding-bottom: 0px;
 }
 
 .VueCarousel-inner img.img_sld {
@@ -141,6 +141,10 @@ export default {
     height: 100%;
     object-fit: contain;
     object-position: bottom;
+}
+
+.img_sld {
+  float: left;
 }
 
 </style>

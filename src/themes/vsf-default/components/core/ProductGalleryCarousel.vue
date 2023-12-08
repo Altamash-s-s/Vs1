@@ -299,15 +299,21 @@ button.VueCarousel-dot.VueCarousel-dot--active {
     object-position: center;
 }
 
-@media only screen and (min-device-width: 767px) and (max-device-width:1023px) {
+@media only screen and (min-device-width: 767px) and (max-device-width:1024px) {
 
   .VueCarousel {
-    height: 100%;
+    height: 100% !important;
   }
   .media-gallery .relative {
-    height: 100%;
+    height: 100% !important;
   }
 
+  .VueCarousel-wrapper {
+    height: 100% !important;
+  }
+  .VueCarousel-inner {
+    height:100% !important;
+  }
 
 }
 
