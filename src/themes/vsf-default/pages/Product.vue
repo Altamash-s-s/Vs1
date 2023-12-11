@@ -1,8 +1,10 @@
 <template>
   <div id="product">
+    <div class="top_product_video">
     <video class="product-video" autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>
+    </div>
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container product_container">
         <section class="row m0">
@@ -259,6 +261,8 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 
+
+
 export default {
   components: {
     AddToCart,
@@ -280,7 +284,7 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice
+    ProductPrice,
   },
   mixins: [ProductOption],
   directives: { focusClean },
@@ -296,7 +300,6 @@ export default {
       isStockInfoLoading: false,
       hasAttributesLoaded: false,
       manageQuantity: true,
-      isStoryPopupOpen: false,
       accordionOpen: null,
     }
   },
@@ -389,16 +392,18 @@ export default {
     });
 
     $("#story_btn").click(function () {
-      $("#story_overlay").fadeIn(300);
-      $("#story_container").fadeIn(300);
-      $("body").addClass("disable-scroll");
-    });
+        $("#story_overlay").fadeIn(0); // You can set this to 0 or a small value to make the overlay appear instantly
+        $("#story_container").addClass('open_story_popup'); 
+        $('header').css('z-index','0');
+        $("body").addClass("disable-scroll");
+      });
 
-    $("#close-btn, #story_overlay").click(function () {
-      $("#story_overlay").fadeOut(300);
-      $("#story_container").fadeOut(300);
-      $("body").removeClass("disable-scroll");
-    });
+      $("#close-btn, #story_overlay").click(function () {
+        $("#story_overlay").fadeOut(0); 
+        $("#story_container").removeClass('open_story_popup');
+        $('header').css('z-index','1');
+        $("body").removeClass("disable-scroll");
+      });
 
     $("#size_btn").click(function () {
       $("#size_overlay").fadeIn(300);
@@ -444,12 +449,6 @@ export default {
       this.accordionOpen = this.accordionOpen === section ? null : section;
       this.toggleBodyScroll();
     },
-
-    openStoryPopup() {
-      this.isStoryPopupOpen = true;
-      this.toggleBodyScroll();
-    },
-
     showTab(tabName) {
       // Hide all tabs
       const tabs = document.querySelectorAll('.tab-content');
@@ -583,6 +582,8 @@ h2.h3.m0.mb10.serif.lh20.details-title.accordion-heading.hd-title-care {
 }
 .care_description.hd-description-care{
   border-top: 1px solid #ccc;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .details-title.accordion-heading {
@@ -670,25 +671,25 @@ h2.h3.m0.mb10.serif.lh20.details-title.accordion-heading.hd-title-care {
   justify-content: center;
 }
 
+.open_story_popup{
+  right: 0 !important;
+}
+
 
 #story_container {
-  display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: -100%; /* Start off-screen to the right */
   background-color: #fff;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
   max-width: 100%;
-  max-height: 80%;
+  max-height: 100%;
   overflow: auto;
-  height: 500px;
+  height: 100%;
   width: 800px;
   z-index: 5;
+  transition: all 0.5s linear;
 }
 
 #story_overlay {
@@ -981,6 +982,8 @@ button#size_btn {
 
 .product-video {
   width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .wishlist_cstm {
@@ -1180,7 +1183,7 @@ button#size_btn {
   }
 
   #story_container {
-    max-width: 86% !important;
+    max-width: 100% !important;
   }
 }
 
@@ -1198,7 +1201,6 @@ button#size_btn {
   }
 
   .design_story_section {
-    margin-top: 47px !important;
     margin-bottom: 29px !important;
   }
 

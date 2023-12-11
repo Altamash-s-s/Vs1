@@ -8,6 +8,7 @@
         <video autoplay muted loop>
           <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
         </video>
+        <!-- <img src="../assets/home/fold_one.jpg"> -->
       </div>
 
       <!-- linear Video  -->
@@ -1344,7 +1345,9 @@ z-index: 3;
   img.cub_img6 {
       width: 80px;
   }
-
+  .parallax-section .parallax-image {
+    background-repeat: no-repeat;
+  }
 }
 
 /* Cstm CSS End here */

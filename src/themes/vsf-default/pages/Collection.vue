@@ -68,12 +68,12 @@ export default {
 
         var pathname = window.location.pathname;
         if(pathname === '/collection'){
-            $('#app').css('overflow-x','clip');
-            $('#viewport').css('overflow-x','clip');
+            $('#app').css('overflow-x','unset');
+            $('#viewport').css('overflow-x','unset');
         }
         else if(pathname === '/Collection'){
-            $('#app').css('overflow-x','clip');
-            $('#viewport').css('overflow-x','clip');
+            $('#app').css('overflow-x','unset');
+            $('#viewport').css('overflow-x','unset');
         }
         else if(pathname != '/collection'){ 
             $('#app').css('overflow-x','hidden');
