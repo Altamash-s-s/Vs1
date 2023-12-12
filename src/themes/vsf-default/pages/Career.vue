@@ -31,13 +31,13 @@
 
             </P>
         </div>
-        <div class="form_dv apply-btn">
+        <!-- <div class="form_dv apply-btn">
                  <button @click="openSidebar">APPLY NOW</button>
                     <div class="arrow-wrapper">
                          <div class="arrow"></div>
                     </div>
             <CareerSidebar ref="CareerSidebar"></CareerSidebar>
-                  </div>
+                  </div> -->
 
     </div>
 </template>
@@ -50,11 +50,11 @@ export default {
     components: {
       CareerSidebar,
     },
-    methods: {
-    openSidebar() {
-      this.$refs.CareerSidebar.openSidebar();
-    },
-  },
+    // methods: {
+    // openSidebar() {
+    //   this.$refs.CareerSidebar.openSidebar();
+    // },
+  // },
 
 };
 </script>

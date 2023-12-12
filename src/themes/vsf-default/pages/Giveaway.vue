@@ -38,7 +38,7 @@
                 </div>
                 <sidebarForm ref="sidebarForm"></sidebarForm>
             </button>
-        </div> -->
+        </div>
 
         <div class="form_dv apply-btn">
                  <button @click="openSidebar">APPLY NOW</button>
@@ -46,7 +46,7 @@
                          <div class="arrow"></div>
                     </div>
             <sidebarForm ref="sidebarForm"></sidebarForm>
-                  </div>
+                  </div> -->
 
     </div>
 </template>
@@ -60,9 +60,9 @@ export default {
         sidebarForm,
     },
     methods: {
-    openSidebar() {
-      this.$refs.sidebarForm.openSidebar();
-    },
+    // openSidebar() {
+    //   this.$refs.sidebarForm.openSidebar();
+    // },
   },
 
 };
