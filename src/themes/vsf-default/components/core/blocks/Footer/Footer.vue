@@ -1,5 +1,5 @@
 <template>
-  <footer :class="{ 'brdr-top-1 brdr-cl-secondary': isCheckoutPage }">
+  <footer class="brdr-top-1 brdr-cl-secondary">
     <!-- <newsletter class=" flex brdr-bottom-1 brdr-cl-secondary" v-if="!isCheckoutPage" /> -->
     <div class="footer-hd">
       <img class="ft-heading" src="../../../../assets/home/Footer-heading.svg" alt="">
@@ -48,7 +48,7 @@
     
     <div
       class="footer-links flex pt30 pb60 px40 bg-cl-secondary"
-      v-if="!isCheckoutPage"
+
     >
 
       <div class="container footer_container">
@@ -274,6 +274,8 @@ $color-secondary: color(secondary);
 footer {
   width: 100%;
   float: left;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 .social-icon {
   width: 40px;

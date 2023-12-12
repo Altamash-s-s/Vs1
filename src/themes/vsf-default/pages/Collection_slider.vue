@@ -1,6 +1,8 @@
 <template>
   <div class="dv3">
     <div class="dv3_inner">
+
+      
       <!-- 1 -->
       <div class="bg bg1 bg_sec">
         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
@@ -12,26 +14,7 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-3.png" />
       </div>
-      <div class="bg bg1 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-3.png" />
-      </div>
-      <div class="bg bg1 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-3.png" />
-      </div>
+
     
       <!-- 2 -->
       <div class="bg bg2 bg_sec">
@@ -44,26 +27,7 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-6.png" />
       </div>
-      <div class="bg bg2 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-6.png" />
-      </div>
-      <div class="bg bg2 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-6.png" />
-      </div>
+   
 
       <!-- 3 -->
       <div class="bg bg3 bg_sec">
@@ -76,26 +40,7 @@
         </a>
         <img class="model_img" src="/assets/collection/c1.png" />
       </div>
-      <div class="bg bg3 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/c1.png" />
-      </div>
-      <div class="bg bg3 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/c1.png" />
-      </div>
+
 
       <!-- 4 -->
       <div class="bg bg4 bg_sec">
@@ -108,26 +53,7 @@
         </a>
         <img class="model_img" src="/assets/collection/collection-4.png" />
       </div>
-      <div class="bg bg4 bg_sec">
-       <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-       <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-4.png" />
-      </div>
-      <div class="bg bg4 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-        <a href="one-liner-winter-2023-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="/assets/collection/collection-4.png" />
-      </div>
+ 
 
   
     </div>

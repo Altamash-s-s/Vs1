@@ -7,16 +7,16 @@
                     <img class=top-img src="../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
 
                 </div>
-
             </div>
-
-            
         </div>
         <div class="description-container">
             <p class="dscrpt-txt">In publishing and graphic design, &amp;Lorem ipsum is a placeholder text commonly used to
                     demonstrate <br> The visual form of a document or a typeface without relying on meaningful content. <br>Lorem
                     ipsum may be used as a placeholder before final copy is available</p>
         </div>
+
+        
+
         <div class="collection-section">
             <Collection_slider></Collection_slider>
         </div>
@@ -26,6 +26,7 @@
   
 <script>
 import Collection_slider from '../pages/Collection_slider.vue'
+
 
 export default {
     name: 'collection',

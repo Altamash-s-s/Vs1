@@ -1,7 +1,7 @@
 <template>
     <div id="home" class="home_page">
 
-    <div class="fold_main">
+
 
       <!-- fold 1 -->
       <div class="header-main snap ss_section">
@@ -114,6 +114,13 @@
           <img class="cub_img6" src="../assets/home/cubism/cubism_img6.png">
         </div>
 
+
+      </div>
+
+      <div class="fitness_section ss_section">
+        <img src="../assets/home/fitness_desk.png" class="fitness_desk">
+        <img src="../assets/home/fitness_tab.jpg" class="fitness_tab">
+        <img src="../assets/home/fitness_mob.jpg" class="fitness_mob">
       </div>
 
       <!-- fold 3 -->
@@ -301,7 +308,7 @@
 
       </div>
 
-    </div>
+
 
   </div>
 </template>
@@ -372,75 +379,6 @@ export default {
     //------------------------------------- Custom JS Code START Here
   //--------------------------- Snap Scroll Code START
 
-      var selector = ".ss_section";
-      var $slides = $(selector);
-      var currentSlide = 0;
-      var isAnimating = false;
-
-      var stopAnimation = function () {
-        setTimeout(function () {
-          isAnimating = false;
-        }, 0);
-      };
-
-      var bottomIsReached = function ($elem) {
-        var rect = $elem[0].getBoundingClientRect();
-        return rect.bottom <= $(window).height();
-      };
-
-      var topIsReached = function ($elem) {
-        var rect = $elem[0].getBoundingClientRect();
-        return rect.top >= 0; 
-      };
-
-      document.addEventListener(
-        "wheel",
-        function (event) {
-          var $currentSlide = $($slides[currentSlide]);
-           if (isAnimating) {
-            event.preventDefault();
-            return;
-          }
-
-          var direction = -event.deltaY;
-
-          if (direction < 0) {
-
-            if (currentSlide + 1 >= $slides.length) return;
-            if (!bottomIsReached($currentSlide)) return;
-            event.preventDefault();
-            currentSlide++;
-            var $slide = $($slides[currentSlide]);
-            var offsetTop = $slide.offset().top;
-            isAnimating = true;
-
-            $("html, .home_snap_scroll").animate(
-              {
-                scrollTop: offsetTop - 0
-              },
-            1000, 
-              stopAnimation
-            );
-          } else {
-      
-            if (currentSlide - 1 < 0) return;
-            if (!topIsReached($currentSlide)) return;
-            event.preventDefault();
-            currentSlide--;
-            var $slide = $($slides[currentSlide]);
-            var offsetTop = $slide.offset().top;
-            isAnimating = true;
-            $("html, .home_snap_scroll").animate(
-              {
-                scrollTop: offsetTop - 0
-              },
-            1000, 
-              stopAnimation
-            );
-          }
-        },
-        { passive: false }
-      );
 
 
 
@@ -549,13 +487,23 @@ export default {
 
 <style>
 
-  /* html,
-  body {
+  html {
     scroll-snap-type: y mandatory;
   }
   .ss_section {
     scroll-snap-align: start;
-  } */
+    scroll-snap-stop: always;
+    height: 100vh;
+  } 
+  img.fitness_desk {
+    width: 100%;
+    height: 100%;
+  }
+  img.fitness_tab  , .fitness_mob{
+    display: none;
+    height: 100%;
+    width: 100%;
+  }
 </style>
 
 <style lang="scss" scoped>
@@ -820,6 +768,7 @@ h6.para {
 #banner_video {
     width: 100%;
     height: 100vh;
+    object-position: bottom;
 }
 .parallax-section .parallax-content {
     -webkit-box-align: center;
@@ -1349,6 +1298,24 @@ z-index: 3;
     background-repeat: no-repeat;
   }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  .fitness_desk {
+    display: none;
+  }
+  .fitness_tab {
+    display: block;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .fitness_desk , .fitness_tab{
+    display: none;
+  }
+  .fitness_mob {
+    display: block;
+  }
+}
+
 
 /* Cstm CSS End here */
 </style>

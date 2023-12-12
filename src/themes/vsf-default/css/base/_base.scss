@@ -13,11 +13,11 @@ a {
 }
 
 #app {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 #viewport {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::-webkit-scrollbar {

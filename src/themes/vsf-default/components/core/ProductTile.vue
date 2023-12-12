@@ -46,9 +46,10 @@
       </div>
       
       <div class="add_card">
-        <!-- <button class="mb0 cl-accent mt10 icon_btn" v-if="!onlyImage" @click="openProductPage">
-          <img class="icon-img1" src="./icon/plus-icon-1.svg">
-          </button> -->
+            <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
         <p class="mb0 cl-accent mt0" v-if="!onlyImage">
           {{ product.name | htmlDecode }}
         </p>
@@ -250,6 +251,18 @@ $color-white: color(white);
   }
 }
 ///cstm css //
+.plus-icon {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: -56px;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #000;
+    padding: 5px;
+    transform: scale(1.5);
+    border-radius: 100%;
+}
 
 img.icon-img1 {
     width: 20px;
@@ -272,6 +285,7 @@ img.icon-img1 {
   text-align: left;
   margin-top: 10px;
   float: left;
+  width: 100%;
 }
 .add_card p {
   line-height: 20px;

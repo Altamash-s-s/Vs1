@@ -263,8 +263,14 @@
               <span class="checkmark" />
             </label>
           </div>
-
-
+          <div class="col-xs-12">
+            <!-- The stripe method integration -->
+            <div class="row mb35 stripe-container" v-if="paymentDetails.paymentMethod === 'stripe_payments' || paymentDetails.paymentMethod === 'stripe'">
+                <div class="col-xs-12">
+                    <payment-stripe/>
+                </div>
+            </div>
+          </div>
 
 
 
@@ -341,7 +347,8 @@ import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import Tooltip from 'theme/components/core/Tooltip'
 
-
+import { mapGetters } from 'vuex'
+import PaymentStripe from '../../../../vue-storefront/src/modules/payment-stripe/components/PaymentStripe.vue'
 
 export default {
   components: {
@@ -349,10 +356,14 @@ export default {
     BaseInput,
     BaseSelect,
     ButtonFull,
-    Tooltip
+    Tooltip,
+    PaymentStripe
   },
   mixins: [Payment],
   computed: {
+    ...mapGetters({
+      paymentDetails: 'checkout/getPaymentDetails'
+    }),
     countryOptions () {
       return this.countries.map((item) => {
         return {

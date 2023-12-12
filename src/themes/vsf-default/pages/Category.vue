@@ -32,7 +32,7 @@
 
     </header>
 
-    <div class="cstm-page-layout pb60">
+    <div class="cstm-page-layout pb60 product_collection_flw">
       <div class="row m0 pt15">
         <div class="col-md-3 start-xs category-filters">
           <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
@@ -212,6 +212,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product_collection_flw {
+    height: 100vh;
+}
 .pb60{
   padding-top: 80px;
   padding-bottom: 80px;
@@ -350,6 +353,9 @@ export default {
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .prd_lst_col {
     margin-bottom: 30px;
+  }
+  .product_collection_flw {
+    height: auto !important;
   }
 }
 </style>
