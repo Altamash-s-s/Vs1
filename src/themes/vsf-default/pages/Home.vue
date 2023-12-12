@@ -124,9 +124,9 @@
       </div>
 
       <!-- fold 3 -->
-      <div class="parallax-section snap ss_section">
+      <!-- <div class="parallax-section snap ss_section">
         <div class="parallax-image section2"></div>
-      </div>
+      </div> -->
       <!-- fold 4 -->
       <div class="parallax-section snap ss_section">
         <div class="parallax-image section3"></div>
