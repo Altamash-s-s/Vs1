@@ -20,7 +20,7 @@ import { InitialResourcesModule } from '@vue-storefront/core/modules/initial-res
 // import { DeviceModule } from './device/index';
 import { registerModule } from '@vue-storefront/core/lib/modules'
 
-import { PaymentStripeModule } from '../themes/vsf-default/vue-storefront/src/modules/payment-stripe'
+import { PaymentStripeModule } from '../themes/vsf-default/vue-storefront/src/modules/payment-stripe/index'
 
 
 // TODO:distributed across proper pages BEFORE 1.11
