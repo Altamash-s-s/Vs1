@@ -18,13 +18,13 @@
       :navigate-to="currentPage"
       
     >
-      <slide>
+      <!-- <slide>
         <div class="product_closeup_video_dv">
           <video class="product-video" autoplay muted loop>
             <source :src="prd_c_vdo" type="video/mp4">
           </video> 
         </div>
-      </slide>
+      </slide> -->
       <slide
         v-for="(images, index ) in gallery"
         :key="images.src"
@@ -139,9 +139,13 @@ export default {
 
     this.$emit('loaded')
 
-    $( ".prd_color button" ).click(function() {
-      var color =  $(this).data('datacolor'); 
-      // alert(color);
+    $(document).ready(function () {
+
+      // $('.color_button').click(function () {
+      //   // $('.VueCarousel-slide').css('display','none');
+      //     $('.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center').css('display','block');
+      // });
+
     });
   },
   beforeDestroy () {
@@ -221,20 +225,23 @@ export default {
   justify-content: center;
 }
 
-
-
+.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center.show_image , .VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center{
+  display: block !important;
+}
+.VueCarousel-slide.hide_image {
+  display: none;
+}
 </style>
 
 <style lang="scss">
 
 .VueCarousel-inner {
-    // -ms-flex-direction: column;
-    // flex-direction: column !important;
-    // transform: translate(0px, 0px) !important;
+  display: block !important;
 }
 .VueCarousel-slide {
-    // -webkit-backface-visibility: hidden;
-    // backface-visibility: hidden !important;
+    float: left;
+    width: 100%;
+    height: 100%;
 }
 button.VueCarousel-dot {
   background-color: #969696 !important;

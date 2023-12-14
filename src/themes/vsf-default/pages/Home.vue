@@ -4,11 +4,9 @@
 
 
       <!-- fold 1 -->
-      <div class="header-main snap ss_section">
-        <video autoplay muted loop>
-          <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-        </video>
-        <!-- <img src="../assets/home/fold_one.jpg"> -->
+      <div class="header-main snap ss_section head_section">
+        <img class="fold1_desktop desk_img" src="../assets/home/fold1_desktop.jpg">
+        <img class="fold1_tab tab_img" src="../assets/home/fold1_tab.jpg">
       </div>
 
       <!-- linear Video  -->
@@ -102,35 +100,21 @@
       </div>
 
       <!-- fold 2 Cubism-->
-      <div class="parallax-section snap ss_section cubism_Sec">
-
-        <div class="parallax-image section1"></div>
-        <img class="cub_img1" src="../assets/home/cubism/cubism_img1.png">
-        <img class="cub_img2" src="../assets/home/cubism/cubism_img2.png">
-        <img class="cub_img3" src="../assets/home/cubism/cubism_img3.png">
-        <div class="cub_img_dv">
-          <img class="cub_img4" src="../assets/home/cubism/cubism_img4.png">
-          <img class="cub_img5" src="../assets/home/cubism/cubism_img5.png">
-          <img class="cub_img6" src="../assets/home/cubism/cubism_img6.png">
-        </div>
-
-
+      <div class="cubism_section ss_section">
+        <img src="../assets/home/cubism_desk.jpg" class="fitness_desk desk_img">
+        <img src="../assets/home/cubism_tab.jpg" class="fitness_tab tab_img">
       </div>
-
+  
       <div class="fitness_section ss_section">
-        <img src="../assets/home/fitness_desk.png" class="fitness_desk">
-        <img src="../assets/home/fitness_tab.jpg" class="fitness_tab">
-        <img src="../assets/home/fitness_mob.jpg" class="fitness_mob">
+        <img src="../assets/home/fitness_desk.png" class="fitness_desk desk_img">
+        <img src="../assets/home/fitness_tab.jpg" class="fitness_tab tab_img">
       </div>
 
-      <!-- fold 3 -->
-      <!-- <div class="parallax-section snap ss_section">
-        <div class="parallax-image section2"></div>
-      </div> -->
-      <!-- fold 4 -->
-      <div class="parallax-section snap ss_section">
-        <div class="parallax-image section3"></div>
+      <div class="women_power_section ss_section">
+        <img src="../assets/home/women_power.jpg" class="women_power_desk desk_img">
+        <img src="../assets/home/women_power_tab.jpg" class="women_power_tab tab_img">
       </div>
+
       <!-- fold 8 -->
       <div class="marquee-box frame snap ss_section">
 
@@ -385,16 +369,16 @@ export default {
 
 
   //--------------------------- Snap Scroll Code END
-    var parallax, speed;
-    parallax = document.querySelectorAll('.parallax-image');
-    speed = 0.3;
-    window.onscroll = function () {
-      return [].slice.call(parallax).forEach(function (el, i) {
-        var dist;
-        dist = $(window).scrollTop() - $(el).offset().top;
-        return $(el).css('top', dist * speed + 'px');
-      });
-    };
+    // var parallax, speed;
+    // parallax = document.querySelectorAll('.parallax-image');
+    // speed = 0.3;
+    // window.onscroll = function () {
+    //   return [].slice.call(parallax).forEach(function (el, i) {
+    //     var dist;
+    //     dist = $(window).scrollTop() - $(el).offset().top;
+    //     return $(el).css('top', dist * speed + 'px');
+    //   });
+    // };
     $('#audio-control').click(function () {
         if ($("#banner_video").prop('muted')) {
           $("#banner_video").prop('muted', false);
@@ -485,8 +469,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style >
   html {
     scroll-snap-type: y mandatory;
   }
@@ -495,60 +478,50 @@ export default {
     scroll-snap-stop: always;
     height: 100vh;
   } 
+  .fold1_desktop {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
   img.fitness_desk {
     width: 100%;
     height: 100%;
   }
-  img.fitness_tab  , .fitness_mob{
-    display: none;
+  img.women_power_desk {
+    width: 100%;
+    height: 100%;
+  }
+  img.fitness_tab  {
     height: 100%;
     width: 100%;
   }
+  img.women_power_tab  {
+    height: 100%;
+    width: 100%;
+  }
+  .fold1_tab {
+    width: 100%;
+  }
+  
+.tab_liner_video , .tab_wntr_video{
+  display: none;
+}
+.tab_img {
+  display: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+
+  html {
+    -ms-scroll-snap-type: unset;
+    scroll-snap-type: unset;
+  }
+}
 </style>
 
 <style lang="scss" scoped>
-img.cub_img1 {
-    position: absolute;
-    top: 30px;
-    bottom: auto;
-    left: 30px;
-    z-index: 1;
-}
-img.cub_img2 {
-    position: absolute;
-    top: 50%;
-    bottom: auto;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50% , -50%);
-}
-img.cub_img3 {
-    position: absolute;
-    top: 30px;
-    bottom: auto;
-    right: 30px;
-    z-index: 1;
-}
-.cub_img_dv {
-    position: absolute;
-    top: auto;
-    bottom: 5%;
-    left: 2%;
-    z-index: 1;
-    width: 97%;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-}
-img.cub_img4 {
-
-}
-img.cub_img5 {
-  height: fit-content;
-}
-img.cub_img6 {
-  
-}
 .new-collection {
     @media (max-width: 767px) {
       padding-top: 0;
@@ -600,7 +573,7 @@ img.cub_img6 {
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 .mute_icon {
     display: none;
@@ -804,15 +777,8 @@ h6.para {
     height: 100%;
     left: 0;
     opacity: 1.5;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    filter: alpha(opacity=50);
     position: absolute;
     top: 0;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
     width: 100%;
     z-index: 1;
 }
@@ -1015,10 +981,6 @@ img.unmute_icon {
   justify-content: center;
 }
 
-.tab_liner_video , .tab_wntr_video{
-  display: none;
-}
-
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .frame {
         max-width: 95% !important;
@@ -1181,9 +1143,7 @@ z-index: 3;
   .text.sl-txt {
     left: 0;
   }
-  #banner_video {
-    object-fit: cover;
-  }
+
   .tab_liner_video , .tab_wntr_video{
     display: block;
   }
@@ -1191,33 +1151,6 @@ z-index: 3;
     display: none;
   }
 
-
-  // Cubism CSS
-  img.cub_img1{
-    left: 15px;
-    width: 150px;
-  }
-  img.cub_img2 {
-    width:500px;
-  }
-  img.cub_img3 {
-    width: 100px;
-    right: 15px;
-  }
-  .cub_img_dv {
-    bottom: 3%;
-    left: 4%;
-    width: 94%;
-  }
-  img.cub_img4 {
-      width: 200px;
-  }
-  img.cub_img5 {
-      width: 330px;
-  }
-  img.cub_img6 {
-      width: 150px;
-  }
 
 
 }
@@ -1265,55 +1198,38 @@ z-index: 3;
   .desktop_liner_video , .desktop_wntr_video{
     display: none;
   }
-
-
-
-  // Cubism CSS
-  img.cub_img1{
-    left: 15px;
-    width: 85px;
-  }
-  img.cub_img2 {
-    width:300px;
-  }
-  img.cub_img3 {
-    width: 60px;
-    right: 15px;
-  }
-  .cub_img_dv {
-    bottom: 3%;
-    left: 4%;
-    width: 94%;
-  }
-  img.cub_img4 {
-      width: 100px;
-  }
-  img.cub_img5 {
-      width: 180px;
-  }
-  img.cub_img6 {
-      width: 80px;
-  }
   .parallax-section .parallax-image {
     background-repeat: no-repeat;
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  .fitness_desk {
+@media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
+  
+  .desk_img {
     display: none;
   }
-  .fitness_tab {
+  .tab_img {
     display: block;
+    height: auto;
   }
+  .head_section , .cubism_section , .fitness_section, .women_power_section {
+    height: auto;
+  }
+
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-  .fitness_desk , .fitness_tab{
+
+  .desk_img {
     display: none;
   }
-  .fitness_mob {
+  .tab_img {
     display: block;
+    height: auto;
   }
+  .head_section , .cubism_section , .fitness_section, .women_power_section {
+    height: auto;
+  }
+
 }
 
 

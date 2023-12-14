@@ -115,11 +115,10 @@ export default {
     line-height: normal;
     display: flex;
     align-items: end !important;
-    border-bottom: 1px solid #C1C1C1;
+    border: 1px solid #C1C1C1;
     width: fit-content;
-    padding-bottom: 11px;
-    padding-right: 40px;
-    margin-bottom: 42px;
+    padding: 8px 40px;
+    margin-bottom: 44px;
 }
 .related_prd_div{
   padding-top: 50px;

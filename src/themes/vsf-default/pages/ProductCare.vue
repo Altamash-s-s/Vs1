@@ -21,7 +21,7 @@
                 <P class="care-par">Following the right wash care instructions and methods are essential to preserve the condition and
                     functionality of the products, reducing environmental impact and utility costs.
                 </P>
-                <button class="care-btn" @click="showWashCarePopup = true">Know More</button>
+                <button class="care-btn" @click="showWashCarePopup = true" >Know More</button>
 
             </div>
         </div>

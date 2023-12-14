@@ -16,6 +16,7 @@
           <shipping class="line relative" :is-active="activeSection.shipping" v-if="!isVirtualCart" />
           <payment class="line relative" :is-active="activeSection.payment" />
           <order-review class="line relative" :is-active="activeSection.orderReview" />
+
           <div id="custom-steps" />
         </div>
         <div class="hidden-xs col-sm-5 bg-cl-secondary">

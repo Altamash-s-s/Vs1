@@ -12,6 +12,41 @@ $font-fallbacks: (
 );
 
 $font-families: (
-        primary: ("Roboto", #{(map-get($font-fallbacks, 'sans-serif'))}),
-        secondary: ("Playfair Display", map-get($font-fallbacks, 'serif'))
+        primary: ("Nunito", #{(map-get($font-fallbacks, 'sans-serif'))}),
+        secondary: ("Nunito", map-get($font-fallbacks, 'serif'))
 ) !default;
+
+
+body{
+        font-family: 'Nunito', sans-serif !important;
+}
+h1{
+        font-family: 'Nunito', sans-serif !important;
+}
+h2 {
+        font-family: 'Nunito', sans-serif !important;
+}
+h3 {
+        font-family: 'Nunito', sans-serif !important;
+}
+h4 {
+        font-family: 'Nunito', sans-serif !important;
+}
+h5 {
+        font-family: 'Nunito', sans-serif !important;
+}
+h6 {
+        font-family: 'Nunito', sans-serif !important;
+}
+a{
+        font-family: 'Nunito', sans-serif !important;
+}
+button{
+        font-family: 'Nunito', sans-serif !important;
+}
+p{
+        font-family: 'Nunito', sans-serif !important;
+}
+em {
+        font-style: normal Im !important;
+}

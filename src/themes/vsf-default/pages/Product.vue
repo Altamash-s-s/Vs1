@@ -374,14 +374,14 @@ export default {
     $(document).ready(function () {
 
       $('.color_button').click(function () {
-        console.log('color selected');
-        if ($(".VueCarousel-slide").hasClass("VueCarousel-slide-active")) {
-          console.log('class found');
-        }
-        else {
-          console.log('class not found');
-        }
 
+        
+        if (!$('.VueCarousel').hasClass("VueCarousel-slide-active")) {
+          $('.VueCarousel-slide').addClass('hide_image');
+        }
+        if ($(".VueCarousel-slide").hasClass("VueCarousel-slide-active")) {
+          $('.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center').addClass('show_image');
+        }
       });
 
       $('.tab-navigation button').click(function () {

@@ -26,6 +26,7 @@ export default {
     { rel: 'apple-touch-startup-image', href: '/assets/apple_splash_640.png', sizes: '640x1136' },
     { rel: 'manifest', href: '/assets/manifest.json' },
     { rel: 'stylesheet', as: 'style', href: 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:400,700|Material+Icons&display=swap' },
+    { rel: 'stylesheet', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous' }
   ],
   script: [

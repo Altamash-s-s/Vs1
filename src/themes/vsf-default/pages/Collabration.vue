@@ -34,13 +34,13 @@
             <P class="inside-para">Your contributions won't go unnoticed. As a collaborator, you'll have the opportunity to apply for recognition and royalties, ensuring that your talent is valued and rewarded. The application process for these benefits will be detailed upon acceptance into our collaborative network.
             </P>       
         </div>
-        <!-- <div class="form_dv apply-btn">
+        <div class="form_dv apply-btn">
                  <button @click="openSidebar">COLLABRATION NOW </button>
                     <div class="arrow-wrapper">
                          <div class="arrow"></div>
                     </div>
             <collabrationSidebar ref="collabrationSidebar"></collabrationSidebar>
-                  </div> -->
+                  </div>
     </div>
 </template>
 <script>
@@ -53,10 +53,10 @@ export default {
         collabrationSidebar,
     },
     methods: {
-        // openSidebar() {
-        //     // Access the sidebar component using refs
-        //     this.$refs.collabrationSidebar.openSidebar(); // Call the openSidebar method from the collabrationSidebar component
-        // }
+        openSidebar() {
+            // Access the sidebar component using refs
+            this.$refs.collabrationSidebar.openSidebar(); // Call the openSidebar method from the collabrationSidebar component
+        }
     },
 
 };

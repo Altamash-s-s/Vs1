@@ -1,6 +1,6 @@
 <template>
   <div
-    class="microcart cl-accent relative"
+    class="microcart cl-accent relative zaid"
     :class="[productsInCart.length ? 'bg-cl-secondary' : 'bg-cl-primary']"
     data-testid="microcart"
   >

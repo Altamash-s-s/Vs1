@@ -123,6 +123,13 @@ h1.collection-hd {
   color: #FFFF;
   font-size: 67px;
 }
+.collect_img_cnt {
+    position: absolute;
+    background: antiquewhite;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
 .dv3_inner .section_btn {
   background-color: #FFF;
   border-color: #fff;
@@ -138,14 +145,11 @@ h1.collection-hd {
   letter-spacing: 1px;
   display: block;
   margin: auto;
-  margin-top: 30px;
+  margin-top:60px;
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: 92px;
-  position: absolute;
-  top: 57%;
-  left: 15%;
 }
 .dv3_inner .section_btn:hover {
   background: #00000029;
