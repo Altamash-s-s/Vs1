@@ -70,12 +70,12 @@
 
           </div>
 
-          <div id="audio-control" class="muted">
+          <div id="audio-control1" class="muted">
               <img src="/assets/icons/unmute.png" class="mute_icon">
               <img src="/assets/icons/mute.png" class="unmute_icon">
             </div>
 
-            <div class="video-control">
+            <div class="video-control video_control1">
               <div class="video-control-play">
                 <div class="video-control-symbol" aria-hidden="true">
                   <img class="play-img" src="/assets/icons/play-1.png"></div>
@@ -89,10 +89,10 @@
         </div>
         <div class="parallax-image section5">
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
-          <video class="desktop_wntr_video" id="banner_video" autoplay control muted loop>
+          <video class="desktop_wntr_video" id="banner_video1" autoplay control muted loop>
             <source src="/assets/home/Winter-horizontal_2.mp4" type="video/mp4" />
           </video>
-          <video class="tab_wntr_video" id="banner_video" autoplay control muted loop>
+          <video class="tab_wntr_video" id="banner_video1" autoplay control muted loop>
             <source src="/assets/home/winter_mob_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -390,6 +390,20 @@ export default {
           $('.unmute_icon').show();
         }
     });
+
+    $('#audio-control1').click(function () {
+        if ($("#banner_video1").prop('muted')) {
+          $("#banner_video").prop('muted', false);
+          $('.mute_icon').show();
+          $('.unmute_icon').hide();
+        } else {
+          $("#banner_video1").prop('muted', true);
+          $('.mute_icon').hide();
+          $('.unmute_icon').show();
+        }
+    });
+
+    // Video 1
     const videoElement = document.querySelector('#banner_video') ;
     const playPauseButton = document.querySelector('.video-control'); 
     playPauseButton.addEventListener('click', () => {
@@ -404,24 +418,65 @@ export default {
     videoElement.addEventListener('ended', () => {
       playPauseButton.classList.remove('playing');
     });
+
+
+    // Video 2
+    const videoElement1 = document.querySelector('#banner_video1') ;
+    const playPauseButton1 = document.querySelector('.video_control1'); 
+    playPauseButton1.addEventListener('click', () => {
+      playPauseButton1.classList.toggle('playing');
+      if (playPauseButton1.classList.contains('playing')) {
+        videoElement1.pause();
+      }
+      else {
+        videoElement1.play();
+      }
+    });
+    videoElement1.addEventListener('ended', () => {
+      playPauseButton1.classList.remove('playing');
+    });
+
+
     window.addEventListener('load', videoScroll);
     window.addEventListener('scroll', videoScroll);
-    function videoScroll() {
-      var videoElements = document.querySelectorAll('#banner_video[autoplay]');
-      if (videoElements.length > 0) {
-        var windowHeight = window.innerHeight;
-        videoElements.forEach(function (thisVideoEl) {
-          var videoElement = thisVideoEl ; // Cast to HTMLVideoElement
-          var videoHeight = videoElement.clientHeight;
-          var videoClientRect = videoElement.getBoundingClientRect().top;
-          if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
-            videoElement.play();
-          } else {
-            videoElement.pause();
-          }
-        });
-      }
-    }
+
+    // function videoScroll() {
+    //   var videoElements = document.querySelectorAll('#banner_video[autoplay]');
+    //   if (videoElements.length > 0) {
+    //     var windowHeight = window.innerHeight;
+    //     videoElements.forEach(function (thisVideoEl) {
+    //       var videoElement = thisVideoEl ; // Cast to HTMLVideoElement
+    //       var videoHeight = videoElement.clientHeight;
+    //       var videoClientRect = videoElement.getBoundingClientRect().top;
+    //       if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
+    //         videoElement.play();
+    //       } else {
+    //         videoElement.pause();
+    //       }
+    //     });
+    //   }
+    // }
+    // function videoScroll() {
+    //   var videoElements = document.querySelectorAll('#banner_video');
+    //   if (videoElements.length > 0) {
+    //     var windowHeight = window.innerHeight;
+    //     videoElements.forEach(function (videoElement) {
+    //       var videoHeight = videoElement.clientHeight;
+    //       var videoClientRect = videoElement.getBoundingClientRect().top;
+
+    //       // Adjust conditions based on your specific requirements
+    //       if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
+    //         // Check if the video is muted and play if necessary
+    //         if (videoElement.paused && videoElement.muted) {
+    //           videoElement.play();
+    //         }
+    //       } else {
+    //         // Pause the video when out of view
+    //         videoElement.pause();
+    //       }
+    //     });
+    //   }
+    // }
     //------------------------------------- Custom JS Code END Here
   },
   beforeDestroy() {
@@ -738,7 +793,7 @@ h6.para {
     position: absolute;
     bottom: 60px;
 }
-#banner_video {
+#banner_video  , #banner_video1{
     width: 100%;
     height: 100vh;
     object-position: bottom;

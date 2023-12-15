@@ -110,6 +110,66 @@ export default {
   },
   mounted () {
 
+
+      // function lockPortraitOrientation() {
+      //     var isiPad = navigator.userAgent.match(/iPad/i) !== null;
+      //     function handleOrientationChange() {
+      //       if (isiPad) {
+      //         if (window.orientation === 0) {
+
+      //           alert("Please rotate your device to landscape orientation.");
+      //           const content = document.getElementById('app');
+      //           const tab_msg = document.getElementById('tab_mgs');
+      //           content.style.display = 'none';
+      //           tab_msg.style.display = 'block';
+
+      //         }
+      //         else {
+      //           const content = document.getElementById('app');
+      //           const tab_msg = document.getElementById('tab_mgs');
+      //           content.style.display = 'block';
+      //           tab_msg.style.display = 'none';
+      //         }
+      //       }
+      //     }
+
+      //     window.addEventListener("orientationchange", handleOrientationChange);
+
+      //     handleOrientationChange();
+      // }
+
+      // lockPortraitOrientation();
+
+
+      window.onresize = function (event) {
+          applyOrientation();
+      }
+
+      function applyOrientation() {
+          if (isIPad() && window.innerHeight > window.innerWidth) {
+
+            const content = document.getElementById('app');
+            const tab_msg = document.getElementById('tab_mgs');
+            content.style.display = 'none';
+            tab_msg.style.display = 'block';
+
+             
+          } else if (isIPad()) {
+              
+            const content = document.getElementById('app');
+            const tab_msg = document.getElementById('tab_mgs');
+            content.style.display = 'none';
+            tab_msg.style.display = 'block';
+
+          }
+      }
+
+      function isIPad() {
+          // Check if the user agent string contains "iPad"
+          return navigator.userAgent.match(/iPad/i) !== null;
+      }
+
+
     $(window).on('resize scroll', function() {
         if ($('.prd_detail_col').isInViewport()) {
           $('.prd_detail_col').addClass('dv_sticky');
@@ -157,7 +217,9 @@ export default {
 
 
 <style>
-
+#tab_mgs {
+  display: none;
+}
 .cstm-page-layout{
     max-width: 1240px;
     margin: 0 auto;

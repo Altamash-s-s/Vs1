@@ -3,8 +3,7 @@
         <div class="video-element">
             <div class="parallax-section winter_frst_fold">
                 <div class="parallax-image section5">
-                    <!-- <video src="../static/homepage/home-video.mp4" playsinline autoplay muted loop></video> -->
-                    <img class=top-img src="../../assets/collection/ONE LINER COLLECTION PAGE TOP FOLD-01.jpg">
+                    <img class=top-img src="../../assets/collection/winter_top_img.jpg">
                 </div>
             </div>
         </div>
@@ -32,133 +31,8 @@ export default {
         WinterCollectionSlider
     },
     mounted () {
-        //------------------------------------- Custom JS Code START Here
+    }
 
-
-        $(window).on('resize scroll', function() {
-
-            if ($('.winter_collection .dv3_inner').isInViewport()) {
-                $('.winter_collection .dv3_inner').addClass('winter_sticky');
-                $('#app').css('overflow-x','clip');
-                $('#viewport').css('overflow-x','clip');
-            }
-            else {
-                $('.winter_collection .dv3_inner').removeClass('winter_sticky');
-                $('#app').css('overflow-x','hidden');
-                $('#viewport').css('overflow-x','hidden');
-            }
-
-        });
-
-        $.fn.isInViewport = function() {
-            var elementTop = $(this).offset().top;
-            var elementBottom = elementTop + $(this).outerHeight();
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
-            return elementBottom > viewportTop && elementTop < viewportBottom;
-        };
-
-
-        var pathname = window.location.pathname;
-        if(pathname === '/collection'){
-            $('#app').css('overflow-x','clip');
-            $('#viewport').css('overflow-x','clip');
-        }
-        else if(pathname === '/Collection'){
-            $('#app').css('overflow-x','clip');
-            $('#viewport').css('overflow-x','clip');
-        }
-        else if(pathname != '/collection'){ 
-            $('#app').css('overflow-x','hidden');
-            $('#viewport').css('overflow-x','hidden');
-        }
-        const items = $('.bg_sec');
-        let currentItemIndex = 0;
-        // Function to remove the active class from all items
-        function removeActiveClass() {
-            items.removeClass('active');
-        }
-        // Function to add the active class to the current item
-        function setActiveClass() {
-            items.eq(currentItemIndex).addClass('active');
-        }
-        // Initial set active class
-        setActiveClass();
-        // Mouse wheel scroll event listener
-        $('.dv3_inner').on('mousewheel', function (e) {
-            // Check if the user scrolled up or down
-            if (e.originalEvent.deltaY > 0) {
-                // Scrolled down
-                console.log('going down');
-                if (currentItemIndex < items.length - 1) {
-                    currentItemIndex++;
-                    removeActiveClass();
-                    setActiveClass();
-                }
-            } else {
-                // Scrolled up
-                if (currentItemIndex > 0) {
-                    currentItemIndex--;
-                    removeActiveClass();
-                    setActiveClass();
-                }
-            }
-        });
-        $('#audio-control').click(function () {
-            if ($("#banner_video").prop('muted')) {
-                $("#banner_video").prop('muted', false);
-                $('.mute_icon').show();
-                $('.unmute_icon').hide();
-            } else {
-                $("#banner_video").prop('muted', true);
-                $('.mute_icon').hide();
-                $('.unmute_icon').show();
-            }
-        });
-        const videoElement = document.querySelector('#banner_video');
-        const playPauseButton = document.querySelector('.video-control');
-        playPauseButton.addEventListener('click', () => {
-            playPauseButton.classList.toggle('playing');
-            if (playPauseButton.classList.contains('playing')) {
-                videoElement.pause();
-            }
-            else {
-                videoElement.play();
-            }
-        });
-        videoElement.addEventListener('ended', () => {
-            playPauseButton.classList.remove('playing');
-        });
-        window.addEventListener('load', videoScroll);
-        window.addEventListener('scroll', videoScroll);
-        function videoScroll() {
-            var videoElements = document.querySelectorAll('#banner_video[autoplay]');
-            if (videoElements.length > 0) {
-                var windowHeight = window.innerHeight;
-                videoElements.forEach(function (thisVideoEl) {
-                    var videoElement = thisVideoEl;
-                    var videoHeight = videoElement.clientHeight;
-                    var videoClientRect = videoElement.getBoundingClientRect().top;
-                    if (videoClientRect <= (windowHeight - videoHeight * 0.10) && videoClientRect >= -videoHeight * 0.10) {
-                        videoElement.play();
-                    } else {
-                        videoElement.pause();
-                    }
-                });
-            }
-        }
-        //------------------------------------- Custom JS Code END Here
-    },
-    methods: {
-    openFullScreenVideo() {
-        const videoElement = document.getElementById("banner_video");
-        if (videoElement) {
-            if (videoElement.requestFullscreen) {
-                videoElement.requestFullscreen();
-            }
-        }
-    },
-},
 };
 </script>
 <style scoped>
@@ -303,16 +177,7 @@ video {
     object-fit: cover;
     /* Maintain aspect ratio and cover the entire container */
 }
-.parallax-section::before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    transition: opacity .3s cubic-bezier(.39, .575, .565, 1);
-}
+
 .parallax-section .parallax-image {
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -404,7 +269,7 @@ video {
     p.dscrpt-txt{
         font-size: 14px;
         line-height: 17px;
-        padding: 50px;
+        padding:0 50px;
     }
     .head-img-cl {
         left: 6%;

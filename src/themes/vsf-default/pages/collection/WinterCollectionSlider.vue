@@ -1,136 +1,109 @@
 <template>
-  <div class="dv3 winter_collection">
-    <div class="dv3_inner">
-      <!-- 1 -->
-      <div class="bg bg1 bg_sec">
-        <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-        <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="./ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-2.png" />
-      </div>
-      <div class="bg bg1 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-2.png" />
-      </div>
-      <div class="bg bg1 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-2.png" />
-      </div>
+  <div>
     
-      <!-- 2 -->
-      <div class="bg bg2 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-5.png" />
-      </div>
-      <div class="bg bg2 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-5.png" />
-      </div>
-      <div class="bg bg2 bg_sec">
-         <!-- <h1 class="collection-hd">Human Abstract</h1> -->
-         <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
-        <a href="ha-winter-23-24.html" class="section_btn">
-          <div class="">
-            <p>See All</p>
-          </div>
-        </a>
-        <img class="model_img" src="../../assets/collection/collection-5.png" />
-      </div>
+    <div class="section" v-for="(imageClass, index) in imageClasses" :key="index" :class="{ 'active': index === activeSection }">
+      <div class="image-container">
+        <div :class="['image', imageClass]">
 
-  
+          <div class="collect_img_cnt">
+            <img class="head-img-cl" src="../../assets/collection/ha_text.svg">
+            <a href="ha-winter-23-24.html" class="section_btn">
+              <div class="">
+                <p>See All</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
-<script>
+<script lang="ts" type="module">
 export default {
+  name: 'collection',
+  data() {
+  return {
+    imageClasses: ['img-1', 'img-2'],
+    activeSection: 0, // Add activeSection to track the active section
+  };
+},
+mounted() {
+  window.addEventListener('scroll', this.changeImage);
+  this.changeImage(); // Call it initially to set the initial state.
+},
+beforeDestroy() {
+  window.removeEventListener('scroll', this.changeImage);
+},
+methods: {
+  changeImage() {
+    const scroll = window.scrollY + window.innerHeight / 4;
+    this.imageClasses.forEach((imageClass, index) => {
+      const el = document.querySelector(`.section:nth-child(${index + 1})`) as HTMLElement;
+      if (!el) return;
+      
+      if (el.offsetTop <= scroll && el.offsetHeight + el.offsetTop > scroll) {
+        this.activeSection = index; // Update the active section
+      }
+    });
+  },
+},
 };
 </script>
 <style>
 body {
-  margin: 0;
+margin: 0;
 }
-.dv3.winter_collection {
-  width: 100%;
-  min-height: 200vh;
+.img-1{
+  background-image: url('../../assets/collection/collection-5.png')
+}
+.img-2{
+  background-image: url('../../assets/collection/collection-2.png')
+}
+
+
+.section {
+  display: flex;
+  min-height: 100vh;
   position: relative;
 }
-.dv3_inner {
-  width: 100%;
+.image-container {
+  position: relative;
+  display: flex;
+}
+.image {
   height: 100vh;
-  background:url('../../assets/collection/collection_bg1 (2).png');
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-size: cover;
+  background-position: bottom right;
   background-repeat: no-repeat;
-  background-position: center;
-}
-.winter_sticky {
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
-}
-.bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  mix-blend-mode: color;
   opacity: 0;
-  transition: opacity 0.3s;
+  /* transition:  fade 0.5s ease; */
+  transition: opacity .5s linear;
 }
-.bg.active {
+.section.active .image {
   opacity: 1;
+  transition: opacity .4s cubic-bezier(.25,.46,.45,.94);
 }
-.bg .model_img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-h1.collection-hd {
-  position: absolute;
-  top: 45%;
-  left: 90px;
-  color: #FFFF;
-  font-size: 67px;
+h2.ha-head {
+    position: sticky;
+    top: 20rem;
+    color: #FFF;
+    z-index: 2;
+    margin-left: 105px;
+    font-size: 70px;
 }
 .collect_img_cnt {
+    width: fit-content;
     position: absolute;
-    background: antiquewhite;
     top: 50%;
-    left: 5%;
     transform: translateY(-50%);
+    left: 5%;
 }
-.dv3_inner .section_btn {
+
+.collect_img_cnt .section_btn {
   background-color: #FFF;
   border-color: #fff;
   border: 1px solid #FFF;
@@ -145,18 +118,18 @@ h1.collection-hd {
   letter-spacing: 1px;
   display: block;
   margin: auto;
-  margin-top:60px;
+  margin-top: 60px;
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: 92px;
 }
-.dv3_inner .section_btn:hover {
+.collect_img_cnt .section_btn:hover {
   background: #00000029;
   color: #FFF;
   border: 1px solid #FFF;
 }
-.dv3_inner .section_btn div {
+.collect_img_cnt .section_btn div {
   width: 100%;
   float: left;
   display: flex;
@@ -164,20 +137,20 @@ h1.collection-hd {
   align-items: center;
   position: relative;
 }
-.dv3_inner .section_btn div p {
+.collect_img_cnt .section_btn div p {
   margin: 0;
   margin-left: 12px;
   transition: all 0.4s;
 }
-.dv3_inner .section_btn:hover div p {
+.collect_img_cnt .section_btn:hover div p {
   margin-left: -6px;
 }
-.dv3_inner .section_btn div img {
+.collect_img_cnt .section_btn div img {
   width: 20px;
   margin-left: 7px;
   display: none;
 }
-.dv3_inner .section_btn div::after {
+.collect_img_cnt .section_btn div::after {
   content: '';
   background-image: url('../../assets/icons/chevron-1.svg');
   position: absolute;
@@ -189,80 +162,98 @@ h1.collection-hd {
   opacity: 0;
   transition: all 0.4s;
 }
-.dv3_inner .section_btn:hover div::after {
+.collect_img_cnt .section_btn:hover div::after {
   opacity: 1;
-}
-.head-img-cl {
-    width: 700px !important;
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    left: 3%;
-    height: auto !important; 
-}
-@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
-}
-@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
-}
-@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
-}
-@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
-
-}
-@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
-  .head-img-cl {
-    width: 600px !important;
-  }
-  .dv3_inner .section_btn {
-    top: 60%;
-    left: 23%;
-  }
-  .dscrpt-txt{
-      font-size: 19px !important;
-      line-height: 32px !important;
-  }
-  .bg .model_img {
-      object-fit: fill;
-      object-position: right;
-  }
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
-  .bg .model_img {
-    object-position: right;
-  }
-  .head-img-cl {
-    width: 550px!important;
-    left: 17%;
-    bottom: 200px !important;
-    top: auto;
-  }
-  .dv3_inner .section_btn div p {
-    margin-left: 0px;
-  }
-  .dv3_inner .section_btn {
-    padding: 14px 24px;
-    top: auto;
-    left: 42%;
-    bottom: 120px;
-  }
-
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
-  .bg .model_img {
-    object-position: right;
+  .collection-section .image {
+    background-position: 82%;
   }
-  .head-img-cl {
-    width: 320px !important;
-    left: 10%;
-    bottom: 25%;
+  .collect_img_cnt {
     top: auto;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    left: 7.5%;
+    width: 85%;
+    bottom: 100px;
   }
-  .dv3_inner .section_btn {
-    top: auto;
-    bottom: 128px;
-    left: 31%;
+  .collect_img_cnt img {
+    width: 100%;
   }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+  .collect_img_cnt .section_btn div p { 
+    margin-left: 0;
+  }
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 820px) and (max-device-width : 1180px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 776px) and (max-device-width : 1194px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 810px) and (max-device-width : 1080px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
 }
 </style>

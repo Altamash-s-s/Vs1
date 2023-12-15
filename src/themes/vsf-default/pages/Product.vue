@@ -735,7 +735,7 @@ h2.h3.m0.mb10.serif.lh20.details-title.accordion-heading.hd-title-care {
   width: fit-content;
   margin-top: 30px;
   padding: 4px;
-  margin-left: 7px;
+  margin-left: 0px;
 }
 
 #story_container p {

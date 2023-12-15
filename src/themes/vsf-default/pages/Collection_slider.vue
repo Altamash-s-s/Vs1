@@ -7,7 +7,7 @@
 
           <div class="collect_img_cnt">
             <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-            <a href="one-liner-winter-2023-24.html" class="section_btn">
+            <a href="ha-onliner-23-24.html" class="section_btn">
               <div class="">
                 <p>See All</p>
               </div>
@@ -83,11 +83,10 @@ margin: 0;
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
-  mix-blend-mode: multiply;
+  mix-blend-mode: color;
   opacity: 0;
   /* transition:  fade 0.5s ease; */
   transition: opacity .5s linear;
-  z-index: -1;
 }
 .section.active .image {
   opacity: 1;
@@ -171,4 +170,97 @@ h2.ha-head {
 .collect_img_cnt .section_btn:hover div::after {
   opacity: 1;
 }
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .collection-section .image {
+    background-position: 82%;
+  }
+  .collect_img_cnt {
+    top: auto;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    left: 7.5%;
+    width: 85%;
+    bottom: 100px;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+  .collect_img_cnt .section_btn div p { 
+    margin-left: 0;
+  }
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 820px) and (max-device-width : 1180px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 776px) and (max-device-width : 1194px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen and (min-device-width : 810px) and (max-device-width : 1080px) and (orientation : landscape) {
+
+  .collect_img_cnt {
+    width: 46%;
+    top: 52%;
+    left: 5%;
+  }
+  .collect_img_cnt img {
+    width: 100%;
+  }
+  .collect_img_cnt .section_btn {
+    margin-top: 30px;
+  }
+
+}
+
 </style>
