@@ -235,14 +235,14 @@ export default {
 
 <style lang="scss">
 
-.VueCarousel-inner {
-  display: block !important;
-}
-.VueCarousel-slide {
-    float: left;
-    width: 100%;
-    height: 100%;
-}
+// .VueCarousel-inner {
+//   display: block !important;
+// }
+// .VueCarousel-slide {
+//     float: left;
+//     width: 100%;
+//     height: 100%;
+// }
 button.VueCarousel-dot {
   background-color: #969696 !important;
 }

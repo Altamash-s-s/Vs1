@@ -178,8 +178,8 @@ $color-white: color(white);
   &__icons {
     position: absolute;
     top:auto;
-    bottom:0px;
-    right: 0;
+    bottom: 4px;
+    right: 6px;
     display: flex;
     flex-direction: column;
     padding-top: 0px;
@@ -285,11 +285,16 @@ img.icon-img1 {
   text-align: left;
   margin-top: 10px;
   float: left;
-  width: 100%;
+  border: 1px solid #C1C1C1;
+  width: 98%;
+  padding: 7px 0 3px 5px;
 }
 .add_card p {
   line-height: 20px;
   font-size: 15px;
+  margin-top: 7px;
+  float: left;
+  
 }
 .bookmar-icon {
     width: 19px;
@@ -301,10 +306,12 @@ img.icon-img1 {
   .product {
     width: 100%;
     &__icons {
-      bottom: 11px;
+      bottom: 14px;
     }
   }
-
+  .add_card p{
+    width: 85%;
+  }
   
 
 }

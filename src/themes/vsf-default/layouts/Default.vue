@@ -141,33 +141,7 @@ export default {
       // lockPortraitOrientation();
 
 
-      window.onresize = function (event) {
-          applyOrientation();
-      }
-
-      function applyOrientation() {
-          if (isIPad() && window.innerHeight > window.innerWidth) {
-
-            const content = document.getElementById('app');
-            const tab_msg = document.getElementById('tab_mgs');
-            content.style.display = 'none';
-            tab_msg.style.display = 'block';
-
-             
-          } else if (isIPad()) {
-              
-            const content = document.getElementById('app');
-            const tab_msg = document.getElementById('tab_mgs');
-            content.style.display = 'none';
-            tab_msg.style.display = 'block';
-
-          }
-      }
-
-      function isIPad() {
-          // Check if the user agent string contains "iPad"
-          return navigator.userAgent.match(/iPad/i) !== null;
-      }
+    
 
 
     $(window).on('resize scroll', function() {

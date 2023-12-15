@@ -12,7 +12,7 @@
       :validations="[
         {
           condition: !$v.value.numeric || !$v.value.minValue || !$v.value.required,
-          text: $t(`Quantity must be positive integer`)
+          text: $t(`Quantity must be a positive integer`)
         },
         {
           condition: maxQuantity && value && !$v.value.maxValue,
@@ -61,6 +61,7 @@ export default {
       default: false
     }
   },
+
   computed: {
     isOnline (value) {
       return onlineHelper.isOnline

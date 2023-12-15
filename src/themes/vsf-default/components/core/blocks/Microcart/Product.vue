@@ -11,16 +11,16 @@
       </button>
     </div>
     <div class="blend">
-      <div class="ml10 bg-cl-secondary">
+      <div class=" bg-cl-secondary">
         <product-image :image="image" />
       </div>
     </div>
     <div class="col-xs pt15 flex pl35 flex-wrap">
       <div class="flex flex-nowrap details">
-        <div class="flex w-100 flex-wrap between-xs">
+        <div class="flex w-100 between-xs">
           <div>
             <router-link
-              class="serif h4 name"
+              class="serif h4 name prd_name"
               :to="productLink"
               data-testid="productLink"
               @click.native="$store.commit('ui/setMicrocart', false)"
@@ -30,18 +30,21 @@
             <div class="h6 cl-bg-tertiary pt5 sku" data-testid="productSku">
               {{ product.sku }}
             </div>
-            <div class="h6 cl-bg-tertiary pt5 options" v-if="isTotalsActive">
+            <div class="size-color-dv">
+              <div class="h6 cl-bg-tertiary pt5 options" v-if="isTotalsActive">
               <div v-for="opt in product.totals.options" :key="opt.label">
-                <span class="opn">{{ opt.label }}: </span>
-                <span class="opv" v-html="opt.value" />
+                <!-- <span class="opn">{{ opt.label }}: </span> -->
+                <span class="opv size-option" v-html="opt.value"/>
               </div>
             </div>
             <div class="h6 cl-bg-tertiary pt5 options" v-else-if="!editMode && product.options">
               <div v-for="opt in product.options" :key="opt.label">
-                <span class="opn">{{ opt.label }}: </span>
+                <!-- <span class="opn">{{ opt.label }}: </span> -->
                 <span class="opv" v-html="opt.value" />
               </div>
             </div>
+            </div>
+
             <div class="h6 pt5 cl-error" v-if="hasProductErrors">
               {{ product.errors | formatProductMessages }}
             </div>
@@ -67,23 +70,23 @@
             <span class="h6 serif price-original" v-if="product.special_price">
               {{ product.original_price_incl_tax * product.qty | price(storeView) }}
             </span>
-            <span class="h4 serif price-regular" v-else data-testid="productPrice">
+            <span class="h4 serif price-regular shopping_pg_ptice" v-else data-testid="productPrice">
               {{ (product.original_price_incl_tax ? product.original_price_incl_tax : product.price_incl_tax) * product.qty | price(storeView) }}
             </span>
           </div>
           <div class="prices" v-else-if="isOnline && product.totals">
-            <span class="h4 serif cl-error price-special" v-if="product.totals.discount_amount">
+            <span class="h4 serif cl-error price-special shopping_pg_ptice" v-if="product.totals.discount_amount">
               {{ product.totals.row_total - product.totals.discount_amount + product.totals.tax_amount | price(storeView) }}
             </span>
             <span class="h6 serif price-original" v-if="product.totals.discount_amount">
               {{ product.totals.row_total_incl_tax | price(storeView) }}
             </span>
-            <span class="h4 serif price-regular" v-if="!product.totals.discount_amount">
+            <span class="h4 serif price-regular shopping_pg_ptice" v-if="!product.totals.discount_amount">
               {{ product.totals.row_total_incl_tax | price(storeView) }}
             </span>
           </div>
           <div class="prices" v-else>
-            <span class="h4 serif price-regular">
+            <span class="h4 serif price-regular shopping_pg_ptice">
               {{ (product.regular_price || product.price_incl_tax) * product.qty | price(storeView) }}
             </span>
           </div>
@@ -315,11 +318,41 @@ export default {
 }
 </script>
 
+<style>
+.shopping_pg_ptice{
+  color: #302A2A;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.blend .product-image {
+  height: 174px;
+  padding: 0 !important;
+}
+.blend .product-image--width .product-image__thumb {
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+.prd_name {
+  font-size: 15px;
+  color: #000;
+  font-weight: 400;
+}
+.shop_cart_col1 .sc_prt3 li {
+    border-bottom: 1px solid #C1C1C1;
+    padding: 25px 0 18px 0;
+}
+.shop_cart_col1 .sc_prt3 li:last-child {
+  border-bottom: 0px solid #C1C1C1;
+}
+</style>
+
 <style lang="scss" scoped>
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
   .blend {
-    flex: 0 0 150px;
+    flex: 0 0 140px;
   }
 
   .image {
@@ -404,5 +437,11 @@ export default {
     min-width: 150px;
     width: 150px;
     padding: 10px;
+  }
+  .size-color-dv .options {
+    display: grid;
+  }
+  .size-option{
+    order: 2;
   }
 </style>

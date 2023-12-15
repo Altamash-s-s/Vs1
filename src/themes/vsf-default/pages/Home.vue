@@ -567,7 +567,7 @@ export default {
   display: none;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
 
   html {
     -ms-scroll-snap-type: unset;
@@ -1199,12 +1199,12 @@ z-index: 3;
     left: 0;
   }
 
-  .tab_liner_video , .tab_wntr_video{
-    display: block;
-  }
-  .desktop_liner_video , .desktop_wntr_video{
-    display: none;
-  }
+  // .tab_liner_video , .tab_wntr_video{
+  //   display: block;
+  // }
+  // .desktop_liner_video , .desktop_wntr_video{
+  //   display: none;
+  // }
 
 
 

@@ -3,7 +3,7 @@
     <div
       v-for="(product, key) in products"
       :key="product.id"
-      class="col-sm-6 flex prd_lst_col col-xs-12 col-md-4 col-lg-3"
+      class="col-sm-6 flex prd_lst_col col-xs-6 col-md-4 col-lg-3"
       
     >
       <product-tile :product="product" :cateId="categoryid" />
