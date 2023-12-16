@@ -6,7 +6,11 @@ form {
   label {
     display: none;
   }
-
+  .cstm-input {
+    border-bottom: 1px solid #0000003b;
+    font-size: 16px;
+    color: #302A2A;
+}
   input,
   select,
   textarea {
