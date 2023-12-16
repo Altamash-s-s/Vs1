@@ -4,15 +4,6 @@
     <div class="section" v-for="(imageClass, index) in imageClasses" :key="index" :class="{ 'active': index === activeSection }">
       <div class="image-container">
         <div :class="['image', imageClass]">
-
-          <div class="collect_img_cnt">
-            <img class="head-img-cl" src="../assets/collection/ha_text.svg">
-            <a href="ha-onliner-23-24.html" class="section_btn">
-              <div class="">
-                <p>See All</p>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -83,10 +74,10 @@ margin: 0;
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
-  mix-blend-mode: color;
   opacity: 0;
   /* transition:  fade 0.5s ease; */
   transition: opacity .5s linear;
+  z-index: -1;
 }
 .section.active .image {
   opacity: 1;
@@ -102,32 +93,17 @@ h2.ha-head {
 }
 .collect_img_cnt {
     width: fit-content;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     left: 5%;
 }
 
 .collect_img_cnt .section_btn {
-  background-color: #FFF;
-  border-color: #fff;
-  border: 1px solid #FFF;
-  backdrop-filter: blur(2px);
-  color: #000;
-  font-weight: 400;
-  padding: 16px 30px;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin: auto;
-  margin-top: 60px;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 92px;
+  margin: auto !important;
+  margin-top: 60px !important;
+  max-width: 93px !important;
+  padding: 16px 30px !important;
 }
 .collect_img_cnt .section_btn:hover {
   background: #00000029;
@@ -190,10 +166,10 @@ h2.ha-head {
     width: 100%;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
   .collect_img_cnt .section_btn div p { 
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
 }
@@ -210,7 +186,7 @@ h2.ha-head {
     width: 100%;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
 }
@@ -226,7 +202,7 @@ h2.ha-head {
     width: 100%;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
 }
@@ -242,7 +218,7 @@ h2.ha-head {
     width: 100%;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
 }
@@ -258,7 +234,7 @@ h2.ha-head {
     width: 100%;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px;
+    margin-top: 30px !important;
   }
 
 }

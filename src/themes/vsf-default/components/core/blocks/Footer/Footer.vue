@@ -276,6 +276,8 @@ footer {
   float: left;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  position: relative;
+  z-index: 1;
 }
 .social-icon {
   width: 40px;

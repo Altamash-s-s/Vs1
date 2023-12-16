@@ -1,7 +1,7 @@
 <template>
   <button class="brdr-none bg-cl-transparent p0 middle-xs inline-flex cl-secondary weight-400 h4 sans-serif fs-medium" @click="$emit('click')">
     <span class="clearcart-btn cl-accent">
-      <i class="material-icons cl-accent mr5">
+      <i class="material-icons cl-accent mr5 clear-icon-btn">
         cancel
       </i>
       {{ $t('Clear wishlist') }}
@@ -15,5 +15,8 @@
       display: flex;
       align-items: center;
     }
+  }
+  .clear-icon-btn {
+    font-size: 17px;
   }
 </style>

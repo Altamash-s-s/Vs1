@@ -1261,12 +1261,13 @@ z-index: 3;
 @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
   
   .desk_img {
-    display: none;
-  }
-  .tab_img {
     display: block;
     height: auto;
   }
+  // .tab_img {
+  //   display: block;
+  //   height: auto;
+  // }
   .head_section , .cubism_section , .fitness_section, .women_power_section {
     height: auto;
   }

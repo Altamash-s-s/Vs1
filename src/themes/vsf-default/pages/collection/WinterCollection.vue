@@ -14,6 +14,14 @@
         </div>
         <div class="collection-section winter_thrd_fold">
             <WinterCollectionSlider></WinterCollectionSlider>
+            <div class="collect_img_cnt">
+                <img class="head-img-cl" src="/../assets/collection/ha_text.svg">
+                <a href="ha-winter-23-24.html" class="section_btn">
+                    <div class="">
+                        <p>See All</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -36,6 +44,9 @@ export default {
 };
 </script>
 <style scoped>
+.collection-section {
+
+}
 .mute_icon {
     display: none;
 }
@@ -224,7 +235,10 @@ video {
     .description-container {
         padding: 9.2% 0 9.2%;
         background-color: #000;
+        position: relative;
+        z-index:1;
     }
+    
     p.dscrpt-txt {
         color: #FFF;
         text-align: center;

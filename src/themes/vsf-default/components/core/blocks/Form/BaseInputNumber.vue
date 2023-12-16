@@ -172,4 +172,17 @@ input[type=number] {
     justify-content: center;
     margin: auto;
 }
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .shp-input-nm {
+    width: 18px;
+    font-size: 15px;
+  }
+  .quantity-button[data-v-5fa86bab] {
+    width: 14px;
+    height: 14px;
+    font-weight:700;
+  } 
+}
 </style>

@@ -338,6 +338,32 @@ li.quantity_ttl {
 li.price_ttl {
     width: 64px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .shop_crt_ttl_col {
+    padding-left: 15px;
+  }
+  .shop_cart_ttl {
+    font-size: 32px;
+  }
+  .clearcart-col {
+    justify-content: end;
+    margin-top: 11px !important;
+    margin-bottom: 20px;
+  }
+  li.item_ttl {
+    width: 62%;
+  }
+  li.quantity_ttl {
+    width: 18%;
+  }
+  li.price_ttl {
+    width: 20%;
+  }
+  .shop_crt_prd_ttls li {
+    font-size: 15px;
+  }
+}
 /*------------- shop_cart_col1 CSS End*/
 
 
@@ -350,6 +376,8 @@ li.price_ttl {
     top: 0;
     right: 23px;
     background: transparent;
+    height:auto !important;
+    padding-right: 0;
 }
 .sc_prt4 {
     margin-top: 90px;
@@ -371,10 +399,33 @@ li.price_ttl {
     font-size: 18px;
     font-weight: 400;
     min-width: auto;
+    text-align: center;
 }
 .shop_cart .return_shop_link {
   margin-top: 20px;
   display: block;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .sc_prt1 {
+    right: -3px;
+  }
+  .sc_prt4 {
+    margin-top: 0px;
+  }
+  .sumry_calu_dv {
+    margin-top: 20px;
+  }
+  .sumry_calu_dv .py15 {
+    padding-top: 10px;
+    padding-bottom: 10px
+  }
+  .sumry_calu_dv .align-center {
+    text-align: right;
+  }
+  .shop_cart .return_shop_link {
+    padding: 0px 20px 20px 20px;
+  }
 }
 /*------------- shop_cart_col2 CSS End*/
 </style>
@@ -433,13 +484,14 @@ li.price_ttl {
   .summary {
     @media (max-width: 767px) {
       padding:  0 15px;
-      font-size: 12px;
+      font-size: 15px;
     }
   }
 
   .summary-heading {
     @media (max-width: 767px) {
-      font-size: 18px;
+      font-size: 23px;
+      padding-top: 25px;
     }
   }
 
@@ -451,7 +503,7 @@ li.price_ttl {
 
   .total-price-value {
     @media (max-width: 767px) {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 

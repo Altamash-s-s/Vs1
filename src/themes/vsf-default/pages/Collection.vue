@@ -19,6 +19,14 @@
 
         <div class="collection-section">
             <Collection_slider></Collection_slider>
+            <div class="collect_img_cnt">
+                <img class="head-img-cl" src="../assets/collection/ha_text.svg">
+                <a href="ha-onliner-23-24.html" class="section_btn">
+                <div class="">
+                    <p>See All</p>
+                </div>
+                </a>
+            </div>
         </div>
 
     </div>
@@ -232,6 +240,8 @@ video {
 .description-container {
     padding: 9.2% 0 9.2%;
     background-color: #000;
+    position: relative;
+    z-index:1;
 }
 p.dscrpt-txt {
     color: #FFF;

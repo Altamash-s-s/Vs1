@@ -10,12 +10,12 @@
         </span>
       </button>
     </div>
-    <div class="blend">
+    <div class="blend img_box">
       <div class=" bg-cl-secondary">
         <product-image :image="image" />
       </div>
     </div>
-    <div class="col-xs pt15 flex pl35 flex-wrap">
+    <div class="col-xs pt15 flex pl35 flex-wrap img_dtl_box">
       <div class="flex flex-nowrap details">
         <div class="flex w-100 between-xs">
           <div>
@@ -345,6 +345,42 @@ export default {
 }
 .shop_cart_col1 .sc_prt3 li:last-child {
   border-bottom: 0px solid #C1C1C1;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .blend .product-image {
+    height: auto;
+  }
+  .blend{
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px !important;
+  }
+  .img_dtl_box {
+    padding-left: 10px;
+    padding-top: 0;
+    padding-right: 0;
+  }
+  .prd_name {
+    font-size: 13px !important;
+    line-height: 16px !important;
+    display: block;
+  }
+  .shopping_pg_ptice {
+    font-size: 14px;
+  }
+  .shop_cart_col1 .sc_prt3 {
+    padding: 0px 20px 20px 20px !important ;
+  }
+  .shop_cart_col1 .sc_prt3 li {
+    padding: 15px 0 15px 0;
+  }
+  .img_dtl_box .product-quantity {
+    padding-right: 10px !important; 
+    padding-left: 10px;
+  }
+  .img_dtl_box .price {
+    margin-right: 0px !important;
+  }
+
 }
 </style>
 
