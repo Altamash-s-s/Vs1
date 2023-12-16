@@ -31,7 +31,7 @@
       <input placeholder="Phone Number" class="phonenumber cstm-input" type="tel" v-model="formData.phoneNumber" required />
 
       <label for="faxNumber">Fax Number:</label>
-      <input placeholder="Fax Number" class="faxnumber" type="tel" v-model="formData.faxNumber" />
+      <input placeholder="Fax Number" class="faxnumber cstm-input" type="tel" v-model="formData.faxNumber" />
 
       <label for="mailingAddress">Mailing Address:</label>
       <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea>
@@ -52,7 +52,7 @@
       <input placeholder="Portfolio or CV URL Link" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
 
       <label for="description">Description (100-125 words):</label>
-      <textarea class="description" v-model="formData.description" required></textarea>
+      <textarea class="description" placeholder="Description (100-125 words):" v-model="formData.description" required></textarea>
       <button class="submit" type="submit">Submit</button>
     </form>
     <div v-else>

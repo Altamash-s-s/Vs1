@@ -7,7 +7,11 @@
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
         <div class="mina-form" style="height: calc(100% - 80px); overflow-y: auto;" >
-          <h2 class="main-hd main-hd">Giveaway Form</h2>
+
+          <div class="popup_ttl_dv">
+            <h2 class="main-hd main-hd">Giveaway Form</h2>
+          </div>
+          
           <Giveaway_from /> 
         </div>
       </div>
@@ -62,7 +66,21 @@ import Giveaway_from from './Giveaway_from.vue';
     padding-left: 37px;
 }
 
-  
+.popup_ttl_dv {
+  background-image: url('../assets/patch_img.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 118px;
+  display: flex;
+  align-items: center;
+}
+  .popup_ttl_dv h2 {
+    font-size: 40px;
+  }
+  .forms_detail form {
+    margin-top: 30px;
+}
   .right-sidebar {
     position: fixed;
     top: 0;
@@ -90,17 +108,18 @@ import Giveaway_from from './Giveaway_from.vue';
     font-family: 'PoppinsRegular';
  }
 .close_btn {
-    background: #FFF;
-    display: block;
-    margin: auto;
-    margin-right: 27px;
+  display: block;
+  margin: auto;
+  margin-right: 27px;
+  background: transparent;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 21px;
+  padding: 0;
 }
 .close_icon {
-    width: 6%;
-    height: 6%;
-    display: block;
-    margin: 0 auto;
-    float: right;
+    width:100%;
 }
 @media only screen and (max-width: 767px) {
     .right-sidebar.open {

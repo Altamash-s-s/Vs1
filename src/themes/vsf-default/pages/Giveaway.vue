@@ -135,11 +135,11 @@ transform: rotate(-45deg);
 }
 
 button:hover {
-background-color: var(--hover-color);
+/* background-color: var(--hover-color); */
 }
 
 button:hover .arrow {
-background: var(--secondary-color);
+/* background: var(--secondary-color); */
 }
 
 button:hover .arrow:before {

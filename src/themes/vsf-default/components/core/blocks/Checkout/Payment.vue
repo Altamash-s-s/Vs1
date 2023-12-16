@@ -261,7 +261,13 @@
                 @change="$v.payment.paymentMethod.$touch(); changePaymentMethod();"
               >
               <span class="checkmark" />
+
             </label>
+
+           
+
+          </div>
+
 
             <!-- The stripe method integration -->
             <div class="row mb35 stripe-container" v-if="paymentDetails.paymentMethod === 'stripe_payments'">
@@ -269,11 +275,6 @@
                     <payment-stripe/>
                 </div>
             </div>
-
-          </div>
-
-
-
 
 
           <span class="validation-error" v-if="!$v.payment.paymentMethod.required">{{ $t('Field is required') }}</span>
