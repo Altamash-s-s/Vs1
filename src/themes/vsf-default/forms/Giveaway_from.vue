@@ -2,44 +2,45 @@
   <div class="forms_detail giveaway">
     <form @submit.prevent="submitForm" v-if="!submitted">
       <label for="firstName">First Name:</label>
-      <input class="first_name" id="first-name" type="text" v-model="formData.firstName" required />
+      <input placeholder="First Name" class="first_name" id="first-name" type="text" v-model="formData.firstName" required />
 
       <label for="middleName">Middle Name:</label>
-      <input class="middle_name" id="middle-name" type="text" v-model="formData.middleName" />
+      <input placeholder="Middle Name" class="middle_name" id="middle-name" type="text" v-model="formData.middleName" />
 
       <label for="lastName">Last Name:</label>
-      <input class="last_name" type="text" v-model="formData.lastName" required />
+      <input placeholder="Last Name" class="last_name" type="text" v-model="formData.lastName" required />
 
       <label for="email">Email:</label>
-      <input class="email" id="from_email" type="email" v-model="formData.email" required />
+      <input placeholder="Email" class="email" id="from_email" type="email" v-model="formData.email" required />
 
       <label for="age">Age:</label>
-      <input class="age" type="number" v-model="formData.age" required />
+      <input placeholder="Age" class="age" type="number" v-model="formData.age" required />
 
       <label class="gender" for="gender">Gender:</label>
       <select v-model="formData.gender" required>
+        <option value disabled>Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
 
       <label for="dob">Date of Birth:</label>
-      <input class="dob" type="date" v-model="formData.dob" required />
+      <input placeholder="Date of Birth" class="dob" type="date" v-model="formData.dob" required />
 
       <label for="phoneNumber">Phone Number:</label>
-      <input class="phonenumber" type="tel" v-model="formData.phoneNumber" required />
+      <input placeholder="Phone Number" class="phonenumber" type="tel" v-model="formData.phoneNumber" required />
 
       <label for="faxNumber">Fax Number:</label>
-      <input class="faxnumber" type="tel" v-model="formData.faxNumber" />
+      <input placeholder="Fax Number" class="faxnumber" type="tel" v-model="formData.faxNumber" />
 
       <label for="mailingAddress">Mailing Address:</label>
-      <textarea class="mailing_address" v-model="formData.mailingAddress" ></textarea>
+      <textarea placeholder="Mailing Address" class="mailing_address" v-model="formData.mailingAddress" ></textarea>
 
       <label for="lastJobTitle">Last Job Title:</label>
-      <input class="last_job" type="text" v-model="formData.lastJobTitle" />
+      <input placeholder="Last Job Title" class="last_job" type="text" v-model="formData.lastJobTitle" />
 
       <label for="lastJobExperience">Last Job Experience In:</label>
-      <input class="last_experience" type="number" v-model="formData.lastJobExperience" />
+      <input placeholder="Last Job Experience In" class="last_experience" type="number" v-model="formData.lastJobExperience" />
 
       <label class="year" for="experienceUnit">Year or Month:</label>
       <select v-model="formData.experienceUnit">
@@ -48,7 +49,7 @@
       </select>
 
       <label for="portfolioUrl">Portfolio or CV URL Link:</label>
-      <input class="portfolio"  type="url" v-model="formData.portfolioUrl" />
+      <input placeholder="Portfolio or CV URL Link" class="portfolio"  type="url" v-model="formData.portfolioUrl" />
 
       <label for="description">Description (100-125 words):</label>
       <textarea class="description" v-model="formData.description" required></textarea>

@@ -192,6 +192,15 @@ export default {
 
 <style>
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+ #tab_mgs {
+  display: block !important;
+ }
+ #app {
+  display: none;
+ }
+}
+
 /* @media only screen and (min-device-width: 776px) and (max-device-width: 1194px) and (orientation: portrait) {
   body{
     width:100vh;

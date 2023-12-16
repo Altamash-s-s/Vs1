@@ -5,11 +5,11 @@
         <i class="material-icons p15 pointer cl-accent" @click="closeWishlist">close</i>
       </div>
     </div> -->
-    <div class="row middle-xs px40 wishlist_title">
-      <h2 v-if="productsInWishlist.length" class="col-md-8 col-sm cl-accent">
+    <div class="middle-xs px40 wishlist_title">
+      <h2 v-if="productsInWishlist.length" class="col-sm cl-accent">
         {{ $t('Wishlist') }}
       </h2>
-      <div class="col-md-4 end-xs">
+      <div class="end-xs">
         <i class="material-icons p15 pointer cl-accent" @click="closeWishlist">close</i>
       </div>
       
@@ -90,5 +90,7 @@ export default {
   .clear-btn-btn {
       font-size: 15px;
   }
-
+  .middle-xs.px40.wishlist_title {
+    display: flex;
+  }
 </style>

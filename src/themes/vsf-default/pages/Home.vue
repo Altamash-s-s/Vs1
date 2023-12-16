@@ -7,6 +7,7 @@
       <div class="header-main snap ss_section head_section">
         <img class="fold1_desktop desk_img" src="../assets/home/fold1_desktop.jpg">
         <img class="fold1_tab tab_img" src="../assets/home/fold1_tab.jpg">
+        <img src="../assets/home/fold-top.png" class="fitness_mobile mobile_img">
       </div>
 
       <!-- linear Video  -->
@@ -70,7 +71,7 @@
 
           </div>
 
-          <div id="audio-control1" class="muted">
+            <div id="audio-control1" class="muted">
               <img src="/assets/icons/unmute.png" class="mute_icon">
               <img src="/assets/icons/mute.png" class="unmute_icon">
             </div>
@@ -103,16 +104,19 @@
       <div class="cubism_section ss_section">
         <img src="../assets/home/cubism_desk.jpg" class="fitness_desk desk_img">
         <img src="../assets/home/cubism_tab.jpg" class="fitness_tab tab_img">
+        <img src="../assets/home/cubism-mob.png" class="fitness_mobile mobile_img">
       </div>
   
       <div class="fitness_section ss_section">
         <img src="../assets/home/fitness_desk.png" class="fitness_desk desk_img">
         <img src="../assets/home/fitness_tab.jpg" class="fitness_tab tab_img">
+        <img src="../assets/home/home-pg-mob.jpg" class="fitness_mobile mobile_img">
       </div>
 
       <div class="women_power_section ss_section">
         <img src="../assets/home/women_power.jpg" class="women_power_desk desk_img">
         <img src="../assets/home/women_power_tab.jpg" class="women_power_tab tab_img">
+        <img src="../assets/home/power-mob.png" class="fitness_mobile mobile_img">
       </div>
 
       <!-- fold 8 -->
@@ -437,8 +441,8 @@ export default {
     });
 
 
-    window.addEventListener('load', videoScroll);
-    window.addEventListener('scroll', videoScroll);
+    // window.addEventListener('load', videoScroll);
+    // window.addEventListener('scroll', videoScroll);
 
     // function videoScroll() {
     //   var videoElements = document.querySelectorAll('#banner_video[autoplay]');
@@ -456,6 +460,7 @@ export default {
     //     });
     //   }
     // }
+
     // function videoScroll() {
     //   var videoElements = document.querySelectorAll('#banner_video');
     //   if (videoElements.length > 0) {
@@ -539,6 +544,9 @@ export default {
     object-fit: cover;
     object-position: bottom;
   }
+  .mobile_img{
+    display: none;
+  }
 
   img.fitness_desk {
     width: 100%;
@@ -563,7 +571,7 @@ export default {
 .tab_liner_video , .tab_wntr_video{
   display: none;
 }
-.tab_img {
+.fitness_tab{
   display: none;
 }
 
@@ -572,6 +580,14 @@ export default {
   html {
     -ms-scroll-snap-type: unset;
     scroll-snap-type: unset;
+  }
+  .mobile_img{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .fitness_tab{
+    display: none;
   }
 }
 </style>
@@ -1199,9 +1215,9 @@ z-index: 3;
     left: 0;
   }
 
-  // .tab_liner_video , .tab_wntr_video{
-  //   display: block;
-  // }
+  .tab_liner_video , .tab_wntr_video{
+    display: none;
+  }
   // .desktop_liner_video , .desktop_wntr_video{
   //   display: none;
   // }
@@ -1264,10 +1280,10 @@ z-index: 3;
     display: block;
     height: auto;
   }
-  // .tab_img {
-  //   display: block;
-  //   height: auto;
-  // }
+  .tab_img {
+    display: block;
+    height: auto;
+  }
   .head_section , .cubism_section , .fitness_section, .women_power_section {
     height: auto;
   }
@@ -1278,12 +1294,11 @@ z-index: 3;
   .desk_img {
     display: none;
   }
-  .tab_img {
-    display: block;
-    height: auto;
-  }
   .head_section , .cubism_section , .fitness_section, .women_power_section {
-    height: auto;
+    height: 100vh;
+  }
+  .tab_img {
+    display: none;
   }
 
 }

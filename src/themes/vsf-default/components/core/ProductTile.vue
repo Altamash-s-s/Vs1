@@ -287,7 +287,7 @@ img.icon-img1 {
   float: left;
   border: 1px solid #C1C1C1;
   width: 98%;
-  padding: 7px 0 3px 5px;
+  padding: 7px 0 3px 4px;
 }
 .add_card p {
   line-height: 20px;
