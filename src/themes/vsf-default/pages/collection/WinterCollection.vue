@@ -1,9 +1,10 @@
 <template>
     <div>
-        <div class="video-element">
+        <div class="video-element collection">
             <div class="parallax-section winter_frst_fold">
                 <div class="parallax-image section5">
-                    <img class=top-img src="../../assets/collection/winter_top_img.jpg">
+                    <img class="top-img" src="../../assets/collection/winter_top_img.jpg">
+                    <img class="mobile-img" src="../../assets/collection/winter-mobile.png">
                 </div>
             </div>
         </div>
@@ -250,6 +251,9 @@ video {
         width: 100%;
         height: 100%;
     }
+    .mobile-img{
+        display: none;
+    }
 @media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
 }
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
@@ -288,7 +292,7 @@ video {
     .head-img-cl {
         left: 6%;
         bottom: 80px;
-        width: 381px;
+        width: 100%;
     }
     h2.text-hd{
         margin-left: 16px;
@@ -298,8 +302,31 @@ video {
         height: 96vh;
     }
     .top-img {
-    object-fit: cover;
-    object-position: left;
+        display: none;
+    }
+    .mobile-img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+    .video-element.collection{
+        position: relative;
+        z-index: 1;
+    }
+    .parallax-section.winter_frst_fold[data-v-25ec782a]{
+        height: auto !important;
+    }
+    .parallax-section .parallax-image[data-v-25ec782a]{
+        position: relative;
+        z-index: 0;
+    }
+    .description-container{
+        margin-top: -6px;
     }
 }
 </style>

@@ -16,7 +16,7 @@ export default {
   name: 'collection',
   data() {
   return {
-    imageClasses: ['img-1', 'img-2'],
+    imageClasses: ['img-1 mobile-img', 'img-2 winter-img-mobile' , 'wint-img-3 wint-mob-img3', 'wint-img-4 wint-mob-img4' ],
     activeSection: 0, // Add activeSection to track the active section
   };
 },
@@ -52,7 +52,12 @@ margin: 0;
 .img-2{
   background-image: url('../../assets/collection/collection-2.png')
 }
-
+.wint-img-3 {
+  background-image: url('../../assets/collection/winter_collection3.png')
+}
+.wint-img-4 {
+  background-image: url('../../assets/collection/winter_collection4.png')
+}
 
 .section {
   display: flex;
@@ -167,9 +172,33 @@ h2.ha-head {
   .collect_img_cnt .section_btn div p { 
     margin-left: 0 !important;
   }
+  .section .image.mobile-img {
+    background-image: url('../../assets/collection/Ha-Winter-1.png');
+    display: block !important;
+  }
+  .section .image.winter-img-mobile {
+    background-image: url('../../assets/collection/winter-img-2.png');
+    display: block !important;
+  }
+  .section .image.wint-mob-img3 {
+    background-image: url('../../assets/collection/winter_mob_collection3.jpg');
+    display: block !important;
+  }
+  .section .image.wint-mob-img4 {
+    background-image: url('../../assets/collection/winter__mob_collection4.jpg');
+    display: block !important;
+  }
+  .section .image.img-1 {
+    display: none;
+  }
+  .section .image.img-2 {
+    display: none;
+  }
+  .wint-img-3 , .wint-img-4 {
+    display: none;
+  }
 
 }
-
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 

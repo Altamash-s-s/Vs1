@@ -45,10 +45,10 @@
 
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
           <video class="desktop_liner_video" id="banner_video" autoplay control muted loop>
-            <source src="/assets/home/1-liner-horizontal_4.mp4" type="video/mp4" />
+            <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/oneliner_desk_video.mp4" type="video/mp4" />
           </video>
           <video class="tab_liner_video" id="banner_video" autoplay control muted loop>
-            <source src="/assets/home/liner_mob_video.mp4" type="video/mp4" />
+            <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/oneliner_mob_video.mp4" type="video/mp4" />
           </video>
 
         </div>
@@ -91,10 +91,10 @@
         <div class="parallax-image section5">
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
           <video class="desktop_wntr_video" id="banner_video1" autoplay control muted loop>
-            <source src="/assets/home/Winter-horizontal_2.mp4" type="video/mp4" />
+            <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/winter_desk_video.mp4" type="video/mp4" />
           </video>
           <video class="tab_wntr_video" id="banner_video1" autoplay control muted loop>
-            <source src="/assets/home/winter_mob_video.mp4" type="video/mp4" />
+            <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/winter_mob_video.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -550,11 +550,13 @@ export default {
 
   img.fitness_desk {
     width: 100%;
-    height: 100%;
+    height: 100%; 
+    display: block;
   }
   img.women_power_desk {
     width: 100%;
     height: 100%;
+    display: block;
   }
   img.fitness_tab  {
     height: 100%;
@@ -563,9 +565,11 @@ export default {
   img.women_power_tab  {
     height: 100%;
     width: 100%;
+    display: none;
   }
   .fold1_tab {
     width: 100%;
+    display: none;
   }
   
 .tab_liner_video , .tab_wntr_video{
@@ -577,10 +581,10 @@ export default {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
 
-  html {
+  /* html {
     -ms-scroll-snap-type: unset;
     scroll-snap-type: unset;
-  }
+  } */
   .mobile_img{
     display: block;
     width: 100%;
@@ -1052,6 +1056,8 @@ img.unmute_icon {
   justify-content: center;
 }
 
+
+
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .frame {
         max-width: 95% !important;
@@ -1281,7 +1287,7 @@ z-index: 3;
     height: auto;
   }
   .tab_img {
-    display: block;
+    display: none;
     height: auto;
   }
   .head_section , .cubism_section , .fitness_section, .women_power_section {
@@ -1299,6 +1305,18 @@ z-index: 3;
   }
   .tab_img {
     display: none;
+  }
+
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+
+  .header-main.head_section {
+    height: auto;
+  }
+  .cubism_section , .fitness_section , .women_power_section {
+    height: auto;
   }
 
 }

@@ -14,7 +14,7 @@ export default {
   name: 'collection',
   data() {
   return {
-    imageClasses: ['img-1', 'img-2', 'img-3', 'img-4'],
+    imageClasses: ['img-1 linear-mob-one', 'img-2 linear-mob-two', 'img-3 linear-mob-three', 'img-4 linear-mob-four'],
     activeSection: 0, // Add activeSection to track the active section
   };
 },
@@ -48,13 +48,13 @@ margin: 0;
   background-image: url('../assets/collection/collection-3.png')
 }
 .img-2{
-  background-image: url('../assets/collection/collection-4.png')
-}
-.img-3{
   background-image: url('../assets/collection/collection-6.png')
 }
-.img-4{
+.img-3{
   background-image: url('../assets/collection/c1.png')
+}
+.img-4{
+  background-image: url('../assets/collection/collection-4.png')
 }
 
 .section {
@@ -170,6 +170,34 @@ h2.ha-head {
   }
   .collect_img_cnt .section_btn div p { 
     margin-left: 0 !important;
+  }
+  .section .image.linear-mob-one {
+    background-image: url('../assets/collection/linear-mob-1.jpg');
+    display: block !important;
+  }
+  .section .image.linear-mob-three {
+    background-image: url('../assets/collection/liner_col_4_mob.jpg');
+    display: block !important;
+  }
+  .section .image.linear-mob-four {
+    background-image: url('../assets/collection/liner-mob-3.png');
+    display: block !important;
+  }
+  .section .image.linear-mob-two {
+    background-image: url('../assets/collection/liner-mob-4.png');
+    display: block !important;
+  }
+  .section .image.img-1 {
+    display: none;
+  }
+  .section .image.img-2 {
+    display: none;
+  }
+  .section .image.img-3 {
+    display: none;
+  }
+  .section .image.img-4 {
+    display: none;
   }
 
 }

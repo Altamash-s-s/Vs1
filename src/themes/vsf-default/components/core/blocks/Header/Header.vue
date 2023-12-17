@@ -6,7 +6,7 @@
     >
       <div class="header_container px40">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
+          <div class="col-md-4 col-xs-3 middle-xs">
             <div class="logo_dv">
               <hamburger-icon class="p15 icon  pointer menu_icon" />
               <a href="/">
@@ -17,7 +17,7 @@
           <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-8 center-xs pt5 ha_txt_logo">
+          <div class="col-md-4 col-xs-7 center-xs pt5 ha_txt_logo">
             <div>
               <logo width="auto" height="40px"/>
             </div>
@@ -257,8 +257,12 @@ header {
   .header_container {
     padding: 0 20px;
   }
+  .menu_icon {
+    padding-left: 7px;
+    padding-right: 7px;
+  } 
   .logo_dv img{
-    display: none;
+    width: 25px;
   }
 }
 

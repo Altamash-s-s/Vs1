@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-menu fixed mw-100 bg-cl-secondary">
+  <div class="sidebar-menu fixed mw-100">
     <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
       <div
         v-if="submenu.depth"
@@ -20,7 +20,7 @@
     </div>
     <div class="sidebar-menu__container row" ref="container">
       <div class="col-xs-12 h4 serif">
-        <ul class="p0 m0 relative sidebar-menu__list" :style="mainListStyles">
+        <ul class="p0 m0 relative sidebar-menu__list header_ul" :style="mainListStyles">
           <li
             @click="closeMenu"
             class="brdr-bottom-1 brdr-cl-bg-secondary "
@@ -34,7 +34,7 @@
             </a >
           </li>
           <li
-            class="brdr-bottom-1 brdr-cl-bg-secondary flex bg-cl-secondary"
+            class="brdr-bottom-1 brdr-cl-bg-secondary flex"
             :key="category.slug"
             @click="closeMenu"
             v-for="category in visibleCategories"
@@ -106,7 +106,7 @@
           </li>
           <li
             @click="login"
-            class="brdr-bottom-1 brdr-cl-secondary bg-cl-secondary flex"
+            class="brdr-bottom-1 brdr-cl-secondary flex"
           >
             <sub-btn
               v-if="currentUser"
@@ -255,6 +255,20 @@ $color-mine-shaft: color(mine-shaft);
 
 .mobile_icons_show {
     display: none;
+  }
+  .header_ul {
+    margin:41px 40px 0 25px;
+  }
+  .header_ul li a , .header_ul li button{
+    color: #000 !important;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+  .sidebar-menu .close-btn i {
+    color: #000 !important;
   }
 .sidebar-menu {
   height: 100vh;

@@ -268,13 +268,15 @@
 
           </div>
 
-
+          <div class="col-12">
             <!-- The stripe method integration -->
             <div class="row mb35 stripe-container" v-if="paymentDetails.paymentMethod === 'stripe_payments'">
-                <div class="col-xs-12">
+                <div class="col-xs-12 stipe_col">
                     <payment-stripe/>
                 </div>
             </div>
+          </div>
+            
 
 
           <span class="validation-error" v-if="!$v.payment.paymentMethod.required">{{ $t('Field is required') }}</span>

@@ -101,8 +101,18 @@ export default {
     cursor:pointer;
     position: fixed;
     z-index: 1000;
+    border-radius: 100% !important;
+    border: 1px solid #4f4f4f !important;
+    background-color: transparent !important;
+    width: 45px !important;
+    height: 45px !important;
   }
-
+  .vue-back-to-top button {
+    background-color:transparent !important;
+  }
+  .vue-back-to-top:hover {
+    background-color: #000000 !important;
+  }
   .vue-back-to-top .default {
     background-color: #f5c85c;
     border-radius: 3px;
@@ -122,4 +132,5 @@ export default {
     position: absolute;
     transform: translateY(50%);
   }
+
 </style>

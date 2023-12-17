@@ -6,7 +6,7 @@
       <div class="row social mt30">
             <a
               class="social-icon mx10 brdr-circle no-underline"
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/people/Human-Abstract/61551077677068/"
               :aria-label="$t('Go to Facebook')"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="facebook icon" width="40" height="40" viewBox="0 0 40 40" fill="#FFFF">
@@ -15,7 +15,7 @@
             </a>
             <a
               class="social-icon mx10 brdr-circle no-underline"
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/humansabstract/"
               :aria-label="$t('Go to Instagram')"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="instagram icon" width="40" height="40" viewBox="0 0 40 40" fill="#FFFF">
@@ -35,7 +35,7 @@
             </a>
             <a
               class="social-icon mx10 brdr-circle no-underline"
-              href="https://www.youtube.com"
+              href="https://www.youtube.com/@Humansabstract."
               :aria-label="$t('Go to Youtube')"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="youtube icon" width="40" height="40" viewBox="0 0 40 40" fill="#FFFF">

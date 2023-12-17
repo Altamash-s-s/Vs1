@@ -92,52 +92,105 @@ export default {
   },
   methods: {
     submitForm() {
-      // Check if the form is valid before sending the email
       if (this.validateForm()) {
-        // Send the email using the form data
-        Email.send({
-          Host : "smtp.elasticemail.com",
-          Username : "humanabstract9@gmail.com",
-          Password : "1B9F22996B66A8740340E33D305549C344C2",
-          To : 'humanabstract9@gmail.com', 
-          From : 'humanabstract9@gmail.com',
-          Subject: 'Form Submission',
-          Body: this.getEmailBody(),
-        }).then((message) => {
-          this.submitted = true;
-        });
+          // Send the email to your email address
+          Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: 'humanabstract9@gmail.com',
+            From: 'humanabstract9@gmail.com',
+            Subject: 'Form Submission',
+            Body: this.getEmailBody(),
+          }).then((message) => {
+            this.submitted = true;
+            this.sendThankYouEmail();
+          });
       } else {
-        console.error("Form data is missing or incomplete.");
-      }
-    },
-    validateForm() {
-      // Implement form validation here
-      // You can check if required fields are filled, validate email, etc.
-      // Return true if the form is valid, false otherwise.
-      return (
-        this.formData.firstName &&
-        this.formData.lastName &&
-        this.formData.email &&
-        this.formData.description
-      );
-    },
+      console.error("Form data is missing or incomplete.");
+          }
+        },
+        sendThankYouEmail() {
+          Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: this.formData.email,
+            From: 'humanabstract9@gmail.com',
+            Subject: 'Thank You for Submitting the Form',
+            Body: 'Thank you for submitting the form. We appreciate your interest!',
+          }).then((message) => {
+            console.log('Thank-you email sent to the user.');
+          });
+        },
+            validateForm() {
+              return (
+                this.formData.firstName &&
+                this.formData.lastName &&
+                this.formData.email &&
+                this.formData.description
+              );
+            },
     getEmailBody() {
-      // Create the email body with form data
       return `
-        First Name: ${this.formData.firstName}
-        Middle Name: ${this.formData.middleName}
-        Last Name: ${this.formData.lastName}
-        Age: ${this.formData.age}
-        Gender: ${this.formData.gender}
-        Date of Birth: ${this.formData.dob}
-        Email: ${this.formData.email}
-        Phone Number: ${this.formData.phoneNumber}
-        Fax Number: ${this.formData.faxNumber}
-        Mailing Address: ${this.formData.mailingAddress}
-        Last Job Title: ${this.formData.lastJobTitle}
-        Last Job Experience: ${this.formData.lastJobExperience} ${this.formData.experienceUnit}
-        Portfolio or CV URL Link: ${this.formData.portfolioUrl}
-        Description: ${this.formData.description}
+                <table>
+              <tr>
+                <td>First Name</td>
+                <td>${this.formData.firstName}</td>
+              </tr>
+              <tr>
+                <td>Middle Name</td>
+                <td>${this.formData.middleName}</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>${this.formData.lastName}</td>
+              </tr>
+              <tr>
+                <td>Age</td>
+                <td>${this.formData.age}</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>${this.formData.gender}</td>
+              </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td>${this.formData.dob}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>${this.formData.email}</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>${this.formData.phoneNumber}</td>
+              </tr>
+              <tr>
+                <td>Fax Number</td>
+                <td>${this.formData.faxNumber}</td>
+              </tr>
+              <tr>
+                <td>Mailing Address</td>
+                <td>${this.formData.mailingAddress}</td>
+              </tr>
+              <tr>
+                <td>Last Job Title</td>
+                <td>${this.formData.lastJobTitle}</td>
+              </tr>
+              <tr>
+                <td>Last Job Experience</td>
+                <td>${this.formData.lastJobExperience} ${this.formData.experienceUnit}</td>
+              </tr>
+              <tr>
+                <td>Portfolio or CV URL Link</td>
+                <td>${this.formData.portfolioUrl}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>${this.formData.description}</td>
+              </tr>
+            </table>
       `;
     },
   },

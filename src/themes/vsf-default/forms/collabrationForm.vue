@@ -2,44 +2,45 @@
     <div class="forms_detail collabration">
       <form @submit.prevent="submitForm" v-if="!submitted">
         <label for="firstName">First Name:</label>
-        <input class="first_name" id="first-name" type="text" v-model="formData.firstName" required />
+        <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />
   
         <label for="middleName">Middle Name:</label>
-        <input class="middle_name" id="middle-name" type="text" v-model="formData.middleName" />
+        <input placeholder="Middle Name" class="middle_name cstm-input" id="middle-name" type="text" v-model="formData.middleName" />
   
         <label for="lastName">Last Name:</label>
-        <input class="last_name" type="text" v-model="formData.lastName" required />
+        <input placeholder="Last Name" class="last_name cstm-input" type="text" v-model="formData.lastName" required />
   
         <label for="email">Email:</label>
-        <input class="email" id="from_email" type="email" v-model="formData.email" required />
+        <input placeholder="Email" class="email cstm-input" id="from_email" type="email" v-model="formData.email" required />
   
         <label for="age">Age:</label>
-        <input class="age" type="number" v-model="formData.age" required />
+        <input placeholder="Age" class="age cstm-input" type="number" v-model="formData.age" required />
   
         <label class="gender" for="gender">Gender:</label>
         <select v-model="formData.gender" required>
+          <option value disabled>Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
   
         <label for="dob">Date of Birth:</label>
-        <input class="dob" type="date" v-model="formData.dob" required />
+        <input placeholder="Date of Birth" class="dob cstm-input" type="date" v-model="formData.dob" required />
   
         <label for="phoneNumber">Phone Number:</label>
-        <input class="phonenumber" type="tel" v-model="formData.phoneNumber" required />
+        <input placeholder="Phone Number" class="phonenumber cstm-input" type="tel" v-model="formData.phoneNumber" required />
   
         <label for="faxNumber">Fax Number:</label>
-        <input class="faxnumber" type="tel" v-model="formData.faxNumber" />
+        <input placeholder="Fax Number" class="faxnumber cstm-input" type="tel" v-model="formData.faxNumber" />
   
         <label for="mailingAddress">Mailing Address:</label>
-        <textarea class="mailing_address" v-model="formData.mailingAddress" ></textarea>
+        <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea>
 
         <label for="portfolioUrl">Portfolio or CV URL Link:</label>
-        <input class="portfolio"  type="url" v-model="formData.portfolioUrl" />
+        <input placeholder="Portfolio or CV URL Link" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
   
         <label for="description">Description (100-125 words):</label>
-        <textarea class="description" v-model="formData.description" required></textarea>
+        <textarea placeholder="Description (100-125 words):" class="description cstm-input" v-model="formData.description" required></textarea>
         <button class="submit" type="submit">Submit</button>
       </form>
       <div v-else>
@@ -79,52 +80,106 @@
     },
     methods: {
       submitForm() {
-        // Check if the form is valid before sending the email
         if (this.validateForm()) {
-          // Send the email using the form data
           Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : "humanabstract9@gmail.com",
-            Password : "1B9F22996B66A8740340E33D305549C344C2",
-            To : 'humanabstract9@gmail.com', 
-            From : 'humanabstract9@gmail.com',
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: 'humanabstract9@gmail.com',
+            From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
           }).then((message) => {
             this.submitted = true;
+            this.sendThankYouEmail();
           });
-        } else {
-          console.error("Form data is missing or incomplete.");
-        }
-      },
-      validateForm() {
-        // Implement form validation here
-        // You can check if required fields are filled, validate email, etc.
-        // Return true if the form is valid, false otherwise.
-        return (
-          this.formData.firstName &&
-          this.formData.lastName &&
-          this.formData.email &&
-          this.formData.description
-        );
-      },
+      } else {
+      console.error("Form data is missing or incomplete.");
+          }
+        },
+        sendThankYouEmail() {
+          Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: this.formData.email,
+            From: 'humanabstract9@gmail.com',
+            Subject: 'Thank You for Submitting the Form',
+            Body: 'Thank you for submitting the form. We appreciate your interest!',
+          }).then((message) => {
+            console.log('Thank-you email sent to the user.');
+          });
+        },
+            validateForm() {
+              return (
+                this.formData.firstName &&
+                this.formData.lastName &&
+                this.formData.email &&
+                this.formData.description
+              );
+            },
       getEmailBody() {
         // Create the email body with form data
         return `
-          First Name: ${this.formData.firstName}
-          Middle Name: ${this.formData.middleName}
-          Last Name: ${this.formData.lastName}
-          Age: ${this.formData.age}
-          Gender: ${this.formData.gender}
-          Date of Birth: ${this.formData.dob}
-          Email: ${this.formData.email}
-          Phone Number: ${this.formData.phoneNumber}
-          Fax Number: ${this.formData.faxNumber}
-          Mailing Address: ${this.formData.mailingAddress}
-          Last Job Title: ${this.formData.lastJobTitle}
-          Last Job Experience: ${this.formData.lastJobExperience} ${this.formData.experienceUnit}
-          Portfolio or CV URL Link: ${this.formData.portfolioUrl}
-          Description: ${this.formData.description}
+        <table>
+          <tr>
+            <td>First Name</td>
+            <td>${this.formData.firstName}</td>
+          </tr>
+          <tr>
+            <td>Middle Name</td>
+            <td>${this.formData.middleName}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>${this.formData.lastName}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>${this.formData.age}</td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>${this.formData.gender}</td>
+          </tr>
+          <tr>
+            <td>Date of Birth</td>
+            <td>${this.formData.dob}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>${this.formData.email}</td>
+          </tr>
+          <tr>
+            <td>Phone Number</td>
+            <td>${this.formData.phoneNumber}</td>
+          </tr>
+          <tr>
+            <td>Fax Number</td>
+            <td>${this.formData.faxNumber}</td>
+          </tr>
+          <tr>
+            <td>Mailing Address</td>
+            <td>${this.formData.mailingAddress}</td>
+          </tr>
+          <tr>
+            <td>Last Job Title</td>
+            <td>${this.formData.lastJobTitle}</td>
+          </tr>
+          <tr>
+            <td>Last Job Experience</td>
+            <td>${this.formData.lastJobExperience} ${this.formData.experienceUnit}</td>
+          </tr>
+          <tr>
+            <td>Portfolio or CV URL Link</td>
+            <td>${this.formData.portfolioUrl}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>${this.formData.description}</td>
+          </tr>
+        </table>
+
         `;
       },
     },

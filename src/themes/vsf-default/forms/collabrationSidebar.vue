@@ -7,7 +7,9 @@
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
         <div class="main-form main-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+          <div class="popup_ttl_dv">    
           <h2 class="main-hd main-hd">Collabration Form</h2>
+        </div>
           <collabrationForm  /> 
         </div>
       </div>
@@ -47,6 +49,18 @@ import collabrationForm from './collabrationForm.vue';
   </script>
   
   <style scoped>
+  .popup_ttl_dv {
+    background-image: url('../assets/patch_img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 118px;
+    display: flex;
+    align-items: center;
+  }
+  .popup_ttl_dv h2 {
+    font-size: 40px;
+  }
   .overlay {
     position: fixed;
     top: 0;
@@ -84,18 +98,19 @@ import collabrationForm from './collabrationForm.vue';
     margin-top: 0;
     font-family: 'PoppinsRegular';
  }
-.close_btn {
-    background: #FFF;
-    display: block;
-    margin: auto;
-    margin-right: 27px;
+ .close_btn {
+  display: block;
+  margin: auto;
+  margin-right: 27px;
+  background: transparent;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 21px;
+  padding: 0;
 }
 .close_icon {
-    width: 6%;
-    height: 6%;
-    display: block;
-    margin: 0 auto;
-    float: right;
+    width:100%;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .right-sidebar.open {

@@ -2,38 +2,39 @@
     <div class="forms_detail Career">
       <form @submit.prevent="submitForm" v-if="!submitted">
         <label for="firstName">First Name:</label>
-        <input class="first_name" id="first-name" type="text" v-model="formData.firstName" required />
+        <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />
   
         <label for="middleName">Middle Name:</label>
-        <input class="middle_name" id="middle-name" type="text" v-model="formData.middleName" />
+        <input  placeholder="Middle Name" class="middle_name cstm-input" id="middle-name" type="text" v-model="formData.middleName" />
   
         <label for="lastName">Last Name:</label>
-        <input class="last_name" type="text" v-model="formData.lastName" required />
+        <input placeholder="Last Name" class="last_name cstm-input" type="text" v-model="formData.lastName" required />
   
         <label for="email">Email:</label>
-        <input class="email" id="from_email" type="email" v-model="formData.email" required />
+        <input placeholder="Email" class="email cstm-input" id="from_email" type="email" v-model="formData.email" required />
   
         <label for="age">Age:</label>
-        <input class="age" type="number" v-model="formData.age" required />
+        <input placeholder="Age" class="age cstm-input" type="number" v-model="formData.age" required />
   
         <label class="gender" for="gender">Gender:</label>
         <select v-model="formData.gender" required>
+          <option value disabled>Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
   
         <label for="dob">Date of Birth:</label>
-        <input class="dob" type="date" v-model="formData.dob" required />
+        <input placeholder="Date of Birth " class="dob cstm-input" type="date" v-model="formData.dob" required />
   
         <label for="phoneNumber">Phone Number:</label>
-        <input class="phonenumber" type="tel" v-model="formData.phoneNumber" required />
+        <input placeholder="Phone Number" class="phonenumber cstm-input" type="tel" v-model="formData.phoneNumber" required />
   
         <label for="feedback">Feedback (100-125 words):</label>
-        <textarea class="feedback" v-model="formData.feedback" required></textarea>
+        <textarea placeholder="Feedback (100-125 words)" class="feedback cstm-input" v-model="formData.feedback" required></textarea>
   
         <label for="imageUpload">Image Upload:</label>
-        <input class="image_upload" type="file" @change="handleImageUpload" accept="image/*" />
+        <input placeholder="Image Upload" class="image_upload cstm-input" type="file" @change="handleImageUpload" accept="image/*" />
   
         <button class="submit" type="submit">Submit</button>
       </form>
@@ -76,72 +77,63 @@
       submitForm() {
         // Check if the form is valid before sending the email
         if (this.validateForm()) {
-          // Send the email using the form data
+          // Send the email to your email address
           Email.send({
-            Host : "smtp.elasticemail.com",
-            Username : "humanabstract9@gmail.com",
-            Password : "1B9F22996B66A8740340E33D305549C344C2",
-            To : 'humanabstract9@gmail.com', 
-            From : 'humanabstract9@gmail.com',
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: 'humanabstract9@gmail.com',
+            From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
           }).then((message) => {
             this.submitted = true;
+            this.sendThankYouEmail();
           });
-        } else {
-          console.error("Form data is missing or incomplete.");
-        }
-      },
-      validateForm() {
-        // Implement form validation here
-        // You can check if required fields are filled, validate email, etc.
-        // Return true if the form is valid, false otherwise.
-        return (
-          this.formData.firstName &&
-          this.formData.lastName &&
-          this.formData.email &&
-          this.formData.description
-        );
-      },
+      } else {
+      console.error("Form data is missing or incomplete.");
+          }
+        },
+        sendThankYouEmail() {
+          Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "humanabstract9@gmail.com",
+            Password: "1B9F22996B66A8740340E33D305549C344C2",
+            To: this.formData.email,
+            From: 'humanabstract9@gmail.com',
+            Subject: 'Thank You for Submitting the Form',
+            Body: 'Thank you for submitting the form. We appreciate your interest!',
+          }).then((message) => {
+            console.log('Thank-you email sent to the user.');
+          });
+        },
       getEmailBody() {
         // Create the email body with form data
         return `
-          First Name: ${this.formData.firstName}
-          Middle Name: ${this.formData.middleName}
-          Last Name: ${this.formData.lastName}
-          Age: ${this.formData.age}
-          Gender: ${this.formData.gender}
-          Date of Birth: ${this.formData.dob}
-          Email: ${this.formData.email}
-          Phone Number: ${this.formData.phoneNumber}
-          Fax Number: ${this.formData.faxNumber}
-          Mailing Address: ${this.formData.mailingAddress}
-          Last Job Title: ${this.formData.lastJobTitle}
-          Last Job Experience: ${this.formData.lastJobExperience} ${this.formData.experienceUnit}
-          Portfolio or CV URL Link: ${this.formData.portfolioUrl}
-          Description: ${this.formData.description}
+        First Name: ${this.formData.firstName}
+        Middle Name: ${this.formData.middleName}
+        Last Name: ${this.formData.lastName}
+        Age: ${this.formData.age}
+        Gender: ${this.formData.gender}
+        Date of Birth: ${this.formData.dob}
+        Email: ${this.formData.email}
+        Phone Number: ${this.formData.phoneNumber}
+        Feedback (100-125 words): ${this.formData.feedback}
+        Image Upload: ${this.formData.imageUpload}
         `;
       },
     },
   
     mounted(){
       const firstNameInput = document.querySelector('.first_name');
-      const middleNameInput = document.querySelector('.middle_name');
-      const lastNameInput = document.querySelector('.last_name');
-      const ageNameInput = document.querySelector('.age');
-      const genderNameInput = document.querySelector('.gender');
-      const emailNameInput = document.querySelector('.email');
-      const phonenumberNameInput = document.querySelector('.phonenumber');
-      const faxnumberNameInput = document.querySelector('.faxnumber');
-      const mailing_addressNameInput = document.querySelector('.mailing_address');
-      const last_jobNameInput = document.querySelector('.last_job');
-      const last_experienceNameInput = document.querySelector('.last_experience');
-      const yearNameInput = document.querySelector('.year');
-      const portfolioNameInput = document.querySelector('.portfolio');
-      const descriptionNameInput = document.querySelector('.description');
-  
-    
-  
+    const middleNameInput = document.querySelector('.middle_name');
+    const lastNameInput = document.querySelector('.last_name');
+    const ageInput = document.querySelector('.age');
+    const genderInput = document.querySelector('.gender');
+    const emailInput = document.querySelector('.email');
+    const phoneNumberInput = document.querySelector('.phonenumber');
+    const faxNumberInput = document.querySelector('.feedback');
+    const imageUpload = document.querySelector('.image_upload');
   
     },
   };

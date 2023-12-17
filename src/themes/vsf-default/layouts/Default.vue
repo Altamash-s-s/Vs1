@@ -294,6 +294,8 @@ export default {
 
 #tab_mgs {
   display: none;
+  width: 100%;
+  height: auto;
 }
 .cstm-page-layout{
     max-width: 1240px;

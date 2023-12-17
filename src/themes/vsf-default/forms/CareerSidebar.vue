@@ -7,7 +7,9 @@
         <img class="close_icon" src="../assets/icons/close.svg">
       </button>
       <div class="mina-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+        <div class="popup_ttl_dv">
         <h2 class="main-hd main-hd">Career Form</h2>
+      </div>
         <CareerForm /> 
       </div>
     </div>
@@ -52,6 +54,18 @@ export default {
   border: 0;
   padding: 19px;
 }
+.popup_ttl_dv {
+  background-image: url('../assets/patch_img.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 118px;
+  display: flex;
+  align-items: center;
+}
+.popup_ttl_dv h2 {
+    font-size: 40px;
+  }
 .overlay {
   position: fixed;
   top: 0;
@@ -89,17 +103,18 @@ export default {
   font-family: 'PoppinsRegular';
 }
 .close_btn {
-  background: #FFF;
   display: block;
   margin: auto;
   margin-right: 27px;
+  background: transparent;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 21px;
+  padding: 0;
 }
 .close_icon {
-  width: 6%;
-  height: 6%;
-  display: block;
-  margin: 0 auto;
-  float: right;
+    width:100%;
 }
 @media only screen and (max-width: 767px) {
   .right-sidebar.open {
