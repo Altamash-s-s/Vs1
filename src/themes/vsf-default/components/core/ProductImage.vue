@@ -106,7 +106,8 @@ export default {
     width: 100%;
     max-width: 100%;
     height: 0;
-    background: #cececec4;
+    padding-bottom: 0px !important;
+    background: #e5e5e5;
     mix-blend-mode: multiply;
     &__placeholder,
     &__thumb {
@@ -130,7 +131,6 @@ export default {
   .product-image.product-cover__thumb.product-image--width{
     opacity: 2.8;
     background: #d9d9d9;
-    padding-top: 15px;
   }
   .product-cover__thumb{
     padding-bottom: 0px;

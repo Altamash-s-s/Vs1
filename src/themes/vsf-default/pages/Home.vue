@@ -1060,7 +1060,6 @@ img.unmute_icon {
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .frame {
-        max-width: 95% !important;
         border: 26px yellow solid !important;
     }
     .div_logo {
@@ -1074,9 +1073,6 @@ img.unmute_icon {
     }
 }
 @media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
-  .frame {
-    max-width: 97%  !important;
-  }
 }
 @media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
 
@@ -1084,13 +1080,9 @@ img.unmute_icon {
     .marquee--vertical-right {
     width: 46% !important;
     }
-  .frame {
-    max-width: 97% !important;
-  }
 }
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
     .frame {
-    max-width: 97% !important;
     border: 22px solid yellow !important;
     }
     .div_logo {
@@ -1127,7 +1119,7 @@ img.unmute_icon {
 --delay-character: 0.2s;
 }
 .frame {
-max-width: 98%;
+max-width: 100%;
 max-height: 95vh;
 margin: 0 auto;
 border: 20px yellow solid;
@@ -1137,6 +1129,9 @@ background: url('../assets/home/marquee_img.png') no-repeat center;
 background-size: cover;
 transition: ease all 0.3s;
 z-index: 3;
+box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 .text {
   transform: translate(calc(calc(var(--font-size) * -1) / 2),
@@ -1211,9 +1206,7 @@ z-index: 3;
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
 
-  .frame{
-    max-width: 95%;
-  }
+
   .frame .text span {
       font-size: 16px;
   }
@@ -1253,12 +1246,15 @@ z-index: 3;
     right: -10px;
   }
   .frame{
-    max-width: 95%;
+    max-width: 100%;
     border: 10px yellow solid;
     position: relative;
     -webkit-box-shadow: inset 0 0 0 10px yellow;
     box-shadow: inset 0 0 0 10px yellow;
     box-shadow: inset 0 0 0 10px yellow;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   }
   .frame .text span {
     font-size: 12px;

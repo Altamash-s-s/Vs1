@@ -152,6 +152,10 @@ export default {
 </script>
 
 <style lang="scss" >
+
+.product-image{
+    padding-bottom:0px !important;
+}
   .product-image{
     position: relative;
     overflow: hidden;

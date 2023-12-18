@@ -12,9 +12,7 @@
 
         <div class="main-section one top">
             <div class="video-part">
-                <video class="care-video" autoplay muted loop>
-                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-                </video>
+                <img class="care-video" src="../assets/product_care/CARE PAGE_WASH CARE.jpg">
             </div>
             <div class="content_part">
                 <h3 class="care-head">Wash Care</h3>
@@ -36,18 +34,14 @@
             </div>
 
             <div class="video-part">
-                <video class="care-video" autoplay muted loop>
-                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-                </video>
+                <img class="care-video" src="../assets/product_care/CARE PAGE_DRY CARE.jpg">
             </div>
 
         </div>
 
         <div class="main-section one">
             <div class="video-part">
-                <video class="care-video" autoplay muted loop>
-                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-                </video>
+                <img class="care-video" src="../assets/product_care/CARE PAGE_STORING.jpg">
             </div>
             <div class="content_part">
                 <h3 class="care-head">Store your clothing the right way</h3>
@@ -67,9 +61,7 @@
             </div>
 
             <div class="video-part">
-                <video class="care-video" autoplay muted loop>
-                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-                </video>
+                <img class="care-video" src="../assets/product_care/CARE PAGE_EXTRA CARE.jpg">
             </div>
 
         </div>
@@ -77,9 +69,7 @@
 
         <div class="main-section one bottom">
             <div class="video-part">
-                <video class="care-video" autoplay muted loop>
-                    <source src="/assets/home/human_abstract_video.mp4" type="video/mp4">
-                </video>
+                <img class="care-video" src="../assets/product_care/CARE PAGE_ECO FRIENDLY .jpg">
             </div>
             <div class="content_part">
                 <h3 class="care-head">Eco Friendly Tips</h3>

@@ -52,10 +52,7 @@ export default {
       navigation: [
         { title: this.$t('My profile'), link: '/my-account' },
         { title: this.$t('My shipping details'), link: '/my-account/shipping-details' },
-        { title: this.$t('My newsletter'), link: '/my-account/newsletter' },
         { title: this.$t('My orders'), link: '/my-account/orders' },
-        { title: this.$t('My loyalty card'), link: '#' },
-        { title: this.$t('My product reviews'), link: '#' },
         { title: this.$t('My Recently viewed products'), link: '/my-account/recently-viewed' }
       ]
     }
@@ -91,7 +88,7 @@ $color-icon-hover: color(secondary, $colors-background);
     position: absolute;
     right: 0;
     top: 100%;
-    width: 160px;
+    width: 270px;
     z-index: 1;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }

@@ -37,6 +37,9 @@ export default {
     min-width: 16px;
     min-height: 16px;
     border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    opacity: 1;
   }
   .bookmark-icon{
     width: 20px;

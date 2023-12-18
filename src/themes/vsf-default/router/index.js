@@ -46,6 +46,7 @@ const WinterCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/p
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
   { name: 'about', path: '/about', component: About },
+  { name: 'create-password', path: '/create-password', component: ResetPassword },
   { name: 'new', path: '/new', component: New },
   { name: 'blog', path: '/blog', component: Blog },
   { name: 'whocare', path: '/whocare', component: WhoCare },
@@ -109,7 +110,6 @@ let routes = [
   { name: 'product', path: '/p/:parentSku/:slug/:childSku', component: Product }, // :sku param can be marked as optional with ":sku?" (https://github.com/vuejs/vue-router/blob/dev/examples/route-matching/app.js#L16), but it requires a lot of work to adjust the rest of the site
   { name: 'category', path: '/c/:slug', component: Category },
   { name: 'cms-page', path: '/i/:slug', component: CmsPage },
-  { name: 'create-password', path: '/create-password', component: ResetPassword },
   { name: 'page-not-found', path: '*', component: PageNotFound }
 ]
 

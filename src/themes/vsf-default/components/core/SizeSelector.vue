@@ -16,7 +16,18 @@
 import filterMixin from 'theme/mixins/filterMixin.ts'
 
 export default {
-  mixins: [filterMixin]
+  mixins: [filterMixin],
+  async mounted() {
+
+    $(document).ready(function () {
+
+        $('.cstm_size .size-selector').click(function () {
+            $('.product_closeup_video_dv').hide();
+            $('.VueCarousel').show();
+        });
+        
+    });
+  }
 }
 </script>
 
@@ -28,7 +39,7 @@ export default {
 
   .size-selector {
     width: 38px;
-    height: 18px;
+    height: auto;
 
     &:hover,
     &:focus {

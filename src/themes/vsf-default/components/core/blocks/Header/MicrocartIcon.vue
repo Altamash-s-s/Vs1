@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="relative bg-cl-transparent brdr-none inline-flex"
+    class="relative bg-cl-transparent brdr-none inline-flex "
     @click="openMicrocart"
     data-testid="openMicrocart"
     :aria-label="$t('Open microcart')"
@@ -51,6 +51,9 @@ export default {
     min-width: 16px;
     min-height: 16px;
     border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    opacity: 1;
   }
   .shopping-icon{
     width: 20px;

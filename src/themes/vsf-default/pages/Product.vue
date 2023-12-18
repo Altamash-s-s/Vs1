@@ -71,23 +71,15 @@
                           @change="changeFilter" />
                       </div>
 
-
                     </div>
+
+
+
+                    
+
                   </div>
                 </div>
-                <div class="size-part">
-                  <i class="pr5 material-icons size-guide-icon">accessibility</i>
-                  <button id="size_btn">Size Guide</button>
-                  <div id="size_container">
-                    <img class="size_icon" src="../assets/icons/size-guide.png">
-                    <h3 class="size-heading">Size Guide</h3>
-                    <p class="size-para">Human Abstract helps you find your perfect fit.</p>
-                    <div class="size_border-btm"></div>
-                    <button class="popup-cancel" id="size-close-btn">&#10005;</button>
-                    <!-- <div class="size-title" v-html="getCurrentProduct.name"></div>  -->
-                    <div v-html="getCurrentProduct.size_guide"></div>
-                  </div>
-                </div>
+
               </div>
               <product-links v-if="getCurrentProduct.type_id == 'grouped'" :products="getCurrentProduct.product_links" />
               <product-bundle-options
@@ -107,6 +99,21 @@
                 :check-max-quantity="manageQuantity"
                 @error="handleQuantityError"
               /> -->
+
+              <div class="size-part">
+                  <i class="pr5 material-icons size-guide-icon">accessibility</i>
+                  <button id="size_btn">Size Guide</button>
+                  <div id="size_container">
+                    <img class="size_icon" src="../assets/icons/size-guide.png">
+                    <h3 class="size-heading">Size Guide</h3>
+                    <p class="size-para">Human Abstract helps you find your perfect fit.</p>
+                    <div class="size_border-btm"></div>
+                    <button class="popup-cancel" id="size-close-btn">&#10005;</button>
+                    <!-- <div class="size-title" v-html="getCurrentProduct.name"></div>  -->
+                    <div v-html="getCurrentProduct.size_guide"></div>
+                  </div>
+                </div>
+
               <div class="row m0">
                 <add-to-cart :product="getCurrentProduct" :disabled="isAddToCartDisabled"
                   class="col-xs-12 col-sm-4 col-md-6 cstm_add_cart" />
@@ -374,14 +381,8 @@ export default {
     $(document).ready(function () {
 
       $('.color_button').click(function () {
-
-        
-        if (!$('.VueCarousel').hasClass("VueCarousel-slide-active")) {
-          $('.VueCarousel-slide').addClass('hide_image');
-        }
-        if ($(".VueCarousel-slide").hasClass("VueCarousel-slide-active")) {
-          $('.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center').addClass('show_image');
-        }
+          $('.product_closeup_video_dv').hide();
+          $('.VueCarousel').show();
       });
 
       $('.tab-navigation button').click(function () {
@@ -559,9 +560,12 @@ $bg-secondary: color(secondary, $colors-background);
 /* product detail changes start here */
 
 .size-part {
-  float: right;
-  margin-top: -43px;
-  display: flex;
+    display: flex;
+    border: 1px solid;
+    width: fit-content;
+    padding: 5px;
+    color: #D9D9D9;
+    margin-bottom: 15px;
 }
 
 .inline-svg {
@@ -968,12 +972,6 @@ button#size_btn {
   {
   opacity: 0;
 }
-
-.product-image {
-  /* mix-blend-mode: multiply; */
-  width: 460px;
-}
-
 .web-share {
   float: right;
   cursor: pointer;

@@ -9,6 +9,7 @@ export const Register = {
       email: '',
       firstName: '',
       lastName: '',
+      gender: '',
       password: '',
       rPassword: '',
       conditions: false
@@ -31,6 +32,7 @@ export const Register = {
         password: this.password,
         firstname: this.firstName,
         lastname: this.lastName,
+        gender: this.gender,
         storeId: currentStoreView().storeId
       }).then((result) => {
         Logger.debug(result, 'user')()

@@ -3,6 +3,7 @@
     <!-- <newsletter class=" flex brdr-bottom-1 brdr-cl-secondary" v-if="!isCheckoutPage" /> -->
     <div class="footer-hd">
       <img class="ft-heading" src="../../../../assets/home/Footer-heading.svg" alt="">
+
       <div class="row social mt30">
             <a
               class="social-icon mx10 brdr-circle no-underline"
@@ -53,22 +54,45 @@
 
       <div class="container footer_container">
         <div class="row m0 center-xs between-md">
-          <div
-            class="row m0 col-lg-10 col-md-12 col-xs-12 start-md between-md between-xs no-mobile links_row"
-          >
+          <div class="row m0 col-lg-12 col-md-12 col-xs-12 start-md between-md between-xs no-mobile links_row">
           <div class="start-md">
               <h3 class="cl-accent weight-400">
-                {{ $t('Orders') }}
+                {{ $t('Help') }}
               </h3>
               <div class="mt15">
-                <router-link v-show="isLogged" class="cl-secondary" :to="localizedRoute('/my-account')" exact>
+                <router-link v-show="isLogged" class="cl-secondary footer-head" :to="localizedRoute('/my-account')" exact>
                   {{ $t('My account') }}
                 </router-link>
-                <a v-show="!isLogged" class="cl-secondary" href="#" @click.prevent="goToAccount">
+                <a v-show="!isLogged" class="cl-secondary footer-head" href="#" @click.prevent="goToAccount">
                   {{ $t('My account') }}
                 </a>
               </div>
               <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/shipment-&-return')" exact>
+                  {{ $t('Shipping & Return') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/customerfeedback')" exact>
+                  {{ $t('Customer Feedback') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/Care&fit')" exact>
+                  {{ $t('Care & Fit') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/career')" exact>
+                  {{ $t('Join Our Team ') }}
+                </router-link>
+              </div>
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/collabration')" exact>
+                  {{ $t('Collabration') }}
+                </router-link>
+              </div>
+              <!-- <div class="mt15">
                 <router-link class="cl-secondary" :to="localizedRoute('/delivery')" exact>
                   {{ $t('Delivery') }}
                 </router-link>
@@ -77,81 +101,67 @@
                 <router-link class="cl-secondary" :to="localizedRoute('/returns')" exact>
                   {{ $t('Return policy') }}
                 </router-link>
-              </div>
+              </div> -->
             </div>
             <div class="start-md">
               <h3 class="cl-accent weight-400">
-                {{ $t('Help') }}
-              </h3>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/customer-service')" exact>
-                  {{ $t('Customer service') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/size-guide')" exact>
-                  {{ $t('Size guide') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/contact')" exact>
-                  {{ $t('Contact us') }}
-                </router-link>
-              </div>
-            </div>
-            <div class="start-md">
-              <h3 class="cl-accent weight-400">
-                {{ $t('Quick Links') }}
-              </h3>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/about')" exact>
-                  {{ $t('About us') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/collection')" exact>
-                  {{ $t('Collection Page') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <!-- Link to custom Magento Cms Page -->
-                <router-link class="cl-secondary" :to="localizedRoute('/career')" exact>
-                  {{ $t('Career') }}
-                </router-link>
-              </div>
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/collabration')" exact>
-                  {{ $t('Collabration') }}
-                </router-link>
-              </div>
-              
-            </div>
-            
-            <div class="start-md">
-              <h3 class="cl-accent weight-400 quick_link2" style="visibility: hidden;">
-                {{ $t('Quick Links') }}
+                {{ $t('Discover HA') }}
               </h3>
 
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/shipment-&-return')" exact>
-                  {{ $t('Shipping & Return') }}
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/about')" exact>
+                  {{ $t('Know us') }}
                 </router-link>
               </div>
+
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/CustomerFeedback')" exact>
-                  {{ $t('Customer Feedback') }}
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/contact')" exact>
+                  {{ $t('Contact us') }}
                 </router-link>
               </div>
+
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/giveaway')" exact>
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/liner-collection')" exact>
+                  {{ $t('HA-OneLiner 23-34') }}
+                </router-link>
+              </div>
+
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/winter-collection')" exact>
+                  {{ $t('HA-Winter 23-24') }}
+                </router-link>
+              </div>
+
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/blog')" exact>
+                  {{ $t('Design Stories') }}
+                </router-link>
+              </div>
+
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/Offers')" exact>
+                  {{ $t('Offers') }}
+                </router-link>
+              </div>
+            </div>
+            <div class="start-md">
+              <h3 class="cl-accent weight-400">
+                {{ $t('Exclusive') }}
+              </h3>
+
+              <div class="mt15">
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/giveaway')" exact>
                   {{ $t('Giveaway') }}
                 </router-link>
               </div>
+
               <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/blog')" exact>
-                  {{ $t('Blog') }}
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/upcomingdrops')" exact>
+                  {{ $t('Upcoming Drops (pre-order-now)') }}
                 </router-link>
               </div>
+          
+
               <!-- <div class="mt15">
                 <router-link class="cl-secondary" :to="localizedRoute('/giveaway_from')" exact>
                   {{ $t('Giveaway_from') }}
@@ -162,11 +172,7 @@
                   {{ $t('collabrationForm') }}
                 </router-link>
               </div> -->
-              <div class="mt15">
-                <router-link class="cl-secondary" :to="localizedRoute('/productcare')" exact>
-                  {{ $t('productcare') }}
-                </router-link>
-              </div>
+
               <!-- <div class="mt15">
                 <router-link class="cl-secondary" :to="localizedRoute('/collabrationsidebar')" exact>
                   {{ $t('collabrationSidebar') }}
@@ -177,10 +183,21 @@
 
 
           </div>
+          
+        </div>
+      </div>
 
+
+    </div>
+    <div class="row ft_row">
+      <div class="col-12">
+        <div class="footer_bottom">
+          <p>United States © All Rights Reserved <span>SHBC ENTERPRISE INC.</span></p>
         </div>
       </div>
     </div>
+
+
     <!-- <div class="container">
       <div class="row middle-xs px15 bottom-links">
         <div class="col-xs-5 col-sm-3 cl-tertiary">
@@ -279,6 +296,26 @@ footer {
   position: relative;
   z-index: 1;
 }
+.ft_row {
+  background-color: #221F20;
+}
+.footer_bottom {
+    text-align: right;
+    padding: 0 100px 30px 100px;
+}
+.footer-links  {
+  padding-bottom: 20px;
+}
+.footer_bottom p{
+  color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+.footer_bottom p span {
+  font-size: 18px;
+    margin-left: 6px;
+}
 .social-icon {
   width: 40px;
   height: 40px;
@@ -361,13 +398,13 @@ footer {
 // Cstm Footer Css start from here
 
 .footer-links.flex.pt30.pb60.px40.bg-cl-secondary {
-    background-color: #000;
+    background-color: #221F20;
 }
 .cl-accent {
     color: #ffffff;
 }
 .footer-hd {
-    background-color: #000;
+    background-color: #221F20;
 }
 img.ft-heading {
     margin: 0 auto;
@@ -380,6 +417,11 @@ img.ft-heading {
 }
 .row.social.mt30{
 	gap: 35px;
+}
+.footer-head {
+    text-transform: uppercase;
+    color: #FFFF;
+    font-size: 14px;
 }
 
 
@@ -428,7 +470,17 @@ img.ft-heading {
   .links_row ~ div:nth-child(1) , .links_row ~ div:nth-child(2){
     margin-bottom: 45px !important;
   }
-
+  .footer-head {
+    font-size: 13px;
+  }
+  .footer_bottom {
+    text-align: center;
+    padding: 0 0 15px 0;
+  }
+  .links_row h3 {
+    margin-bottom: 0px;
+    margin-top: 35px;
+  }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {

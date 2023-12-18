@@ -60,7 +60,7 @@
               <td class="fs-medium lh25">
                 <span class="relative dropdown">
                   <i class="material-icons cl-secondary pointer">more_horiz</i>
-                  <div class="dropdown-content bg-cl-primary align-left sans-serif lh20 weight-400 fs-medium-small py5">
+                  <div class="dropdown-content bg-cl-primary align-left sans-serif lh20 weight-400 fs-medium-small py5 profile-drp-dwn">
                     <router-link class="no-underline block py10 px15" :to="localizedRoute(`/my-account/orders/${order.entity_id}`)">
                       {{ $t('View order') }}
                     </router-link>
@@ -106,6 +106,7 @@ table {
   th, td {
     text-align: left;
     padding: 20px;
+    font-size: 14px;
 
     @media (max-width: 1199px) {
       padding: 10px;
@@ -130,7 +131,9 @@ table {
   }
 
 }
-
+.dropdown-content {
+    width: 270px !important;
+  }
 .dropdown {
   display: block;
   margin: -20px;
@@ -146,7 +149,7 @@ table {
     position: absolute;
     right: 0;
     top: 100%;
-    width: 160px;
+    width: 270px !important;
     z-index: 1;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }

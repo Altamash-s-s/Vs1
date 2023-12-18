@@ -103,12 +103,15 @@ export default {
     z-index: 1000;
     border-radius: 100% !important;
     border: 1px solid #4f4f4f !important;
-    background-color: transparent !important;
-    width: 45px !important;
-    height: 45px !important;
+    background-color: #000 !important;
+    width: 40px !important;
+    height: 40px !important;
   }
   .vue-back-to-top button {
     background-color:transparent !important;
+    width: 100%;
+    height:100%;
+    padding: 0px;
   }
   .vue-back-to-top:hover {
     background-color: #000000 !important;

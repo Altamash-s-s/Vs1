@@ -2,7 +2,7 @@
   <div id="category" >
 
 
-    <header class="bg-cl-secondary spc py35 pl20 category_header">
+    <header class="bg-cl-secondary spc py35 pl20 category_header bag-img">
       <div class="cstm-page-layout">
         <breadcrumbs />
         <div class="row middle-sm">
@@ -257,6 +257,9 @@ export default {
     }
   }
 
+  .bag-img{
+    background-image: url('../assets/home/background-img.png');
+  }
 
   @media (max-width: 770px) {
     .category-title {

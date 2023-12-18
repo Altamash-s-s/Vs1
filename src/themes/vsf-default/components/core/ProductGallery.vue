@@ -1,6 +1,6 @@
 <template>
   <div class="media-gallery">
-    <div v-if="isOnline" class="relative w-100">
+    <div v-if="isOnline" class="relative w-100 mg_dv">
       <product-gallery-overlay
         v-if="isZoomOpen"
         :current-slide="currentSlide"
@@ -107,4 +107,20 @@ export default {
     background-image: none;
   }
 }
+
+
+.media-gallery .mg_dv {
+  height: 100% !important;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width:1200px) {
+
+
+.media-gallery .mg_dv {
+  height: 100% !important;
+}
+
+
+}
+
 </style>

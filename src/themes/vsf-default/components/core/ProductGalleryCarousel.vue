@@ -2,7 +2,11 @@
   
   <div class="media-gallery-carousel">
 
-   
+    <div class="product_closeup_video_dv">
+          <video class="product-video" autoplay muted loop>
+            <source :src="prd_c_vdo" type="video/mp4">
+          </video> 
+    </div>
       
     <carousel
       :per-page="1"
@@ -259,7 +263,9 @@ button.VueCarousel-dot.VueCarousel-dot--active {
 .media-zoom-carousel {
   .VueCarousel-pagination {
     position: absolute;
-    bottom: 15px;
+    bottom: -74px;
+    background: #e5e5e5;
+    padding-bottom: 26px;
     @media (max-width: 767px) {
       display: none;
     }
@@ -296,8 +302,12 @@ button.VueCarousel-dot.VueCarousel-dot--active {
   }
 }
 .product_closeup_video_dv {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .product_closeup_video_dv video {
     width: 100%;
@@ -306,20 +316,22 @@ button.VueCarousel-dot.VueCarousel-dot--active {
     object-position: center;
 }
 
-@media only screen and (min-device-width: 767px) and (max-device-width:1024px) {
+@media only screen and (min-device-width: 767px) and (max-device-width:1200px) {
 
   .VueCarousel {
-    height: 100% !important;
+    height: auto !important;
   }
-  .media-gallery .relative {
-    height: 100% !important;
-  }
+  
 
   .VueCarousel-wrapper {
-    height: 100% !important;
+    height: auto !important;
   }
   .VueCarousel-inner {
-    height:100% !important;
+    height: auto !important;
+  }
+  
+  .media-gallery-carousel {
+    height: auto !important;
   }
 
 }

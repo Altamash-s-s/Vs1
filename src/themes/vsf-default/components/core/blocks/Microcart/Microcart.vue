@@ -22,16 +22,7 @@
       </div>
     </div>
 
-    <h4 v-if="!productsInCart.length" class="cl-accent ml30">
-      {{ $t('Your shopping cart is empty.') }}
-    </h4>
-    <div v-if="!productsInCart.length" class="ml30" @click="closeMicrocartExtend">
-      {{ $t("Don't hesitate and") }}
-      <router-link :to="localizedRoute('/')">
-        {{ $t('browse our catalog') }}
-      </router-link>
-      {{ $t('to find something beautiful for You!') }}
-    </div>
+    
 
     <div class="row">
       <div class="col-lg-8 col-md-8 col-12 shop_cart_col1">
@@ -39,21 +30,33 @@
         <div class="row middle-xs bg-cl-primary top-sm px40 actions sc_prt2">
           <div class="col-xs-12 col-12 shop_crt_ttl_col">
             <h2
-              v-if="productsInCart.length"
+             
               class="cl-accent mt35 mb35 shop_cart_ttl"
             >
-              {{ $t('Shopping cart') }}
+              Shopping cart
             </h2>
           </div>
           
         </div>
+
+        <h4 v-if="!productsInCart.length" class="cl-accent ml30">
+          {{ $t('Your shopping cart is empty.') }}
+        </h4>
+        <div v-if="!productsInCart.length" class="ml30" @click="closeMicrocartExtend">
+          {{ $t("Don't hesitate and") }}
+          <router-link :to="localizedRoute('/')">
+            {{ $t('browse our catalog') }}
+          </router-link>
+          {{ $t('to find something beautiful for You!') }}
+        </div>
+
         <div class="col-xs-12 col-sm mt35 mb35 mt0 end-sm clearcart-col">
             <clear-cart-button
               v-if="productsInCart.length"
               @click.native="clearCart"
             />
         </div>
-        <ul class="shop_crt_prd_ttls">
+        <ul class="shop_crt_prd_ttls" v-if="productsInCart.length">
           <li class="item_ttl">Item</li>
           <li class="quantity_ttl">Quantity</li>
           <li class="price_ttl">Price</li>
@@ -297,6 +300,8 @@ export default {
 }
 .shop_cart_col1 .sc_prt3 {
     padding: 10px 10px 0px 25px;
+    height: 600px;
+    overflow: auto;
 }
 .shop_crt_ttl_col {
     padding-left: 32px;

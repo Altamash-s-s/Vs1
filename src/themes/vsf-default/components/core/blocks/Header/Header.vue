@@ -35,29 +35,33 @@
             </div>
           </div>
         </div>
-        <div class="row between-xs middle-xs px15 py5" v-if="isCheckoutPage && !isThankYouPage">
-          <div class="col-xs-5 col-md-3 middle-xs">
-            <div>
-              <router-link
-                :to="localizedRoute('/')"
-                class="cl-tertiary links"
-              >
-                {{ $t('Return to shopping') }}
-              </router-link>
+        <div class="row between-xs middle-xs " v-if="isCheckoutPage && !isThankYouPage">
+          <div class="col-md-4 col-xs-3 middle-xs">
+            <div class="logo_dv">
+              <hamburger-icon class="p15 icon  pointer menu_icon" />
+              <a href="/">
+              <img  class="ha_logo" src="../../../../assets/logo.png"/>
+            </a>
             </div>
           </div>
-          <div class="col-xs-2 col-md-6 center-xs">
-            <logo width="auto" height="41px" />
+          <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
+            <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-xs-5 col-md-3 end-xs">
+          <div class="col-md-4 col-xs-7 center-xs pt5 ha_txt_logo">
             <div>
-              <a
-                v-if="!currentUser"
-                href="#"
-                @click.prevent="gotoAccount"
-                class="cl-tertiary links"
-              >{{ $t('Login to your account') }}</a>
-              <span v-else>{{ $t('You are logged in as {firstname}', currentUser) }}</span>
+              <logo width="auto" height="40px"/>
+            </div>
+          </div>
+          <div class="col-xs-2 visible-xs mob_wishlist_icon hidden-xs">
+            <wishlist-icon class="p15 icon pointer" />
+          </div>
+          <div class="col-md-4 col-xs-2 end-xs">
+            <div class="inline-flex right-icons">
+              <search-icon class="p15 icon hidden-xs pointer" />
+              <wishlist-icon class="p15 icon hidden-xs pointer" />
+              <compare-icon class="p15 icon hidden-xs pointer" />
+              <microcart-icon class="p15 icon pointer" />
+              <account-icon class="p15 icon hidden-xs pointer" />
             </div>
           </div>
         </div>

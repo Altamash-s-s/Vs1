@@ -3,7 +3,7 @@
     <div class="container cstm-checkout">
       <div class="row" v-show="!isThankYouPage">
         <div class="col-sm-6 col-xs-12 pb70">
-          <div class="checkout-title py5 px20">
+          <div class="checkout-title py5 px20 bag-img">
             <h1>
               {{ $t('Checkout') }}
             </h1>
@@ -187,7 +187,7 @@ export default {
   .checkout-title {
     @media (max-width: 767px) {
       background-color: $bg-secondary;
-      margin-bottom: 25px;
+      margin-bottom: 50px;
 
       h1 {
         font-size: 36px;
@@ -205,4 +205,14 @@ export default {
 .checkout-title{
   padding-top: 100px;
 }
+
+@media (max-width: 767px) {
+  .cstm-checkout {
+    padding: 0px;
+  }
+  .bag-img{
+    background-image: url('../assets/home/background-img.png');
+  }
+}
+
 </style>

@@ -6,7 +6,7 @@
       </div>
     </div> -->
     <div class="middle-xs px40 wishlist_title">
-      <h2 v-if="productsInWishlist.length" class="col-sm cl-accent">
+      <h2  class="col-sm cl-accent">
         {{ $t('Wishlist') }}
       </h2>
       <div class="end-xs">
