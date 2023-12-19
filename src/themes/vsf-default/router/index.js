@@ -40,12 +40,13 @@ const MultipleIs = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-
 const NotLazy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/NotLazy.vue');
 const WarmEmbrace = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/WarmEmbrace.vue');
 const HotSpicy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HotSpicy.vue');
-
+const ContactUs = () => import(/* webpackChunkName: "vsf-new" */ 'theme/Insied-Page/ContactUs.vue');
 const WinterCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/collection/WinterCollection.vue');
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
   { name: 'about', path: '/about', component: About },
+  { name: 'contact-us', path: '/contact-us', component: ContactUs },
   { name: 'create-password', path: '/create-password', component: ResetPassword },
   { name: 'new', path: '/new', component: New },
   { name: 'blog', path: '/blog', component: Blog },
