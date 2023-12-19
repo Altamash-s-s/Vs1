@@ -115,7 +115,7 @@
               </div>
 
               <div class="mt15">
-                <router-link class="cl-secondary footer-head" :to="localizedRoute('/contact')" exact>
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/contact-us')" exact>
                   {{ $t('Contact us') }}
                 </router-link>
               </div>

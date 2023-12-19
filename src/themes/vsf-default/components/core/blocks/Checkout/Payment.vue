@@ -308,19 +308,22 @@
               <span class="pr15">{{ payment.phoneNumber }}</span>
               <tooltip>{{ $t('Phone number may be needed by carrier') }}</tooltip>
             </div>
+            
             <p v-if="generateInvoice">
               {{ payment.company }} {{ payment.taxId }}
             </p>
+
             <div class="col-xs-12">
               <h4>{{ $t('Payment method') }}</h4>
             </div>
+
             <div class="col-md-6 mb15">
               <label class="radioStyled"> {{ getPaymentMethod().title }}
-                <input type="radio" value="" checked disabled name="chosen-payment-method">
+                <input type="radio" value="stripe_payments" checked disabled name="chosen-payment-method">
                 <span class="checkmark" />
               </label>
-            </div>
-           
+            </div>  
+
           </div>
         </div>
       </div>
