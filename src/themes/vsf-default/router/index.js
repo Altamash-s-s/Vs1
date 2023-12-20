@@ -9,7 +9,7 @@ const Compare = () => import(/* webpackChunkName: "vsf-compare" */ 'theme/pages/
 const MyAccount = () => import(/* webpackChunkName: "vsf-my-account" */ 'theme/pages/MyAccount.vue')
 const Static = () => import(/* webpackChunkName: "vsf-static" */ 'theme/pages/Static.vue')
 const ResetPassword = () => import(/* webpackChunkName: "vsf-reset-password" */ 'theme/pages/ResetPassword.vue');
-const About = () => import(/* webpackChunkName: "vsf-about" */ 'theme/Insied-Page/About.vue');
+const KnowUs = () => import(/* webpackChunkName: "vsf-about" */ 'theme/Insied-Page/KnowUs.vue');
 const Collection = () => import(/* webpackChunkName: "vsf-collection" */ 'theme/pages/Collection.vue');
 const Career = () => import(/* webpackChunkName: "vsf-career" */ 'theme/pages/Career.vue');
 const Collabration = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Collabration.vue');
@@ -45,7 +45,7 @@ const WinterCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/p
 
 let routes = [
   { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
-  { name: 'about', path: '/about', component: About },
+  { name: 'knowus', path: '/knowus', component: KnowUs },
   { name: 'contact-us', path: '/contact-us', component: ContactUs },
   { name: 'create-password', path: '/create-password', component: ResetPassword },
   { name: 'new', path: '/new', component: New },

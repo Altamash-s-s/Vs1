@@ -362,6 +362,9 @@ export default {
     }
   },
   mounted () {
+    if (this.$route.path === '/') {
+      document.documentElement.classList.add('home-ss');
+    }
     document.body.classList.add('home_snap_scroll');
     if (!this.isLoggedIn && localStorage.getItem('redirect')) this.$bus.$emit('modal-show', 'modal-signup')
     //------------------------------------- Custom JS Code START Here
@@ -369,6 +372,8 @@ export default {
 
 
 
+  document.getElementById('banner_video1').play();
+  document.getElementById('banner_video').play();
 
 
 
@@ -486,6 +491,7 @@ export default {
   },
   beforeDestroy() {
     // Remove the class when the component is destroyed (optional)
+    document.documentElement.classList.remove('home-ss');
     document.body.classList.remove('home_snap_scroll')
   },
   watch: {
@@ -530,7 +536,7 @@ export default {
 </script>
 
 <style >
-  html {
+  .home-ss {
     scroll-snap-type: y mandatory;
   }
   .ss_section {

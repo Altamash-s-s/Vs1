@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary">
+    <header class="modal-header py25 px65 h1 serif weight-700 wishlist_title">
       {{ $t('Reset password') }}
       <i
         slot="close"
@@ -142,5 +142,11 @@ export default {
       padding-left: 20px;
       padding-right: 20px;
     }
+  }
+  .wishlist_title{
+    background-image: url('../../../../assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 </style>

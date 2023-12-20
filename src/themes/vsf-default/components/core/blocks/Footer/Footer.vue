@@ -109,7 +109,7 @@
               </h3>
 
               <div class="mt15">
-                <router-link class="cl-secondary footer-head" :to="localizedRoute('/about')" exact>
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/knowus')" exact>
                   {{ $t('Know us') }}
                 </router-link>
               </div>
@@ -474,8 +474,12 @@ img.ft-heading {
     font-size: 13px;
   }
   .footer_bottom {
-    text-align: center;
-    padding: 0 0 15px 0;
+    text-align: center !important;
+    padding: 0 0 15px 0 !important;
+  }
+  .footer_bottom p span {
+    display: block;
+    font-size: 15px;
   }
   .links_row h3 {
     margin-bottom: 0px;

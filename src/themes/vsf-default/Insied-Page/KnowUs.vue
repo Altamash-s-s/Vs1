@@ -47,7 +47,7 @@ import '../css/cstm-page-layout.css';
 
 
 export default {
-  name: 'about',
+  name: 'knowus',
   components: {},
   data() {
     return {

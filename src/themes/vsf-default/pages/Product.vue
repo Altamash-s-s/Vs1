@@ -396,25 +396,32 @@ export default {
         $("#story_overlay").fadeIn(0); // You can set this to 0 or a small value to make the overlay appear instantly
         $("#story_container").addClass('open_story_popup'); 
         $('header').css('z-index','0');
+        $('.product_closeup_video_dv').css('z-index','0');
+        $('.product-listing ').css('z-index','-1');
         $("body").addClass("disable-scroll");
+        
       });
 
       $("#close-btn, #story_overlay").click(function () {
         $("#story_overlay").fadeOut(0); 
         $("#story_container").removeClass('open_story_popup');
-        $('header').css('z-index','1');
+        $('header').css('z-index','2');
+        $('.product_closeup_video_dv').css('z-index','1');
+        $('.product-listing ').css('z-index','0');
         $("body").removeClass("disable-scroll");
       });
 
     $("#size_btn").click(function () {
       $("#size_overlay").fadeIn(300);
       $("#size_container").slideDown(300);
+      $('.product-listing ').css('z-index','-1');
       $("body").addClass("disable-scroll");
     });
 
     $("#size-close-btn, #size_overlay").click(function () {
       $("#size_overlay").fadeOut(300);
       $("#size_container").slideUp(300);
+      $('.product-listing ').css('z-index','0');
       $("body").removeClass("disable-scroll");
     });
 
@@ -656,6 +663,7 @@ h2.h3.m0.mb10.serif.lh20.details-title.accordion-heading.hd-title-care {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: -6px;
 }
 
 .product-top-section {

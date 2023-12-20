@@ -3,7 +3,7 @@
     <div class="container cstm-checkout">
       <div class="row" v-show="!isThankYouPage">
         <div class="col-sm-6 col-xs-12 pb70">
-          <div class="checkout-title py5 px20 bag-img">
+          <div class="checkout-title py5 px20">
             <h1>
               {{ $t('Checkout') }}
             </h1>

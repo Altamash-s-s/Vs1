@@ -256,9 +256,9 @@ $color-mine-shaft: color(mine-shaft);
 .mobile_icons_show {
     display: none;
   }
-  .header_ul {
-    margin:41px 40px 0 25px;
-  }
+  // .header_ul {
+  //   margin:41px 40px 0 25px;
+  // }
   .header_ul li a , .header_ul li button{
     color: #000 !important;
     font-size: 18px;

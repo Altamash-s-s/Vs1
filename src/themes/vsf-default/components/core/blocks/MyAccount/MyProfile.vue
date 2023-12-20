@@ -137,7 +137,7 @@
 
       <!-- Company information (edit mode) -->
       <base-checkbox
-        class="col-xs-12 mb15 mt10"
+        class="col-xs-12 mb15 mt10 check_box2"
         id="addCompany"
         v-model="addCompany"
       >
@@ -451,3 +451,10 @@ export default {
   }
 }
 </script>
+
+
+<style>
+.check_box2 {
+  margin-bottom: 40px !important;
+}
+</style>
