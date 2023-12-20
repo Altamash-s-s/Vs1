@@ -18,19 +18,19 @@
                     <div class="con-social-icon">
                         <h4 class="hd-of-head social-hd-head">SOCIAL MEDIA</h4>
                         <div class="social-icon-img">
-                            <a href="https://www.linkedin.com/">
+                            <a href="https://www.linkedin.com/" class="a-icon">
                                 <img class="icon-img" src="../assets/social-icon/linkedin (1).png">
                             </a>
-                            <a href="https://www.example.com/icon2">
+                            <a href="https://www.instagram.com/humansabstract/" class="a-icon">
                                 <img class="icon-img" src="../assets/social-icon/Frame 19626483.png">
                             </a>
-                            <a href="https://www.example.com/icon3">
+                            <a href="https://twitter.com/" class="a-icon">
                                 <img class="icon-img" src="../assets/social-icon/Frame 19626481.png">
                             </a>
-                            <a href="https://www.example.com/icon4">
+                            <a href="https://www.youtube.com/@Humansabstract." class="a-icon">
                                 <img class="icon-img" src="../assets/social-icon/Frame 19626482.png">
                             </a>
-                            <a href="https://www.example.com/icon5">
+                            <a href="https://www.facebook.com/people/Human-Abstract/61551077677068/" class="a-icon">
                                 <img class="icon-img" src="../assets/social-icon/Frame 19626480.png">
                             </a>
                         </div>
@@ -216,15 +216,15 @@ export default {
 .social-hd-head {
     margin-left: 50px;
     margin-top: 50px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 .social-icon-img {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     margin-left: 50px;
 }
 .icon-img {
-    width: 8%;
+    width: 50%;
 }
 .heading-telecom-sec {
     margin-top: 70px;
@@ -250,6 +250,18 @@ export default {
     float: left;
     margin-top: -11px;
 }
+a.underline:after, a:not(.no-underline):hover:after{
+  background: #0000 !important;
+  text-decoration: none;
+}
+.a-icon {
+    width: 32px;
+    display: block;
+    margin-right: 10px;
+}
+.social-icon-img img.icon-img {
+    width: 100%;
+}
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .content-left-side {
     margin-left: 45px !important;
@@ -257,6 +269,9 @@ export default {
 }
 .heading-content-icon {
     margin-left: 25px !important;
+}
+.heading-content-icon {
+    padding: 35px;
 }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
