@@ -7,7 +7,7 @@
           :routes="[]"
           active-route="My Account"
         />
-        <h1>
+        <h1 class="acount-hd-prf">
           {{ $t('My Account') }}
         </h1>
       </div>
@@ -132,5 +132,19 @@ $color-tertiary: color(tertiary);
 }
 .content-left {
     padding-left: 70px !important;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .acount-hd-prf {
+    margin: 0;
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .content-left{
+    padding-left: 9px !important;
+  }
 }
 </style>

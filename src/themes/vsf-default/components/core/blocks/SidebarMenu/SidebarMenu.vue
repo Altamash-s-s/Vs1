@@ -174,26 +174,26 @@ export default {
           name: i18n.t('My shipping details'),
           url: '/my-account/shipping-details'
         },
-        {
-          id: 3,
-          name: i18n.t('My newsletter'),
-          url: '/my-account/newsletter'
-        },
+        // {
+        //   id: 3,
+        //   name: i18n.t('My newsletter'),
+        //   url: '/my-account/newsletter'
+        // },
         {
           id: 4,
           name: i18n.t('My orders'),
           url: '/my-account/orders'
         },
-        {
-          id: 5,
-          name: i18n.t('My loyalty card'),
-          url: '#'
-        },
-        {
-          id: 6,
-          name: i18n.t('My product reviews'),
-          url: '#'
-        }
+        // {
+        //   id: 5,
+        //   name: i18n.t('My loyalty card'),
+        //   url: '#'
+        // },
+        // {
+        //   id: 6,
+        //   name: i18n.t('My product reviews'),
+        //   url: '#'
+        // }
       ],
       componentLoaded: false
     }

@@ -330,4 +330,8 @@ export default {
         padding: 0 20px;
     }
 }
+
+a.underline:after, a:not(.no-underline):hover:after{
+  background:  transparent !important;
+}
 </style>

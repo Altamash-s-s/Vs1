@@ -2,29 +2,7 @@
 
 
   <div class="product align-center w-100" v-observe-visibility="visibilityChanged">
-    <div class="product__icons">
-      <AddToWishlist :product="product">
-        <div
-          class="product__icon"
-          :class="{'product__icon--active': isOnWishlist }"
-          :title="isOnWishlist ? $t('Remove') : $t('Add to favorite') "
-          @click="toggleActiveState"
-        >
-          <!-- <i class="material-icons">{{ favoriteIcon }}</i> -->
-          <img v-if="!isActive" src="../core/icon/bookmark.png" class="bookmar-icon" >
-          <img v-else src="../core/icon/fill-bookmark.png" class="bookmar-icon">
-        </div>
-      </AddToWishlist>
-      <AddToCompare :product="product">
-        <div
-          class="product__icon"
-          :class="{'product__icon--active':isOnCompare } "
-          :title="isOnCompare ? $t('Remove from compare') : $t('Add to compare')"
-        >
-          <!-- <i class="material-icons">compare</i> -->
-        </div>
-      </AddToCompare>
-    </div>
+    
 
     <router-link
       class="block no-underline product-link"
@@ -46,13 +24,40 @@
       </div>
       
       <div class="add_card">
-            <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-      </svg>
+
+        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+
         <p class="mb0 cl-accent mt0" v-if="!onlyImage">
           {{ product.name | htmlDecode }}
         </p>
+
+        <div class="product__icons">
+            <AddToWishlist :product="product">
+              <div
+                class="product__icon"
+                :class="{'product__icon--active': isOnWishlist }"
+                :title="isOnWishlist ? $t('Remove') : $t('Add to favorite') "
+                @click="toggleActiveState"
+              >
+                <!-- <i class="material-icons">{{ favoriteIcon }}</i> -->
+                <img v-if="!isActive" src="../core/icon/bookmark.png" class="bookmar-icon" >
+                <img v-else src="../core/icon/fill-bookmark.png" class="bookmar-icon">
+              </div>
+            </AddToWishlist>
+            <AddToCompare :product="product">
+              <div
+                class="product__icon"
+                :class="{'product__icon--active':isOnCompare } "
+                :title="isOnCompare ? $t('Remove from compare') : $t('Add to compare')"
+              >
+                <!-- <i class="material-icons">compare</i> -->
+              </div>
+            </AddToCompare>
+        </div>
+
       </div>
   
       <span
@@ -176,10 +181,6 @@ $color-white: color(white);
     padding-bottom: 10px;
   }
   &__icons {
-    position: absolute;
-    top:auto;
-    bottom: 4px;
-    right: 6px;
     display: flex;
     flex-direction: column;
     padding-top: 0px;
@@ -252,16 +253,14 @@ $color-white: color(white);
 }
 ///cstm css //
 .plus-icon {
-    display: flex;
-    justify-content: center;
     margin: auto;
-    margin-top: -56px;
-    margin-bottom: 25px;
     background-color: rgba(255, 255, 255, 0.4);
     color: #000;
     padding: 5px;
     transform: scale(1.5);
     border-radius: 100%;
+    position: absolute;
+    top: -45px;
 }
 
 img.icon-img1 {
@@ -286,15 +285,18 @@ img.icon-img1 {
   margin-top: 10px;
   float: left;
   border: 1px solid #C1C1C1;
-  width: 98%;
-  padding: 7px 0 3px 4px;
+  width: 100%;
+  padding: 5px 7px;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  justify-content: center;
+
 }
 .add_card p {
   line-height: 20px;
   font-size: 15px;
-  margin-top: 7px;
-  float: left;
-  
+  width:95%;
 }
 .bookmar-icon {
     width: 19px;
