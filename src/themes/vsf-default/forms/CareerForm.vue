@@ -219,8 +219,18 @@
     },
   };
   </script>
+<style scoped>
 
-  
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+      .forms_detail.Career {
+          padding-bottom: 50px !important;
+      }
+
+}   
+
+
+
+</style>
   
   
   

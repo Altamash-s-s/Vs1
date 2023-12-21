@@ -156,6 +156,9 @@ right: 0;
   line-height: 28px;
   margin-top: 26px;
 }
+.forms_detail.Career {
+    padding-bottom: 50px;
+}
 
 }
 

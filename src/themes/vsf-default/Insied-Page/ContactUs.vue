@@ -281,7 +281,7 @@ a.underline:after, a:not(.no-underline):hover:after{
     }
 
     .heading-content-icon {
-    width: 85%;
+    width: 81%;
     padding: 30px;
     }
     .content-left-side {

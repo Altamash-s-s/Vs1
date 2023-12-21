@@ -197,6 +197,19 @@ export default {
                 .cstm-page-layout {
                   padding: 0px 30px;
               }
+        .main-section.one.top {
+            margin-top: 50px;
+        }
+        .main-section.two {
+            margin-top: 100px;
+        }
+        .main-section.one {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+        .care-head {
+            font-size: 29px;
+}
              
 }
 

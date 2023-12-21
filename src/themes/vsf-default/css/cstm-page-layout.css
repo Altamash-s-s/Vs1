@@ -74,6 +74,9 @@ h2.hd-heading {
 }
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+    .cstm-page-layout{
+        padding: 0px 30px;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {

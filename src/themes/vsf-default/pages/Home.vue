@@ -44,10 +44,10 @@
         <div class="parallax-image section5">
 
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
-          <video class="desktop_liner_video" id="banner_video" autoplay control muted loop>
+          <video class="desktop_liner_video" id="banner_video" playsinline autoplay control muted loop>
             <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/oneliner_desk_video.mp4" type="video/mp4" />
           </video>
-          <video class="tab_liner_video" id="banner_video" autoplay control muted loop>
+          <video class="tab_liner_video" id="banner_video" playsinline autoplay control muted loop>
             <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/oneliner_mob_video.mp4" type="video/mp4" />
           </video>
 
@@ -90,10 +90,10 @@
         </div>
         <div class="parallax-image section5">
           <!-- <video src="../assets/icons/home-video.mp4" playsinline autoplay muted loop></video> -->
-          <video class="desktop_wntr_video" id="banner_video1" autoplay control muted loop>
+          <video class="desktop_wntr_video" id="banner_video1" playsinline autoplay control muted loop>
             <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/winter_desk_video.mp4" type="video/mp4" />
           </video>
-          <video class="tab_wntr_video" id="banner_video1" autoplay control muted loop>
+          <video class="tab_wntr_video" id="banner_video1" playsinline autoplay control muted loop>
             <source src="https://magento-1168777-4085532.cloudwaysapps.com/video/winter_mob_video.mp4" type="video/mp4" />
           </video>
         </div>
@@ -594,7 +594,7 @@ export default {
   .mobile_img{
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
   .fitness_tab{
     display: none;
@@ -1308,6 +1308,7 @@ box-sizing: border-box;
   .tab_img {
     display: none;
   }
+
 
 }
 
