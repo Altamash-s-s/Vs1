@@ -78,7 +78,7 @@
                 </router-link>
               </div>
               <div class="mt15">
-                <router-link class="cl-secondary footer-head" :to="localizedRoute('/Care&fit')" exact>
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/productcare')" exact>
                   {{ $t('Care & Fit') }}
                 </router-link>
               </div>
