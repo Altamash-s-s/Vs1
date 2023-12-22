@@ -154,12 +154,6 @@
                   {{ $t('Giveaway') }}
                 </router-link>
               </div>
-
-              <div class="mt15">
-                <router-link class="cl-secondary footer-head" :to="localizedRoute('/upcomingdrops')" exact>
-                  {{ $t('Upcoming Drops (pre-order-now)') }}
-                </router-link>
-              </div>
           
 
               <!-- <div class="mt15">

@@ -8,23 +8,26 @@
       <div class="blog-grid">
 
 
+        <a href="/hopeblog">
           <div class="blog-one img-one">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/Frame 94x.png">
+              <img class="blog_img" src="../inside-blog/Blog-Images/Frame 94x.png">
             </div>
             <div class="content">
               <div class="inner-container">
-              <h4 class="hd-bg">Hope Blog</h4>
-              <p class="bg-para">In the vast canvas of life, where challenges and uncertainties often paint our experiences,</p>
-              <a class="rd-mr-btn" href="/hopeblog">Read More</a>
+                <h4 class="hd-bg">Hope Blog</h4>
+                <p class="bg-para">In the vast canvas of life, where challenges and uncertainties often paint our experiences,</p>
+                <a class="rd-mr-btn" href="/hopeblog">Read More</a>
               </div>   
             </div>
           </div>
+        </a>
 
+        <a href="/abstract"> 
           <div class="blog-one img-two">
-            <div class="img-div">
-            <img class="blog_img" src="../assets/new_blog_img1.png">
-          </div>
+              <div class="img-div">
+              <img class="blog_img" src="../assets/new_blog_img1.png">
+            </div>
             <div class="content">
               <div class="inner-container">
               <h4 class="hd-bg">Abstract Human Faces</h4>
@@ -33,7 +36,10 @@
             </div>
             </div>
           </div>
+          </a>
 
+
+          <a href="/codelife"> 
           <div class="blog-one img-three">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-CODE LIFE.jpg">
@@ -46,7 +52,9 @@
             </div>
             </div>
           </div>
+          </a>
 
+          <a href="/humanai"> 
           <div class="blog-one img-four">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HUMAN X AI.jpg">
@@ -59,6 +67,7 @@
             </div>
             </div>
           </div>
+          </a>
 
       </div>
     </div>
@@ -66,7 +75,7 @@
     <div class="blog-section second-section">
       <div class="blog-grid">
 
-
+        <a href="/whocare"> 
           <div class="blog-one img-five">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-WHO CARES.jpg">
@@ -79,7 +88,9 @@
               </div>
             </div>
           </div>
+          </a>
 
+          <a href="/dragonfly"> 
           <div class="blog-one img-six">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-DRAGONFLY.jpg">
@@ -92,7 +103,9 @@
             </div>
             </div>
           </div>
+          </a>
 
+          <a href="/habranding"> 
           <div class="blog-one img-seven">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HA BRANDING.jpg">
@@ -105,7 +118,9 @@
             </div>
             </div>
           </div>
+          </a>
 
+          <a href="/handgestures"> 
           <div class="blog-one img-eight">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HAND GESTURES.jpg">
@@ -118,6 +133,7 @@
             </div>
             </div>
           </div>
+          </a>
 
       </div>
     </div>
@@ -126,6 +142,7 @@
       <div class="blog-grid">
 
 
+        <a href="/LoveWithoutLimits"> 
           <div class="blog-one img-five">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-LOVE WITHOUT LIMITS.jpg">
@@ -138,7 +155,10 @@
               </div>
             </div>
           </div>
+          </a>
 
+
+          <a href="/multipleIs"> 
           <div class="blog-one img-six">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-I'S.jpg">
@@ -151,7 +171,10 @@
             </div>
             </div>
           </div>
+        </a>
 
+
+        <a href="/notlazy"> 
           <div class="blog-one img-seven">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-NOT LAZY.jpg">
@@ -164,7 +187,9 @@
             </div>
             </div>
           </div>
+          </a>
 
+          <a href="/warmembrace"> 
           <div class="blog-one img-eight">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-WARM EMBRACE.jpg">
@@ -177,6 +202,7 @@
             </div>
             </div>
           </div>
+          </a>
 
       </div>
     </div>
@@ -184,7 +210,7 @@
     <div class="blog-section second-section bottom">
       <div class="blog-grid">
 
-
+        <a href="/hotspicy"> 
           <div class="blog-one img-five">
             <div class="img-div">
             <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HOT NOT SPICY.jpg">
@@ -197,6 +223,7 @@
               </div>
             </div>
           </div>
+          </a>
 
       </div>
     </div>

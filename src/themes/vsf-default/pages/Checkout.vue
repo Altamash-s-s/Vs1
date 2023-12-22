@@ -1,9 +1,9 @@
 <template>
   <div id="checkout">
-    <div class="container cstm-checkout">
+    <div class="container cstm-checkout ">
       <div class="row" v-show="!isThankYouPage">
         <div class="col-sm-6 col-xs-12 pb70">
-          <div class="checkout-title py5 px20">
+          <div class="checkout-title py5 px20 bag-img-chck">
             <h1>
               {{ $t('Checkout') }}
             </h1>
@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
   @import '~theme/css/base/text';
   @import '~theme/css/variables/colors';
   @import '~theme/css/helpers/functions/color';
@@ -210,9 +210,33 @@ export default {
   .cstm-checkout {
     padding: 0px;
   }
-  .bag-img{
-    background-image: url('../assets/home/background-img.png');
-  }
+  .category_header {
+      padding-top: 25px !important;
+      height: 90px !important;
+      margin-top: 71px;
+    }
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
+    .bag-img-chck{
+      background-image: url('/assets/patch_img.jpg') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+      padding-top: 25px !important;
+      height: 90px !important;
+      margin-top: 71px;
+    }
+    .checkout-title{
+      padding-top: 0px;
+      height: 90px;
+      margin-top: 70px;
+   }
+   .checkout-title h1 {
+      padding-top: 20px;
+  }
+
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="contact-us" class="cstm-page-layout">
+    <div id="contact-us" class="cstm-page-layout contant-page-top">
 
                 <div class="head-section">
                     <img class="hd-img" src="../assets/home/contact-us.jpg">
@@ -288,5 +288,8 @@ a.underline:after, a:not(.no-underline):hover:after{
     margin-left: 0;
     margin-bottom: 80px;
 }
+  .contant-page-top {
+      display: block;
+  }
 }
 </style>

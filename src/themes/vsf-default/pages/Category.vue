@@ -2,7 +2,7 @@
   <div id="category" >
 
 
-    <header class="bg-cl-secondary spc py35 pl20 category_header bag-img">
+    <header class="bg-cl-secondary spc py35 pl20 category_header bag-img bag-img-mob ">
       <div class="cstm-page-layout">
         <breadcrumbs />
         <div class="row middle-sm">
@@ -214,6 +214,7 @@ export default {
 <style lang="scss" scoped>
 .product_collection_flw {
     height: 100vh;
+    padding-left: 26px;
 }
 .pb60{
   padding-top: 80px;
@@ -259,6 +260,9 @@ export default {
 
   .bag-img{
     background-image: url('../assets/home/background-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   @media (max-width: 770px) {
@@ -360,5 +364,36 @@ export default {
   .product_collection_flw {
     height: auto !important;
   }
+    .bag-img{
+      background-image: url('/assets/patch_img.jpg') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+    padding-top: 25px !important;
+    height: 60px;
+    margin-top: 71px;
+    }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+  .category-title{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 80px !important;
+  }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .category-title{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 106px !important;
+    padding-left: 40px !important;
+  }
+}
+
 </style>

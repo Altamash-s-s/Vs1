@@ -123,6 +123,9 @@ $color-tertiary: color(tertiary);
 }
 .bag-img{
     background-image: url('../assets/home/background-img.png');
+    background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
   }
   .category_header {
     padding-top: 150px !important;
@@ -133,8 +136,23 @@ $color-tertiary: color(tertiary);
 .content-left {
     padding-left: 70px !important;
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+  .acount-hd-prf{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 80px !important;
+  }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .acount-hd-prf{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 106px !important;
+  }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -146,5 +164,22 @@ $color-tertiary: color(tertiary);
   .content-left{
     padding-left: 9px !important;
   }
+  .bag-img-chck{
+      background-image: url('/assets/patch_img.jpg') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+      padding-top: 25px !important;
+      margin-top: 71px;
+    }
+    .acount-hd-prf{
+      padding-top: 0px;
+   }
+   .checkout-title h1 {
+      padding-top: 20px;
+  }
+
 }
 </style>

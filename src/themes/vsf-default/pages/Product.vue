@@ -1,7 +1,7 @@
 <template>
   <div id="product">
     <div class="top_product_video">
-    <video class="product-video" autoplay muted loop>
+    <video class="product-video" playsinline autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>
     </div>
