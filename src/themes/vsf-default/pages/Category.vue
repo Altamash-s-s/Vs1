@@ -365,7 +365,7 @@ export default {
     height: auto !important;
   }
     .bag-img{
-      background-image: url('/assets/patch_img.jpg') !important;
+      background-image: url('/assets/collection/collection_mob_bg.png') !important;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

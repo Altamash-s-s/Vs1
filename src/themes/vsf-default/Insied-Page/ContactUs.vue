@@ -8,7 +8,7 @@
 
                 <div class="main-cn-section">
 
-                    <div class="heading-content-icon">
+                    <!-- <div class="heading-content-icon">
                       <div class="heading-main-sec">
                         <img class="location-img" src="../assets/icons/location.png">
                         <h4 class="hd-of-head">Head Office</h4>
@@ -45,7 +45,7 @@
                         <p class="hd-para-head bot-telecom">1800 539 2030</p>
                     </div>  
 
-                     </div>
+                     </div> -->
 
 
                      <div class="content-left-side">
@@ -53,7 +53,6 @@
                         <h1>Contact Us</h1>
 
                         <div class="form-section">
-
 
                             <form @submit.prevent="submitForm" v-if="!submitted">
                                     <label for="firstName">First Name:</label>
@@ -67,38 +66,23 @@
                                                     
                                     <label for="description">Description (100-125 words):</label>
                                     <textarea placeholder="Description (100-125 words):" class="description cstm-input " v-model="formData.description" required></textarea>
-                                    <button class="submit" type="submit">Submit</button>
-                                </form>
+                                    <button class="submit contact_btn" type="submit">Submit</button>
+                            </form>
 
-                                        <div v-else>
-                                            <div class="thanks-message">
-                                            <img class="thumbs-img" src="../assets/icons/thumbs-up.png">
-                                            <p class="message">Thank you for submitting the form!</p>
-                                            </div>
-                                        </div>
-
+                            <div v-else>
+                                <div class="thanks-message">
+                                <img class="thumbs-img" src="../assets/icons/thumbs-up.png">
+                                <p class="message">Thank you for submitting the form!</p>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
+
                 </div>
-
-
-
-
-
-
-
         </div>
-
-
-
 </template>
 
-
 <script>
-
-
-
 import '../css/cstm-page-layout.css';
 import '../forms/form.css'
 
@@ -190,7 +174,9 @@ export default {
     display: flex;
     margin: 70px 0px 70px 0px;
 }
-
+.contact_btn {
+  margin-top:12px !important;
+}
 .heading-content-icon {
     width: 35%;
     padding: 50px;
@@ -229,16 +215,13 @@ export default {
 .heading-telecom-sec {
     margin-top: 70px;
 }
-.content-left-side {
-    margin-left: 65px;
-}   
+
 .contact-form-mail {
-    width: 47%;
-    margin-left: 1% !important;
+    width: 49%;
 }
 .contact-form-name {
-    width: 47%;
-    margin-right: 1% !important;
+    width: 48%;
+    margin-right: 2% !important;
 }
 .bot-telecom {
     margin-top: -14px;
@@ -264,7 +247,6 @@ a.underline:after, a:not(.no-underline):hover:after{
 }
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     .content-left-side {
-    margin-left: 45px !important;
     margin-right: 31px !important;
 }
 .heading-content-icon {
@@ -285,11 +267,16 @@ a.underline:after, a:not(.no-underline):hover:after{
     padding: 30px;
     }
     .content-left-side {
-    margin-left: 0;
     margin-bottom: 80px;
 }
   .contant-page-top {
       display: block;
   }
+  .contact-form-name{
+    width: 100%;
+  }
+  .contact-form-mail {
+    width: 100%;
+}
 }
 </style>

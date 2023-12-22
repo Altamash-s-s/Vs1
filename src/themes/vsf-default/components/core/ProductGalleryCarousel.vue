@@ -3,7 +3,7 @@
   <div class="media-gallery-carousel">
 
     <div class="product_closeup_video_dv">
-          <video class="product-video" autoplay muted loop>
+          <video class="product-video" playsinline autoplay muted loop>
             <source :src="prd_c_vdo" type="video/mp4">
           </video> 
     </div>
