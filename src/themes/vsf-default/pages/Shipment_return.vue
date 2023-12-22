@@ -213,7 +213,9 @@ border-radius: 4px;
             .tabcontent{
               margin-left: 43px;
             }
-           
+            .content-section {
+    padding-bottom: 50px;
+}
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
@@ -230,6 +232,9 @@ border-radius: 4px;
 }
 .inside-section {
   margin-bottom: 50px;
+}
+.content-section {
+    padding-bottom: 50px;
 }
 
 }
@@ -256,6 +261,9 @@ width: 95%;
 }
 .para-txt {
   font-size: 20px;
+}
+.content-section {
+    padding-bottom: 50px;
 }
 }
 </style>  

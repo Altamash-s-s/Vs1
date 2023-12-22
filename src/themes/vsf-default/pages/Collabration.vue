@@ -1,5 +1,5 @@
 <template>
-    <div id="collabration" class="cstm-page-layout">
+    <div id="collabration" class="cstm-page-layout collabration-btm">
         <div class="head-section">
             <img class="hd-img" src="../assets/home/collabration.png">
         </div>
@@ -142,6 +142,9 @@ button:hover .arrow:before {
 }
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+    .collabration-btm{
+        padding-bottom: 50px;
+    }
 
 }
 

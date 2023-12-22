@@ -592,13 +592,44 @@ export default {
     scroll-snap-type: unset;
   } */
   .mobile_img{
-    display: block;
+    display: none;
     width: 100%;
     height: auto;
   }
   .fitness_tab{
     display: none;
   }
+  .head_section {
+    background-image: url('../assets/home/fold-top.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+  }
+
+
+.cubism_section {
+  background-image: url('../assets/home/cubism-mob.png');
+  background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.fitness_section {
+
+background-image: url('../assets/home/home-pg-mob.jpg');
+background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.women_power_section {
+
+background-image: url('../assets/home/power-mob.png');
+background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
 }
 </style>
 

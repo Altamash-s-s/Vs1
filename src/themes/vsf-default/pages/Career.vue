@@ -1,5 +1,5 @@
 <template>
-  <div id="career" class="cstm-page-layout">
+  <div id="career" class="cstm-page-layout join-team">
       <div class="head-section">
           <img class="hd-img" src="../assets/home/join.png">
 
@@ -142,6 +142,9 @@ right: 0;
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
               .cstm-page-layout {
                 padding: 0px 30px;
+            }
+            .join-team{
+              padding-bottom: 20px;
             }
 }
 

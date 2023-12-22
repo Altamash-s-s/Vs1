@@ -23,7 +23,7 @@
 
           <div class="blog-one img-two">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-ABSTRACT FACES.jpg">
+            <img class="blog_img" src="../assets/new_blog_img1.png">
           </div>
             <div class="content">
               <div class="inner-container">

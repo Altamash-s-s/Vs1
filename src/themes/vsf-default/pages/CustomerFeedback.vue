@@ -47,15 +47,6 @@ export default {
     }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
-    .head-section {
-    padding: 0px 50px !important;
-    }
-    .cstm-feedback {
-        padding: 0px 80px !important;
-    }
-    .cstm-hd-feedback {
-        padding: 0px 80px !important;
-    }
     .wl-msg{
     margin-top: 0 !important;
     }
