@@ -151,42 +151,53 @@ h2.ha-head {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
-  .collection-section .image {
-    background-position: 82%;
-  }
   .collect_img_cnt {
-    top: auto;
+    top: 200px;
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%);
     left: 7.5%;
     width: 85%;
-    bottom: 100px;
+    text-align: center;
   }
   .collect_img_cnt img {
-    width: 100%;
+    width: 278px;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px !important;
+    margin-top: 22px !important;
+    padding: 7px 5px !important;
   }
   .collect_img_cnt .section_btn div p { 
     margin-left: 0 !important;
+    font-size:13px;
   }
   .section .image.mobile-img {
-    background-image: url('../../assets/collection/Ha-Winter-1.png');
+    background-image: url('../../assets/collection/winter/Ha-Winter-1.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.winter-img-mobile {
-    background-image: url('../../assets/collection/winter-img-2.png');
+    background-image: url('../../assets/collection/winter/winter-img-2.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.wint-mob-img3 {
-    background-image: url('../../assets/collection/winter_mob_collection3.jpg');
+    background-image: url('../../assets/collection/winter/winter_mob_collection3.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.wint-mob-img4 {
-    background-image: url('../../assets/collection/winter__mob_collection4.jpg');
+    background-image: url('../../assets/collection/winter/winter__mob_collection4.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.img-1 {
     display: none;

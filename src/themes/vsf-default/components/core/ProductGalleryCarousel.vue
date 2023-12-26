@@ -313,7 +313,7 @@ button.VueCarousel-dot.VueCarousel-dot--active {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
 }
 
 @media only screen and (min-device-width: 767px) and (max-device-width:1200px) {

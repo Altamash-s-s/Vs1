@@ -1154,6 +1154,9 @@ button#size_btn {
   .related_prd_div .prd_lst_col {
     margin-bottom: 15px;
   }
+  .product-video {
+    height:50vh;
+  }
 }
 </style>
 

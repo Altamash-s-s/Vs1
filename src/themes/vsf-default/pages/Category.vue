@@ -342,8 +342,8 @@ export default {
 @media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
 
   .pb60 {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
   }   
   .product-listing {
     justify-content: unset !important;

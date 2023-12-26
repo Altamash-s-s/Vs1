@@ -4,13 +4,13 @@
             <div class="parallax-section winter_frst_fold">
                 <div class="parallax-image section5">
                     <img class="top-img" src="../../assets/collection/winter_top_img.jpg">
-                    <img class="mobile-img" src="../../assets/collection/winter-mobile.png">
+                    <!-- <img class="mobile-img" src="../../assets/collection/winter-mobile.png"> -->
                 </div>
             </div>
         </div>
         <div class="description-container winter_scnd_fold">
             <p class="dscrpt-txt">In publishing and graphic design, &amp;Lorem ipsum is a placeholder text commonly used to
-                    demonstrate <br> The visual form of a document or a typeface without relying on meaningful content. <br>Lorem
+                    demonstrate The visual form of a document or a typeface without relying on meaningful content. Lorem
                     ipsum may be used as a placeholder before final copy is available</p>
         </div>
         <div class="collection-section winter_thrd_fold">
@@ -289,17 +289,18 @@ video {
         line-height: 17px;
         padding:0 50px;
     }
-    .head-img-cl {
-        left: 6%;
-        bottom: 80px;
-        width: 100%;
-    }
     h2.text-hd{
         margin-left: 16px;
         font-size: 35px;
     }
     .parallax-section.winter_frst_fold{
-        height: 96vh;
+        height: 100vh;
+    }
+    .winter_frst_fold .parallax-image {
+        background-image: url('../../assets/collection/winter-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
     }
     .top-img {
         display: none;

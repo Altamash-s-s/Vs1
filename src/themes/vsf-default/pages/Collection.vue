@@ -5,14 +5,14 @@
                 <div class="parallax-image section5">
     
                     <img class=top-img src="../assets/collection/one_liner_top_img.jpg">
-                    <img class="mobile-img" src="../assets/collection/line-mob.png">
+                    <!-- <img class="mobile-img" src="../assets/collection/line-mob.png"> -->
 
                 </div>
             </div>
         </div>
         <div class="description-container">
             <p class="dscrpt-txt">In publishing and graphic design, &amp;Lorem ipsum is a placeholder text commonly used to
-                    demonstrate <br> The visual form of a document or a typeface without relying on meaningful content. <br>Lorem
+                    demonstrate The visual form of a document or a typeface without relying on meaningful content. Lorem
                     ipsum may be used as a placeholder before final copy is available</p>
         </div>
 
@@ -303,19 +303,13 @@ p.dscrpt-txt {
         line-height: 17px;
         padding:0 50px;
     }
-
-    .head-img-cl {
-        left: 6%;
-        bottom: 80px;
-        width: 381px;
-    }
     h2.text-hd{
         margin-left: 16px;
         font-size: 35px;
     }
 
     .parallax-section.snap.first_fold{
-        height: 96vh;
+        height: 100vh;
     }
     .top-img {
         display: none;
@@ -326,6 +320,13 @@ p.dscrpt-txt {
         height: 100%;
         object-fit: cover;
         object-position: bottom;
+    }
+
+    .first_fold .parallax-image {
+        background-image: url('../assets/collection/line-mob.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
     }
 
 }

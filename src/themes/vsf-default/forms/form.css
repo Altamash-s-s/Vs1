@@ -12,6 +12,21 @@ form {
     padding: 0.5rem; /* Adjust padding as needed */
     /* Add any other styling you need */
   }
+  .dob {
+    position: relative;
+  }
+  .dob::before {
+    content: 'Date of birth';
+    position: absolute;
+    background-color:#fff;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+  input.image_upload {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
   select {
     color: #302A2A;
     font-family: 'Nunito';

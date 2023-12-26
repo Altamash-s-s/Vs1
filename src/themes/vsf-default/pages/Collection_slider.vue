@@ -150,42 +150,53 @@ h2.ha-head {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
-  .collection-section .image {
-    background-position: 82%;
-  }
   .collect_img_cnt {
-    top: auto;
+    top: 200px;
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%);
     left: 7.5%;
     width: 85%;
-    bottom: 100px;
+    text-align: center;
   }
   .collect_img_cnt img {
-    width: 100%;
+    width: 278px;
   }
   .collect_img_cnt .section_btn {
-    margin-top: 30px !important;
+    margin-top: 22px !important;
+    padding: 7px 5px !important;
   }
   .collect_img_cnt .section_btn div p { 
     margin-left: 0 !important;
+    font-size:13px;
   }
   .section .image.linear-mob-one {
-    background-image: url('../assets/collection/linear-mob-1.jpg');
+    background-image: url('../assets/collection/oneliner/linear-mob-1.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.linear-mob-three {
-    background-image: url('../assets/collection/liner_col_4_mob.jpg');
+    background-image: url('../assets/collection/oneliner/liner_col_4_mob.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.linear-mob-four {
-    background-image: url('../assets/collection/liner-mob-3.png');
+    background-image: url('../assets/collection/oneliner/liner-mob-3.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.linear-mob-two {
-    background-image: url('../assets/collection/liner-mob-4.png');
+    background-image: url('../assets/collection/oneliner/liner-mob-4.jpg');
     display: block !important;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
   .section .image.img-1 {
     display: none;

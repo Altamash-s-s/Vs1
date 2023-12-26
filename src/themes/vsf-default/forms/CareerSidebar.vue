@@ -108,8 +108,8 @@ export default {
   margin-right: 27px;
   background: transparent;
   position: absolute;
-  top: 15px;
-  right: 0;
+  top: 32px;
+  right: 30px;
   width: 21px;
   padding: 0;
 }
@@ -130,12 +130,12 @@ export default {
   }
   
   .close_btn {
-      background: #FFF;
       display: block;
       margin: auto;
       margin-right: 0;
       padding-right: 0px;
       padding-top: 15px;
+      right:40px;
   }
   
     .inside-hd {
