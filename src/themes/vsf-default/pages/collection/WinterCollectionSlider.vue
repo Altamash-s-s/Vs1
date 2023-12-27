@@ -152,7 +152,7 @@ h2.ha-head {
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
   .collect_img_cnt {
-    top: 200px;
+    top: 185px;
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%);
