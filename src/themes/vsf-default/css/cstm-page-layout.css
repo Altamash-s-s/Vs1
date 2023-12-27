@@ -11,15 +11,14 @@
     margin-top: 150px;
 }
 .main-section {
-    margin-top: 65px;
+    margin-top: 20px;
 }
 h2.hd-heading {
     color: #302A2A;
-    font-size: 25px;
-    font-weight: 400;
+    font-size: 26px;
+    font-weight: 700;
 }
 .content-section {
-    margin-top: 50px;
     float: left;
 }
 .cr-head{
@@ -34,7 +33,7 @@ h2.hd-heading {
 .inside-para {
     margin-top: 7px;
     margin-bottom: 10px;
-    line-height: 25px;
+    line-height: 30px;
     font-size: 17px;
     font-weight: 500;
 }
@@ -45,10 +44,10 @@ h2.hd-heading {
     margin-bottom: 0;
 }
 .wl-msg {
-    margin-top: 90px;
+    margin-top: 60px;
     font-size: 17px;
     font-weight: 500;
-    line-height: 35px;
+    line-height: 30px;
 }
 
 
@@ -103,5 +102,18 @@ h2.hd-heading {
     .inside-para {
         line-height: 25px;
         font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    .hd-heading{
+        font-size: 23px !important;
+    }
+    .inside-hd{
+        font-size: 20px !important;
+        line-height: 28px !important;
+
+    }
+    .para-txt {
+        font-size: 18px !important;
     }
 }

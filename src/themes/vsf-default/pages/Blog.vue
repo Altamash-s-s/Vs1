@@ -11,7 +11,7 @@
         <a href="/hopeblog">
           <div class="blog-one img-one">
             <div class="img-div">
-              <img class="blog_img" src="../inside-blog/Blog-Images/Frame 94x.png">
+              <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -26,7 +26,7 @@
         <a href="/abstract"> 
           <div class="blog-one img-two">
               <div class="img-div">
-              <img class="blog_img" src="../assets/new_blog_img1.png">
+              <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -42,7 +42,7 @@
           <a href="/codelife"> 
           <div class="blog-one img-three">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-CODE LIFE.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -57,7 +57,7 @@
           <a href="/humanai"> 
           <div class="blog-one img-four">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HUMAN X AI.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -78,7 +78,7 @@
         <a href="/whocare"> 
           <div class="blog-one img-five">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-WHO CARES.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -93,7 +93,7 @@
           <a href="/dragonfly"> 
           <div class="blog-one img-six">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-DRAGONFLY.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -108,7 +108,7 @@
           <a href="/habranding"> 
           <div class="blog-one img-seven">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HA BRANDING.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -123,7 +123,7 @@
           <a href="/handgestures"> 
           <div class="blog-one img-eight">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HAND GESTURES.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -145,7 +145,7 @@
         <a href="/LoveWithoutLimits"> 
           <div class="blog-one img-five">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-LOVE WITHOUT LIMITS.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -161,7 +161,7 @@
           <a href="/multipleIs"> 
           <div class="blog-one img-six">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-I'S.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -177,7 +177,7 @@
         <a href="/notlazy"> 
           <div class="blog-one img-seven">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-NOT LAZY.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -192,7 +192,7 @@
           <a href="/warmembrace"> 
           <div class="blog-one img-eight">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-WARM EMBRACE.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -213,7 +213,7 @@
         <a href="/hotspicy"> 
           <div class="blog-one img-five">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/BLOG PAGES-HOT NOT SPICY.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -247,7 +247,7 @@ export default {
 
 .blog_img{
     width: 100%;
-    height: 400px;
+    height: 352px;
     object-fit: cover;
 }
 .img-div:before { 
@@ -370,6 +370,9 @@ export default {
       .blog-section.second-section.bottom {
           margin-bottom: 70px;
       }
+      .blog_img{
+          height: auto;
+        }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
@@ -382,6 +385,9 @@ export default {
   margin-bottom: 38px;
   margin-top: 50px;
 }
+.blog_img{
+          height: auto;
+        }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -397,6 +403,9 @@ export default {
         .blog-section.second-section.bottom {
                   margin-bottom: 70px;
               }
+ .blog_img{
+          height: auto;
+        }
   }
 
 

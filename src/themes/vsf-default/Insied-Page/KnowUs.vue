@@ -5,7 +5,7 @@
     </div>
 
     <div class="main-section">
-      <h2 class="hd-heading">ABOUT HUMAN ABSTRACT</h2>
+      <h2 class="hd-heading about-us-hd">ABOUT HUMAN ABSTRACT</h2>
     </div>
 
     <div class="content-section">
@@ -107,13 +107,15 @@ border-radius: 4px;
 }
 .para-text{
   color: #302A2A;
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 27px; 
-  padding-bottom: 15px;
+  font-weight: 500;
+  line-height: 30px; 
+  padding-bottom: 17px;
 }
 .heading-para{
+  font-size: 21px !important;
+  font-weight: 700 !important;
   color: #302A2A;
   font-size: 18px;
   font-style: normal;
@@ -172,20 +174,26 @@ border-radius: 4px;
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
             .tab{
-              width: 75%;
+              width: 100%;
             }
             .tabcontent {
               margin-left: 0;
-              width: 97%;
+              width: 100%;
           }
           .main-section {
-              margin-top: 35px;
+              margin-top: 10px;
               margin-bottom: -35px;
           }
           .heading-para {
               padding-bottom: 5px;
               padding-top: 21px;
           }
+          .about-us-hd {
+          margin-bottom: 50px;
+      }
+      .tab button{
+          padding-left: 0px !important;
+      }
 }
 
 

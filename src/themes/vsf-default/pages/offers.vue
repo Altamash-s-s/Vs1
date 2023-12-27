@@ -1,25 +1,18 @@
 <template>
     <div id="productcare" class="cstm-page-layout">
         <div class="head-section">
-            <img class="hd-img" src="../assets/home/care-fit.png">
+            <img class="hd-img" src="/assets/offer/top-img-offer.jpg">
         </div>
-        <WashCarePopup v-if="showWashCarePopup" @close-popup="showWashCarePopup = false" />
-        <DryCarePopup v-if="showDryCarePopup" @close-popup="showDryCarePopup = false" />
-        <StoreCarePopup v-if="showStoreCarePopup" @close-popup="showStoreCarePopup = false" />
-        <ExtraCarePopup v-if="showExtraCarePopup" @close-popup="showExtraCarePopup = false" />
-        <EcoCarePopup v-if="showEcoCarePopup" @close-popup="showEcoCarePopup = false" />
-
-
         <div class="main-section one top">
             <div class="video-part">
-                <img class="care-video" src="../assets/product_care/CARE PAGE_WASH CARE.jpg">
+                <img class="care-video" src="/assets/offer/offer-img.jpg">
             </div>
             <div class="content_part">
-                <h3 class="care-head">Wash Care</h3>
+                <h3 class="care-head">Offer</h3>
                 <P class="care-par">Following the right wash care instructions and methods are essential to preserve the condition and
                     functionality of the products, reducing environmental impact and utility costs.
                 </P>
-                <button class="care-btn" @click="showWashCarePopup = true" >Know More</button>
+                <button class="care-btn" @click="openPopup1" >Redeem Now</button>
 
             </div>
         </div>
@@ -27,95 +20,153 @@
         <div class="main-section two">
 
             <div class="content_part two">
-                <h3 class="care-head">Drying Your Clothes</h3>
+                <h3 class="care-head">Offer</h3>
                 <P class="care-par">Drying clothes improperly can cause damage to the fabric and shape of the garments. 
                 </P>
-                <button class="care-btn" @click="showDryCarePopup = true">Know More</button>
+                <button class="care-btn" >Redeem Now</button>
             </div>
 
             <div class="video-part">
-                <img class="care-video" src="../assets/product_care/CARE PAGE_DRY CARE.jpg">
+                <img class="care-video" src="/assets/offer/offer-img.jpg">
             </div>
 
         </div>
 
-        <div class="main-section one">
+        <div class="main-section one lst_offer">
             <div class="video-part">
-                <img class="care-video" src="../assets/product_care/CARE PAGE_STORING.jpg">
+                <img class="care-video" src="/assets/offer/offer-img.jpg">
             </div>
             <div class="content_part">
-                <h3 class="care-head">Store your clothing the right way</h3>
+                <h3 class="care-head">Offer</h3>
                 <P class="care-par">Proper clothing storage not only helps maintain the condition of your garments but also makes it easier to keep your wardrobe organized and accessible.
                 </P>
-                <button class="care-btn" @click="showStoreCarePopup = true" >Know More</button>
+                <button class="care-btn" >Redeem Now</button>
             </div>
         </div>
 
-        <div class="main-section two">
-
-            <div class="content_part two">
-                <h3 class="care-head">Extra Care</h3>
-                <P class="care-par">Treating your clothing with care and following proper care instructions is a wise investment that can lead to a more sustainable, cost-effective, and enjoyablewardrobe.
-                        </P>
-                <button class="care-btn" @click="showExtraCarePopup = true">Know More</button>
-            </div>
-
-            <div class="video-part">
-                <img class="care-video" src="../assets/product_care/CARE PAGE_EXTRA CARE.jpg">
-            </div>
-
-        </div>
 
 
-        <div class="main-section one bottom">
-            <div class="video-part">
-                <img class="care-video" src="../assets/product_care/CARE PAGE_ECO FRIENDLY .jpg">
-            </div>
-            <div class="content_part">
-                <h3 class="care-head">Eco Friendly Tips</h3>
-                <P class="care-par">By making more eco-conscious choices in your clothing care routine, you can be a part of the solution to the environmental challenges
-                        </P>
-                <button class="care-btn" @click="showEcoCarePopup = true">Know More</button>
+
+        <div v-if="showPopup1" class="overlay" @click="closePopup1"></div>
+        <div v-if="showPopup1" class="popup show">
+            <div class="popup-content">
+                <div class="heading-bg-img-pop">
+                    <h2>Offer Form</h2>
+                </div>
+                <offersidebarform />
+                <button class="popup-cancel" @click="closePopup1">&#10005;</button>
             </div>
         </div>
+
+    <!-- Second Popup -->
+    <div v-if="showPopup2" class="popup show">
+      <div class="popup-content">
+        <h2>Popup 2 Content</h2>
+        <p>This is the content for the second popup.</p>
+        <button class="popup-cancel" @click="closePopup">&#10005;</button>
+      </div>
+    </div>
+
+    <!-- Third Popup -->
+    <div v-if="showPopup3" class="popup show">
+      <div class="popup-content">
+        <h2>Popup 3 Content</h2>
+        <p>This is the content for the third popup.</p>
+        <button @click="closePopup3">Close</button>
+      </div>
+    </div>
+
+    <!-- Fourth Popup -->
+    <div v-if="showPopup4" class="popup show">
+      <div class="popup-content">
+        <h2>Popup 4 Content</h2>
+        <p>This is the content for the fourth popup.</p>
+        <button @click="closePopup4">Close</button>
+      </div>
+    </div>
+
+    <!-- Fifth Popup -->
+    <div v-if="showPopup5" class="popup show">
+      <div class="popup-content">
+        <h2>Popup 5 Content</h2>
+        <p>This is the content for the fifth popup.</p>
+        <button @click="closePopup5">Close</button>
+      </div>
+    </div>
 
     </div>
 </template>
 
 <script>
 import '../css/cstm-page-layout.css';
-import WashCarePopup from '../sidebar/WashCarePopup.vue'
-import DryCarePopup from '../sidebar/DryCarePopup.vue'
-import StoreCarePopup from '../sidebar/StoreCarePopup.vue'
-import ExtraCarePopup from '../sidebar/ExtraCarePopup.vue'
-import EcoCarePopup from '../sidebar/EcoCarePopup.vue'
+import offersidebarform from '../forms/offersidebarform.vue'
 
 export default {
-    name: 'ProductCare',
-    components: {
-        WashCarePopup,
-        DryCarePopup,
-        StoreCarePopup,
-        ExtraCarePopup,
-        EcoCarePopup,
+  name: 'offer',
+  components: {
+    offersidebarform
     },
-    data() {
+  data() {
     return {
-      showWashCarePopup: false,
-      showDryCarePopup: false,
-      showStoreCarePopup: false,
-      showExtraCarePopup: false,
-      showEcoCarePopup: false,
-      // Add similar data properties for other sections and their popups
+      showPopup1: false,
+      showPopup2: false,
+      showPopup3: false,
+      showPopup4: false,
+      showPopup5: false,
     };
   },
-}
-
-
+  methods: {
+    openPopup1() {
+      this.showPopup1 = true;
+    },
+    openPopup2() {
+      this.showPopup2 = true;
+    },
+    openPopup3() {
+      this.showPopup3 = true;
+    },
+    openPopup4() {
+      this.showPopup4 = true;
+    },
+    openPopup5() {
+      this.showPopup5 = true;
+    },
+    closePopup1() {
+      this.showPopup1 = false;
+    },
+    closePopup2() {
+      this.showPopup2 = false;
+    },
+    closePopup3() {
+      this.showPopup3 = false;
+    },
+    closePopup4() {
+      this.showPopup4 = false;
+    },
+    closePopup5() {
+      this.showPopup5 = false;
+    },
+  },
+};
 </script>
 
 
 <style scoped>
+/* .lst_offer {
+    margin-bottom: 50px;
+} */
+  .heading-bg-img-pop {
+    padding: 24px;
+    background-image: url('/assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 74px;
+}
+.heading-bg-img-pop h2 {
+    font-size: 40px;
+    margin-top: 0;
+}
 .main-section.one.top{
     margin-top: 150px;
 }
@@ -178,6 +229,54 @@ export default {
     justify-content: center;
     padding: 30px 0px 30px 0px;
 }
+.popup-cancel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+  }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control transparency */
+  z-index: 1;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Initially set the right property to hide the popup */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the popup content to the right */
+  z-index: 1000;
+  transition: right 0.3s ease-in-out; /* Add transition for smooth sliding effect */
+}
+
+.popup-content {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 70%; /* Set the width of the popup content */
+  height: 100%;
+}
+
+/* Show the popup by setting the right property to 0% */
+.popup.show {
+  right: 0%;
+}
+
+
 @media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
 
 }

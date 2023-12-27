@@ -4,6 +4,9 @@
     <video class="product-video" playsinline autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>
+    <video class="product-video_mob" playsinline autoplay muted loop>
+      <source :src="getCurrentProduct.product_closeup_mob_video" type="video/mp4">
+    </video>
     </div>
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container product_container">
@@ -565,6 +568,11 @@ $color-white: color(white);
 $bg-secondary: color(secondary, $colors-background);
 
 /* product detail changes start here */
+
+.product-video_mob{
+  display: none;
+}
+
 
 .size-part {
     display: flex;
@@ -1194,6 +1202,14 @@ button#size_btn {
   #story_container {
     max-width: 100% !important;
   }
+  .product-video_mob{
+    display: block !important;
+    width:100%;
+  }
+  .product-video{
+    display: none !important;
+  }
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 992px) {

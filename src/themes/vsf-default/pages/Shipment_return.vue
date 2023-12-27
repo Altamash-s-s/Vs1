@@ -9,8 +9,8 @@
       </h3>
 
       <h3 class="inside-hd"> FREE SHIPPING  </h3>
-          <P class="inside-para">Free shipping is available on orders totaling <span style="font-weight: 600;">$99.00</span> or more, excluding taxes and any applicable discounts. <br>
-              Orders that qualify for free shipping will be clearly indicated during the checkout process. Check our website for current promotions and eligibility
+          <P class="inside-para">Free shipping is available on orders totaling <span style="font-weight: 600;">$99.00</span> or more, excluding taxes and any applicable discounts. </P>
+          <P class="inside-para"> Orders that qualify for free shipping will be clearly indicated during the checkout process. Check our website for current promotions and eligibility
           </P>
     </div>
 
@@ -128,9 +128,10 @@ export default {
 }
 * {box-sizing: border-box}
 .tab {
-float: left;
-border: 1px solid #000;
-width: 20%;
+  float: left;
+  border: 1px solid #000;
+  width: 20%;
+  height: auto;
 }
 
 .tab button {
@@ -170,11 +171,12 @@ border-radius: 4px;
 }
 .heading-para{
   color: #302A2A;
-  font-size: 18px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   padding-bottom: 37px;
+  font-weight: 700;
 }
 .ship-return {
   font-size: 19px;
@@ -242,15 +244,19 @@ border-radius: 4px;
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
 
 .tab {
-  width: 60%;
+  width: 100%;
 }
 .tabcontent{
 margin-left: 0;
-width: 95%;
+width: 100%;
 }
 .heading-para {
   padding-bottom: 25px !important;
   padding-top: 12px;
+  border-bottom: 1px solid #000;
+  width: fit-content;
+  padding-bottom: 1px !important;
+  font-weight: 700;
 }
 .content-section {
   margin-top: 25px;
@@ -260,10 +266,16 @@ width: 95%;
   margin-top: 25px;
 }
 .para-txt {
-  font-size: 20px;
+  font-size: 18px;
 }
 .content-section {
     padding-bottom: 50px;
+}
+.tab button {
+  padding-left: 0px;
+}
+.inside-section{
+    margin-top: 0px;
 }
 }
 </style>  

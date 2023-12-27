@@ -4,7 +4,9 @@
         <!-- Add a cancel icon in the top-right corner -->
         <button class="popup-cancel" @click="closePopup">&#10005;</button>
         <div class="popup-content">
-          <h3 class="popup-head">Wash Care</h3>
+          <div class="heading-bg-img-pop">
+            <h2 class="popup-head">Wash Care</h2>
+          </div>
         <ul class="popup-text">
           <li>Following the right wash care instructions and methods are essential to preserve the condition and functionality of the products, reducing environmental impact and utility costs.</li>
           <li>Full load machine (avoid less clothes or over all loaded machine washes).</li>
@@ -34,6 +36,13 @@
   </script>
   
   <style scoped>
+  .heading-bg-img-pop {
+    padding: 24px;
+    background-image: url('/assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
   .popup-overlay {
     display: none;
     position: fixed;
@@ -55,9 +64,7 @@
   
   .popup {
     background: #fff;
-    padding: 60px;
     max-width: 47%;
-    border-radius: 10px;
     position: relative; /* Added to position the cancel button */
   }
   
@@ -74,7 +81,7 @@
   
   .popup-head {
     color: #000;
-    font-size: 24px;
+    font-size: 34px;
     margin-bottom: 10px;
   }
   
@@ -83,6 +90,7 @@
     font-size: 17px;
     font-family: 'PoppinsRegular';
     line-height: 31px;
+    padding: 20px 71px !important;
   }
   @media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
 
@@ -134,6 +142,10 @@
     max-width: 80%;
     border-radius: 10px;
     position: relative;
+}
+.popup-text {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
 }
 
 

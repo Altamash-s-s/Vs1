@@ -3,8 +3,10 @@
       <div class="popup" @click.stop>
         <!-- Add a cancel icon in the top-right corner -->
         <button class="popup-cancel" @click="closePopup">&#10005;</button>
-        <div class="popup-content">
-            <h3 class="popup-head">Eco Friendly Tips</h3>
+        <div class="popup-content"> 
+            <div class="heading-bg-img-pop">
+              <h3 class="popup-head">Eco Friendly Tips</h3>
+          </div>
         <ul class="popup-text">
           <li>Repair your clothes - stitch small torn areas, fix buttons etc. instead of throwing it away </li>
           <li>Switch to minimal packaging, laundry products and cleaning solutions</li>
@@ -27,6 +29,13 @@
   </script>
   
   <style scoped>
+        .heading-bg-img-pop {
+    padding: 24px;
+    background-image: url('/assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
     .popup-head {
     display: flex;
     justify-content: center;
@@ -48,9 +57,7 @@
   
   .popup {
     background: #fff;
-    padding: 60px;
     max-width: 47%;
-    border-radius: 10px;
     position: relative; /* Added to position the cancel button */
   }
   
@@ -67,7 +74,7 @@
   
   .popup-head {
     color: #000;
-    font-size: 24px;
+    font-size: 34px;
     margin-bottom: 10px;
   }
   
@@ -76,6 +83,7 @@
     font-size: 17px;
     font-family: 'PoppinsRegular';
     line-height: 31px;
+    padding: 20px 71px !important;
   }
   @media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
 
@@ -127,6 +135,10 @@
     max-width: 80%;
     border-radius: 10px;
     position: relative;
+}
+.popup-text {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
 }
 
 

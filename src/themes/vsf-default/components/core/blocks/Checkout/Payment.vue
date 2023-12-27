@@ -323,6 +323,8 @@
                 <span class="checkmark" />
               </label>
             </div>  
+            
+      
 
           </div>
         </div>
@@ -341,6 +343,7 @@ import BaseInput from 'theme/components/core/blocks/Form/BaseInput'
 import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import Tooltip from 'theme/components/core/Tooltip'
+
 
 export default {
   components: {
