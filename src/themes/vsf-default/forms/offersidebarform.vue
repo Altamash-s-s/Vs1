@@ -1,5 +1,5 @@
 <template>
-  <div class="forms_detail giveaway">
+  <div class="forms_detail giveaway offer_form_dv">
     <form @submit.prevent="submitForm" v-if="!submitted">
       <label for="firstName">First Name:</label>
       <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />
@@ -188,6 +188,11 @@ export default {
   margin-top:30px;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .offer_form_dv {
+    padding:0 15px;
+  }
+}
 </style>
 
 

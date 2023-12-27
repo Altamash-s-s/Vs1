@@ -233,7 +233,7 @@ export default {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #fff;
+    background: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -265,7 +265,7 @@ export default {
 
 .popup-content {
   background-color: #fff;
-  border-radius: 8px;
+  border-radius:0px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 70%; /* Set the width of the popup content */
   height: 100%;
@@ -395,6 +395,16 @@ export default {
     .care-btn {
     padding: 16px !important;
     }
+
+    .popup  , .popup-content{
+      width:100%;
+    }
+
+    .popup-cancel{
+    top: 31px;
+    right: 25px;
+    padding: 0;
+  }
 
 }
 </style>
