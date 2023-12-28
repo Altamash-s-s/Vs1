@@ -117,7 +117,7 @@ export default {
 
 <style scoped>
 .main-section.one.top{
-    margin-top: 150px;
+    margin-top: 90px;
 }
 .care-video {
     width: 100%;
@@ -148,6 +148,7 @@ export default {
 
 .main-section.one {
     margin-top: 200px;
+    margin-bottom: 25px !important;
 }
 .content_part.two{
     padding-left: 0;
@@ -271,18 +272,18 @@ export default {
         width: 100%;
     }
     .main-section.one{
-    margin-top: 0px;
+    margin-top: 20px;
 
     }
     .main-section.two {
         margin-top: 0px;
     }
     .main-section.one.top {
-        margin-top: 0px;
+        margin-top: 40px;
     }
     .care-video {
-        width: 90%;
-        padding-bottom: 30px;
+        width: 100%;
+        padding-bottom: 0px;
     }
     .content_part.two{
         padding-left: 0px;
@@ -293,9 +294,46 @@ export default {
     .care-par {
         font-size: 16px;
     }
-    .care-btn {
-    padding: 16px !important;
-    }
+
+    .main-section{
+display: flex;
+gap: 10px !important;
+margin-bottom: 55px !important;
+}
+.content_part, .video-part{
+width: 100%;
+order: 2 !important;
+margin: 0;
+padding: 0 2px;
+}
+.video-part{
+order: 1 !important;
+margin-top: 0;
+width: 100%;
+}
+.care-par{
+font-size: 16px;
+margin-bottom: 10px !important;
+}
+.care-head{
+font-size: 24px;
+line-height: 25px;
+margin-bottom: 15px;
+margin-top: 0;
+}
+.care-par {
+margin-bottom: 5px;
+}
+.care-btn {
+  padding: 10px 12px !important;
+  letter-spacing: 2.5px !important;
+}
+.main-section.two{
+  margin-top: 40px !important;
+}
+.main-section.one.bottom {
+  margin-bottom: 70px !important;
+}
 
 }
 </style>

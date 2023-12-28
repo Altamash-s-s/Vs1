@@ -3,7 +3,7 @@
         <div class="head-section">
           <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Multiple I'S</span></h3>
           <h2 class="blg-title">The 'I' Within Our Shared Humanity </h2>
-          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-I'S.jpg">
+          <img class="hd-img blog" src="./Blog-Images/BLOG-MULTIPLE I'S.jpg">
     </div>
 
     <div class="main-section blog">

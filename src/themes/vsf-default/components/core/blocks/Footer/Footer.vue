@@ -88,8 +88,8 @@
                 </router-link>
               </div>
               <div class="mt15">
-                <router-link class="cl-secondary footer-head" :to="localizedRoute('/collabration')" exact>
-                  {{ $t('Collabration') }}
+                <router-link class="cl-secondary footer-head" :to="localizedRoute('/collaboration')" exact>
+                  {{ $t('Collaboration') }}
                 </router-link>
               </div>
               <!-- <div class="mt15">

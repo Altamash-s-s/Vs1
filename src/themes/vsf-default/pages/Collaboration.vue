@@ -35,7 +35,7 @@
             </P>       
         </div>
         <div class="form_dv apply-btn">
-                 <button @click="openSidebar">COLLABRATION NOW </button>
+                 <button @click="openSidebar">COLLABORATION NOW </button>
                     <div class="arrow-wrapper">
                          <div class="arrow"></div>
                     </div>

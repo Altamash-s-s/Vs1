@@ -3,7 +3,7 @@
         <div class="head-section">
           <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Warm Embrace</span></h3>
           <h2 class="blg-title">Embracing Inclusivity and Celebrating You!</h2>
-          <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-WARM EMBRACE.jpg">
+          <img class="hd-img blog" src="./Blog-Images/BLOG-WARM EMBRACE.jpg">
     </div>
 
     <div class="main-section blog">

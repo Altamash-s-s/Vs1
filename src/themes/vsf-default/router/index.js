@@ -12,7 +12,7 @@ const ResetPassword = () => import(/* webpackChunkName: "vsf-reset-password" */ 
 const KnowUs = () => import(/* webpackChunkName: "vsf-about" */ 'theme/Insied-Page/KnowUs.vue');
 const Collection = () => import(/* webpackChunkName: "vsf-collection" */ 'theme/pages/Collection.vue');
 const Career = () => import(/* webpackChunkName: "vsf-career" */ 'theme/pages/Career.vue');
-const Collabration = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Collabration.vue');
+const Collaboration = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Collaboration.vue');
 const Shipment_return = () => import(/* webpackChunkName: "vsf-collabration" */ 'theme/pages/Shipment_return.vue');
 const Giveaway = () => import(/* webpackChunkName: "vsf-giveaway" */ 'theme/pages/Giveaway.vue');
 const Giveaway_from = () => import(/* webpackChunkName: "vsf-giveaway_from" */ 'theme/forms/Giveaway_from.vue');
@@ -78,7 +78,7 @@ let routes = [
   { name: 'WinterCollection', path: '/winter-collection', component: WinterCollection },
   { name: 'collection', path: '/liner-collection', component: Collection },
   { name: 'career', path: '/career', component: Career },
-  { name: 'collabration', path: '/collabration', component: Collabration },
+  { name: 'Collaboration', path: '/collaboration', component: Collaboration },
   { name: 'shipment_return', path: '/shipment-&-return', component: Shipment_return },
   { name: 'giveaway', path: '/giveaway', component: Giveaway },
   { name: 'checkout', path: '/checkout', component: Checkout },

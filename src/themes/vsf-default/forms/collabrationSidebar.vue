@@ -8,7 +8,7 @@
         </button>
         <div class="main-form main-form" style="height: calc(100% - 80px); overflow-y: auto;" >
           <div class="popup_ttl_dv">    
-          <h2 class="main-hd main-hd">Collabration Form</h2>
+          <h2 class="main-hd main-hd">Collaboration Form</h2>
         </div>
           <collabrationForm  /> 
         </div>
@@ -20,7 +20,7 @@
 import collabrationForm from './collabrationForm.vue';
 
   export default {
-    name: 'collabrationSidebar',
+    name: 'CollaborationSidebar',
     components: {
         collabrationForm,
     },

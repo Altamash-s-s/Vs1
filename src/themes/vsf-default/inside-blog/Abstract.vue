@@ -3,7 +3,7 @@
         <div class="head-section">
           <h3 class="breadcrum_blog"><a href="/">Home</a>  /  <a href="/blog">Blog</a> / <span>Abstract Human Face</span></h3>
            <h2 class="blg-title">Unraveling the Multifaceted You</h2>
-      <img class="hd-img blog" src="./Blog-Images/BLOG PAGES-ABSTRACT FACES.jpg">
+      <img class="hd-img blog" src="./Blog-Images/BLOG-HUMAN ASBTRACT.jpg">
     </div>
 
     <div class="main-section blog">

@@ -1,5 +1,5 @@
 <template>
-  <div class="forms_detail giveaway offer_form_dv">
+  <div class="forms_detail offersidebarform offer_form_dv">
     <form @submit.prevent="submitForm" v-if="!submitted">
       <label for="firstName">First Name:</label>
       <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />

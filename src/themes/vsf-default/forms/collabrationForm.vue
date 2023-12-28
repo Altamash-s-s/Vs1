@@ -1,5 +1,5 @@
 <template>
-    <div class="forms_detail collabration">
+    <div class="forms_detail Collaboration">
       <form @submit.prevent="submitForm" v-if="!submitted">
         <label for="firstName">First Name:</label>
         <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />
@@ -25,7 +25,7 @@
         </select>
   
         <label for="dob">Date of Birth:</label>
-        <input placeholder="Date of Birth" class="dob cstm-input" type="date" v-model="formData.dob" required />
+        <input placeholder="Date of Birth: " class="dob cstm-input" type="date" v-model="formData.dob" required />
   
         <label for="phoneNumber">Phone Number:</label>
         <input placeholder="Phone Number" class="phonenumber cstm-input" type="tel" v-model="formData.phoneNumber" required />
@@ -55,7 +55,7 @@
   <script>
   import './form.css'
   export default {
-    name: 'collabrationForm',
+    name: 'CollaborationForm',
     data() {
       return {
         formData: {

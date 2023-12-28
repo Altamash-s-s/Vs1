@@ -1,11 +1,11 @@
 <template>
-    <div id="productcare" class="cstm-page-layout">
+    <div id="Offer" class="cstm-page-layout">
         <div class="head-section">
             <img class="hd-img" src="/assets/offer/top-img-offer.jpg">
         </div>
-        <div class="main-section one top">
-            <div class="video-part">
-                <img class="care-video" src="/assets/offer/offer-img.jpg">
+        <div class="main-section one top offer-main-section">
+            <div class="video-part offer-img-part">
+                <img class="care-video offer-img-sec" src="/assets/offer/offer-img.jpg">
             </div>
             <div class="content_part">
                 <h3 class="care-head">Offer</h3>
@@ -17,30 +17,30 @@
             </div>
         </div>
 
-        <div class="main-section two">
+        <div class="main-section two offer-main-section">
 
             <div class="content_part two">
                 <h3 class="care-head">Offer</h3>
                 <P class="care-par">Drying clothes improperly can cause damage to the fabric and shape of the garments. 
                 </P>
-                <button class="care-btn" >Redeem Now</button>
+                <button class="care-btn" @click="openPopup2">Redeem Now</button>
             </div>
 
-            <div class="video-part">
-                <img class="care-video" src="/assets/offer/offer-img.jpg">
+            <div class="video-part offer-img-part">
+                <img class="care-video offer-img-sec" src="/assets/offer/offer-img.jpg">
             </div>
 
         </div>
 
-        <div class="main-section one lst_offer">
-            <div class="video-part">
-                <img class="care-video" src="/assets/offer/offer-img.jpg">
+        <div class="main-section one lst_offer offer-main-section offer-bottom">
+            <div class="video-part offer-img-part">
+                <img class="care-video offer-img-sec" src="/assets/offer/offer-img.jpg">
             </div>
             <div class="content_part">
                 <h3 class="care-head">Offer</h3>
                 <P class="care-par">Proper clothing storage not only helps maintain the condition of your garments but also makes it easier to keep your wardrobe organized and accessible.
                 </P>
-                <button class="care-btn" >Redeem Now</button>
+                <button class="care-btn" @click="openPopup3">Redeem Now</button>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
 
 
         <div v-if="showPopup1" class="overlay" @click="closePopup1"></div>
-        <div v-if="showPopup1" class="popup show">
+        <div :class="{ 'offerpopup': !showPopup1, 'offerpopup show': showPopup1 }">
             <div class="popup-content">
                 <div class="heading-bg-img-pop">
                     <h2>Offer Form</h2>
@@ -59,25 +59,31 @@
         </div>
 
     <!-- Second Popup -->
-    <div v-if="showPopup2" class="popup show">
+    <div v-if="showPopup2" class="overlay" @click="closePopup2"></div>
+    <div :class="{ 'offerpopup': !showPopup2, 'offerpopup show': showPopup2 }">
       <div class="popup-content">
-        <h2>Popup 2 Content</h2>
-        <p>This is the content for the second popup.</p>
-        <button class="popup-cancel" @click="closePopup">&#10005;</button>
-      </div>
+                <div class="heading-bg-img-pop">
+                    <h2>Offer Form</h2>
+                </div>
+                <offerformtwo />
+                <button class="popup-cancel" @click="closePopup2">&#10005;</button>
+            </div>
     </div>
 
     <!-- Third Popup -->
-    <div v-if="showPopup3" class="popup show">
+    <div v-if="showPopup3" class="overlay" @click="closePopup3"></div>
+    <div :class="{ 'offerpopup': !showPopup3, 'offerpopup show': showPopup3 }">
       <div class="popup-content">
-        <h2>Popup 3 Content</h2>
-        <p>This is the content for the third popup.</p>
-        <button @click="closePopup3">Close</button>
-      </div>
+                <div class="heading-bg-img-pop">
+                    <h2>Offer Form</h2>
+                </div>
+                <offerformthree />
+                <button class="popup-cancel" @click="closePopup3">&#10005;</button>
+            </div>
     </div>
 
     <!-- Fourth Popup -->
-    <div v-if="showPopup4" class="popup show">
+    <div v-if="showPopup4" class="offerpopup show">
       <div class="popup-content">
         <h2>Popup 4 Content</h2>
         <p>This is the content for the fourth popup.</p>
@@ -86,7 +92,7 @@
     </div>
 
     <!-- Fifth Popup -->
-    <div v-if="showPopup5" class="popup show">
+    <div v-if="showPopup5" class="offerpopup show">
       <div class="popup-content">
         <h2>Popup 5 Content</h2>
         <p>This is the content for the fifth popup.</p>
@@ -100,11 +106,15 @@
 <script>
 import '../css/cstm-page-layout.css';
 import offersidebarform from '../forms/offersidebarform.vue'
+import offerformtwo from '../forms/offerformtwo.vue'
+import offerformthree from '../forms/offerformthree.vue'
 
 export default {
   name: 'offer',
   components: {
-    offersidebarform
+    offersidebarform,
+    offerformtwo,
+    offerformthree
     },
   data() {
     return {
@@ -118,6 +128,7 @@ export default {
   methods: {
     openPopup1() {
       this.showPopup1 = true;
+
     },
     openPopup2() {
       this.showPopup2 = true;
@@ -168,7 +179,7 @@ export default {
     margin-top: 0;
 }
 .main-section.one.top{
-    margin-top: 150px;
+    margin-top: 90px;
 }
 .care-video {
     width: 100%;
@@ -199,6 +210,8 @@ export default {
 
 .main-section.one {
     margin-top: 200px;
+    margin-bottom: 70px !important;
+
 }
 .content_part.two{
     padding-left: 0;
@@ -250,7 +263,7 @@ export default {
 }
 
 
-.popup {
+.offerpopup {
   position: fixed;
   top: 0;
   right: -100%; /* Initially set the right property to hide the popup */
@@ -263,6 +276,7 @@ export default {
   transition: right 0.3s ease-in-out; /* Add transition for smooth sliding effect */
 }
 
+
 .popup-content {
   background-color: #fff;
   border-radius:0px;
@@ -272,7 +286,7 @@ export default {
 }
 
 /* Show the popup by setting the right property to 0% */
-.popup.show {
+.offerpopup.show {
   right: 0%;
 }
 
@@ -353,7 +367,7 @@ export default {
     }
 
     .content_part, .video-part {
-        width: 97%;
+        width: 100%;
         order: 1;
         margin: 0;
         padding: 0 2px;
@@ -370,17 +384,17 @@ export default {
         width: 100%;
     }
     .main-section.one{
-    margin-top: 0px;
+    margin-top: 20px;
 
     }
     .main-section.two {
         margin-top: 0px;
     }
     .main-section.one.top {
-        margin-top: 0px;
+        margin-top: 30px;
     }
     .care-video {
-        width: 90%;
+        width: 100%;
         padding-bottom: 30px;
     }
     .content_part.two{
@@ -388,15 +402,16 @@ export default {
     }
     .care-head {
         font-size: 25px;
+        line-height: 22px;
     }
     .care-par {
         font-size: 16px;
     }
     .care-btn {
-    padding: 16px !important;
+    padding: 16px;
     }
 
-    .popup  , .popup-content{
+    .offerpopup  , .popup-content{
       width:100%;
     }
 
@@ -405,6 +420,86 @@ export default {
     right: 25px;
     padding: 0;
   }
+  .offer-img-part {
+    order: 1;
+  }
+  .offer-img-sec {
+    padding-bottom: 0px;
+}
 
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+.offerpopup {
+  background: #fff;
+  padding: 0px;
+  max-width: 100%;
+}
+
+.popup-head{
+   margin-bottom: 0;
+  font-size: 27px;
+  margin-top: 0;
+}
+.popup-text {
+  color: #333;
+  font-size: 14px;
+  line-height: 23px;
+  height: 300px;
+  overflow: auto;
+  margin-left: 15px;
+}
+.popup-head{
+  justify-content: left;
+}
+.popup-text li {
+  margin-bottom: 13px;
+}
+.main-section{
+display: flex;
+gap: 10px !important;
+margin-bottom: 55px !important;
+}
+.content_part, .video-part{
+width: 97%;
+order: 2 !important;
+margin: 0;
+padding: 0 2px;
+}
+.video-part{
+order: 1 !important;
+margin-top: 0;
+width: 100%;
+}
+.care-par{
+font-size: 16px;
+margin-bottom: 10px !important;
+}
+.care-head{
+font-size: 24px;
+line-height: 25px;
+margin-bottom: 15px;
+margin-top: 0;
+}
+.care-video{
+padding-bottom: 0px !important;
+}
+.care-par {
+margin-bottom: 5px;
+}
+.care-btn {
+  padding: 10px 12px !important;
+  letter-spacing: 2.5px !important;
+}
+.main-section.two{
+  margin-top: 0px !important;
+}
+.main-section.one.bottom {
+  margin-bottom: 70px !important;
+}
+.offer-bottom{
+  margin-bottom: 70px;
+}
+
+}
+
 </style>

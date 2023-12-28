@@ -12,14 +12,14 @@ form {
     padding: 0.5rem; /* Adjust padding as needed */
     /* Add any other styling you need */
   }
-  .dob {
-    position: relative;
+  input[type='date']::before {
+    content: attr(placeholder);
+    text-transform: uppercase;
+    margin-right: 9px;
   }
-  .dob::before {
-    content: 'Date of birth';
-    position: absolute;
-    background-color:#fff;
-    width: fit-content;
+  input[type='date']::placeholder{
+    color: #302A2A;
+    font-family: 'Nunito';
     text-transform: uppercase;
   }
   input.image_upload {

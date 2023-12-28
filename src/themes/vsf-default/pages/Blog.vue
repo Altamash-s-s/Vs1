@@ -26,7 +26,7 @@
         <a href="/abstract"> 
           <div class="blog-one img-two">
               <div class="img-div">
-              <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
+              <img class="blog_img" src="../inside-blog/Blog-Images/Human-abstract-THUMBNAIL.jpg">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -161,7 +161,7 @@
           <a href="/multipleIs"> 
           <div class="blog-one img-six">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
+            <img class="blog_img" src="../inside-blog/Blog-Images/Multiply-IS-THUMBNAIL.jpg">
             </div>
             <div class="content">
               <div class="inner-container">
@@ -192,7 +192,7 @@
           <a href="/warmembrace"> 
           <div class="blog-one img-eight">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
+            <img class="blog_img" src="../inside-blog/Blog-Images/warm-embrace-THUMBNAIL.jpg">
             </div>
             <div class="content">
               <div class="inner-container">
