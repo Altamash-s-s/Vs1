@@ -16,6 +16,7 @@ form {
     content: attr(placeholder);
     text-transform: uppercase;
     margin-right: 9px;
+    width: 100%;
   }
   input[type='date']::placeholder{
     color: #302A2A;
