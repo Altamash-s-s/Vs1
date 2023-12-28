@@ -16,7 +16,7 @@ form {
     content: attr(placeholder);
     text-transform: uppercase;
     margin-right: 9px;
-    width: 100%;
+    width: fit-content;
   }
   input[type='date']::placeholder{
     color: #302A2A;
@@ -150,4 +150,10 @@ input.image_upload {
     .main-hd.main-hd {
       padding-left: 0px !important;
   }
+  .forms_detail {
+    padding: 0px 20px !important;
+}
+input[type='date']::before {
+  width: 50% !important;
+}
     }

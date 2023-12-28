@@ -122,7 +122,7 @@ import collabrationForm from './collabrationForm.vue';
     .right-sidebar.open {
         right: 0 !important;
         width: auto !important;
-        padding: 0 20px !important;
+        padding: 0 0px !important;
     }
     
     .main-hd{
@@ -132,12 +132,11 @@ import collabrationForm from './collabrationForm.vue';
     }
     
     .close_btn {
-        background: #FFF;
         display: block;
         margin: auto;
-        margin-right: 0;
+        margin-right: 25px;
         padding-right: 0px;
-        padding-top: 15px;
+        padding-top: 25px;
     }
     
     .inside-hd {
@@ -146,6 +145,11 @@ import collabrationForm from './collabrationForm.vue';
         line-height: 36px;
         margin-bottom: 0;
     }
+    .popup_ttl_dv h2{
+      font-size: 27px;
+      line-height: 29px;
+      padding-left: 20px !important;
+}
     }
 
 

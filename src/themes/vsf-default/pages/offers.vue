@@ -244,7 +244,7 @@ export default {
 }
 .popup-cancel {
     position: absolute;
-    top: 10px;
+    top: 30px;
     right: 10px;
     background: transparent;
     border: none;

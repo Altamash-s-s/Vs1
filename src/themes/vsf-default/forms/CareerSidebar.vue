@@ -120,7 +120,7 @@ export default {
   .right-sidebar.open {
       right: 0 !important;
       width: auto !important;
-      padding: 0 20px !important;
+      padding: 0 00px !important;
   }
   
   .main-hd{
@@ -134,7 +134,7 @@ export default {
       margin: auto;
       margin-right: 0;
       padding-right: 0px;
-      padding-top: 15px;
+      padding-top: 6px;
       right:40px;
   }
   
@@ -144,6 +144,11 @@ export default {
         line-height: 36px;
         margin-bottom: 0;
     }
+    .popup_ttl_dv h2{
+      font-size: 27px;
+      line-height: 29px;
+      padding-left: 20px !important;
+}
   }
    /* Form Css start end here  */
 
