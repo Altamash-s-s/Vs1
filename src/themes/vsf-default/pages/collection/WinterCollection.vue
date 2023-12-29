@@ -3,7 +3,7 @@
         <div class="video-element collection">
             <div class="parallax-section winter_frst_fold">
                 <div class="parallax-image section5">
-                    <img class="top-img" src="../../assets/collection/winter_top_img.jpg">
+                    <img class="top-img" src="../../assets/collection/winter_top_img2.png">
                     <!-- <img class="mobile-img" src="../../assets/collection/winter-mobile.png"> -->
                 </div>
             </div>
