@@ -206,6 +206,29 @@
     },
   };
   </script>
-  
+  <style scoped>
+
+.forms_detail.Collaboration {
+    overflow: scroll;
+    height: 827px;
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .forms_detail.Collaboration {
+    overflow: scroll;
+    height: 676px;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .forms_detail.Collaboration {
+    overflow: scroll;
+    height: 700px;
+}
+}
+
+
+
+  </style>
 
     

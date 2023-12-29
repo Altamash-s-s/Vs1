@@ -416,7 +416,7 @@ export default {
     }
 
     .popup-cancel{
-    top: 31px;
+    top: 23px;
     right: 25px;
     padding: 0;
   }
@@ -498,6 +498,14 @@ margin-bottom: 5px;
 }
 .offer-bottom{
   margin-bottom: 70px;
+}
+.heading-bg-img-pop h2{
+    font-size: 27px;
+    line-height: 29px;
+    margin-top: 0;
+}
+.heading-bg-img-pop{
+  height: 50px;
 }
 
 }

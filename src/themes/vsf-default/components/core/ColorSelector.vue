@@ -9,6 +9,7 @@
       class="absolute brdr-circle brdr-1 brdr-cl-secondary block color-inside"
       :style="colorFrom(variant.label)"
     />
+
   </button>
 </template>
 

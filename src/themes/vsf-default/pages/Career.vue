@@ -162,7 +162,9 @@ right: 0;
 .forms_detail.Career {
     padding-bottom: 50px;
 }
-
+.join-team{
+  padding-bottom: 40px !important;
+}
 }
 
 </style>

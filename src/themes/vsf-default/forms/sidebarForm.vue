@@ -3,10 +3,10 @@
       <div class="overlay" @click="closeSidebar" v-if="isOpen"></div>
       <div class="right-sidebar" :class="{ open: isOpen }">
         <!-- Sidebar content goes here -->
-        <button class="close_btn" @click="closeSidebar">
+        <button class="close_btn giveaway" @click="closeSidebar">
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
-        <div class="mina-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+        <div class="mina-form">
 
           <div class="popup_ttl_dv">
             <h2 class="main-hd main-hd">Giveaway Form</h2>
@@ -125,7 +125,7 @@ import Giveaway_from from './Giveaway_from.vue';
     .right-sidebar.open {
         right: 0 !important;
         width: auto !important;
-        padding: 0 20px !important;
+        padding: 0 0px !important;
     }
     
     .main-hd{
@@ -133,15 +133,14 @@ import Giveaway_from from './Giveaway_from.vue';
         margin-top: 0;
         font-family: 'PoppinsRegular';
     }
-    
-    .close_btn {
-        background: #FFF;
-        display: block;
-        margin: auto;
-        margin-right: 0;
-        padding-right: 0px;
-        padding-top: 15px;
-    }
+    .close_btn.giveaway {
+      display: block;
+      margin: auto;
+      margin-right: 0;
+      padding-right: 0px;
+      padding-top: 15px;
+      right:40px;
+  }
     
     .inside-hd {
         margin-top: 20px;
@@ -149,6 +148,14 @@ import Giveaway_from from './Giveaway_from.vue';
         line-height: 36px;
         margin-bottom: 0;
     }
+    .popup_ttl_dv h2{
+      font-size: 27px;
+      line-height: 29px;
+      padding-left: 20px !important;
+  }
+  .popup_ttl_dv{
+    height: 100px !important;
+  }
     }
 
 

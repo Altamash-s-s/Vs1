@@ -217,7 +217,30 @@ export default {
   },
 };
 </script>
+<style scoped>
 
+.forms_detail.giveaway {
+    overflow: scroll;
+    height: 815px;
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .forms_detail.giveaway{
+    overflow: scroll;
+    height: 697px;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .forms_detail.giveaway {
+    overflow: scroll;
+    height: 700px;
+}
+}
+
+
+
+
+</style>
 
 
 

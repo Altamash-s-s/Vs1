@@ -6,7 +6,7 @@
       <button class="close_btn" @click="closeSidebar">
         <img class="close_icon" src="../assets/icons/close.svg">
       </button>
-      <div class="mina-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+      <div class="mina-form" >
         <div class="popup_ttl_dv">
         <h2 class="main-hd main-hd">Career Form</h2>
       </div>
@@ -134,7 +134,7 @@ export default {
       margin: auto;
       margin-right: 0;
       padding-right: 0px;
-      padding-top: 6px;
+      padding-top: 2px;
       right:40px;
   }
   
@@ -148,6 +148,9 @@ export default {
       font-size: 27px;
       line-height: 29px;
       padding-left: 20px !important;
+}
+.popup_ttl_dv {
+    height: 100px !important;
 }
   }
    /* Form Css start end here  */

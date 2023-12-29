@@ -6,7 +6,7 @@
         <button class="close_btn" @click="closeSidebar">
           <img class="close_icon" src="../assets/icons/close.svg">
         </button>
-        <div class="main-form main-form" style="height: calc(100% - 80px); overflow-y: auto;" >
+        <div class="main-form main-form"  >
           <div class="popup_ttl_dv">    
           <h2 class="main-hd main-hd">Collaboration Form</h2>
         </div>
@@ -136,7 +136,7 @@ import collabrationForm from './collabrationForm.vue';
         margin: auto;
         margin-right: 25px;
         padding-right: 0px;
-        padding-top: 25px;
+        padding-top: 20px;
     }
     
     .inside-hd {
@@ -149,7 +149,10 @@ import collabrationForm from './collabrationForm.vue';
       font-size: 27px;
       line-height: 29px;
       padding-left: 20px !important;
-}
+  }
+  .popup_ttl_dv{
+    height: 100px !important;
+  }
     }
 
 

@@ -220,11 +220,27 @@
   };
   </script>
 <style scoped>
+      .forms_detail.Career {
+        overflow: scroll;
+        height: 815px;
+    }
+
+    @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+      .forms_detail.Career{
+        overflow: scroll;
+        height: 700px;
+    }
+}
+
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
       .forms_detail.Career {
           padding-bottom: 50px !important;
       }
+      .forms_detail.Career {
+        overflow: scroll;
+        height: 715px;
+    }
 
 }   
 

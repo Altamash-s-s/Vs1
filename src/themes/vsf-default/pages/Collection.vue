@@ -4,7 +4,7 @@
             <div class="parallax-section snap first_fold">
                 <div class="parallax-image section5">
     
-                    <img class=top-img src="../assets/collection/one_liner_top_img.jpg">
+                    <img class=top-img src="../assets/collection/one_liner_top_img2.png">
                     <!-- <img class="mobile-img" src="../assets/collection/line-mob.png"> -->
 
                 </div>

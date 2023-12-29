@@ -1,5 +1,5 @@
 <template>
-  <div id="career" class="cstm-page-layout">
+  <div id="giveaway" class="cstm-page-layout">
     <div class="head-section">
           <img class="hd-img" src="../assets/home/giveaway.jpg">
       </div>
@@ -194,6 +194,9 @@ right: 0;
   font-size: 21px;
   line-height: 28px;
   margin-top: 26px;
+}
+#giveaway{
+  padding-bottom: 40px !important;
 }
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="product">
+  <div id="product" ref="productContainer">
     <div class="top_product_video">
     <video class="product-video" playsinline autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
@@ -8,6 +8,7 @@
       <source :src="getCurrentProduct.product_closeup_mob_video" type="video/mp4">
     </video>
     </div>
+
     <section class="bg-cl-secondary px20 product-top-section">
       <div class="container product_container">
         <section class="row m0">
@@ -54,8 +55,10 @@
                           :variant="filter" :selected-filters="getSelectedFilters" @change="changeFilter"
                           class='color_button' />
                         <div class="variants-label" data-testid="variantsLabel">
-                          <span class="weight-700 color_text">{{ getOptionLabel(option) }}
+                          <span  v-if="option.label === 'Color'" class="weight-700 color_text">
+                            {{ getDisplayNameByColorCode(getOptionLabel(option)) }}
                           </span>
+                          
 
                         </div>
 
@@ -323,11 +326,18 @@ export default {
       getCurrentCustomOptions: 'product/getCurrentCustomOptions'
     }),
     getOptionLabel() {
-      return (option) => {
-        const configName = option.attribute_code ? option.attribute_code : option.label.toLowerCase()
-        return this.getCurrentProductConfiguration[configName] ? this.getCurrentProductConfiguration[configName].label : configName
-      }
-    },
+  return (option, variant) => {
+    if (option.label === 'Color' && variant && variant.name) {
+      // Return the color name if available
+      return variant.name;
+    }
+
+    // Fallback to the default behavior for other options
+    const configName = option.attribute_code ? option.attribute_code : option.label.toLowerCase();
+    return this.getCurrentProductConfiguration[configName] ? this.getCurrentProductConfiguration[configName].label : configName;
+  }
+},
+
     isOnline(value) {
       return onlineHelper.isOnline
     },
@@ -382,6 +392,7 @@ export default {
     await this.$store.dispatch('recently-viewed/addItem', this.getCurrentProduct)
 
     $(document).ready(function () {
+      
 
       $('.color_button').click(function () {
           $('.product_closeup_video_dv').hide();
@@ -455,6 +466,31 @@ export default {
     }
   },
   methods: {
+
+    getDisplayNameByColorCode(colorCode) {
+      if (colorCode === '#2d2c2f') {
+        return 'Jet Black';
+      } else if (colorCode === '#00539c') {
+        return 'Princess Blue';
+      } else if (colorCode === '#ff7520') {
+        return 'Vibrant Orange';
+      } else if (colorCode === '#f4f9ff') {
+        return 'Bright White';
+      } else {
+        // Add more conditions for other color codes if needed
+        return 'Unknown Color';
+      }
+    },
+    scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    },
 
     toggleAccordion(section) {
       this.accordionOpen = this.accordionOpen === section ? null : section;
@@ -553,9 +589,9 @@ export default {
 </script>
 
 <style>
-body.disable-scroll {
+/* body.disable-scroll {
   overflow: hidden;
-}
+} */
 </style>
 
 <style lang="scss" scoped>
@@ -573,6 +609,7 @@ $bg-secondary: color(secondary, $colors-background);
   display: none;
 }
 
+/* snap scroll  */
 
 .size-part {
     display: flex;
@@ -1054,12 +1091,12 @@ button#size_btn {
   justify-content: space-between;
 }
 
-.dv_sticky {
+/* .dv_sticky {
   position: sticky;
   height: fit-content;
   width: 100%;
   top: 20px;
-}
+} */
 
 /* Tab Styling  */
 #productCareTab {
