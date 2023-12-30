@@ -171,7 +171,7 @@ h2.ha-head {
     font-size:13px;
   }
   .section .image.linear-mob-one {
-    background-image: url('../assets/collection/oneliner/linear-mob-1.jpg');
+    background-image: url('../assets/collection/oneliner/linear-mob-1.png');
     display: block !important;
     background-repeat: no-repeat;
     background-position: bottom;

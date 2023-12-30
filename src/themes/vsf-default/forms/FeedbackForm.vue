@@ -65,20 +65,18 @@
           age: null,
           gender: "",
           dob: "",
-          email: "",
           phoneNumber: "",
-          faxNumber: "",
-          mailingAddress: "",
-          lastJobTitle: "",
-          lastJobExperience: null,
-          experienceUnit: "years",
-          portfolioUrl: "",
-          description: "",
+          feedback: "",
+          imageUpload: null,
         },
         submitted: false,
       };
     },
     methods: {
+      validateForm() {
+    // Implementation of form validation logic
+    return true; // Placeholder, replace with your validation logic
+  },
       submitForm() {
         // Check if the form is valid before sending the email
         if (this.validateForm()) {
@@ -114,18 +112,12 @@
         },
       getEmailBody() {
         // Create the email body with form data
-        return `
-        First Name: ${this.formData.firstName}
-        Middle Name: ${this.formData.middleName}
-        Last Name: ${this.formData.lastName}
-        Age: ${this.formData.age}
-        Gender: ${this.formData.gender}
-        Date of Birth: ${this.formData.dob}
-        Email: ${this.formData.email}
-        Phone Number: ${this.formData.phoneNumber}
-        Feedback (100-125 words): ${this.formData.feedback}
-        Image Upload: ${this.formData.imageUpload}
-        `;
+        return (
+                this.formData.firstName &&
+                this.formData.lastName &&
+                this.formData.email &&
+                this.formData.description
+              );
       },
     },
   

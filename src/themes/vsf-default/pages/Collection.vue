@@ -323,7 +323,7 @@ p.dscrpt-txt {
     }
 
     .first_fold .parallax-image {
-        background-image: url('../assets/collection/line-mob.jpg');
+        background-image: url('../assets/collection/line-mob.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: bottom;
