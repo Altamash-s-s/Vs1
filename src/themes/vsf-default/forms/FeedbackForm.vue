@@ -25,7 +25,7 @@
         </select>
   
         <label for="dob">Date of Birth:</label>
-        <input placeholder="Date of Birth " class="dob cstm-input" type="date" v-model="formData.dob" required />
+        <input placeholder="Date of Birth: " class="dob cstm-input" type="date" v-model="formData.dob" required />
   
         <label for="phoneNumber">Phone Number:</label>
         <input placeholder="Phone Number" class="phonenumber cstm-input" type="tel" v-model="formData.phoneNumber" required />
@@ -33,8 +33,13 @@
         <label for="feedback">Feedback (100-125 words):</label>
         <textarea placeholder="Feedback (100-125 words)" class="feedback cstm-input" v-model="formData.feedback" required></textarea>
   
-        <label for="imageUpload">Image Upload:</label>
-        <input placeholder="Image Upload" class="image_upload cstm-input" type="file" @change="handleImageUpload" accept="image/*" />
+        <!-- <label for="imageUpload">Image Upload:</label>
+        <input placeholder="Image Upload" class="image_upload cstm-input" type="file" @change="handleImageUpload" accept="image/*" /> -->
+
+        <div class="box">
+					<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />
+					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+				</div>
   
         <button class="submit" type="submit">Submit</button>
       </form>
@@ -125,7 +130,7 @@
     },
   
     mounted(){
-      const firstNameInput = document.querySelector('.first_name');
+    const firstNameInput = document.querySelector('.first_name');
     const middleNameInput = document.querySelector('.middle_name');
     const lastNameInput = document.querySelector('.last_name');
     const ageInput = document.querySelector('.age');
@@ -134,11 +139,102 @@
     const phoneNumberInput = document.querySelector('.phonenumber');
     const faxNumberInput = document.querySelector('.feedback');
     const imageUpload = document.querySelector('.image_upload');
-  
-    },
+
+    // form //
+
+                'use strict';
+
+            ;( function( $, window, document, undefined )
+            {
+              $( '.inputfile' ).each( function()
+              {
+                var $input	 = $( this ),
+                  $label	 = $input.next( 'label' ),
+                  labelVal = $label.html();
+
+                $input.on( 'change', function( e )
+                {
+                  var fileName = '';
+
+                  if( this.files && this.files.length > 1 )
+                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                  else if( e.target.value )
+                    fileName = e.target.value.split( '\\' ).pop();
+
+                  if( fileName )
+                    $label.find( 'span' ).html( fileName );
+                  else
+                    $label.html( labelVal );
+                });
+
+                // Firefox bug fix
+                $input
+                .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
+                .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
+              });
+            })( jQuery, window, document );
+              
+                },
   };
   </script>
     <style scoped>
+    .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile + label * {
+  font-size: 16px;
+    color: #302A2A;
+    font-family: 'Nunito';
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+.inputfile-2 + label {
+    color: #252525;
+    border: 1px solid #0000003b;
+    margin: 15px 0px;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+    color: #494949;
+}
+
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
   .forms_detail.Career {
