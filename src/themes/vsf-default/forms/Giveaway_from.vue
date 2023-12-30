@@ -98,7 +98,7 @@ export default {
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
             Password: "1B9F22996B66A8740340E33D305549C344C2",
-            To: 'humanabstract9@gmail.com',
+            To: 'support@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
@@ -220,20 +220,20 @@ export default {
 <style scoped>
 
 .forms_detail.giveaway {
-    overflow: scroll;
+    overflow: auto;
     height: 815px;
 }
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
   .forms_detail.giveaway{
-    overflow: scroll;
+    overflow: auto;
     height: 697px;
 }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .forms_detail.giveaway {
-    overflow: scroll;
-    height: 700px;
+    overflow: auto;
+    height: 650px;
 }
 }
 

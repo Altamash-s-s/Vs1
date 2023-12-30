@@ -85,7 +85,7 @@
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
             Password: "1B9F22996B66A8740340E33D305549C344C2",
-            To: 'humanabstract9@gmail.com',
+            To: 'zaid.m@parashifttech.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
@@ -209,21 +209,21 @@
   <style scoped>
 
 .forms_detail.Collaboration {
-    overflow: scroll;
+    overflow: auto;
     height: 827px;
 }
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
   .forms_detail.Collaboration {
-    overflow: scroll;
+    overflow: auto;
     height: 676px;
 }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .forms_detail.Collaboration {
-    overflow: scroll;
-    height: 700px;
+    overflow: auto;
+    height: 650px;
 }
 }
 

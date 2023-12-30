@@ -99,7 +99,7 @@
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
             Password: "1B9F22996B66A8740340E33D305549C344C2",
-            To: 'humanabstract9@gmail.com',
+            To: 'apply@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
@@ -133,7 +133,7 @@
               );
             },
       getEmailBody() {
-        return `
+        return `off
         <table>
               <tr>
                 <td>First Name</td>
@@ -221,13 +221,13 @@
   </script>
 <style scoped>
       .forms_detail.Career {
-        overflow: scroll;
+        overflow: auto;
         height: 815px;
     }
 
     @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
       .forms_detail.Career{
-        overflow: scroll;
+        overflow: auto;
         height: 700px;
     }
 }
@@ -238,8 +238,8 @@
           padding-bottom: 50px !important;
       }
       .forms_detail.Career {
-        overflow: scroll;
-        height: 715px;
+        overflow: auto;
+        height: 650px;
     }
 
 }   

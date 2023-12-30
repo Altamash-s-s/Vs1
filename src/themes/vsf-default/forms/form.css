@@ -160,9 +160,9 @@ input.image_upload {
       padding-left: 0px !important;
   }
   .forms_detail {
-    padding: 0px 20px !important;
+    padding: 15px 20px !important;
 }
 input[type='date']::before {
-  width: 50% !important;
+  width: 60% !important;
 }
     }

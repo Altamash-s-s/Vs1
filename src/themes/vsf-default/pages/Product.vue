@@ -1091,12 +1091,12 @@ button#size_btn {
   justify-content: space-between;
 }
 
-/* .dv_sticky {
+.dv_sticky {
   position: sticky;
   height: fit-content;
   width: 100%;
   top: 20px;
-} */
+}
 
 /* Tab Styling  */
 #productCareTab {

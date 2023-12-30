@@ -108,7 +108,7 @@ export default {
           Host: "smtp.elasticemail.com",
           Username: "humanabstract9@gmail.com",
           Password: "1B9F22996B66A8740340E33D305549C344C2",
-          To: 'humanabstract9@gmail.com',
+          To: 'support@humansabstract.com',
           From: 'humanabstract9@gmail.com',
           Subject: 'Form Submission',
           Body: this.getEmailBody(),
