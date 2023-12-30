@@ -239,7 +239,7 @@
       }
       .forms_detail.Career {
         overflow: auto;
-        height: 650px;
+        height: 600px;
     }
 
 }   
