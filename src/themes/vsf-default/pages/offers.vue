@@ -301,6 +301,7 @@ export default {
 }
 
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+
  
 }
 
@@ -326,7 +327,8 @@ export default {
         }
         .care-head {
             font-size: 29px;
-}
+          }
+
              
 }
 

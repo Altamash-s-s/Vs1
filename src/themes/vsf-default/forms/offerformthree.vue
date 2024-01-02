@@ -187,6 +187,16 @@
     height: auto;
     margin-top:30px;
   }
+  @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+      .forms_detail.offer_form_dv {
+        padding: 0px 20px !important;
+    }
+    }
+        @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+          .forms_detail.offer_form_dv {
+            padding: 0px 20px !important;
+        }
+    }
   
   @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
     .offer_form_dv {

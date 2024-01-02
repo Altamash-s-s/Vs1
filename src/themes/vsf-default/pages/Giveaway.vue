@@ -1,5 +1,5 @@
 <template>
-  <div id="giveaway" class="cstm-page-layout">
+  <div id="giveaway" class="cstm-page-layout giveaway-section">
     <div class="head-section">
           <img class="hd-img" src="../assets/home/giveaway.jpg">
       </div>
@@ -150,10 +150,15 @@ right: 0;
 }
 
 @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+      #giveaway {
+        padding-bottom: 20px !important;
+    }
 }
 
 @media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+
 }
+
 
 @media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
 }
@@ -161,6 +166,9 @@ right: 0;
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
               .cstm-page-layout {
                 padding: 0px 30px;
+            }
+            #giveaway {
+                padding-bottom: 20px !important;
             }
 }
 

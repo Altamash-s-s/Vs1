@@ -212,11 +212,17 @@
     overflow: auto;
     height: 827px;
 }
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+      .forms_detail.Collaboration {
+          overflow: auto;
+          height: 700px;
+  }
+}
 
 @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
   .forms_detail.Collaboration {
     overflow: auto;
-    height: 676px;
+    height: 650px;
 }
 }
 

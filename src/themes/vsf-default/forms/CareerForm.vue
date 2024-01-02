@@ -224,11 +224,17 @@
         overflow: auto;
         height: 815px;
     }
+    @media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+      .forms_detail.Career {
+          overflow: auto;
+          height: 700px;
+  }
+}
 
     @media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
       .forms_detail.Career{
         overflow: auto;
-        height: 700px;
+        height: 650px;
     }
 }
 
