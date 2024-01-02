@@ -1,5 +1,5 @@
 <template>
-    <div class="forms_detail Career">
+    <div class="forms_detail feedback">
       <form @submit.prevent="submitForm" v-if="!submitted">
         <label for="firstName">First Name:</label>
         <input placeholder="First Name" class="first_name cstm-input" id="first-name" type="text" v-model="formData.firstName" required />
@@ -37,8 +37,17 @@
         <input placeholder="Image Upload" class="image_upload cstm-input" type="file" @change="handleImageUpload" accept="image/*" /> -->
 
         <div class="box">
-					<input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />
-					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+          <input
+          type="file"
+          name="file-2[]"
+          id="file-2"
+          class="inputfile inputfile-2"
+          data-multiple-caption="{count} files selected"
+          multiple
+          @change="handleFileUpload"
+          accept=".pdf, .doc, .docx"
+        />
+					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a PDF or DOC/DOCX file&hellip;</span></label>
 				</div>
   
         <button class="submit" type="submit">Submit</button>
@@ -55,7 +64,7 @@
   <script>
   import './form.css'
   export default {
-    name: 'CareerForm',
+    name: 'FeedbackForm',
     data() {
       return {
         formData: {
@@ -68,15 +77,30 @@
           phoneNumber: "",
           feedback: "",
           imageUpload: null,
+          fileUpload: null,
         },
         submitted: false,
       };
     },
     methods: {
       validateForm() {
-    // Implementation of form validation logic
-    return true; // Placeholder, replace with your validation logic
+    return true; 
   },
+  handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const allowedExtensions = ['.pdf', '.doc', '.docx'];
+        const extension = file.name.toLowerCase().slice((file.name.lastIndexOf(".") - 1 >>> 0) + 2);
+        if (allowedExtensions.includes(`.${extension}`)) {
+          this.formData.imageUpload = file;
+        } else {
+          // Display an error message or handle invalid file type
+          console.error('Invalid file type. Please choose a PDF or DOC/DOCX file.');
+          // Optionally, you can clear the file input:
+          // event.target.value = '';
+        }
+      }
+    },
       submitForm() {
         // Check if the form is valid before sending the email
         if (this.validateForm()) {
@@ -85,7 +109,7 @@
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
             Password: "1B9F22996B66A8740340E33D305549C344C2",
-            To: 'support@humansabstract.com',
+            To: 'humanabstract9@gmail.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
@@ -110,27 +134,89 @@
             console.log('Thank-you email sent to the user.');
           });
         },
-      getEmailBody() {
-        // Create the email body with form data
-        return (
-                this.formData.firstName &&
-                this.formData.lastName &&
-                this.formData.email &&
-                this.formData.description
-              );
-      },
+        getEmailBody() {
+          const imageHTML = this.getImageHTML();
+          const tableRows = Object.entries(this.formData)
+            .map(([key, value]) => `
+              <tr>
+                <td>${key.charAt(0).toUpperCase() + key.slice(1)}</td>
+                <td>${value}</td>
+              </tr>
+            `)
+            .join('');
+      return `
+        <table>
+          <tr>
+            <td>First Name</td>
+            <td>${this.formData.firstName}</td>
+          </tr>
+          <tr>
+            <td>Middle Name</td>
+            <td>${this.formData.middleName}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>${this.formData.lastName}</td>
+          </tr>
+          <!-- Add other form fields here -->
+
+          <tr>
+            <td>Feedback</td>
+            <td>${this.formData.feedback}</td>
+          </tr>
+          <tr>
+            <td>Image</td>
+            <td>${this.getImageHTML()}</td>
+          </tr>
+        </table>
+      `;
+    },
+
+    getImageHTML() {
+          if (this.formData.imageUpload instanceof File) {
+            const base64Image = this.getBase64Image();
+            const imageHTML = `<img src="${base64Image}" alt="Uploaded Image">`;
+            return imageHTML;
+          } else {
+            // Handle the case where no image is uploaded
+            return '';
+          }
+        },
+
+      getBase64Image() {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+              resolve(reader.result);
+            };
+            reader.onerror = (error) => {
+              reject(error);
+            };
+            reader.readAsDataURL(this.formData.imageUpload);
+          });
+        },
+
     },
   
     mounted(){
-    const firstNameInput = document.querySelector('.first_name');
-    const middleNameInput = document.querySelector('.middle_name');
-    const lastNameInput = document.querySelector('.last_name');
-    const ageInput = document.querySelector('.age');
-    const genderInput = document.querySelector('.gender');
-    const emailInput = document.querySelector('.email');
-    const phoneNumberInput = document.querySelector('.phonenumber');
-    const faxNumberInput = document.querySelector('.feedback');
-    const imageUpload = document.querySelector('.image_upload');
+      const firstNameInput = document.querySelector('.first_name');
+      const middleNameInput = document.querySelector('.middle_name');
+      const lastNameInput = document.querySelector('.last_name');
+      const ageInput = document.querySelector('.age');
+      const genderInput = document.querySelector('.gender');
+      const emailInput = document.querySelector('.email');
+      const phoneNumberInput = document.querySelector('.phonenumber');
+      const feedbackInput = document.querySelector('.feedback');
+      const imageUploadInput = document.querySelector('.image_upload');
+
+
+  const inputfile = document.querySelector('.inputfile');
+  inputfile.addEventListener('change', function (e) {
+    const fileName = e.target.files.length > 0 ? e.target.files[0].name : 'No file selected';
+    const label = inputfile.nextElementSibling;
+    label.querySelector('span').textContent = fileName;
+  });
+
 
     // form //
 

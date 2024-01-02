@@ -94,91 +94,42 @@
                   this.formData.description
                 );
               },
-      getEmailBody() {
-        return `
-                  <table>
-                <tr>
-                  <td>First Name</td>
-                  <td>${this.formData.firstName}</td>
-                </tr>
-                <tr>
-                  <td>Middle Name</td>
-                  <td>${this.formData.middleName}</td>
-                </tr>
-                <tr>
-                  <td>Last Name</td>
-                  <td>${this.formData.lastName}</td>
-                </tr>
-                <tr>
-                  <td>Age</td>
-                  <td>${this.formData.age}</td>
-                </tr>
-                <tr>
-                  <td>Gender</td>
-                  <td>${this.formData.gender}</td>
-                </tr>
-                <tr>
-                  <td>Date of Birth</td>
-                  <td>${this.formData.dob}</td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td>${this.formData.email}</td>
-                </tr>
-                <tr>
-                  <td>Phone Number</td>
-                  <td>${this.formData.phoneNumber}</td>
-                </tr>
-                <tr>
-                  <td>Fax Number</td>
-                  <td>${this.formData.faxNumber}</td>
-                </tr>
-                <tr>
-                  <td>Mailing Address</td>
-                  <td>${this.formData.mailingAddress}</td>
-                </tr>
-                <tr>
-                  <td>Last Job Title</td>
-                  <td>${this.formData.lastJobTitle}</td>
-                </tr>
-                <tr>
-                  <td>Last Job Experience</td>
-                  <td>${this.formData.lastJobExperience} ${this.formData.experienceUnit}</td>
-                </tr>
-                <tr>
-                  <td>Portfolio or CV URL Link</td>
-                  <td>${this.formData.portfolioUrl}</td>
-                </tr>
-                <tr>
-                  <td>Description</td>
-                  <td>${this.formData.description}</td>
-                </tr>
-              </table>
-        `;
-      },
+              getEmailBody() {
+      return `
+                <table>
+              <tr>
+                <td>First Name</td>
+                <td>${this.formData.firstName}</td>
+              </tr>
+              <tr>
+                <td>Middle Name</td>
+                <td>${this.formData.middleName}</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>${this.formData.lastName}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>${this.formData.email}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>${this.formData.description}</td>
+              </tr>
+            </table>
+      `;
     },
-  
-    mounted(){
-      const firstNameInput = document.querySelector('.first_name');
-      const middleNameInput = document.querySelector('.middle_name');
-      const lastNameInput = document.querySelector('.last_name');
-      const ageNameInput = document.querySelector('.age');
-      const genderNameInput = document.querySelector('.gender');
-      const emailNameInput = document.querySelector('.email');
-      const phonenumberNameInput = document.querySelector('.phonenumber');
-      const faxnumberNameInput = document.querySelector('.faxnumber');
-      const mailing_addressNameInput = document.querySelector('.mailing_address');
-      const last_jobNameInput = document.querySelector('.last_job');
-      const last_experienceNameInput = document.querySelector('.last_experience');
-      const yearNameInput = document.querySelector('.year');
-      const portfolioNameInput = document.querySelector('.portfolio');
-      const descriptionNameInput = document.querySelector('.description');
-  
-    
-  
-  
-    },
-  };
+  },
+
+  mounted(){
+    const firstNameInput = document.querySelector('.first_name');
+    const middleNameInput = document.querySelector('.middle_name');
+    const lastNameInput = document.querySelector('.last_name');
+    const emailNameInput = document.querySelector('.email');
+    const descriptionNameInput = document.querySelector('.description');
+  },
+};
   </script>
   
   <style scoped>

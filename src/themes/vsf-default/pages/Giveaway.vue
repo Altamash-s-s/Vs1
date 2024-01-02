@@ -168,7 +168,7 @@ right: 0;
                 padding: 0px 30px;
             }
             #giveaway {
-                padding-bottom: 20px !important;
+                padding-bottom: 30px !important;
             }
 }
 

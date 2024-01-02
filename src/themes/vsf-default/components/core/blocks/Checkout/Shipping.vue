@@ -191,20 +191,41 @@
             {{ $t('Shipping method') }}
           </h4>
           <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6">
-            <label class="radioStyled"> {{ method.method_title }} | {{ method.amount | price(storeView) }}
-              <input
-                type="radio"
-                :value="method.method_code"
-                name="shipping-method"
-                v-model="shipping.shippingMethod"
-                @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
-              >
-              <span class="checkmark" />
-            </label>
-          </div>
-          <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
-            {{ $t('Field is required') }}
-          </span>
+    <label v-if="method.method_code === 'freeshipping'" class="radioStyled">
+      {{ method.method_title }} | {{ method.amount | price(storeView) }}
+      <input
+        type="radio"
+        :value="method.method_code"
+        name="shipping-method"
+        v-model="shipping.shippingMethod"
+        @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
+      >
+      <span class="checkmark" />
+    </label>
+
+    <label v-else class="radioStyled" :class="{ 'hidden': shipping.shippingMethod === 'freeshipping' }">
+      {{ method.method_title }} | {{ method.amount | price(storeView) }}
+      <input
+        type="radio"
+        :value="method.method_code"
+        name="shipping-method"
+        v-model="shipping.shippingMethod"
+        @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
+      >
+      <span class="checkmark" />
+    </label>
+
+    <!-- Add a condition to hide flat rate when free shipping is active -->
+    <label v-if="shipping.shippingMethod === 'freeshipping' && method.method_code === 'flatrate'" class="hidden">
+      {{ method.method_title }} | {{ method.amount | price(storeView) }}
+      <input type="radio" :value="method.method_code" name="shipping-method" disabled>
+      <span class="checkmark" />
+    </label>
+  </div>
+
+  <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
+    {{ $t('Field is required') }}
+  </span>
         </div>
       </div>
     </div>
@@ -339,3 +360,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+.hidden {
+    display: none !important;
+}
+</style>
