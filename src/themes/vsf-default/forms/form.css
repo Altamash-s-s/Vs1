@@ -156,13 +156,13 @@ input.image_upload {
     .close_btn {
       right:8px;
     }
-    .main-hd.main-hd {
-      padding-left: 0px !important;
-  }
-  .forms_detail {
-    padding: 15px 20px !important;
-}
-input[type='date']::before {
-  width: 60% !important;
-}
+        .main-hd.main-hd {
+          padding-left: 0px !important;
+      }
+      .forms_detail {
+        padding: 15px 20px !important;
+    }
+    input[type='date']::before {
+      width: 70% !important;
+    }
     }

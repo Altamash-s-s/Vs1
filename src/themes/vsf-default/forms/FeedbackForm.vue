@@ -162,9 +162,19 @@ getFileHTML() {
 },
 
 getFileLink() {
-  const base64File = this.getBase64File();
-  const fileName = encodeURIComponent(this.formData.fileUpload.name); // Ensure proper encoding
-  return `<a href="${base64File}" download="${fileName}">${fileName}</a>`;
+  const serverEndpoint = 'https://magento-1168777-4085532.cloudwaysapps.com/media/wysiwyg/'; // Replace with your actual server endpoint
+  const fileName = this.generateUniqueFileName();
+
+  // Construct the download link
+  const fileLink = `${serverEndpoint}/${fileName}`;
+
+  return `<a href="${fileLink}" target="_blank" rel="noopener noreferrer">${fileName}</a>`;
+},
+generateUniqueFileName() {
+  // Generate a unique filename based on timestamp or other criteria
+  // Example: Use the current timestamp
+  const timestamp = new Date().getTime();
+  return `file_${timestamp}.pdf`;
 },
 
 getBase64File() {

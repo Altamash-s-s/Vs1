@@ -32,7 +32,7 @@
     <div class="row pl20" v-if="isActive">
       <div class="hidden-xs col-sm-2 col-md-1" />
       <div class="col-xs-11 col-sm-9 col-md-10">
-        <div class="row">
+        <div class="row ">
           <base-checkbox
             v-if="currentUser && hasShippingDetails()"
             class="col-xs-12 mb10"
@@ -190,23 +190,26 @@
           <h4 class="col-xs-12">
             {{ $t('Shipping method') }}
           </h4>
-          <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6">
-            <label :class="{ 'hidden-label': method.method_title.toLowerCase() === 'free' }" class="radioStyled">
-              {{ method.method_title }} | {{ method.amount | price(storeView) }}
-              <input
-                type="radio"
-                :value="method.method_code"
-                name="shipping-method"
-                v-model="shipping.shippingMethod"
-                @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
-              >
-              <span class="checkmark" />
-            </label>
-          </div>
 
-  <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
-    {{ $t('Field is required') }}
-  </span>
+          <div class="checkout_row"> 
+            <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6">
+              <label :class="{ 'hidden-label': method.method_title.toLowerCase() === 'free' }" class="radioStyled">
+                {{ method.method_title }} | {{ method.amount | price(storeView) }}
+                <input
+                  type="radio"
+                  :value="method.method_code"
+                  name="shipping-method"
+                  v-model="shipping.shippingMethod"
+                  @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
+                >
+                <span class="checkmark" />
+              </label>
+            </div>
+          </div>
+        
+            <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
+              {{ $t('Field is required') }}
+            </span>
         </div>
       </div>
     </div>
@@ -299,6 +302,19 @@ export default {
     storeView () {
       return currentStoreView()
     }
+  },
+  mounted () {
+
+    $(document).ready(function () {
+
+      const hiddenLabelElement = document.querySelector('.hidden-label');
+        
+        // If it exists, set isHiddenLabelPresent to true
+        if (hiddenLabelElement) {
+          alert('hgfg');
+        }
+
+    });
   },
   validations: {
     shipping: {

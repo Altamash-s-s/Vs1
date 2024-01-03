@@ -1,10 +1,10 @@
 <template>
   <div id="product" ref="productContainer">
     <div class="top_product_video">
-    <video class="product-video" playsinline autoplay muted loop>
+    <video class="product_video_desk " playsinline autoplay muted loop>
       <source :src="getCurrentProduct.product_video" type="video/mp4">
     </video>
-    <video class="product-video_mob" playsinline autoplay muted loop>
+    <video class="product_video_desk_mob" playsinline autoplay muted loop>
       <source :src="getCurrentProduct.product_closeup_mob_video" type="video/mp4">
     </video>
     </div>
@@ -605,7 +605,7 @@ $bg-secondary: color(secondary, $colors-background);
 
 /* product detail changes start here */
 
-.product-video_mob{
+.product_video_desk_mob{
   display: none;
 }
 
@@ -1031,7 +1031,7 @@ button#size_btn {
   padding-left: 10px;
 }
 
-.product-video {
+.product_video_desk {
   width: 100%;
   height: 100vh;
   object-fit: cover;
@@ -1199,7 +1199,7 @@ button#size_btn {
   .related_prd_div .prd_lst_col {
     margin-bottom: 15px;
   }
-  .product-video {
+  .product_video_desk {
     height:50vh;
   }
 }
@@ -1239,11 +1239,11 @@ button#size_btn {
   #story_container {
     max-width: 100% !important;
   }
-  .product-video_mob{
+  .product_video_desk_mob{
     display: block !important;
     width:100%;
   }
-  .product-video{
+  .product_video_desk{
     display: none !important;
   }
 

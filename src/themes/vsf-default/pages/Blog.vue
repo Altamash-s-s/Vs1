@@ -8,17 +8,17 @@
       <div class="blog-grid">
 
 
-        <a href="/hopeblog">
-          <div class="blog-one img-one">
+        <a href="/multipleIs"> 
+          <div class="blog-one img-six">
             <div class="img-div">
-              <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
+            <img class="blog_img" src="../inside-blog/Blog-Images/Multiply-IS-THUMBNAIL.jpg">
             </div>
             <div class="content">
               <div class="inner-container">
-                <h4 class="hd-bg">Hope Blog</h4>
-                <p class="bg-para">In the vast canvas of life, where challenges and uncertainties often paint our experiences,</p>
-                <a class="rd-mr-btn" href="/hopeblog">Read More</a>
-              </div>   
+              <h4 class="hd-bg">Multiple I's</h4>
+            <p class="bg-para">Amidst the ceaseless energy, where life moves at a frenzied pace– whispers are hushed.</p>
+            <a class="rd-mr-btn" href="/multipleIs">Read More</a>
+            </div>
             </div>
           </div>
         </a>
@@ -54,16 +54,16 @@
           </div>
           </a>
 
-          <a href="/humanai"> 
-          <div class="blog-one img-four">
+          <a href="/warmembrace"> 
+          <div class="blog-one img-eight">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
+            <img class="blog_img" src="../inside-blog/Blog-Images/warm-embrace-THUMBNAIL.jpg">
             </div>
             <div class="content">
               <div class="inner-container">
-              <h4 class="hd-bg">Human x AI</h4>
-              <p class="bg-para">In an age where artificial intelligence (AI) seems to be infiltrating every facet of our lives,</p>
-            <a class="rd-mr-btn" href="/humanai">Read More</a>
+              <h4 class="hd-bg">Warm Embrace</h4>
+              <p class="bg-para">In a world brimming with myriad emotions and experiences, we often seek ways to convey</p>
+            <a class="rd-mr-btn" href="/warmembrace">Read More</a>
             </div>
             </div>
           </div>
@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div class="blog-section second-section">
+    <!-- <div class="blog-section second-section">
       <div class="blog-grid">
 
         <a href="/whocare"> 
@@ -158,21 +158,20 @@
           </a>
 
 
-          <a href="/multipleIs"> 
-          <div class="blog-one img-six">
+          <a href="/hopeblog">
+          <div class="blog-one img-one">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/Multiply-IS-THUMBNAIL.jpg">
+              <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
-              <h4 class="hd-bg">Multiple I's</h4>
-            <p class="bg-para">Amidst the ceaseless energy, where life moves at a frenzied pace– whispers are hushed.</p>
-            <a class="rd-mr-btn" href="/multipleIs">Read More</a>
-            </div>
+                <h4 class="hd-bg">Hope Blog</h4>
+                <p class="bg-para">In the vast canvas of life, where challenges and uncertainties often paint our experiences,</p>
+                <a class="rd-mr-btn" href="/hopeblog">Read More</a>
+              </div>   
             </div>
           </div>
         </a>
-
 
         <a href="/notlazy"> 
           <div class="blog-one img-seven">
@@ -189,16 +188,16 @@
           </div>
           </a>
 
-          <a href="/warmembrace"> 
-          <div class="blog-one img-eight">
+          <a href="/humanai"> 
+          <div class="blog-one img-four">
             <div class="img-div">
-            <img class="blog_img" src="../inside-blog/Blog-Images/warm-embrace-THUMBNAIL.jpg">
+            <img class="blog_img" src="../inside-blog/Blog-Images/code-life-THUMBNAIL.png">
             </div>
             <div class="content">
               <div class="inner-container">
-              <h4 class="hd-bg">Warm Embrace</h4>
-              <p class="bg-para">In a world brimming with myriad emotions and experiences, we often seek ways to convey</p>
-            <a class="rd-mr-btn" href="/warmembrace">Read More</a>
+              <h4 class="hd-bg">Human x AI</h4>
+              <p class="bg-para">In an age where artificial intelligence (AI) seems to be infiltrating every facet of our lives,</p>
+            <a class="rd-mr-btn" href="/humanai">Read More</a>
             </div>
             </div>
           </div>
@@ -226,7 +225,7 @@
           </a>
 
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
