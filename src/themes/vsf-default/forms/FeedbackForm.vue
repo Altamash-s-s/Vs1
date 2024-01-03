@@ -87,20 +87,18 @@
     return true; 
   },
   handleFileUpload(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const allowedExtensions = ['.pdf', '.doc', '.docx'];
-        const extension = file.name.toLowerCase().slice((file.name.lastIndexOf(".") - 1 >>> 0) + 2);
-        if (allowedExtensions.includes(`.${extension}`)) {
-          this.formData.imageUpload = file;
-        } else {
-          // Display an error message or handle invalid file type
-          console.error('Invalid file type. Please choose a PDF or DOC/DOCX file.');
-          // Optionally, you can clear the file input:
-          // event.target.value = '';
-        }
-      }
-    },
+          const file = event.target.files[0];
+          if (file) {
+            const allowedExtensions = ['.pdf', '.doc', '.docx'];
+            const extension = file.name.toLowerCase().slice((file.name.lastIndexOf(".") - 1 >>> 0) + 2);
+            if (allowedExtensions.includes(`.${extension}`)) {
+              this.formData.fileUpload = file;
+            } else {
+              console.error('Invalid file type. Please choose a PDF or DOC/DOCX file.');
+            }
+          }
+        },
+
       submitForm() {
         // Check if the form is valid before sending the email
         if (this.validateForm()) {
@@ -135,66 +133,53 @@
           });
         },
         getEmailBody() {
-          const imageHTML = this.getImageHTML();
-          const tableRows = Object.entries(this.formData)
-            .map(([key, value]) => `
-              <tr>
-                <td>${key.charAt(0).toUpperCase() + key.slice(1)}</td>
-                <td>${value}</td>
-              </tr>
-            `)
-            .join('');
-      return `
-        <table>
-          <tr>
-            <td>First Name</td>
-            <td>${this.formData.firstName}</td>
-          </tr>
-          <tr>
-            <td>Middle Name</td>
-            <td>${this.formData.middleName}</td>
-          </tr>
-          <tr>
-            <td>Last Name</td>
-            <td>${this.formData.lastName}</td>
-          </tr>
-          <!-- Add other form fields here -->
+  const tableRows = Object.entries(this.formData)
+    .map(([key, value]) => `
+      <tr>
+        <td>${key.charAt(0).toUpperCase() + key.slice(1)}</td>
+        <td>${value}</td>
+      </tr>
+    `)
+    .join('');
 
-          <tr>
-            <td>Feedback</td>
-            <td>${this.formData.feedback}</td>
-          </tr>
-          <tr>
-            <td>Image</td>
-            <td>${this.getImageHTML()}</td>
-          </tr>
-        </table>
-      `;
-    },
+  const fileHTML = this.getFileHTML();
 
-    getImageHTML() {
-          if (this.formData.imageUpload instanceof File) {
-            const base64Image = this.getBase64Image();
-            const imageHTML = `<img src="${base64Image}" alt="Uploaded Image">`;
-            return imageHTML;
-          } else {
-            // Handle the case where no image is uploaded
-            return '';
-          }
-        },
+  return `
+    <table>
+      ${tableRows}
+      ${fileHTML}
+    </table>
+  `;
+},
 
-      getBase64Image() {
-          return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-              resolve(reader.result);
-            };
-            reader.onerror = (error) => {
-              reject(error);
-            };
-            reader.readAsDataURL(this.formData.imageUpload);
-          });
-        },
+getFileHTML() {
+  let fileHTML = '';
+  if (this.formData.fileUpload instanceof File) {
+    const fileLink = this.getFileLink();
+    fileHTML = `<tr><td>File</td><td>${fileLink}</td></tr>`;
+  }
+  return fileHTML;
+},
+
+getFileLink() {
+  const base64File = this.getBase64File();
+  const fileName = encodeURIComponent(this.formData.fileUpload.name); // Ensure proper encoding
+  return `<a href="${base64File}" download="${fileName}">${fileName}</a>`;
+},
+
+getBase64File() {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      resolve(reader.result);
+    };
+    reader.onerror = (error) => {
+      reject(error);
+    };
+    reader.readAsDataURL(this.formData.fileUpload);
+  });
+},
+
 
     },
   
