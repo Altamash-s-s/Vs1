@@ -1157,7 +1157,7 @@ img.unmute_icon {
 }
 .frame {
 max-width: 100%;
-max-height: 95vh;
+max-height: 100vh;
 margin: 0 auto;
 border: 20px yellow solid;
 position: relative;

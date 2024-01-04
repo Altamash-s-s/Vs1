@@ -47,6 +47,12 @@ export default {
     {
       src: 'https://js.stripe.com/v3',
       async: true
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js',
+      async: true,
+      integrity: 'your_generated_integrity_hash',
+      crossorigin: 'anonymous'
     }
   ],
   noscript: [

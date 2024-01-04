@@ -41,6 +41,7 @@ const NotLazy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blo
 const WarmEmbrace = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/WarmEmbrace.vue');
 const HotSpicy = () => import(/* webpackChunkName: "vsf-new" */ 'theme/inside-blog/HotSpicy.vue');
 const ContactUs = () => import(/* webpackChunkName: "vsf-new" */ 'theme/Insied-Page/ContactUs.vue');
+const ProductCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/Insied-Page/ProductCollection.vue');
 const WinterCollection = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/collection/WinterCollection.vue');
 const offers = () => import(/* webpackChunkName: "vsf-new" */ 'theme/pages/offers.vue');
 
@@ -71,6 +72,7 @@ let routes = [
   { name: 'careerform', path: '/careerform', component: CareerForm },
   { name: 'washcarepopup', path: '/washcarepopup', component: WashCarePopup },
   { name: 'videoapi', path: '/videoapi', component: videoapi },
+  { name: 'productcollection', path: '/productcollection', component: ProductCollection },
   { name: 'sidebarform', path: '/sidebarform', component: sidebarForm },
   { name: 'collabrationform', path: '/collabrationform', component: collabrationForm },
   { name: 'collabrationsidebar', path: '/collabrationsidebar', component: collabrationSidebar },

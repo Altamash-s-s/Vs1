@@ -34,7 +34,8 @@
               <div class="h6 cl-bg-tertiary pt5 options" v-if="isTotalsActive">
               <div v-for="opt in product.totals.options" :key="opt.label">
                 <!-- <span class="opn">{{ opt.label }}: </span> -->
-                <span class="opv size-option" v-html="opt.value"/>
+                <span class="opv size-option" v-if="opt.label.toLowerCase() === 'color'" v-html="getColorName(opt.value)"></span>
+                <span class="opv size-option" v-else v-html="opt.value"></span>
               </div>
             </div>
             <div class="h6 cl-bg-tertiary pt5 options" v-else-if="!editMode && product.options">
@@ -238,6 +239,20 @@ export default {
     }
   },
   methods: {
+    getColorName(colorCode) {
+      if (colorCode === '#2d2c2f') {
+        return 'Jet Black';
+      } else if (colorCode === '#00539c') {
+        return 'Princess Blue';
+      } else if (colorCode === '#ff7520') {
+        return 'Vibrant Orange';
+      } else if (colorCode === '#f4f9ff') {
+        return 'Bright White';
+      } else {
+        // Add more conditions for other color codes if needed
+        return 'Unknown Color';
+      }
+    },
     updateProductVariant () {
       this.updateVariant()
       this.closeEditMode()

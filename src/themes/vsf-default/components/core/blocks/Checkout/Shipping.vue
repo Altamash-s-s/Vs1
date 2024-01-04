@@ -191,9 +191,9 @@
             {{ $t('Shipping method') }}
           </h4>
 
-          <div class="checkout_row"> 
+         
             <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6">
-              <label :class="{ 'hidden-label': method.method_title.toLowerCase() === 'free' }" class="radioStyled">
+              <label class="radioStyled">
                 {{ method.method_title }} | {{ method.amount | price(storeView) }}
                 <input
                   type="radio"
@@ -205,7 +205,7 @@
                 <span class="checkmark" />
               </label>
             </div>
-          </div>
+      
         
             <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
               {{ $t('Field is required') }}
