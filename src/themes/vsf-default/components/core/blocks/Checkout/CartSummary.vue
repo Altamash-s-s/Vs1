@@ -162,4 +162,16 @@ export default {
     width: 85% !important;
   }
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .checkout.bg-cl-secondary.pt10.serif.cl-accent.grd-total{
+    width: 90% !important;
+    margin-bottom: 50px !important;
+  }
+  .order-hd{
+    padding-top: 0 !important;
+  }
+  .btm-brd{
+    padding: 20px 0px;
+  }
+}
 </style>
