@@ -64,7 +64,6 @@
     "cross-env": "^3.1.4",
     "dayjs": "^1.8.21",
     "es6-promise": "^4.2.8",
-    "express": "^4.14.0",
     "fork-ts-checker-webpack-plugin": "^6.2.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
