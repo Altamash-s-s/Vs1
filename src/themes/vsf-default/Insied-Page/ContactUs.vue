@@ -104,6 +104,8 @@ export default {
       // Check if the form is valid before sending the email
       if (this.validateForm()) {
         // Replace with the appropriate function from your email library
+        const formName = "Contact Us Form"; // Change this to your desired form name
+        const subject = `Form Submission - ${formName}`;
         Email.send({
           Host: "smtp.elasticemail.com",
           Username: "humanabstract9@gmail.com",
@@ -111,7 +113,7 @@ export default {
           To: 'support@humansabstract.com',
           From: 'humanabstract9@gmail.com',
           Subject: 'Form Submission',
-          Body: this.getEmailBody(),
+          Body: this.getEmailBody( formName),
         }).then((message) => {
           this.submitted = true;
           this.sendThankYouEmail();
@@ -141,9 +143,13 @@ export default {
         this.formData.description
       );
     },
-    getEmailBody() {
+    getEmailBody(formName) {
       return `
         <table>
+          <tr>
+            <td>Form Name</td>
+            <td>${formName}</td>
+          </tr>
           <tr>
             <td>First Name</td>
             <td>${this.formData.firstName}</td>

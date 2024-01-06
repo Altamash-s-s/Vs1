@@ -33,10 +33,10 @@
       <label for="faxNumber">Fax Number:</label>
       <input placeholder="Fax Number" class="faxnumber cstm-input" type="tel" v-model="formData.faxNumber" />
 
-      <label for="mailingAddress">Mailing Address:</label>
-      <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea>
+      <!-- <label for="mailingAddress">Mailing Address:</label>
+      <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea> -->
 
-      <label for="lastJobTitle">Last Job Title:</label>
+      <!-- <label for="lastJobTitle">Last Job Title:</label>
       <input placeholder="Last Job Title" class="last_job cstm-input" type="text" v-model="formData.lastJobTitle" />
 
       <label for="lastJobExperience">Last Job Experience In:</label>
@@ -46,10 +46,10 @@
       <select v-model="formData.experienceUnit">
         <option value="years">Years</option>
         <option value="months">Months</option>
-      </select>
+      </select> -->
 
-      <label for="portfolioUrl">Portfolio or CV URL Link:</label>
-      <input placeholder="Portfolio or CV URL Link" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
+      <label for="portfolioUrl">Social Media URL</label>
+      <input placeholder="Social Media URL" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
 
       <label for="description">Description (100-125 words):</label>
       <textarea class="description" placeholder="Description (100-125 words):" v-model="formData.description" required></textarea>
@@ -94,6 +94,8 @@ export default {
     submitForm() {
       if (this.validateForm()) {
           // Send the email to your email address
+          const formName = "Giveaway Form"; // Change this to your desired form name
+        const subject = `Form Submission - ${formName}`;
           Email.send({
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
@@ -101,7 +103,7 @@ export default {
             To: 'support@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
-            Body: this.getEmailBody(),
+            Body: this.getEmailBody(formName),
           }).then((message) => {
             this.submitted = true;
             this.sendThankYouEmail();
@@ -131,9 +133,13 @@ export default {
                 this.formData.description
               );
             },
-    getEmailBody() {
+    getEmailBody(formName) {
       return `
                 <table>
+                  <tr>
+                  <td>Form Name</td>
+                  <td>${formName}</td>
+                </tr>
               <tr>
                 <td>First Name</td>
                 <td>${this.formData.firstName}</td>

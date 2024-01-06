@@ -36,11 +36,12 @@
         <label for="mailingAddress">Mailing Address:</label>
         <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea>
 
-        <label for="portfolioUrl">Portfolio or CV URL Link:</label>
-        <input placeholder="Portfolio or CV URL Link" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
-  
         <label for="description">Description (100-125 words):</label>
-        <textarea placeholder="Description (100-125 words):" class="description cstm-input" v-model="formData.description" required></textarea>
+        <textarea placeholder="TELL US ABOUT YOU (125 - 150 WORD):" class="description cstm-input" v-model="formData.description" required></textarea>
+
+        <label for="portfolioUrl">Portfolio or CV URL Link:</label>
+        <input placeholder="PORTFOLIO/ BUSINESS/ SOCILA MEDIAL PAGE URL" class="portfolio cstm-input"  type="url" v-model="formData.portfolioUrl" />
+  
         <button class="submit" type="submit">Submit</button>
       </form>
       <div v-else>
@@ -199,9 +200,6 @@
       const yearNameInput = document.querySelector('.year');
       const portfolioNameInput = document.querySelector('.portfolio');
       const descriptionNameInput = document.querySelector('.description');
-  
-    
-  
   
     },
   };

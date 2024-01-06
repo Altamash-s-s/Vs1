@@ -77,8 +77,6 @@
           dob: "",
           phoneNumber: "",
           feedback: "",
-          imageUpload: null,
-          fileUpload: null,
         },
         submitted: false,
       };
@@ -100,26 +98,36 @@
           }
         },
 
-      submitForm() {
-        // Check if the form is valid before sending the email
-        if (this.validateForm()) {
-          // Send the email to your email address
-          Email.send({
-            Host: "smtp.elasticemail.com",
+        submitForm() {
+  // Check if the form is valid before sending the email
+  if (this.validateForm()) {
+    // Convert the file to base64
+    this.getBase64File().then((base64File) => {
+      // Send the email to your email address
+      Email.send({
+        Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
             Password: "1B9F22996B66A8740340E33D305549C344C2",
-            To: 'humanabstract9@gmail.com',
+            To: 'support@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
             Body: this.getEmailBody(),
-          }).then((message) => {
-            this.submitted = true;
-            this.sendThankYouEmail();
-          });
-      } else {
-      console.error("Form data is missing or incomplete.");
-          }
-        },
+        Attachments: [
+          {
+            name: this.generateUniqueFileName(),
+            data: base64File,
+          },
+        ],
+        // ... (your email configuration)
+      }).then((message) => {
+        this.submitted = true;
+        this.sendThankYouEmail();
+      });
+    });
+  } else {
+    console.error("Form data is missing or incomplete.");
+  }
+},
         sendThankYouEmail() {
           Email.send({
             Host: "smtp.elasticemail.com",
@@ -143,34 +151,14 @@
     `)
     .join('');
 
-  const fileHTML = this.getFileHTML();
-
   return `
     <table>
       ${tableRows}
-      ${fileHTML}
     </table>
   `;
 },
 
-getFileHTML() {
-  let fileHTML = '';
-  if (this.formData.fileUpload instanceof File) {
-    const fileLink = this.getFileLink();
-    fileHTML = `<tr><td>File</td><td>${fileLink}</td></tr>`;
-  }
-  return fileHTML;
-},
 
-getFileLink() {
-  const serverEndpoint = 'https://magento-1168777-4085532.cloudwaysapps.com/media/wysiwyg/'; // Replace with your actual server endpoint
-  const fileName = this.generateUniqueFileName();
-
-  // Construct the download link
-  const fileLink = `${serverEndpoint}/${fileName}`;
-
-  return `<a href="${fileLink}" target="_blank" rel="noopener noreferrer">${fileName}</a>`;
-},
 generateUniqueFileName() {
   // Generate a unique filename based on timestamp or other criteria
   // Example: Use the current timestamp
