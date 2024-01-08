@@ -82,6 +82,8 @@
     methods: {
       submitForm() {
         if (this.validateForm()) {
+          const formName = "Collaboration Form"; // Change this to your desired form name
+        const subject = `Form Submission - ${formName}`;
           Email.send({
             Host: "smtp.elasticemail.com",
             Username: "humanabstract9@gmail.com",
@@ -89,7 +91,7 @@
             To: 'collaboration@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
-            Body: this.getEmailBody(),
+            Body: this.getEmailBody(formName),
           }).then((message) => {
             this.submitted = true;
             this.sendThankYouEmail();
@@ -119,10 +121,14 @@
                 this.formData.description
               );
             },
-      getEmailBody() {
+      getEmailBody(formName) {
         // Create the email body with form data
         return `
         <table>
+          <tr>
+              <td>Form Name</td>
+               <td>${formName}</td>
+            </tr>
           <tr>
             <td>First Name</td>
             <td>${this.formData.firstName}</td>

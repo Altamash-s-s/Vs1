@@ -94,6 +94,8 @@
       submitForm() {
     // Check if the form is valid before sending the email
         if (this.validateForm()) {
+          const formName = "Collaboration Form"; // Change this to your desired form name
+        const subject = `Form Submission - ${formName}`;
           // Send the email to your email address
           Email.send({
             Host: "smtp.elasticemail.com",
@@ -102,7 +104,7 @@
             To: 'apply@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
-            Body: this.getEmailBody(),
+            Body: this.getEmailBody(formName),
           }).then((message) => {
             this.submitted = true;
             this.sendThankYouEmail();
@@ -132,9 +134,13 @@
                 this.formData.description
               );
             },
-      getEmailBody() {
+      getEmailBody(formName) {
         return `off
         <table>
+          <tr>
+              <td>Form Name</td>
+               <td>${formName}</td>
+            </tr>
               <tr>
                 <td>First Name</td>
                 <td>${this.formData.firstName}</td>

@@ -33,8 +33,8 @@
       <label for="faxNumber">Fax Number:</label>
       <input placeholder="Fax Number" class="faxnumber cstm-input" type="tel" v-model="formData.faxNumber" />
 
-      <!-- <label for="mailingAddress">Mailing Address:</label>
-      <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea> -->
+      <label for="mailingAddress">Mailing Address:</label>
+      <textarea placeholder="Mailing Address" class="mailing_address cstm-input" v-model="formData.mailingAddress" ></textarea>
 
       <!-- <label for="lastJobTitle">Last Job Title:</label>
       <input placeholder="Last Job Title" class="last_job cstm-input" type="text" v-model="formData.lastJobTitle" />
@@ -93,6 +93,7 @@ export default {
   methods: {
     submitForm() {
       if (this.validateForm()) {
+        const formattedDate = this.formatDate(this.formData.dob);
           // Send the email to your email address
           const formName = "Giveaway Form"; // Change this to your desired form name
         const subject = `Form Submission - ${formName}`;
@@ -103,7 +104,7 @@ export default {
             To: 'support@humansabstract.com',
             From: 'humanabstract9@gmail.com',
             Subject: 'Form Submission',
-            Body: this.getEmailBody(formName),
+            Body: this.getEmailBody(formName, formattedDate),
           }).then((message) => {
             this.submitted = true;
             this.sendThankYouEmail();
@@ -111,6 +112,16 @@ export default {
       } else {
       console.error("Form data is missing or incomplete.");
           }
+        },
+        formatDate(dateString) {
+          const dateObject = new Date(dateString);
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          const formattedDate = dateObject.toLocaleDateString('en-US', options);
+
+          // Set the formatted date back to formData.dob
+          this.formData.dob = formattedDate;
+
+          return formattedDate;
         },
         sendThankYouEmail() {
           Email.send({
@@ -249,12 +260,4 @@ export default {
 }
 }
 
-
-
-
 </style>
-
-
-
-
-
