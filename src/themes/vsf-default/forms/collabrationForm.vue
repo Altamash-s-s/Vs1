@@ -170,15 +170,7 @@
             <td>${this.formData.mailingAddress}</td>
           </tr>
           <tr>
-            <td>Last Job Title</td>
-            <td>${this.formData.lastJobTitle}</td>
-          </tr>
-          <tr>
-            <td>Last Job Experience</td>
-            <td>${this.formData.lastJobExperience} ${this.formData.experienceUnit}</td>
-          </tr>
-          <tr>
-            <td>Portfolio or CV URL Link</td>
+            <td>PORTFOLIO/ BUSINESS/ SOCILA MEDIAL PAGE URL</td>
             <td>${this.formData.portfolioUrl}</td>
           </tr>
           <tr>
