@@ -90,6 +90,16 @@ export default {
       submitted: false,
     };
   },
+  computed: {
+    formattedDate() {
+      // Use a computed property to format the date for display
+      const dateObject = new Date(this.formData.dob);
+      const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+      const day = dateObject.getDate().toString().padStart(2, '0');
+      const year = dateObject.getFullYear();
+      return `${month}-${day}-${year}`;
+    },
+  },
   methods: {
     submitForm() {
       if (this.validateForm()) {

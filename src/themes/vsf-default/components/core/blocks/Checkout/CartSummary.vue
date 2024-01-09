@@ -77,38 +77,7 @@ export default {
     }
   },
   mixins: [CartSummary],
-  methods: {
-    async shipOrder() {
-      try {
-        // Your ShipStation API credentials
-        const apiKey = '6faa2162a0056b83766bea6c0b115192';
-        const apiSecret = '7c210bf5e99241c8ab6440a558129c20';
 
-        // Retrieve order details or any necessary information
-        const orderDetails = this.getOrderDetails(); // You need to implement this method
-
-        // ShipStation API endpoint
-        const shipStationApiUrl = 'https://ssapi.shipstation.com/shipments/create';
-
-        // Make an HTTP POST request to create a shipment
-        const response = await axios.post(shipStationApiUrl, orderDetails, {
-          auth: {
-            username: apiKey,
-            password: apiSecret
-          }
-        });
-
-        // Handle the response or update your UI accordingly
-        console.log('Shipment created:', response.data);
-      } catch (error) {
-        console.error('Error creating shipment:', error.message);
-      }
-    },
-    getOrderDetails() {
-      // Implement this method to retrieve order details
-      // from your Vuex store or any other source
-    }
-  }
 }
 </script>
 

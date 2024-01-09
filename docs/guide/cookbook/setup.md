@@ -1003,6 +1003,9 @@ At [`vue-storefront/config/default.json`](https://github.com/vuestorefront/vue-s
     "name": {
       "boost": 4
     },
+    "search_area": {
+          "boost": 4
+        },
     "sku": {
       "boost": 2
     },
@@ -1350,7 +1353,7 @@ At [`vue-storefront/config/default.json`](https://github.com/vuestorefront/vue-s
   "currencyGroup": null,
   "fractionDigits": 2,
   "priceFormat": "{sign}{amount}",
-  "dateFormat": "HH:mm D/M/YYYY",
+  "dateFormat": "HH:mm MM/DD/YYYY",
   "fullCountryName": "United States",
   "fullLanguageName": "English",
   "bundleAllStoreviewLanguages": true

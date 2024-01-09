@@ -133,7 +133,7 @@ The last thing is to change the `vue-storefront/config/local.json` to configure 
       "currencyGroup": "",
       "fractionDigits": 2,
       "priceFormat": "{sign}{amount}",
-      "dateFormat": "HH:mm D/M/YYYY",
+      "dateFormat": "HH:mm MM/DD/YYYY",
       "fullCountryName": "Deutschland",
       "fullLanguageName": "German",
       "bundleAllStoreviewLanguages": false
@@ -171,7 +171,7 @@ The last thing is to change the `vue-storefront/config/local.json` to configure 
       "currencyGroup": "",
       "fractionDigits": 2,
       "priceFormat": "{sign}{amount}",
-      "dateFormat": "HH:mm D/M/YYYY",
+      "dateFormat": "HH:mm MM/DD/YYYY",
       "fullCountryName": "Italy",
       "fullLanguageName": "Italian",
       "bundleAllStoreviewLanguages": false
