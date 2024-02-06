@@ -64,7 +64,6 @@
 <script>
 import { CartSummary } from '@vue-storefront/core/modules/checkout/components/CartSummary'
 import { currentStoreView } from '@vue-storefront/core/lib/multistore'
-import axios from 'axios'
 import Product from './Product'
 
 export default {
