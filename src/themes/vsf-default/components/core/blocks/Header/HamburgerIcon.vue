@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="bg-cl-transparent brdr-none inline-flex"
+    class="bg-cl-transparent brdr-none inline-flex humb_icon"
     @click="openSidebarMenu"
     :aria-label="$t('Open menu')"
     data-testid="menuButton"
@@ -17,3 +17,10 @@ export default {
   mixins: [HamburgerIcon]
 }
 </script>
+
+<style>
+.humb_icon i {
+  color: #000 !important;
+}
+
+</style>

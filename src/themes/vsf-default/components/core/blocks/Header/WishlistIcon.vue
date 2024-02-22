@@ -6,7 +6,12 @@
     data-testid="wishlist-icon"
     :aria-label="$t('Open wishlist')"
   >
-    <i class="material-icons">favorite_border</i>
+    <!-- <i class="material-icons">bookmark</i> -->
+   
+    <img
+      class="bookmark-icon"
+      :src="isInWishlist ? require('../../../../assets/header/fill-bookmark.png') : require('../../../../assets/header/bookmark.png')"
+    />
     <span
       class="whishlist-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
       v-cloak
@@ -32,5 +37,11 @@ export default {
     min-width: 16px;
     min-height: 16px;
     border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    opacity: 1;
+  }
+  .bookmark-icon{
+    width: 20px;
   }
 </style>

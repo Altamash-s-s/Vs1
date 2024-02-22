@@ -190,18 +190,20 @@
           <h4 class="col-xs-12">
             {{ $t('Shipping method') }}
           </h4>
-          <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6">
-            <label class="radioStyled"> {{ method.method_title }} | {{ method.amount | price(storeView) }}
-              <input
-                type="radio"
-                :value="method.method_code"
-                name="shipping-method"
-                v-model="shipping.shippingMethod"
-                @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
-              >
-              <span class="checkmark" />
-            </label>
-          </div>
+              <div v-for="(method, index) in shippingMethods" :key="index" class="col-md-6" v-if="!isFreeShippingActive || method.method_code === 'freeshipping'">
+              <label class="radioStyled">
+                {{ method.method_title }} | {{ method.amount | price(storeView) }}
+                <input
+                  type="radio"
+                  :value="method.method_code"
+                  name="shipping-method"
+                  v-model="shipping.shippingMethod"
+                  @change="$v.shipping.shippingMethod.$touch(); changeShippingMethod();"
+                  :disabled="isFreeShippingActive && method.method_code !== 'freeshipping'"
+                >
+                <span class="checkmark" />
+              </label>
+            </div>
           <span class="validation-error" v-if="$v.shipping.shippingMethod.$error && !$v.shipping.shippingMethod.required">
             {{ $t('Field is required') }}
           </span>
@@ -336,6 +338,30 @@ export default {
         unicodeAlpha
       }
     }
+  },
+  computed: {
+    isFreeShippingActive() {
+      return this.shippingMethods.some(method => method.method_code === 'freeshipping');
+    }
+  },
+  methods: {
+    // ... existing methods
+
+    changeShippingMethod() {
+
+      if (this.isFreeShippingActive) {
+
+      } else {
+        // Handle logic when free shipping is not active
+      }
+    }
   }
+
 }
 </script>
+<style scoped>
+
+.hidden {
+    display: none !important;
+}
+</style>

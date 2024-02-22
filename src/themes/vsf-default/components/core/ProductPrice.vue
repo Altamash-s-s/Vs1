@@ -12,7 +12,7 @@
       >{{ price.original | price(storeView) }}</span>
     </div>
     <div
-      class="h2 cl-mine-shaft weight-700"
+      class="h4 cl-mine-shaft weight-500"
       v-if="!initialPrice.special && price.default"
     >
       {{ price.default | price(storeView) }}
@@ -101,5 +101,9 @@ $color-primary: color(primary);
   @media (max-width: 767px) {
     color: $color-primary;
   }
+} 
+.mb40.price.serif {
+  margin-bottom: 30px;
 }
+
 </style>

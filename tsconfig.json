@@ -23,7 +23,7 @@
         "core/*"
       ],
       "theme/*": [
-        "/home/fawad/VSF1/FAWAD-ASLAM-VSF1-Default/vuestore/node_modules/@vue-storefront/theme-default/*"
+        "D:\\Zaid\\Work\\Human Abstract\\assets_client\\ha-testing\\Vs1\\node_modules\\@vue-storefront\\theme-default/*"
       ],
       "core/modules/*": [
         "./core/modules/*"

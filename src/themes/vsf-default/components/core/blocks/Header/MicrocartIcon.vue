@@ -1,12 +1,13 @@
 <template>
   <button
     type="button"
-    class="relative bg-cl-transparent brdr-none inline-flex"
+    class="relative bg-cl-transparent brdr-none inline-flex "
     @click="openMicrocart"
     data-testid="openMicrocart"
     :aria-label="$t('Open microcart')"
   >
-    <i class="material-icons">shopping_cart</i>
+    <!-- <i class="material-icons">shopping_cart</i> -->
+    <img class="shopping-icon" src="../../../../assets/icons/shop_cart_icon.svg">
     <span
       class="minicart-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
       v-cloak
@@ -50,5 +51,11 @@ export default {
     min-width: 16px;
     min-height: 16px;
     border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    opacity: 1;
+  }
+  .shopping-icon{
+    width: 20px;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar zaid">
     <h4 class="sidebar__header relative mt35 mb20 flex">
       <span> {{ $t('Filter') }} </span>
       <span

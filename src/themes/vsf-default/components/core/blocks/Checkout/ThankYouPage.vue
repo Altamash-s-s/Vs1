@@ -1,13 +1,13 @@
 <template>
   <div>
-    <header class="thank-you-title bg-cl-secondary py35 pl20">
+    <header class="thank-you-title bg-cl-secondary py35 pl20 category_header bag-img">
       <div class="container">
         <breadcrumbs
           :with-homepage="true"
           :routes="[]"
           :active-route="this.$t('Order confirmation')"
         />
-        <h2 class="category-title">
+        <h2 class="category-title cstm-tl-ord">
           {{ $t('Order confirmation') }}
         </h2>
       </div>
@@ -15,7 +15,7 @@
     <div class="thank-you-content align-justify py40 pl20">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 pl20 pr20">
+          <div class="col-md-6 pl20 pr20 cstm-rg-txt">
             <h3 v-if="OnlineOnly">
               {{ $t('Your purchase') }}
             </h3>
@@ -202,4 +202,15 @@ export default {
       min-height: 100px;
     }
   }
+  .bag-img{
+    background-image: url('/assets/home/background-img.png');
+  }
+  .category_header {
+    padding-top: 150px !important;
+}
+.cstm-tl-ord{
+  font-size: 48px;
+  margin-top: 20px;
+
+}
 </style>

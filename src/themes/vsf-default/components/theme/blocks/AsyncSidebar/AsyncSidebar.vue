@@ -96,7 +96,7 @@ export default {
   right: 0;
   z-index: 4;
   height: 100%;
-  width: 800px;
+  width: 890px;
   min-width: 320px;
   overflow-y: auto;
   overflow-x: hidden;

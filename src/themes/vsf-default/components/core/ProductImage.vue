@@ -28,7 +28,7 @@
       :alt="alt"
       @load="imageLoaded('high', true)"
       @error="imageLoaded('high', false)"
-      class="product-image__thumb"
+      class="product-image__thumb img_sld"
     >
   </div>
 </template>
@@ -106,13 +106,13 @@ export default {
     width: 100%;
     max-width: 100%;
     height: 0;
+    padding-bottom: 0px !important;
+    background: #e5e5e5;
     mix-blend-mode: multiply;
     &__placeholder,
     &__thumb {
-      position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
     }
     &__placeholder {
       max-width: 50%;
@@ -128,4 +128,23 @@ export default {
       }
     }
   }
+  .product-image.product-cover__thumb.product-image--width{
+    opacity: 2.8;
+    background: #d9d9d9;
+  }
+  .product-cover__thumb{
+    padding-bottom: 0px;
+}
+
+.VueCarousel-inner img.img_sld {
+    width: 100%;
+
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.img_sld {
+  float: left;
+}
+
 </style>

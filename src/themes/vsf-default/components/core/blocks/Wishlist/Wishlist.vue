@@ -1,15 +1,21 @@
 <template>
   <div class="wishlist cl-accent">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12 end-xs">
         <i class="material-icons p15 pointer cl-accent" @click="closeWishlist">close</i>
       </div>
-    </div>
-    <div class="row middle-xs px40">
-      <h2 v-if="productsInWishlist.length" class="col-xs-12 col-sm cl-accent">
+    </div> -->
+    <div class="middle-xs px40 wishlist_title">
+      <h2  class="col-sm cl-accent">
         {{ $t('Wishlist') }}
       </h2>
-      <clear-wishlist-button v-if="productsInWishlist.length" @click="clearWishlist" class="col-xs-12 col-sm mt35 mb35 end-sm" />
+      <div class="end-xs">
+        <i class="material-icons p15 pointer cl-accent" @click="closeWishlist">close</i>
+      </div>
+      
+    </div>
+    <div class="clear_btn">
+      <clear-wishlist-button v-if="productsInWishlist.length" @click="clearWishlist" class="col-xs-12 col-sm mt35 mb35 end-sm clear-btn-btn" />
     </div>
     <h4 v-if="!productsInWishlist.length" class="cl-accent ml30">
       {{ $t('Your wishlist is empty.') }}
@@ -70,5 +76,21 @@ export default {
     &:hover {
       opacity: 1;
     }
+  }
+  .wishlist_title{
+    background-image: url('../../../../assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .clear_btn {
+    display: flex;
+    padding-right: 50px;
+  }
+  .clear-btn-btn {
+      font-size: 15px;
+  }
+  .middle-xs.px40.wishlist_title {
+    display: flex;
   }
 </style>

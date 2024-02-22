@@ -1,5 +1,13 @@
 <template>
+  
   <div class="media-gallery-carousel">
+
+    <div class="product_closeup_video_dv">
+          <video class="product-video" playsinline autoplay muted loop>
+            <source :src="prd_c_vdo" type="video/mp4">
+          </video> 
+    </div>
+      
     <carousel
       :per-page="1"
       :mouse-drag="false"
@@ -12,9 +20,17 @@
       :speed="carouselTransitionSpeed"
       @pageChange="pageChange"
       :navigate-to="currentPage"
+      
     >
+      <!-- <slide>
+        <div class="product_closeup_video_dv">
+          <video class="product-video" autoplay muted loop>
+            <source :src="prd_c_vdo" type="video/mp4">
+          </video> 
+        </div>
+      </slide> -->
       <slide
-        v-for="(images, index) in gallery"
+        v-for="(images, index ) in gallery"
         :key="images.src"
       >
         <div
@@ -37,10 +53,36 @@
         </div>
       </slide>
     </carousel>
-    <i
+
+    <!-- <div
+        v-for="(images, index ) in gallery"
+        :key="images.src"
+        class="prd_img"
+      >
+        <div
+          class="product-image-container bg-cl-secondary"
+          :class="{'video-container w-100 h-100 flex relative': images.video}"
+        >
+          <product-image
+            v-show="hideImageAtIndex !== index"
+            @dblclick="openOverlay"
+            class="pointer image"
+            :image="images"
+            :alt="productName | htmlDecode"
+          />
+          <product-video
+            v-if="images.video && (index === currentPage)"
+            v-bind="images.video"
+            :index="index"
+            @video-started="onVideoStarted"
+          />
+        </div>
+      </div> -->
+    
+    <!-- <i
       class="zoom-in material-icons p15 cl-bgs-tertiary pointer"
       @click="openOverlay"
-    >zoom_in</i>
+    >zoom_in</i> -->
   </div>
 </template>
 
@@ -71,6 +113,10 @@ export default {
     configuration: {
       type: Object,
       required: true
+    },
+    prd_c_vdo: {
+      type: [Number, String],
+      required: false
     }
   },
   data () {
@@ -96,6 +142,15 @@ export default {
     }
 
     this.$emit('loaded')
+
+    $(document).ready(function () {
+
+      // $('.color_button').click(function () {
+      //   // $('.VueCarousel-slide').css('display','none');
+      //     $('.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center').css('display','block');
+      // });
+
+    });
   },
   beforeDestroy () {
     this.$bus.$off('product-after-configure', this.selectVariant)
@@ -131,6 +186,8 @@ export default {
       const { color } = this.configuration
       if (color && this.currentColor !== color.id) {
         this.currentColor = color.id
+        var abc = this.currentColor = color.value
+        $('.VueCarousel-slide').attr('data-parentID', abc);
         this.carouselTransitionSpeed = 0
       } else {
         this.carouselTransitionSpeed = 500
@@ -171,14 +228,44 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
+.VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center.show_image , .VueCarousel-slide.VueCarousel-slide-active.VueCarousel-slide-center{
+  display: block !important;
+}
+.VueCarousel-slide.hide_image {
+  display: none;
+}
 </style>
 
 <style lang="scss">
+
+// .VueCarousel-inner {
+//   display: block !important;
+// }
+// .VueCarousel-slide {
+//     float: left;
+//     width: 100%;
+//     height: 100%;
+// }
+button.VueCarousel-dot {
+  background-color: #969696 !important;
+}
+button.VueCarousel-dot.VueCarousel-dot--active {
+  background-color: #666 !important;
+}
+.VueCarousel-navigation-button i {
+    font-size: 35px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .media-gallery-carousel,
 .media-zoom-carousel {
   .VueCarousel-pagination {
     position: absolute;
-    bottom: 15px;
+    bottom: -74px;
+    background: #e5e5e5;
+    padding-bottom: 26px;
     @media (max-width: 767px) {
       display: none;
     }
@@ -214,4 +301,40 @@ export default {
     }
   }
 }
-</style>
+.product_closeup_video_dv {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.product_closeup_video_dv video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width:1200px) {
+
+  .VueCarousel {
+    height: auto !important;
+  }
+  
+
+  .VueCarousel-wrapper {
+    height: auto !important;
+  }
+  .VueCarousel-inner {
+    height: auto !important;
+  }
+  
+  .media-gallery-carousel {
+    height: auto !important;
+  }
+
+}
+
+
+</style>   

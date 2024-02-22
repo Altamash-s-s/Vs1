@@ -16,7 +16,18 @@
 import filterMixin from 'theme/mixins/filterMixin.ts'
 
 export default {
-  mixins: [filterMixin]
+  mixins: [filterMixin],
+  async mounted() {
+
+    $(document).ready(function () {
+
+        $('.cstm_size .size-selector').click(function () {
+            $('.product_closeup_video_dv').hide();
+            $('.VueCarousel').show();
+        });
+        
+    });
+  }
 }
 </script>
 
@@ -27,8 +38,8 @@ export default {
   $color-disabled: color(secondary, $colors-border);
 
   .size-selector {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: auto;
 
     &:hover,
     &:focus {
@@ -36,9 +47,10 @@ export default {
     }
 
     &.active {
-      border-color: $color-active;
-      border-width: 2px;
-      color: $color-active;
+      border-color: #000;
+    border-width: 2px;
+    color: #FFF;
+    background-color: #313131;
     }
 
     &:disabled {

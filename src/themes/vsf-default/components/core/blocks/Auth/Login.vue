@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary">
+    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary wishlist_title login_ttl">
       {{ $t('Log in') }}
       <i
         slot="close"
@@ -15,16 +15,16 @@
         {{ $t('You need to be logged in to see this page') }}
       </p>
     </div>
-    <div class="modal-content bg-cl-primary pt30 pb60 px65 cl-secondary">
+    <div class="modal-content bg-cl-primary pt30 pb60 px65 cl-secondary mob-respo">
       <form @submit.prevent="login" novalidate>
         <base-input
-          class="mb10"
+          class="mb10 login_input"
           type="email"
           name="email"
           focus
           v-model="email"
           @blur="$v.email.$touch()"
-          :placeholder="$t('E-mail address *')"
+          :placeholder="$t('EMAIL ADDRESS *')"
           :validations="[
             {
               condition: !$v.email.required && $v.email.$error,
@@ -37,12 +37,12 @@
           ]"
         />
         <base-input
-          class="mb10"
+          class="mb10 login_input"
           type="password"
           name="password"
           v-model="password"
           @blur="$v.password.$touch()"
-          :placeholder="$t('Password *')"
+          :placeholder="$t('PASSWORD *')"
           :validations="[{
             condition: !$v.password.required && $v.password.$error,
             text: $t('Field is required.')
@@ -50,25 +50,25 @@
         />
         <div class="row">
           <base-checkbox
-            class="col-xs-7 col-sm-6 mb20"
+            class="col-xs-7 col-sm-5 mb20 rmbr-hd"
             id="remember"
             v-model="remember"
           >
             {{ $t('Remember me') }}
           </base-checkbox>
-          <div class="col-xs-5 col-sm-6 mb35 flex end-xs middle-xs">
+          <div class="col-xs-5 col-sm-7 mb35 flex end-xs middle-xs frg-hd">
             <a href="#" @click.prevent="remindPassword">
-              {{ $t('Forgot the password?') }}
+              {{ $t('Have you forgotten your password?') }}
             </a>
           </div>
         </div>
-        <button-full class="mb20" type="submit" data-testid="loginSubmit">
+        <button-full class="mb20 login_btn" type="submit" data-testid="loginSubmit">
           {{ $t('Log in to your account') }}
         </button-full>
-        <div class="center-xs">
-          {{ $t('or') }}
-          <a href="#" @click.prevent="switchElem" data-testid="registerLink">
-            {{ $t('register an account') }}
+        <div class="center-xs register_dv">
+          <p >{{ $t('OR') }}</p>
+          <a href="#" @click.prevent="switchElem" data-testid="registerLink" class="register_btn">
+            {{ $t('register') }}
           </a>
         </div>
       </form>
@@ -156,6 +156,42 @@ export default {
 @import '~theme/css/helpers/functions/color';
 $color-error: color(error);
 $white: color(white);
+
+.wishlist_title{
+    background-image: url('../../../../assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+//   .rmbr-hd {
+//     margin-top: 9px;
+// }
+  .login_input::placeholder {
+    color: #302A2A !important;
+    font-size: 16px !important ;
+    font-style: normal;
+    font-weight: 400  !important;
+    line-height: 20px  !important; 
+    text-transform: uppercase !important;
+  }
+  a.register_btn {
+    width: 100%;
+    display: flex;
+    border: 1px solid;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+.login_btn{
+  background-color:#444444;
+  margin-top: 17px;
+  margin-bottom: -7px;
+  text-transform: uppercase;
+}
+  .frg-hd{
+    font-size: 15px;
+  }
   .modal-header{
     display: flex;
     align-items: center;
@@ -174,4 +210,26 @@ $white: color(white);
     background-color: $color-error;
     color: $white;
   }
+
+  @media (max-width: 767px) {
+  .login_ttl {
+    padding: 22px;
+  }
+  .mob-respo {
+    padding-left: 27px;
+    padding-right: 26px;
+  }
+  .login_btn {
+    height: auto;
+    padding: 12px 0;
+    font-size: 15px;
+  }
+
+  a.register_btn {
+    height: auto !important;
+    padding: 12px 0;
+    font-size: 15px;
+  }
+  }
+
 </style>

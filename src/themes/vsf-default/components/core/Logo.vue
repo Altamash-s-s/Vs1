@@ -3,7 +3,7 @@
     <img
       :width="width"
       :height="height"
-      src="/assets/logo.svg"
+      src="/assets/logo_txt.png"
       :alt="$t(defaultTitle)"
     >
   </router-link>
@@ -32,3 +32,22 @@ export default {
   }
 }
 </script>
+
+<style>
+
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .ha_txt_logo img {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .ha_txt_logo img {
+    width: 100%;
+  }
+
+}
+ 
+</style>

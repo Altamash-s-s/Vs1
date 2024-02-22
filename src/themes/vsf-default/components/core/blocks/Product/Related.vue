@@ -1,11 +1,11 @@
 <template>
   <section
-    class="py20 new-collection container px15"
+    class="py20 new-collection cstm-page-layout px15 related_prd_div"
     v-if="getCurrentRelatedProducts.length"
   >
     <div>
       <header class="col-md-12">
-        <h2 class="align-center cl-accent">
+        <h2 class="align-center cl-accent related_heading">
           {{ heading }}
         </h2>
       </header>
@@ -31,7 +31,7 @@ export default {
     heading: {
       type: String,
       required: false,
-      default: i18n.t('Similar products')
+      default: i18n.t('Do not miss these Collections')
     }
   },
   components: {
@@ -100,3 +100,42 @@ export default {
   }
 }
 </script>
+<style scoped>
+.cl-accent{
+  color: #000;
+}
+.related_prd_div {
+  margin-top: 45px;
+}
+.cl-accent.related_heading {
+   color: #302A2A;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: end !important;
+    border: 1px solid #C1C1C1;
+    width: fit-content;
+    padding: 8px 40px;
+    margin-bottom: 44px;
+}
+.related_prd_div{
+  padding-top: 50px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+
+  .related_prd_div {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px){
+  .related_heading {
+    text-align: left;
+    font-size: 20px !important;
+  }
+}
+</style>

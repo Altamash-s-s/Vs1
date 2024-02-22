@@ -4,7 +4,7 @@
       <input
         class="
          py10 w-100 border-box brdr-none brdr-bottom-1
-         brdr-cl-primary h4 sans-serif
+         brdr-cl-primary h5 sans-serif
        "
         :class="{pr30: type === 'password', empty: value === ''}"
         :type="type === 'password' ? passType : type"
@@ -31,7 +31,20 @@
       :aria-label="$t('Toggle password visibility')"
       :title="$t('Toggle password visibility')"
     >
-      {{ icon }}
+    <img
+        v-if="passType === 'password'"
+        src="../../../../assets/icons/g909 (1).png"
+        alt="Toggle password visibility"
+        width="24"
+        height="24"
+      />
+      <img
+        v-else
+        src="../../../../assets/icons/g909.png"
+        alt="Toggle password visibility"
+        width="24"
+        height="24"
+      />
     </button>
     <ValidationMessages v-if="validations" :validations="validations" />
   </div>
@@ -159,6 +172,14 @@ export default {
     transition:0.2s ease all;
     -moz-transition:0.2s ease all;
     -webkit-transition:0.2s ease all;
+  }
+  .login_input label{
+    color: #302A2A !important;
+    font-size: 16px !important ;
+    font-style: normal;
+    font-weight: 400  !important;
+    line-height: 20px  !important; 
+    text-transform: uppercase !important;
   }
   input:focus ~ label, input:not(.empty) ~ label{
     top: -10px;

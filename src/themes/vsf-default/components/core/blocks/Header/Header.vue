@@ -1,25 +1,28 @@
 <template>
   <div class="header">
     <header
-      class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
+      class="fixed w-100"
       :class="{ 'is-visible': navVisible }"
     >
-      <div class="container px15">
+      <div class="header_container px40">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
-            <div>
-              <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
+          <div class="col-md-4 col-xs-3 middle-xs">
+            <div class="logo_dv">
+              <hamburger-icon class="p15 icon  pointer menu_icon" />
+              <a href="/">
+              <img  class="ha_logo" src="../../../../assets/logo.png"/>
+            </a>
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
+          <div class="col-md-4 col-xs-7 center-xs pt5 ha_txt_logo">
             <div>
-              <logo width="auto" height="41px" />
+              <logo width="auto" height="40px"/>
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs mob_wishlist_icon hidden-xs">
             <wishlist-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-4 col-xs-2 end-xs">
@@ -32,29 +35,33 @@
             </div>
           </div>
         </div>
-        <div class="row between-xs middle-xs px15 py5" v-if="isCheckoutPage && !isThankYouPage">
-          <div class="col-xs-5 col-md-3 middle-xs">
-            <div>
-              <router-link
-                :to="localizedRoute('/')"
-                class="cl-tertiary links"
-              >
-                {{ $t('Return to shopping') }}
-              </router-link>
+        <div class="row between-xs middle-xs " v-if="isCheckoutPage && !isThankYouPage">
+          <div class="col-md-4 col-xs-3 middle-xs">
+            <div class="logo_dv">
+              <hamburger-icon class="p15 icon  pointer menu_icon" />
+              <a href="/">
+              <img  class="ha_logo" src="../../../../assets/logo.png"/>
+            </a>
             </div>
           </div>
-          <div class="col-xs-2 col-md-6 center-xs">
-            <logo width="auto" height="41px" />
+          <div class="col-xs-2 visible-xs mob_search_icon hidden-xs">
+            <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-xs-5 col-md-3 end-xs">
+          <div class="col-md-4 col-xs-7 center-xs pt5 ha_txt_logo">
             <div>
-              <a
-                v-if="!currentUser"
-                href="#"
-                @click.prevent="gotoAccount"
-                class="cl-tertiary links"
-              >{{ $t('Login to your account') }}</a>
-              <span v-else>{{ $t('You are logged in as {firstname}', currentUser) }}</span>
+              <logo width="auto" height="40px"/>
+            </div>
+          </div>
+          <div class="col-xs-2 visible-xs mob_wishlist_icon hidden-xs">
+            <wishlist-icon class="p15 icon pointer" />
+          </div>
+          <div class="col-md-4 col-xs-2 end-xs">
+            <div class="inline-flex right-icons">
+              <search-icon class="p15 icon hidden-xs pointer" />
+              <wishlist-icon class="p15 icon hidden-xs pointer" />
+              <compare-icon class="p15 icon hidden-xs pointer" />
+              <microcart-icon class="p15 icon pointer" />
+              <account-icon class="p15 icon hidden-xs pointer" />
             </div>
           </div>
         </div>
@@ -143,14 +150,45 @@ export default {
 }
 </script>
 
+<style>
+.header {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+</style>
 <style lang="scss" scoped>
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon-hover: color(secondary, $colors-background);
 
+.ha_logo {
+  width: 34px;
+}
+.menu_icon i.material-icons {
+    color: #000;
+}
+.logo_dv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header_container {
+  max-width: 100%;
+    width: -webkit-fill-available;
+    margin: auto;
+    background-color: #0000002e;
+    height: 70px;
+    display: grid;
+    align-items: center;
+    transition: all 0.3s;
+}
+.header_container:hover {
+    background-color: #FFF;
+    cursor: pointer;
+}
 header {
   height: 54px;
-  top: -55px;
+  top: -70px;
   z-index: 3;
   transition: top 0.2s ease-in-out;
   &.is-visible {
@@ -169,9 +207,9 @@ header {
   //for edge
   float: right;
 }
-.header-placeholder {
-  height: 54px;
-}
+// .header-placeholder {
+//   height: 54px;
+// }
 .links {
   text-decoration: underline;
 }
@@ -193,5 +231,45 @@ header {
   span {
     font-size: 12px;
   }
+  
 }
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+  .header_container {
+    padding: 0 20px;
+  }
+  .menu_icon {
+    padding-left: 7px;
+    padding-right: 7px;
+  } 
+  .logo_dv img{
+    width: 25px;
+  }
+}
+
+
+
 </style>

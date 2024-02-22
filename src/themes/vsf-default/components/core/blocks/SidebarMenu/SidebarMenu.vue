@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-menu fixed mw-100 bg-cl-secondary">
+  <div class="sidebar-menu fixed mw-100">
     <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
       <div
         v-if="submenu.depth"
@@ -20,21 +20,21 @@
     </div>
     <div class="sidebar-menu__container row" ref="container">
       <div class="col-xs-12 h4 serif">
-        <ul class="p0 m0 relative sidebar-menu__list" :style="mainListStyles">
+        <ul class="p0 m0 relative sidebar-menu__list header_ul" :style="mainListStyles">
           <li
             @click="closeMenu"
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+            class="brdr-bottom-1 brdr-cl-bg-secondary "
           >
-            <router-link
-              class="block px25 py20 cl-accent no-underline"
-              :to="localizedRoute('/')"
+            <a 
+              class="block px25 py20 cl-accent no-underline col-xs fs-medium-small"
+              href='/'
               exact
             >
               {{ $t('Home') }}
-            </router-link>
+            </a >
           </li>
           <li
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
+            class="brdr-bottom-1 brdr-cl-bg-secondary flex"
             :key="category.slug"
             @click="closeMenu"
             v-for="category in visibleCategories"
@@ -49,13 +49,13 @@
                 :id="category.id"
                 :name="category.name"
               />
-              <router-link
+              <a 
                 v-else
-                class="px25 py20 cl-accent no-underline col-xs"
-                :to="categoryLink(category)"
+                class="px25 py20 cl-accent no-underline col-xs fs-medium-small"
+                :href="categoryLink(category)"
               >
                 {{ category.name }}
-              </router-link>
+              </a >
             </div>
 
             <sub-category
@@ -65,48 +65,48 @@
               :parent-path="category.url_path"
             />
           </li>
-          <li
+           <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/sale')"
               exact
             >
               {{ $t('Sale') }}
-            </router-link>
-          </li>
-          <li
+            </a >
+          </li>  -->
+          <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
               :to="localizedRoute('/magazine')"
               exact
             >
               {{ $t('Magazine') }}
-            </router-link>
-          </li>
+            </a >
+          </li> -->
           <li
             v-if="compareIsActive && isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
           >
-            <router-link
+            <a 
               class="block px25 py20 brdr-bottom-1 brdr-cl-secondary cl-accent no-underline fs-medium-small"
-              :to="localizedRoute('/compare')"
+              href='/compare'
               exact
             >
               {{ $t('Compare products') }}
-            </router-link>
+            </a >
           </li>
           <li
             @click="login"
-            class="brdr-bottom-1 brdr-cl-secondary bg-cl-secondary flex"
+            class="brdr-bottom-1 brdr-cl-secondary flex"
           >
             <sub-btn
               v-if="currentUser"
@@ -130,6 +130,13 @@
               {{ $t('My account') }}
             </a>
           </li>
+          <li
+            @click="closeMenu"
+            class="brdr-bottom-1 brdr-cl-secondary bg-cl-secondary flex mobile_icons_show"
+          >
+            <search-icon class="p15 icon pointer" />
+            <wishlist-icon class="p15 icon pointer" />
+          </li>
         </ul>
       </div>
     </div>
@@ -144,11 +151,14 @@ import SubBtn from 'theme/components/core/blocks/SidebarMenu/SubBtn'
 import SubCategory from 'theme/components/core/blocks/SidebarMenu/SubCategory'
 import { formatCategoryLink } from '@vue-storefront/core/modules/url/helpers'
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-
+import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
+import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
 export default {
   components: {
     SubCategory,
-    SubBtn
+    SubBtn,
+    SearchIcon,
+    WishlistIcon
   },
   mixins: [SidebarMenu],
   data () {
@@ -164,26 +174,26 @@ export default {
           name: i18n.t('My shipping details'),
           url: '/my-account/shipping-details'
         },
-        {
-          id: 3,
-          name: i18n.t('My newsletter'),
-          url: '/my-account/newsletter'
-        },
+        // {
+        //   id: 3,
+        //   name: i18n.t('My newsletter'),
+        //   url: '/my-account/newsletter'
+        // },
         {
           id: 4,
           name: i18n.t('My orders'),
           url: '/my-account/orders'
         },
-        {
-          id: 5,
-          name: i18n.t('My loyalty card'),
-          url: '#'
-        },
-        {
-          id: 6,
-          name: i18n.t('My product reviews'),
-          url: '#'
-        }
+        // {
+        //   id: 5,
+        //   name: i18n.t('My loyalty card'),
+        //   url: '#'
+        // },
+        // {
+        //   id: 6,
+        //   name: i18n.t('My product reviews'),
+        //   url: '#'
+        // }
       ],
       componentLoaded: false
     }
@@ -243,6 +253,23 @@ $color-gainsboro: color(gainsboro);
 $color-matterhorn: color(matterhorn);
 $color-mine-shaft: color(mine-shaft);
 
+.mobile_icons_show {
+    display: none;
+  }
+  // .header_ul {
+  //   margin:41px 40px 0 25px;
+  // }
+  .header_ul li a , .header_ul li button{
+    color: #000 !important;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+  .sidebar-menu .close-btn i {
+    color: #000 !important;
+  }
 .sidebar-menu {
   height: 100vh;
   width: 350px;
@@ -305,5 +332,14 @@ $color-mine-shaft: color(mine-shaft);
     }
   }
 
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .mobile_icons_show {
+    display: block;
+  }
+}
+.brdr-cl-bg-secondary {
+  border-color: #dddddd !important; 
 }
 </style>

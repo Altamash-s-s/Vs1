@@ -1,13 +1,15 @@
 <template>
   <button
-    :class="['mr10 mb5 bg-cl-transparent brdr-1 brdr-circle brdr-cl-transparent :brdr-cl-bg-primary relative inline-flex pointer color', isActive ? 'active' : '']"
+    :class="['mr10 mb5 bg-cl-transparent brdr-1 brdr-circle brdr-cl-transparent :brdr-cl-bg-primary relative inline-flex pointer color color_btn', isActive ? 'active' : '']"
     @click="$emit('change', variant)"
     :aria-label="$t('Select color ') + variant.label"
+    :data-datacolor="variant.label"
   >
     <span
       class="absolute brdr-circle brdr-1 brdr-cl-secondary block color-inside"
       :style="colorFrom(variant.label)"
     />
+
   </button>
 </template>
 
@@ -17,6 +19,14 @@ import filterMixin from 'theme/mixins/filterMixin.ts'
 
 export default {
   mixins: [filterMixin],
+  async mounted () {
+
+    $(document).ready(function(){
+      // $('.color_btn').click(function () {
+      //     console.log('workign');
+      //   });
+    });
+  },
   methods: {
     colorFrom (label) {
       if (!label) return ''
@@ -42,8 +52,9 @@ export default {
   $color-active: color(primary);
 
   .color {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
+    border-radius: 0;
 
     &.active {
       border-color: $color-active;
@@ -51,8 +62,9 @@ export default {
   }
 
   .color-inside {
-    width: 34px;
-    height: 34px;
+    border-radius: 0;
+    width: 15px;
+    height: 15px;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%)

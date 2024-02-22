@@ -1,6 +1,6 @@
 <template>
   <div class="media-gallery">
-    <div v-if="isOnline" class="relative w-100">
+    <div v-if="isOnline" class="relative w-100 mg_dv">
       <product-gallery-overlay
         v-if="isZoomOpen"
         :current-slide="currentSlide"
@@ -17,6 +17,7 @@
           @toggle="openOverlay"
           @close="onEscapePress"
           @loaded="carouselLoaded = true"
+          :prd_c_vdo="prd_video"
         />
       </no-ssr>
     </div>
@@ -39,6 +40,12 @@ export default {
     'no-ssr': NoSSR,
     ProductGalleryOverlay,
     ProductImage
+  },
+  props: {
+    prd_video: {
+      type: [Number, String],
+      required: false
+    }
   },
   mixins: [
     ProductGallery,
@@ -64,10 +71,10 @@ export default {
     }
   },
   methods: {
-    openOverlay (currentSlide) {
-      this.currentSlide = currentSlide
-      this.toggleZoom()
-    },
+    // openOverlay (currentSlide) {
+    //   this.currentSlide = currentSlide
+    //   this.toggleZoom()
+    // },
     validateRoute () {
       this.$forceUpdate()
     },
@@ -100,4 +107,20 @@ export default {
     background-image: none;
   }
 }
+
+
+.media-gallery .mg_dv {
+  height: 100% !important;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width:1200px) {
+
+
+.media-gallery .mg_dv {
+  height: 100% !important;
+}
+
+
+}
+
 </style>

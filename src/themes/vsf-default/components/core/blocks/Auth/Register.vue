@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary">
+    <header class="modal-header py25 px65 h1 serif weight-700 bg-cl-secondary wishlist_title login_ttl">
       {{ $t('Register') }}
       <i
         slot="close"
@@ -11,28 +11,9 @@
       </i>
     </header>
 
-    <div class="modal-content bg-cl-primary pt30 pb60 px65 cl-secondary">
+    <div class="modal-content bg-cl-primary pt30 pb60 px65 cl-secondary mob-respo">
       <form @submit.prevent="register" novalidate>
-        <base-input
-          class="mb10"
-          type="email"
-          name="email"
-          autocomplete="email"
-          v-model="email"
-          @blur="$v.email.$touch()"
-          focus
-          :placeholder="$t('E-mail address *')"
-          :validations="[
-            {
-              condition: !$v.email.required && $v.email.$error,
-              text: $t('Field is required.')
-            },
-            {
-              condition: !$v.email.email && $v.email.$error,
-              text: $t('Please provide valid e-mail address.')
-            }
-          ]"
-        />
+
         <div class="row mb10">
           <base-input
             class="col-xs-6"
@@ -76,6 +57,37 @@
               }
             ]"
           />
+        </div>
+        <div class="row mb10">
+            <base-input
+              class="col-xs-6"
+              type="email"
+              name="email"
+              autocomplete="email"
+              v-model="email"
+              @blur="$v.email.$touch()"
+              focus
+              :placeholder="$t('E-mail address *')"
+              :validations="[
+                {
+                  condition: !$v.email.required && $v.email.$error,
+                  text: $t('Field is required.')
+                },
+                {
+                  condition: !$v.email.email && $v.email.$error,
+                  text: $t('Please provide valid e-mail address.')
+                }
+              ]"
+            />
+            <base-select
+              class="col-xs-6"
+              name="gender"
+              :options="genderOptions"
+              v-model="gender"
+              autocomplete="gender"
+              @blur="$v.gender.$touch()"
+              :placeholder="$t('Gender')"
+            />
         </div>
         <base-input
           class="mb10"
@@ -129,16 +141,15 @@
         >
           {{ $t('I accept terms and conditions') }} *
         </base-checkbox>
-        <button-full :disabled="$v.$invalid" class="mb20" type="submit">
+        <button-full :disabled="$v.$invalid" class="mb20 login_btn" type="submit">
           {{ $t('Register an account') }}
         </button-full>
-        <div class="center-xs">
-          <span>
-            {{ $t('or') }}
-            <a href="#" @click.prevent="switchElem">
+        <div class="center-xs register_dv">
+          <p >{{ $t('OR') }}</p>
+            <a href="#" @click.prevent="switchElem" class="register_btn">
               {{ $t('login to your account') }}
             </a>
-          </span>
+  
         </div>
       </form>
     </div>
@@ -149,6 +160,7 @@ import Register from '@vue-storefront/core/compatibility/components/blocks/Auth/
 import ButtonFull from 'theme/components/theme/ButtonFull.vue'
 import BaseCheckbox from 'theme/components/core/blocks/Form/BaseCheckbox.vue'
 import BaseInput from 'theme/components/core/blocks/Form/BaseInput.vue'
+import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect.vue'
 import { required, email, minLength, sameAs, alpha } from 'vuelidate/lib/validators'
 
 export default {
@@ -182,7 +194,18 @@ export default {
   components: {
     ButtonFull,
     BaseCheckbox,
-    BaseInput
+    BaseInput,
+    BaseSelect
+  },
+  computed: {
+    genderOptions() {
+      // Customize the gender options based on your requirements
+      return [
+        { label: 'Male', value: '1' },
+        { label: 'Female', value: '2' },
+        { label: 'Not Specified', value: '3' },
+      ];
+    },
   },
   methods: {
     register () {
@@ -230,4 +253,44 @@ export default {
       padding-right: 20px;
     }
   }
+  .wishlist_title{
+    background-image: url('../../../../assets/patch_img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .login_btn{
+  background-color:#444444;
+  margin-top: 50px;
+  margin-bottom: -7px;
+  text-transform: uppercase;
+}
+.register_btn {
+    width: 100%;
+    display: flex;
+    border: 1px solid;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+  @media (max-width: 767px) {
+  .login_ttl {
+    padding: 22px;
+  }
+  .login_btn {
+    height: auto;
+    padding: 12px 0;
+    font-size: 15px;
+  }
+  a.register_btn {
+    height: auto !important;
+    padding: 12px 0;
+    font-size: 15px;
+  }
+  .mob-respo {
+    padding-left: 27px;
+    padding-right: 26px;
+  }
+}
 </style>

@@ -272,4 +272,9 @@ export default {
     margin-top: 30px;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .m0.mb5 {
+    font-size: 20px;
+  }
+}
 </style>

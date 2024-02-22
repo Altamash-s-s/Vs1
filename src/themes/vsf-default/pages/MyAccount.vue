@@ -1,13 +1,13 @@
 <template>
   <div id="my_account">
-    <div class="bg-cl-secondary py35 pl20">
+    <div class="py35 pl20 bag-img category_header">
       <div class="container">
         <breadcrumbs
           :with-homepage="true"
           :routes="[]"
           active-route="My Account"
         />
-        <h1>
+        <h1 class="acount-hd-prf">
           {{ $t('My Account') }}
         </h1>
       </div>
@@ -15,7 +15,7 @@
 
     <div class="container pt45 pb70">
       <div class="row px20 pt0">
-        <div class="col-md-3 hidden-xs hidden-sm block">
+        <div class="col-md-3 hidden-xs hidden-sm block side-brdr">
           <nav class="static-menu serif h4 mb35">
             <ul class="m0 p0">
               <li class="mb20" v-for="(page, index) in navigation" :key="index" @click="notify(page.title)">
@@ -26,7 +26,7 @@
             </ul>
           </nav>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 content-left">
           <no-ssr>
             <component :is="this.$props.activeBlock" />
           </no-ssr>
@@ -55,11 +55,10 @@ export default {
       navigation: [
         { title: this.$t('My profile'), link: '/my-account' },
         { title: this.$t('My shipping details'), link: '/my-account/shipping-details' },
-        { title: this.$t('My newsletter'), link: '/my-account/newsletter' },
         { title: this.$t('My orders'), link: '/my-account/orders' },
-        { title: this.$t('My loyalty card'), link: '#' },
-        { title: this.$t('My product reviews'), link: '#' },
-        { title: this.$t('My Recently viewed products'), link: '/my-account/recently-viewed' }
+        // { title: this.$t('My loyalty card'), link: '#' },
+        // { title: this.$t('My product reviews'), link: '#' },
+        // { title: this.$t('My Recently viewed products'), link: '/my-account/recently-viewed' }
       ]
     }
   },
@@ -121,5 +120,66 @@ $color-tertiary: color(tertiary);
       }
     }
   }
+}
+.bag-img{
+    background-image: url('../assets/home/background-img.png');
+    background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+  .category_header {
+    padding-top: 150px !important;
+}
+.side-brdr{
+  border-right: 1px solid #ccc;
+}
+.content-left {
+    padding-left: 70px !important;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+  .acount-hd-prf{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 80px !important;
+  }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .acount-hd-prf{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 106px !important;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .acount-hd-prf {
+    margin: 0;
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .content-left{
+    padding-left: 9px !important;
+  }
+  .bag-img-chck{
+      background-image: url('/assets/patch_img.jpg') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+      padding-top: 25px !important;
+      margin-top: 71px;
+    }
+    .acount-hd-prf{
+      padding-top: 0px;
+   }
+   .checkout-title h1 {
+      padding-top: 20px;
+  }
+
 }
 </style>

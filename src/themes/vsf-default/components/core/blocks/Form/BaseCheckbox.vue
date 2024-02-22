@@ -13,7 +13,7 @@
         :disabled="disabled"
       >
       <label
-        class="pl35 lh30 h4 pointer"
+        class="pl35 lh30 h4 pointer checkbox_label"
         :for="id"
       >
         <slot />
@@ -77,6 +77,14 @@ export default {
       border: 1px solid $color-silver;
       cursor: pointer;
     }
+  }
+
+  .checkbox_label {
+    color: #302A2A;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; 
   }
 
   input {

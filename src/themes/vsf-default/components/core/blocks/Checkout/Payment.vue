@@ -261,8 +261,11 @@
                 @change="$v.payment.paymentMethod.$touch(); changePaymentMethod();"
               >
               <span class="checkmark" />
+
             </label>
+
           </div>
+
           <span class="validation-error" v-if="!$v.payment.paymentMethod.required">{{ $t('Field is required') }}</span>
         </div>
       </div>
@@ -305,18 +308,23 @@
               <span class="pr15">{{ payment.phoneNumber }}</span>
               <tooltip>{{ $t('Phone number may be needed by carrier') }}</tooltip>
             </div>
+            
             <p v-if="generateInvoice">
               {{ payment.company }} {{ payment.taxId }}
             </p>
+
             <div class="col-xs-12">
               <h4>{{ $t('Payment method') }}</h4>
             </div>
+
             <div class="col-md-6 mb15">
               <label class="radioStyled"> {{ getPaymentMethod().title }}
-                <input type="radio" value="" checked disabled name="chosen-payment-method">
+                <input type="radio" value="stripe_payments" checked disabled name="chosen-payment-method">
                 <span class="checkmark" />
               </label>
-            </div>
+            </div>  
+
+        
           </div>
         </div>
       </div>
@@ -334,6 +342,7 @@ import BaseInput from 'theme/components/core/blocks/Form/BaseInput'
 import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import Tooltip from 'theme/components/core/Tooltip'
+
 
 export default {
   components: {

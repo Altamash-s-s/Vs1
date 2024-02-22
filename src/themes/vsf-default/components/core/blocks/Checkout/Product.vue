@@ -5,7 +5,7 @@
     </div>
     <div class="col-xs">
       <div class="row">
-        <div class="col-xs-12 col-md-9 pb15">
+        <div class="col-xs-8 col-md-9 pb15">
           <div class="mb15">
             <div class="h4 weight-400 cl-accent serif">
               {{ product.name | htmlDecode }}
@@ -19,7 +19,8 @@
             <div class="h6 cl-bg-tertiary pt5 options" v-if="product.totals && product.totals.options">
               <div v-for="opt in product.totals.options" :key="opt.label">
                 <span class="opn">{{ opt.label }}: </span>
-                <span class="opv" v-html="opt.value" />
+                <span class="opv size-option" v-if="opt.label.toLowerCase() === 'color'" v-html="getColorName(opt.value)"></span>
+                <span class="opv size-option" v-else v-html="opt.value"></span>
               </div>
             </div>
             <div class="h6 cl-bg-tertiary pt5 options" v-else-if="product.options">
@@ -40,7 +41,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-3 serif">
+        <div class="col-xs-4 col-md-3 serif">
           <div v-if="isOnline && product.totals">
             <span class="h4 cl-error" v-if="product.totals.discount_amount">{{ product.totals.row_total - product.totals.discount_amount + product.totals.tax_amount | price(storeView) }} </span>
             <span class="price-original h5" v-if="product.totals.discount_amount">{{ product.totals.row_total_incl_tax | price(storeView) }}</span>
@@ -78,9 +79,27 @@ export default {
       }
     }
   },
+  
   mixins: [Product],
   components: {
     ProductImage
+  },
+
+  methods: {
+    getColorName(colorCode) {
+      if (colorCode === '#2d2c2f') {
+        return 'Jet Black';
+      } else if (colorCode === '#00539c') {
+        return 'Princess Blue';
+      } else if (colorCode === '#ff7520') {
+        return 'Vibrant Orange';
+      } else if (colorCode === '#f4f9ff') {
+        return 'Bright White';
+      } else {
+        // Add more conditions for other color codes if needed
+        return 'Unknown Color';
+      }
+    },
   }
 }
 </script>

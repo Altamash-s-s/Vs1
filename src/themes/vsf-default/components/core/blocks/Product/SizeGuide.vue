@@ -5,6 +5,7 @@
     </div>
     <div slot="content">
       <SizeGuideContent />
+      <div class="size_chart_img" v-html="size_chart"></div>
     </div>
   </modal>
 </template>
@@ -25,8 +26,14 @@ export default {
     Modal,
     SizeGuideContent
   },
+  props: {
+    size_chart: {
+      type: [Number, String],
+      required: false
+    }
+  },
   methods: {
-    close (e) {
+    close(e) {
       if (e) localStorage.removeItem('redirect')
       this.$bus.$emit('modal-hide', 'modal-sizeguide')
     }
@@ -34,11 +41,16 @@ export default {
 }
 </script>
 
-<style scoped>
-    .modal {
-        font-size: 18px;
-    }
-    .modal-content {
-        max-height: 80%;
-    }
+<style >
+.modal {
+  font-size: 18px;
+}
+
+.modal-content {
+  max-height: 80%;
+}
+
+.size_chart_img img {
+  width: 100%;
+}
 </style>

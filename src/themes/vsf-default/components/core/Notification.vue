@@ -111,16 +111,24 @@ $color-action: color(black);
   }
 }
 .success {
-  background: $color-success;
+  background: #FFF;
+  color: #000;
+  padding: 25px;
 }
 .error {
-  background: $color-error;
+  background: #FFF;
+  color: #000;
+  padding: 25px;
 }
 .warning {
-  background: $color-warning;
+  background: #FFF;
+  color: #000;
+  padding: 25px;
 }
 .info {
-  background: $color-info;
+  background: #FFF;
+  color: #000;
+  padding: 25px;
 }
 .action-border {
   border-right: 2px solid transparent;
@@ -136,5 +144,20 @@ $color-action: color(black);
   &.border-info {
     border-color: $color-info;
   }
+}
+.message{
+  border: 1px solid #C9C9C9;
+  padding: 10px;
+}
+#notificationAction1{
+  background-color: #FFF;
+  border: 1px solid #C9C9C9;
+}
+#notificationAction2{
+  font-size: 15px;
+  background-color: #FFF;
+  padding: 10px 0px; 
+  padding-left: 10px;
+  border: 1px solid #C9C9C9;
 }
 </style>

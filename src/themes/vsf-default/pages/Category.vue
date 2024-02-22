@@ -1,26 +1,18 @@
 <template>
-  <div id="category">
-    <header class="bg-cl-secondary py35 pl20">
-      <div class="container">
+  <div id="category" >
+
+
+    <header class="bg-cl-secondary spc py35 pl20 category_header bag-img bag-img-mob ">
+      <div class="cstm-page-layout">
         <breadcrumbs />
         <div class="row middle-sm">
           <h1 class="col-sm-8 category-title mb10">
             {{ getCurrentCategory.name }}
           </h1>
-          <div class="sorting col-sm-2 align-right mt50">
-            <label class="mr10">{{ $t('Columns') }}:</label>
-            <columns @change-column="columnChange" />
-          </div>
-          <div class="sorting col-sm-2 align-right mt50">
-            <sort-by
-              :has-label="true"
-              @change="changeFilter"
-              :value="getCurrentSearchQuery.sort"
-            />
-          </div>
         </div>
       </div>
-      <div class="container">
+
+      <!-- <div class="cstm-page-layout">
         <div class="row m0">
           <button
             class="col-xs-5 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
@@ -35,9 +27,12 @@
             />
           </div>
         </div>
-      </div>
+      </div> -->
+
+
     </header>
-    <div class="container pb60">
+
+    <div class="cstm-page-layout pb60 product_collection_flw">
       <div class="row m0 pt15">
         <div class="col-md-3 start-xs category-filters">
           <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
@@ -57,10 +52,10 @@
             {{ $t('Filter') }}
           </button-full>
         </div>
-        <div class="col-md-9 px10 border-box products-list">
-          <p class="col-xs-12 end-md m0 pb20 cl-secondary">
+        <div class="col-md-12 px10 border-box products-list">
+          <!-- <p class="col-xs-12 end-md m0 pb20 cl-secondary">
             {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
-          </p>
+          </p> -->
           <div v-if="isCategoryEmpty" class="hidden-xs">
             <h4 data-testid="noProductsInfo">
               {{ $t('No products found!') }}
@@ -68,9 +63,10 @@
             <p>{{ $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!') }}</p>
           </div>
           <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
-            <product-listing :columns="defaultColumn" :products="getCategoryProducts" />
-          </lazy-hydrate>
-          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" />
+        <!-- Pass category ID to ProductListing component -->
+        <product-listing :columns="defaultColumn" :products="getCategoryProducts" :categoryid="getCurrentCategory.id" />
+      </lazy-hydrate>
+      <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" :categoryid="getCurrentCategory.id" />
         </div>
       </div>
     </div>
@@ -142,10 +138,10 @@ export default {
       getAvailableFilters: 'category-next/getAvailableFilters'
     }),
     isLazyHydrateEnabled () {
-      return config.ssr.lazyHydrateFor.includes('category-next.products')
+      return config.ssr.lazyHydrateFor.includes('category-next.products');
     },
     isCategoryEmpty () {
-      return this.getCategoryProductsTotal === 0
+      return this.getCategoryProductsTotal === 0;
     }
   },
   async asyncData ({ store, route, context }) { // this is for SSR purposes to prefetch data - and it's always executed before parent component methods
@@ -216,6 +212,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.product_collection_flw {
+    height: 100vh;
+    padding-left: 26px;
+}
+.pb60{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
   .btn {
     &__filter {
       min-width: 100px;
@@ -228,6 +232,7 @@ export default {
   }
   .category-filters {
     width: 242px;
+    display: none;
   }
 
   .mobile-filters {
@@ -253,19 +258,22 @@ export default {
     }
   }
 
-  @media (max-width: 64em) {
-    .products-list {
-      max-width: 530px;
-    }
+  .bag-img{
+    background-image: url('../assets/home/background-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   @media (max-width: 770px) {
     .category-title {
       margin: 0;
-      font-size: 36px;
+      font-size: 25px;
       line-height: 40px;
     }
-
+    .prd_lst_col {
+        margin-bottom: 20px;
+    }
     .products-list {
       width: 100%;
       max-width: none;
@@ -322,7 +330,70 @@ export default {
   }
 </style>
 <style lang="scss">
-.product-image {
-  max-height: unset !important;
+
+.bg-cl-secondary.spc{
+    padding: 15px;
 }
+
+.category_header {
+    padding-top: 150px !important;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+
+  .pb60 {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }   
+  .product-listing {
+    justify-content: unset !important;
+  }
+
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+  .prd_lst_col {
+    margin-bottom: 25px;
+  }
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .prd_lst_col {
+    margin-bottom: 30px;
+  }
+  .product_collection_flw {
+    height: auto !important;
+  }
+    .bag-img{
+      background-image: url('/assets/collection/collection_mob_bg.png') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+    padding-top: 25px !important;
+    height: 60px;
+    margin-top: 71px;
+    }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1200px) {
+  .category-title{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 80px !important;
+  }
+}
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .category-title{
+    line-height: 0 !important;
+    margin-top: 35px !important;
+  }
+  .category_header {
+    padding-top: 106px !important;
+    padding-left: 40px !important;
+  }
+}
+
 </style>

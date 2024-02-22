@@ -108,6 +108,65 @@ export default {
     })
     this.$bus.$on('offline-order-confirmation', this.onOrderConfirmation)
   },
+  mounted () {
+
+
+      // function lockPortraitOrientation() {
+      //     var isiPad = navigator.userAgent.match(/iPad/i) !== null;
+      //     function handleOrientationChange() {
+      //       if (isiPad) {
+      //         if (window.orientation === 0) {
+
+      //           alert("Please rotate your device to landscape orientation.");
+      //           const content = document.getElementById('app');
+      //           const tab_msg = document.getElementById('tab_mgs');
+      //           content.style.display = 'none';
+      //           tab_msg.style.display = 'block';
+
+      //         }
+      //         else {
+      //           const content = document.getElementById('app');
+      //           const tab_msg = document.getElementById('tab_mgs');
+      //           content.style.display = 'block';
+      //           tab_msg.style.display = 'none';
+      //         }
+      //       }
+      //     }
+
+      //     window.addEventListener("orientationchange", handleOrientationChange);
+
+      //     handleOrientationChange();
+      // }
+
+      // lockPortraitOrientation();
+
+
+    
+
+
+    $(window).on('resize scroll', function() {
+        if ($('.prd_detail_col').isInViewport()) {
+          $('.prd_detail_col').addClass('dv_sticky');
+          $('#app').css('overflow-x','clip');
+          $('#viewport').css('overflow-x','clip');
+        } else {
+          $('.prd_detail_col').removeClass('dv_sticky');
+          $('#app').css('overflow-x','hidden');
+          $('#viewport').css('overflow-x','hidden');
+        }
+        
+    });
+
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+
+  },
   beforeDestroy () {
     this.$bus.$off('offline-order-confirmation', this.onOrderConfirmation)
   },
@@ -129,3 +188,150 @@ export default {
 </script>
 
 <style lang="scss" src="theme/css/main.scss"></style>
+
+
+<style>
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+ #tab_mgs {
+  display: block !important;
+ }
+ #app {
+  display: none;
+ }
+}
+
+/* @media only screen and (min-device-width: 776px) and (max-device-width: 1194px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+
+@media only screen and (min-device-width: 810px) and (max-device-width: 1080px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+} */
+
+/* Apply styles only in portrait mode for iPads */
+/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1194px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+  body{
+    width:100vh;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+} */
+
+
+#tab_mgs {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+.cstm-page-layout{
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    padding-bottom: 60px;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 992px) {
+
+  .pb60[data-v-1437de77] {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }   
+
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+
+  .cstm-page-layout {
+      padding: 0 30px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+    .cstm-page-layout {
+        padding: 0 30px;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .cstm-page-layout {
+        padding: 0 20px;
+    }
+}
+
+a.underline:after, a:not(.no-underline):hover:after{
+  background:  transparent !important;
+}
+</style>

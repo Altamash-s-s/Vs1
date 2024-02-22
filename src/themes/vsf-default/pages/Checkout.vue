@@ -1,9 +1,9 @@
 <template>
   <div id="checkout">
-    <div class="container">
+    <div class="container cstm-checkout ">
       <div class="row" v-show="!isThankYouPage">
-        <div class="col-sm-7 col-xs-12 pb70">
-          <div class="checkout-title py5 px20">
+        <div class="col-sm-6 col-xs-12 pb70">
+          <div class="checkout-title py5 px20 bag-img-chck">
             <h1>
               {{ $t('Checkout') }}
             </h1>
@@ -16,9 +16,10 @@
           <shipping class="line relative" :is-active="activeSection.shipping" v-if="!isVirtualCart" />
           <payment class="line relative" :is-active="activeSection.payment" />
           <order-review class="line relative" :is-active="activeSection.orderReview" />
+
           <div id="custom-steps" />
         </div>
-        <div class="hidden-xs col-sm-5 bg-cl-secondary">
+        <div class="hidden-xs col-sm-6 bg-cl-secondary">
           <cart-summary />
         </div>
       </div>
@@ -96,7 +97,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
   @import '~theme/css/base/text';
   @import '~theme/css/variables/colors';
   @import '~theme/css/helpers/functions/color';
@@ -186,11 +187,56 @@ export default {
   .checkout-title {
     @media (max-width: 767px) {
       background-color: $bg-secondary;
-      margin-bottom: 25px;
+      margin-bottom: 50px;
 
       h1 {
         font-size: 36px;
       }
     }
   }
+</style>
+
+<style scoped>
+
+.cstm-checkout {
+    max-width: 1240px;
+    width: 100%;
+}
+.checkout-title{
+  padding-top: 100px;
+}
+
+@media (max-width: 767px) {
+  .cstm-checkout {
+    padding: 0px;
+  }
+  .category_header {
+      padding-top: 25px !important;
+      height: 90px !important;
+      margin-top: 71px;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+    .bag-img-chck{
+      background-image: url('/assets/patch_img.jpg') !important;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .category_header {
+      padding-top: 25px !important;
+      height: 90px !important;
+      margin-top: 71px;
+    }
+    .checkout-title{
+      padding-top: 0px;
+      height: 90px;
+      margin-top: 70px;
+   }
+   .checkout-title h1 {
+      padding-top: 20px;
+  }
+
+}
 </style>
